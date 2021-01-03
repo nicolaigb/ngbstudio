@@ -1,12 +1,12 @@
 /* eslint-disable no-console */
 /* eslint-disable no-useless-escape */
-const fs = require("fs");
+const fs = require('fs');
 
 const generateIndexFile = (filePath, componentName) => {
   const indexFileContents = `export * from "./${componentName}.stories";
 export * from "./${componentName}";
 `;
-  fs.writeFileSync(`${filePath}/index.ts`, indexFileContents, "utf8");
+  fs.writeFileSync(`${filePath}/index.ts`, indexFileContents, 'utf8');
 };
 
 const generateStoryFile = (filePath, atomicComponentType, componentName) => {
@@ -32,7 +32,7 @@ ${lowercaseComponentName}.args = get${componentName}Args();
   fs.writeFileSync(
     `${filePath}/${componentName}.stories.tsx`,
     storyFileContents,
-    "utf8"
+    'utf8',
   );
 };
 
@@ -56,7 +56,7 @@ const S${componentName}Container = styled.div\`\`;
   fs.writeFileSync(
     `${filePath}/${componentName}.tsx`,
     componentFileContents,
-    "utf8"
+    'utf8',
   );
 };
 
@@ -65,22 +65,22 @@ const generateComponentSet = () => {
   const atomicComponentType = process.argv[2];
   const componentName = process.argv[3];
   const isStoryFileNeeded = process.argv[4];
-  const atomicComponentTypeSet = ["atom", "molecule", "organism", "template"];
+  const atomicComponentTypeSet = ['atom', 'molecule', 'organism', 'template'];
   if (atomicComponentTypeSet.includes(atomicComponentType)) {
-    console.log("Component Name: ", componentName);
+    console.log('Component Name: ', componentName);
     const folderPath = `components/${atomicComponentType}s/${componentName}`;
     console.log(folderPath);
     fs.mkdirSync(folderPath);
     generateComponentFile(folderPath, componentName);
-    if (isStoryFileNeeded === "noStory" || isStoryFileNeeded === "--noStory") {
-      console.log("No Story will be generated");
+    if (isStoryFileNeeded === 'noStory' || isStoryFileNeeded === '--noStory') {
+      console.log('No Story will be generated');
     } else {
       generateStoryFile(folderPath, atomicComponentType, componentName);
     }
     generateIndexFile(folderPath, componentName);
   } else {
     console.log(
-      `First Argument must be of [atom, molecule, organism, template] , ${atomicComponentType}`
+      `First Argument must be of [atom, molecule, organism, template] , ${atomicComponentType}`,
     );
   }
 };

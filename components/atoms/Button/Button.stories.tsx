@@ -1,9 +1,9 @@
-import React from "react";
-import { Story } from "@storybook/react";
-import { Button, IButton } from "./index";
+import React from 'react';
+import { Story } from '@storybook/react';
+import { Button, IButton } from './index';
 
 export default {
-  title: "Atoms/Button",
+  title: 'Atoms/Button',
 };
 
 export const getButtonArgs = () => ({});

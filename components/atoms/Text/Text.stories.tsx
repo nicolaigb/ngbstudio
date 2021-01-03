@@ -1,11 +1,11 @@
-import React from "react";
-import { Text } from "./Text";
+import React from 'react';
+import { Text } from './Text';
 
 export default {
-  title: "Atoms/Text",
-}
+  title: 'Atoms/Text',
+};
 
-export const getTextArgs = () => ({ text: "Hello, World!"});
+export const getTextArgs = () => ({ text: 'Hello, World!' });
 
 const Template = (args) => <Text {...args} />;
 
