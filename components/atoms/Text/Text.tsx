@@ -10,4 +10,6 @@ export const Text: React.FC<IText> = ({
   ...props
 }): ReactElement => <SText {...props}>{text}</SText>;
 
-const SText = styled.div``;
+const SText = styled.div`
+  ${({ theme }) => theme.Typography.h1Style};
+`;
