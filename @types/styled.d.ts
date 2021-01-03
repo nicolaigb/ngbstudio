@@ -4,7 +4,11 @@ import { FlattenSimpleInterpolation } from 'styled-components';
 declare module 'styled-components' {
   export interface DefaultTheme {
     Typography: {
-      h1Style: FlattenSimpleInterpolation;
+      headerStyle: FlattenSimpleInterpolation;
+      subheaderStyle: FlattenSimpleInterpolation;
+      emphasizedStyle: FlattenSimpleInterpolation;
+      regularStyle: FlattenSimpleInterpolation;
+      subtitleStyle: FlattenSimpleInterpolation;
     };
   }
 }

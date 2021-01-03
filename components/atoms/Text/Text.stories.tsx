@@ -5,7 +5,10 @@ export default {
   title: 'Atoms/Text',
 };
 
-export const getTextArgs = () => ({ text: 'Hello, World!' });
+export const getTextArgs = () => ({
+  text: 'Hello, World!',
+  styleType: 'header',
+});
 
 const Template = (args) => <Text {...args} />;
 
