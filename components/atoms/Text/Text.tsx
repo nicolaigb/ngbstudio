@@ -12,14 +12,14 @@ export interface IText extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * Text to be displayed
    */
-  text: string,
+  children: string,
 }
 
 export const Text: React.FC<IText> = ({
   styleType,
-  text,
+  children,
   ...props
-}): ReactElement => <SText styleType={styleType} {...props}>{text}</SText>;
+}): ReactElement => <SText styleType={styleType} {...props}>{children}</SText>;
 
 const SText = styled.div<Pick<IText, 'styleType'>>`
 ${({ styleType, theme }) => ({

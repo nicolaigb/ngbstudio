@@ -6,7 +6,7 @@ export default {
 };
 
 export const getTextArgs = () => ({
-  text: 'Hello, World!',
+  children: 'Hello, World!',
   styleType: 'header',
 });
 
