@@ -1,6 +1,7 @@
 import React from 'react';
 import { Story } from '@storybook/react';
-import { Text } from '@atoms/Text';
+import { MdLanguage } from 'react-icons/md';
+import styled from 'styled-components';
 import { Button, IButton } from './index';
 
 export default {
@@ -8,8 +9,13 @@ export default {
 };
 
 export const getButtonArgs = () => ({
-  children: <Text text="Nico" styleType="header" />,
+  children: <SGlobe />,
 });
+
+const SGlobe = styled(MdLanguage).attrs(() => ({
+  size: 24,
+}))``;
+
 const Template: Story<IButton> = (args) => <Button {...args} />;
 export const button = Template.bind({});
 button.args = getButtonArgs();
