@@ -1,5 +1,6 @@
 import React from 'react';
 import { Story } from '@storybook/react';
+import { Text } from '@atoms/Text';
 import { Button, IButton } from './index';
 
 export default {
@@ -7,7 +8,7 @@ export default {
 };
 
 export const getButtonArgs = () => ({
-  children: 'Nico',
+  children: <Text text="Nico" styleType="header" />,
 });
 const Template: Story<IButton> = (args) => <Button {...args} />;
 export const button = Template.bind({});
