@@ -24,5 +24,9 @@ export const Text: React.FC<IText> = ({
 const SText = styled.div<Pick<IText, 'styleType'>>`
 ${({ styleType, theme }) => ({
     header: theme.Typography.headerStyle,
+    subheader: theme.Typography.subheaderStyle,
+    emphasized: theme.Typography.emphasizedStyle,
+    regular: theme.Typography.regularStyle,
+    subtitle: theme.Typography.subtitleStyle,
   }[styleType])}
 `;
