@@ -6,7 +6,9 @@ export default {
   title: 'Atoms/Button',
 };
 
-export const getButtonArgs = () => ({});
+export const getButtonArgs = () => ({
+  children: 'Nico',
+});
 const Template: Story<IButton> = (args) => <Button {...args} />;
 export const button = Template.bind({});
 button.args = getButtonArgs();
