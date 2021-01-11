@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react';
 import styled from 'styled-components';
 
-export type TSTextVariants = 'header' | 'subheader' | 'emphasized' | 'regular' | 'subtitle';
+export type TSTextVariants = 'title' | 'header' | 'subheader' | 'emphasized' | 'regular' | 'subtitle';
 
 export interface IText extends React.HTMLAttributes<HTMLDivElement> {
   /**
@@ -23,6 +23,7 @@ export const Text: React.FC<IText> = ({
 
 const SText = styled.div<Pick<IText, 'styleType'>>`
 ${({ styleType, theme }) => ({
+    title: theme.Typography.titleStyle,
     header: theme.Typography.headerStyle,
     subheader: theme.Typography.subheaderStyle,
     emphasized: theme.Typography.emphasizedStyle,
