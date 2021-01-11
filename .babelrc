@@ -1,4 +1,15 @@
 {
   "presets": ["next/babel"],
-  "plugins": ["babel-plugin-styled-components"]
+  "plugins": [
+    "babel-plugin-styled-components", 
+    ["module-resolver", {
+      "root" : ["./"],
+      "alias" : {
+        "@atoms" : "./components/atoms",
+        "@molecules" : "./components/molecules",
+        "@organisms" : "./components/organisms",
+        "@templates" : "./components/templates"
+      }
+    }]
+  ]
 }
