@@ -14,6 +14,11 @@ const baseTextStyle = css`
 export const Typography = {
   primaryFontFamily: 'neue-haas-grotesk-text',
 
+  bigTitleStyle: css`
+    ${boldTextStyle};
+    font-size: 42px;
+  `,
+
   titleStyle: css`
     ${boldTextStyle};
     font-size: 32px;

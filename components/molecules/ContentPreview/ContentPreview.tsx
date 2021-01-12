@@ -36,13 +36,22 @@ const SContentPreviewContainer = styled.div`
 const SImage = styled(Image)`
   width: 100%;
   height: 100%;
+
+  ${SContentPreviewContainer}:hover & {
+    opacity: 85%;
+  }
 `;
 
 const SText = styled(Text)`
+  visibility: hidden;
   position: absolute;
   top: 50%;
   left: 50%;
   margin-right: -50%;
   transform: translate(-50%, -50%);
   color: white;
+
+  ${SContentPreviewContainer}:hover & {
+    visibility: visible;
+  }
 `;
