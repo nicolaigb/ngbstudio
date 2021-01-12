@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react';
 import styled from 'styled-components';
 
-export interface IImage extends React.HTMLAttributes<HTMLImageElement> {}
+export interface IImage extends React.ImgHTMLAttributes<HTMLImageElement> {}
 
 export const Image: React.FC<IImage> = (
   {
