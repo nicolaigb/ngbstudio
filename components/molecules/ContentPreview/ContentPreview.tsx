@@ -23,7 +23,7 @@ export const ContentPreview: React.FC<IContentPreview> = (
 ): ReactElement => (
   <SContentPreviewContainer {...props}>
     <SImage src={src} />
-    <SText styleType="emphasized">{name}</SText>
+    <SText styleType="bigTitle">{name}</SText>
   </SContentPreviewContainer>
 );
 
@@ -45,13 +45,20 @@ const SImage = styled(Image)`
 const SText = styled(Text)`
   visibility: hidden;
   position: absolute;
-  top: 50%;
+  
+  top: 0;
+  left: 0;
+  
+  // Centering small text
+  
+  /* top: 50%;
   left: 50%;
   margin-right: -50%;
-  transform: translate(-50%, -50%);
-  color: white;
+  transform: translate(-50%, -50%); */
 
   ${SContentPreviewContainer}:hover & {
     visibility: visible;
   }
 `;
+
+// Centering Small Text

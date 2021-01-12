@@ -9,7 +9,7 @@ export default {
 
 export const getContentPreviewArgs = () => ({
   src: wavy,
-  name: 'wavy line',
+  name: 'Wavy Line',
 });
 const Template: Story<IContentPreview> = (args) => <ContentPreview {...args} />;
 export const contentPreview = Template.bind({});

@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react';
 import styled from 'styled-components';
 
-export type TSTextVariants = 'big title' | 'title' | 'header' | 'subheader' | 'emphasized' | 'regular' | 'subtitle';
+export type TSTextVariants = 'bigTitle' | 'title' | 'header' | 'subheader' | 'emphasized' | 'regular' | 'subtitle';
 
 export interface IText extends React.HTMLAttributes<HTMLDivElement> {
   /**
