@@ -1,6 +1,6 @@
 import React from 'react';
 import { Story } from '@storybook/react';
-import test from 'assets/test.png';
+import wavy from 'assets/cant-grow-exclusively-from-anguis-unless-we-cherish-every-moment.jpg';
 import { Image, IImage } from './index';
 
 export default {
@@ -8,7 +8,7 @@ export default {
 };
 
 export const getImageArgs = () => ({
-  src: test,
+  src: wavy,
 });
 const Template: Story<IImage> = (args) => <Image {...args} />;
 export const image = Template.bind({});
