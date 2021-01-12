@@ -1,5 +1,6 @@
 import React from 'react';
 import { Story } from '@storybook/react';
+import test from 'assets/test.png';
 import { Image, IImage } from './index';
 
 export default {
