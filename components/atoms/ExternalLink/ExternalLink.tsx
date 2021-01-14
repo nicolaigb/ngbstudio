@@ -13,4 +13,6 @@ export const ExternalLink: React.FC<IExternalLink> = (
 ): ReactElement => (
   <SExternalLink target="_blank" {...props}>{children}</SExternalLink>
 );
-const SExternalLink = styled.a``;
+const SExternalLink = styled.a`
+  ${({ theme }) => theme.Typography.emphasizedStyle};
+`;
