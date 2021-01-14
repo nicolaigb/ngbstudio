@@ -26,7 +26,7 @@ export const DateContainer: React.FC<IDateContainer> = (
 ): ReactElement => (
   <SDateContainer {...props}>
     <Text styleType="emphasized">{text}</Text>
-    <Date {...dateProps} />
+    <SDate {...dateProps} />
   </SDateContainer>
 );
 
@@ -34,4 +34,8 @@ const SDateContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+`;
+
+const SDate = styled(Date)`
+  width: 42px;
 `;
