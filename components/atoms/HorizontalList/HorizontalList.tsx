@@ -2,16 +2,16 @@ import React, { ReactElement } from 'react';
 import styled from 'styled-components';
 
 export interface IHorizontalList extends React.HTMLAttributes<HTMLDivElement> {
-  items: ReactElement[]
+  children: ReactElement[]
 }
 export const HorizontalList: React.FC<IHorizontalList> = (
   {
-    items,
+    children,
     ...props
   },
 ): ReactElement => (
   <SHorizontalList {...props}>
-    {items.map((item, idx) => <SItemContainer key={idx}>{item}</SItemContainer>)}
+    {children.map((item, idx) => <SItemContainer key={idx}>{item}</SItemContainer>)}
   </SHorizontalList>
 );
 

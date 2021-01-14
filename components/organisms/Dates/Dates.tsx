@@ -16,11 +16,22 @@ export const Dates: React.FC<IDates> = (
     ...props
   },
 ): ReactElement => (
-  <HorizontalList {...props}>
+  <SDatesContainer>
     <SGlobe />
-    {dateProps.map((itemProps) => <DateContainer {...itemProps} />)}
-  </HorizontalList>
+    <SHorizontalList {...props}>
+      {dateProps.map((itemProps, idx) => <DateContainer key={idx} {...itemProps} />)}
+    </SHorizontalList>
+  </SDatesContainer>
 );
+
+const SDatesContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
+const SHorizontalList = styled(HorizontalList)`
+  flex-grow: 1;
+`;
 
 const SGlobe = styled(MdLanguage).attrs(() => ({
   size: 20,
