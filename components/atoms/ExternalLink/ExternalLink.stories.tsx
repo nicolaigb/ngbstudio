@@ -7,7 +7,10 @@ export default {
 };
 
 export const getExternalLinkArgs = () => ({
-  children: 'HELLO, BLONDED',
+  textProps: {
+    styleType: 'header',
+  },
+  children: 'HELLO, BLONDED!',
   href: 'https://blonded.co',
 });
 const Template: Story<IExternalLink> = (args) => <ExternalLink {...args} />;
