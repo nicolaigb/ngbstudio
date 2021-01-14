@@ -14,7 +14,7 @@ export const Date: React.FC<IDate> = (
 ): ReactElement => {
   const getDateTime = () => DateTime.local()
     .setZone(timezone)
-    .toLocaleString(DateTime.TIME_24_WITH_SECONDS);
+    .toLocaleString(DateTime.TIME_24_SIMPLE);
 
   const [date, setDate] = useState<string>(getDateTime());
 

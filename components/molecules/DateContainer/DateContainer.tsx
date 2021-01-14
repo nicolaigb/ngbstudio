@@ -37,5 +37,4 @@ const SDateContainer = styled.div`
 
 const SDate = styled(Date)`
   margin-left: 5px;
-  width: 42px;
 `;
