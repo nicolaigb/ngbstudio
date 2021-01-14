@@ -23,11 +23,11 @@ export const SLink: React.FC<ILink> = ({ styleType, children, ...props }) => (
 );
 
 const prominentStyle = css`
-  color: red;
+  color: ${({ theme }) => theme.Colors.emphasis};
 `;
 
 const subduedStyle = css`
-  color: black;
+  color:${({ theme }) => theme.Colors.text};
 `;
 
 const SLinkText = styled.a<Pick<ILink, 'styleType'>>`
