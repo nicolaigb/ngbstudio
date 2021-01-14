@@ -12,5 +12,13 @@ declare module 'styled-components' {
       regularStyle: FlattenSimpleInterpolation;
       subtitleStyle: FlattenSimpleInterpolation;
     };
+
+    Colors: {
+      background: string;
+      placeholder: string;
+      lightGrey: string;
+      text: string;
+      emphasis: string;
+    }
   }
 }
