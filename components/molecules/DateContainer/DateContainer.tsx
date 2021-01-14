@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 import {
-  Date, IDate, Text,
+  Date, Text,
 } from '@atoms';
 import styled from 'styled-components';
 
@@ -8,7 +8,7 @@ export interface IDateContainer extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * Props for the wrapped date component
    */
-  dateProps: IDate;
+  timezone: string;
 
   /**
    * Text to be displayed along with date
@@ -19,23 +19,23 @@ export interface IDateContainer extends React.HTMLAttributes<HTMLDivElement> {
 
 export const DateContainer: React.FC<IDateContainer> = (
   {
-    dateProps,
+    timezone,
     text,
     ...props
   },
 ): ReactElement => (
   <SDateContainer {...props}>
     <Text styleType="emphasized">{text}</Text>
-    <SDate {...dateProps} />
+    <SDate timezone={timezone} />
   </SDateContainer>
 );
 
 const SDateContainer = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
 `;
 
 const SDate = styled(Date)`
+  margin-left: 5px;
   width: 42px;
 `;
