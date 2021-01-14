@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components';
 
 export type TSlinkVariants = 'prominent' | 'subdued';
 
-export interface ILink extends LinkProps {
+export interface IInternalLink extends LinkProps {
   /**
    * Variant determining how this link should be styled
    */
@@ -16,9 +16,9 @@ export interface ILink extends LinkProps {
   children: string;
 }
 
-export const SLink: React.FC<ILink> = ({ styleType, children, ...props }) => (
+export const InternalLink: React.FC<IInternalLink> = ({ styleType, children, ...props }) => (
   <Link {...props} passHref>
-    <SLinkText styleType={styleType}>{children}</SLinkText>
+    <SAnchor styleType={styleType}>{children}</SAnchor>
   </Link>
 );
 
@@ -30,7 +30,7 @@ const subduedStyle = css`
   color:${({ theme }) => theme.Colors.text};
 `;
 
-const SLinkText = styled.a<Pick<ILink, 'styleType'>>`
+const SAnchor = styled.a<Pick<IInternalLink, 'styleType'>>`
   ${({ styleType }) => ({
     prominent: prominentStyle,
     subdued: subduedStyle,

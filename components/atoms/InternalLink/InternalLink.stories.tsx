@@ -1,6 +1,6 @@
 import React from 'react';
 import { Story } from '@storybook/react';
-import { SLink, ILink } from './index';
+import { InternalLink, IInternalLink } from './index';
 
 export default {
   title: 'Atoms/Link',
@@ -11,6 +11,6 @@ export const getLinkArgs = () => ({
   children: 'home',
   href: 'https://blonded.co/',
 });
-const Template: Story<ILink> = (args) => <SLink {...args} />;
+const Template: Story<IInternalLink> = (args) => <InternalLink {...args} />;
 export const link = Template.bind({});
 link.args = getLinkArgs();

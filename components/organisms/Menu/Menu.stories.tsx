@@ -1,6 +1,6 @@
 import React from 'react';
 import { Story } from '@storybook/react';
-import { Text } from '@atoms';
+import { InternalLink } from '@atoms';
 import { Menu, IMenu } from './index';
 
 export default {
@@ -11,19 +11,19 @@ export const getMenuArgs = () => ({
   menuItemProps: [
     {
       styleType: 'regular',
-      children: <Text styleType="subheader">Home</Text>,
+      children: <InternalLink styleType="subdued" href="">Home</InternalLink>,
     },
     {
       styleType: 'regular',
-      children: <Text styleType="subheader">Me</Text>,
+      children: <InternalLink styleType="subdued" href="">Me</InternalLink>,
     },
     {
       styleType: 'regular',
-      children: <Text styleType="subheader">Ideas</Text>,
+      children: <InternalLink styleType="subdued" href="">Ideas</InternalLink>,
     },
     {
       styleType: 'regular',
-      children: <Text styleType="subheader">Moooooood Board</Text>,
+      children: <InternalLink styleType="subdued" href="">Moooooood Board</InternalLink>,
     },
   ],
 });
