@@ -1,8 +1,12 @@
 import React from 'react';
-import { Layout, getLayoutArgs } from '@templates';
+import {
+  Layout, getLayoutArgs, HomePage, getHomePageArgs,
+} from '@templates';
 
 export default function Home() {
   return (
-    <Layout {...getLayoutArgs()} />
+    <Layout {...getLayoutArgs()}>
+      <HomePage {...getHomePageArgs()} />
+    </Layout>
   );
 }

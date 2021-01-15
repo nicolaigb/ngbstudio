@@ -1,16 +1,16 @@
 import React from 'react';
 import { Story } from '@storybook/react';
 import { getWorksGridArgs } from '@organisms';
-import { Home, IHome } from './index';
+import { HomePage, IHomePage } from './index';
 
 export default {
   title: 'Templates/Home',
 };
 
-export const getHomeArgs = () => ({
+export const getHomePageArgs = () => ({
   worksGridProps: getWorksGridArgs(),
 });
 
-const Template: Story<IHome> = (args) => <Home {...args} />;
+const Template: Story<IHomePage> = (args) => <HomePage {...args} />;
 export const home = Template.bind({});
-home.args = getHomeArgs();
+home.args = getHomePageArgs();
