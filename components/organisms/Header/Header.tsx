@@ -34,7 +34,7 @@ export const Header: React.FC<IHeader> = (
       <STitle {...textProps} />
       <Menu {...menuProps} />
     </SLeftContainer>
-    <Dates {...datesProps} />
+    <SDates {...datesProps} />
   </SHeaderContainer>
 );
 
@@ -50,4 +50,8 @@ const SLeftContainer = styled.div``;
 
 const STitle = styled(Text)`
   color: ${({ theme }) => theme.Colors.text};
+`;
+
+const SDates = styled(Dates)`
+  min-width: 420px;
 `;

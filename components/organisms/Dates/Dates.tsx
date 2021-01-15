@@ -31,6 +31,7 @@ const SDatesContainer = styled.div`
 
 const SHorizontalList = styled(HorizontalList)`
   flex-grow: 1;
+  margin-left: 10px;
 `;
 
 const SGlobe = styled(MdLanguage).attrs(() => ({
