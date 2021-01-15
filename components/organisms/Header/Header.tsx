@@ -43,6 +43,7 @@ const SHeaderContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
+  width: 100%;
 `;
 
 const SLeftContainer = styled.div``;
