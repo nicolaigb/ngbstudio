@@ -25,10 +25,11 @@ export const WorksGrid: React.FC<IWorksGrid> = (
 const SWorksGridContainer = styled.div`
   flex: 1 0;
   display: grid;
-  grid-template-columns: 20%;
-  grid-template-rows: 30%;
+  justify-content: center;
+  grid-template-columns: 240px 240px 240px 240px;
+  grid-template-rows: 120px 120px 120px 120px;
+  column-gap: 30px;
+  row-gap: 30px;
 `;
 
-const SContentPreview = styled(ContentPreview)`
-  margin: 10px;
-`;
+const SContentPreview = styled(ContentPreview)``;
