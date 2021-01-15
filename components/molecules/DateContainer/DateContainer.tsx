@@ -25,7 +25,7 @@ export const DateContainer: React.FC<IDateContainer> = (
   },
 ): ReactElement => (
   <SDateContainer {...props}>
-    <Text styleType="emphasized">{text}</Text>
+    <SText styleType="emphasized">{text}</SText>
     <SDate timezone={timezone} />
   </SDateContainer>
 );
@@ -35,6 +35,11 @@ const SDateContainer = styled.div`
   flex-direction: row;
 `;
 
+const SText = styled(Text)`
+  color: ${({ theme }) => theme.Colors.text};
+`;
+
 const SDate = styled(Date)`
   margin-left: 5px;
+  color: ${({ theme }) => theme.Colors.text};
 `;

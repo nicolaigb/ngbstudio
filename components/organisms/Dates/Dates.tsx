@@ -35,4 +35,6 @@ const SHorizontalList = styled(HorizontalList)`
 
 const SGlobe = styled(MdLanguage).attrs(() => ({
   size: 20,
-}))``;
+}))`
+  color: ${({ theme }) => theme.Colors.text};
+`;
