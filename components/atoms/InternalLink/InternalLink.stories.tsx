@@ -1,4 +1,5 @@
 import React from 'react';
+import { Text } from '@atoms/Text';
 import { Story } from '@storybook/react';
 import { InternalLink, IInternalLink } from './index';
 
@@ -8,10 +9,7 @@ export default {
 
 export const getInternalLinkArgs = () => ({
   styleType: 'prominent',
-  textProps: {
-    styleType: 'header',
-  },
-  children: 'home',
+  children: <Text styleType="header">home</Text>,
   href: 'https://blonded.co/',
 });
 const Template: Story<IInternalLink> = (args) => <InternalLink {...args} />;

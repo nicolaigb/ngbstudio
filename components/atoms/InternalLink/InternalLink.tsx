@@ -1,5 +1,4 @@
-import React from 'react';
-import { Text, IText } from '@atoms/Text';
+import React, { ReactElement } from 'react';
 import Link, { LinkProps } from 'next/link';
 import styled, { css } from 'styled-components';
 
@@ -12,22 +11,17 @@ export interface IInternalLink extends LinkProps {
   styleType: TSlinkVariants;
 
   /**
-   * Props for the wrapped Text component
-   */
-  textProps: IText;
-
-  /**
    * child text to be displayed with link
    */
-  children: string;
+  children: ReactElement | ReactElement[];
 }
 
 export const InternalLink: React.FC<IInternalLink> = ({
-  styleType, textProps, children, ...props
+  styleType, children, ...props
 }) => (
   <Link {...props} passHref>
     <SAnchor styleType={styleType}>
-      <SText {...textProps}>{children}</SText>
+      {children}
     </SAnchor>
   </Link>
 );
@@ -46,5 +40,3 @@ const SAnchor = styled.a<Pick<IInternalLink, 'styleType'>>`
     subdued: subduedStyle,
   }[styleType])}
 `;
-
-const SText = styled(Text)``;
