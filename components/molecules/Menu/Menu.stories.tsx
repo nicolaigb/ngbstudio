@@ -4,7 +4,7 @@ import { Text } from '@atoms';
 import { Menu, IMenu } from './index';
 
 export default {
-  title: 'Organisms/Menu',
+  title: 'Molecules/Menu',
 };
 
 export const getMenuArgs = () => ({
