@@ -1,37 +1,24 @@
 import React, { ReactElement } from 'react';
-import { Text, IText } from '@atoms';
 import styled from 'styled-components';
 
 export interface IExternalLink extends React.HTMLAttributes<HTMLAnchorElement> {
   /**
-   * Props to style the text in this link
-   */
-  textProps: IText
-
-  /**
    * Child text to be embedded in this link
    */
-  children: string;
+  children: ReactElement | ReactElement[];
 }
 
 export const ExternalLink: React.FC<IExternalLink> = (
   {
-    textProps,
     children,
     ...props
   },
 ): ReactElement => (
   <SExternalLink target="_blank" {...props}>
-    <SText {...textProps}>{children}</SText>
+    {children}
   </SExternalLink>
 );
 
-const SExternalLink = styled.a``;
-
-const SText = styled(Text)`
+const SExternalLink = styled.a`
   color: ${({ theme }) => theme.Colors.emphasis};
-  ${SExternalLink}:hover & {
-    color: ${({ theme }) => theme.Colors.text};
-    background-color: ${({ theme }) => theme.Colors.emphasis};
-  }
 `;

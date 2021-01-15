@@ -1,4 +1,5 @@
 import React from 'react';
+import { Text } from '@atoms/Text';
 import { Story } from '@storybook/react';
 import { ExternalLink, IExternalLink } from './index';
 
@@ -10,7 +11,7 @@ export const getExternalLinkArgs = () => ({
   textProps: {
     styleType: 'header',
   },
-  children: 'HELLO, BLONDED!',
+  children: <Text styleType="header">HELLO, BLONDED!</Text>,
   href: 'https://blonded.co',
 });
 const Template: Story<IExternalLink> = (args) => <ExternalLink {...args} />;
