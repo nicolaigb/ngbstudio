@@ -22,4 +22,6 @@ const SHorizontalList = styled.div`
   align-items: center;
 `;
 
-const SItemContainer = styled.div``;
+const SItemContainer = styled.div`
+  margin: 0px 10px;
+`;

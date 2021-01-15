@@ -1,10 +1,10 @@
 import {
-  IInternalLink, InternalLink,
+  IInternalLink, InternalLink, HorizontalList, IHorizontalList,
 } from '@atoms';
 import React, { ReactElement } from 'react';
 import styled from 'styled-components';
 
-export interface IMenu extends React.HTMLAttributes<HTMLDivElement> {
+export interface IMenu extends IHorizontalList {
   /**
    * List of items to be displayed in the menu
    */
@@ -24,4 +24,6 @@ export const Menu: React.FC<IMenu> = (
   </SMenuContainer>
 );
 
-const SMenuContainer = styled.div``;
+const SMenuContainer = styled(HorizontalList)`
+  justify-content: flex-start;
+`;
