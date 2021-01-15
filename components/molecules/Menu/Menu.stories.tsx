@@ -12,22 +12,22 @@ export const getMenuArgs = () => ({
     {
       styleType: 'subdued',
       href: 'https://blonded.co',
-      children: <Text styleType="header">home</Text>,
+      children: <Text styleType="subheader">home</Text>,
     },
     {
       styleType: 'subdued',
       href: 'http://www.playboicarti.com/',
-      children: <Text styleType="header">me</Text>,
+      children: <Text styleType="subheader">me</Text>,
     },
     {
       styleType: 'subdued',
       href: 'https://www.cryptovoxels.com/',
-      children: <Text styleType="header">ideas</Text>,
+      children: <Text styleType="subheader">ideas</Text>,
     },
     {
       styleType: 'subdued',
       href: 'https://www.cryptovoxels.com/',
-      children: <Text styleType="header">moooooood board</Text>,
+      children: <Text styleType="subheader">moooooood board</Text>,
     },
   ],
 });
