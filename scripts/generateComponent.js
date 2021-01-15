@@ -39,8 +39,9 @@ ${lowercaseComponentName}.args = get${componentName}Args();
 const generateComponentFile = (filePath, componentName) => {
   const componentFileContents = `import React, { ReactElement } from "react";
 import styled from "styled-components";
-export interface I${componentName} {
-}
+
+export interface I${componentName} extends React.HTMLAttributes<HTMLDivElement> {}
+
 export const ${componentName}: React.FC\<\I${componentName}\> = (
   {
     ...props
@@ -51,6 +52,7 @@ export const ${componentName}: React.FC\<\I${componentName}\> = (
     </S${componentName}Container>
   );
 };
+
 const S${componentName}Container = styled.div\`\`;
 `;
   fs.writeFileSync(
