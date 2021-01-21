@@ -4,7 +4,6 @@ import { FlattenSimpleInterpolation } from 'styled-components';
 declare module 'styled-components' {
   export interface DefaultTheme {
     Typography: {
-      bigTitleStyle: FlattenSimpleInterpolation;
       titleStyle: FlattenSimpleInterpolation;
       headerStyle: FlattenSimpleInterpolation;
       subheaderStyle: FlattenSimpleInterpolation;

@@ -14,34 +14,29 @@ const baseTextStyle = css`
 export const Typography = {
   primaryFontFamily: 'neue-haas-grotesk-text',
 
-  bigTitleStyle: css`
-    ${boldTextStyle};
-    font-size: 42px;
-  `,
-
   titleStyle: css`
     ${boldTextStyle};
-    font-size: 32px;
+    font-size: 48px;
   `,
 
   headerStyle: css`
     ${boldTextStyle};
-    font-size: 22px;
+    font-size: 32px;
   `,
 
   subheaderStyle: css`
     ${boldTextStyle};
-    font-size: 14px;
+    font-size: 24px;
   `,
 
   emphasizedStyle: css`
     ${boldTextStyle};
-    font-size: 10px;
+    font-size: 16px;
   `,
 
   regularStyle: css`
     ${baseTextStyle};
-    font-size: 10px;
+    font-size: 16px;
   `,
 
   subtitleStyle: css`
