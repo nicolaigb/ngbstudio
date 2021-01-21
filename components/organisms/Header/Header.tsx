@@ -34,7 +34,6 @@ const SHeaderContainer = styled.div`
   justify-content: space-between;
   align-items: flex-start;
   width: 100%;
-  padding: 15px;
 `;
 
 const STitle = styled(Text)`
