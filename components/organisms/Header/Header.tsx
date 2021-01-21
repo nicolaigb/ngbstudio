@@ -23,7 +23,7 @@ export const Header: React.FC<IHeader> = (
   },
 ): ReactElement => (
   <SHeaderContainer {...props}>
-    <STitle {...textProps} />
+    <STitle styleType="header" {...textProps} />
     <SDates {...datesProps} />
   </SHeaderContainer>
 );

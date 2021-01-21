@@ -2,13 +2,14 @@ import { css } from 'styled-components';
 
 export const primaryFont = 'neue-haas-grotesk-text';
 
-const boldTextStyle = css`
-  font-family: ${primaryFont};
-  font-weight: bold;
-`;
-
 const baseTextStyle = css`
   font-family: ${primaryFont};
+  color: ${({ theme }) => theme.Colors.text};
+`;
+
+const boldTextStyle = css`
+  ${baseTextStyle};
+  font-weight: bold;
 `;
 
 export const Typography = {
@@ -31,6 +32,7 @@ export const Typography = {
 
   emphasizedStyle: css`
     ${boldTextStyle};
+    color: ${({ theme }) => theme.Colors.emphasis};
     font-size: 16px;
   `,
 
@@ -40,7 +42,7 @@ export const Typography = {
   `,
 
   subtitleStyle: css`
-    ${baseTextStyle};
-    font-size: 8px;
+    ${boldTextStyle};
+    font-size: 10px;
   `,
 };

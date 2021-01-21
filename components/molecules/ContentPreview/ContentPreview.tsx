@@ -23,7 +23,7 @@ export const ContentPreview: React.FC<IContentPreview> = (
 ): ReactElement => (
   <SContentPreviewContainer {...props}>
     <SImage src={src} />
-    <SText styleType="bigTitle">{name}</SText>
+    <SText styleType="title">{name}</SText>
   </SContentPreviewContainer>
 );
 

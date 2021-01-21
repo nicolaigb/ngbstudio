@@ -10,7 +10,6 @@ export default {
 export const getHeaderArgs = () => ({
   datesProps: getDatesArgs(),
   textProps: {
-    styleType: 'title',
     children: 'Nicolai Garcia',
   },
 });
