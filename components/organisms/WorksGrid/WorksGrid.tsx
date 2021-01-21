@@ -26,8 +26,13 @@ const SWorksGridContainer = styled.div`
   flex: 1 0;
   display: grid;
   justify-content: center;
-  grid-template-columns: 240px 240px 240px 240px;
-  grid-template-rows: 120px 120px 120px 120px;
+  @media (min-width: 900px) {
+    grid-template-columns: repeat(3, 240px);
+  }
+  @media (min-width: 1400px) {
+    grid-template-columns: repeat(4, 240px);
+  }
+  grid-template-rows: repeat(4, 120px);
   column-gap: 30px;
   row-gap: 30px;
 `;
