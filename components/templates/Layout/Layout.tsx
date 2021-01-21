@@ -41,7 +41,6 @@ const SLayoutContainer = styled.div`
   grid-template-rows: ${({ theme }) => theme.Spacing.extraWide} auto ${({ theme }) => theme.Spacing.extraWide};
   grid-template-columns: 195px auto 195px;
   row-gap: ${({ theme }) => theme.Spacing.extraWide};
-
   background-color: ${({ theme }) => theme.Colors.background};
 `;
 

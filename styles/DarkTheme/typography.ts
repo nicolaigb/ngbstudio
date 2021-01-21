@@ -17,6 +17,7 @@ export const Typography = {
   titleStyle: css`
     ${boldTextStyle};
     font-size: 48px;
+    line-height: 100%;
   `,
 
   headerStyle: css`
@@ -37,6 +38,7 @@ export const Typography = {
   regularStyle: css`
     ${baseTextStyle};
     font-size: 16px;
+    line-height: 150%;
   `,
 
   subtitleStyle: css`
