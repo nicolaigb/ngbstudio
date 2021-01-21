@@ -20,5 +20,13 @@ declare module 'styled-components' {
       text: string;
       emphasis: string;
     }
+
+    Spacing: {
+      condensed: string;
+      tight: string;
+      regular: string;
+      wide: string;
+      extraWide: string;
+    }
   }
 }
