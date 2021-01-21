@@ -33,8 +33,8 @@ const SWorksGridContainer = styled.div`
     grid-template-columns: repeat(4, 240px);
   }
   grid-template-rows: repeat(4, 120px);
-  column-gap: 30px;
-  row-gap: 30px;
+  column-gap: ${({ theme }) => theme.Spacing.wide};
+  row-gap: ${({ theme }) => theme.Spacing.wide};
 `;
 
 const SContentPreview = styled(ContentPreview)``;
