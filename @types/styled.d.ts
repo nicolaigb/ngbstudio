@@ -18,6 +18,7 @@ declare module 'styled-components' {
       lightGrey: string;
       text: string;
       emphasis: string;
+      borderLine: string;
     }
 
     Spacing: {
