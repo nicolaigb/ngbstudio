@@ -31,7 +31,7 @@ const prominentStyle = css`
 `;
 
 const subduedStyle = css`
-  color:${({ theme }) => theme.Colors.lightGrey};
+  color:${({ theme }) => theme.Colors.text};
 `;
 
 const SAnchor = styled.a<Pick<IInternalLink, 'styleType'>>`
