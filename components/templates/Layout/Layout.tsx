@@ -39,7 +39,7 @@ const SLayoutContainer = styled.div`
   display: grid;
   min-height: 100vh;
   grid-template-rows: ${({ theme }) => theme.Spacing.extraWide} auto ${({ theme }) => theme.Spacing.extraWide};
-  grid-template-columns: 195px auto 195px;
+  grid-template-columns: ${({ theme }) => theme.Spacing.regular} auto ${({ theme }) => theme.Spacing.regular};
   row-gap: ${({ theme }) => theme.Spacing.extraWide};
   background-color: ${({ theme }) => theme.Colors.background};
 `;

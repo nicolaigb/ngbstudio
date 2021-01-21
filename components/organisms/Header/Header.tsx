@@ -33,7 +33,6 @@ const SHeaderContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
-  width: 100%;
 `;
 
 const STitle = styled(Text)`
@@ -41,5 +40,5 @@ const STitle = styled(Text)`
 `;
 
 const SDates = styled(Dates)`
-  min-width: 420px;
+  /* min-width: 420px; */
 `;
