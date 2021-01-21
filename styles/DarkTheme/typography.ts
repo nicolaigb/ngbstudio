@@ -4,7 +4,6 @@ export const primaryFont = 'neue-haas-grotesk-text';
 
 const baseTextStyle = css`
   font-family: ${primaryFont};
-  color: ${({ theme }) => theme.Colors.text};
 `;
 
 const boldTextStyle = css`
@@ -32,7 +31,6 @@ export const Typography = {
 
   emphasizedStyle: css`
     ${boldTextStyle};
-    color: ${({ theme }) => theme.Colors.emphasis};
     font-size: 16px;
   `,
 

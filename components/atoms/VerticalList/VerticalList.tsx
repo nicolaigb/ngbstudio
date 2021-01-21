@@ -11,20 +11,17 @@ export const VerticalList: React.FC<IVerticalList> = (
     ...props
   },
 ): ReactElement => (
-  <SVerticalListContainer {...props}>
-    <SItemContainer>
-      {children}
-    </SItemContainer>
-  </SVerticalListContainer>
+  <SVerticalList {...props}>
+    {children.map((item, idx) => <SItemContainer key={idx}>{item}</SItemContainer>)}
+  </SVerticalList>
 );
 
-const SVerticalListContainer = styled.div`
+const SVerticalList = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   align-items: flex-start;
 `;
 
 const SItemContainer = styled.div`
-  margin-bottom: 4px;
+  margin-bottom: ${({ theme }) => theme.Spacing.tight};
 `;
