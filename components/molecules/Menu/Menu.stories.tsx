@@ -21,7 +21,7 @@ export const getMenuArgs = () => ({
     },
     {
       styleType: 'subdued',
-      href: 'https://www.cryptovoxels.com/',
+      href: 'https://www.beta.cent.co/',
       children: <Text styleType="emphasized">Ideas</Text>,
     },
     {
