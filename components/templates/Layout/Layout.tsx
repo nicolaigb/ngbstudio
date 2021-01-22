@@ -38,28 +38,29 @@ export const Layout: React.FC<ILayout> = (
 const SLayoutContainer = styled.div`
   display: grid;
   min-height: 100vh;
-  grid-template-rows: ${({ theme }) => theme.Spacing.extraWide} auto ${({ theme }) => theme.Spacing.extraWide};
-  grid-template-columns: ${({ theme }) => theme.Spacing.regular} auto ${({ theme }) => theme.Spacing.regular};
-  row-gap: ${({ theme }) => theme.Spacing.extraWide};
+  grid-template-rows: ${({ theme }) => theme.Spacing.wide} 36px auto ${({ theme }) => theme.Spacing.wide};
+  grid-template-columns: ${({ theme }) => theme.Spacing.wide} 135px auto ${({ theme }) => theme.Spacing.wide};
+  /* row-gap: ${({ theme }) => theme.Spacing.extraWide}; */
   background-color: ${({ theme }) => theme.Colors.background};
 `;
 
 const SHeader = styled(Header)`
-  grid-column-start: 1;
+  grid-column-start: 2;
   grid-column-end: 4;
-  grid-row: 1;
-  padding: ${({ theme }) => theme.Spacing.wide};
+  grid-row: 2;
+  /* padding: ${({ theme }) => theme.Spacing.wide}; */
 `;
 
 const SMenu = styled(Menu)`
-  grid-column: 1;
-  grid-row: 2;
-  margin-left: ${({ theme }) => theme.Spacing.wide};
+  grid-column: 2;
+  grid-row: 3;
+  margin-top: ${({ theme }) => theme.Spacing.extraWide};
 `;
 
 const SContentContainer = styled.div`
-  grid-column: 2;
-  grid-row: 2;
+  margin-top: ${({ theme }) => theme.Spacing.extraWide};
+  grid-column: 3;
+  grid-row: 3;
   display: flex;
   align-items: center;
   flex: 1;

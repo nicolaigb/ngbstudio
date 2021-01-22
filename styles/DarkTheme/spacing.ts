@@ -6,9 +6,9 @@ export const Spacing = {
 
   regular: '16px',
 
+  // Also used as the web margin size
   wide: '32px',
 
-  // Also used as the margin size
   extraWide: '64px',
 
   // Constants for minimum screen size to display columns in grid
