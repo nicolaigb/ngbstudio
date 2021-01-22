@@ -1,4 +1,5 @@
 import React, { ReactElement } from 'react';
+import { Menu, IMenu } from '@molecules';
 import { Header, IHeader } from '@organisms';
 import styled from 'styled-components';
 
@@ -9,6 +10,11 @@ export interface ILayout extends React.HTMLAttributes<HTMLDivElement> {
   headerProps: IHeader,
 
   /**
+   * Props for the menu shown alongside the content
+   */
+  menuProps: IMenu,
+
+  /**
    * Content of page
    */
   children: ReactElement,
@@ -17,30 +23,71 @@ export interface ILayout extends React.HTMLAttributes<HTMLDivElement> {
 export const Layout: React.FC<ILayout> = (
   {
     headerProps,
+    menuProps,
     children,
     ...props
   },
 ): ReactElement => (
   <SLayoutContainer {...props}>
-    <Header {...headerProps} />
+    <SHeader {...headerProps} />
+    <SMenu {...menuProps} />
     <SContentContainer>{children}</SContentContainer>
   </SLayoutContainer>
 );
 
 const SLayoutContainer = styled.div`
-  align-items: center;
-  background-color: ${({ theme }) => theme.Colors.background};
-  display: flex;
-  flex-direction: column;
+  display: grid;
   min-height: 100vh;
-  width: auto;
+  // Layout specific to mobile screen
+  @media only screen and (max-width: ${({ theme }) => theme.Spacing.webMin}) {
+    grid-template-columns: 100%;
+    grid-template-rows: 70px auto auto ${({ theme }) => theme.Spacing.wide};
+    row-gap: ${({ theme }) => theme.Spacing.wide};
+    padding: ${({ theme }) => theme.Spacing.regular};
+  }
+
+  // Layout specific to desktop screen
+  @media only screen and (min-width: ${({ theme }) => theme.Spacing.webMin}) {
+    grid-template-columns: 135px auto 135px;
+    grid-template-rows: 40px auto ${({ theme }) => theme.Spacing.wide};
+    row-gap: ${({ theme }) => theme.Spacing.extraWide};
+    padding: ${({ theme }) => theme.Spacing.wide};
+  }
+
+  background-color: ${({ theme }) => theme.Colors.background};
+`;
+
+const SHeader = styled(Header)`
+  @media only screen and (min-width: ${({ theme }) => theme.Spacing.webMin}) {
+    grid-column-start: 1;
+    grid-column-end: 4;
+  }
+
+  @media only screen and (max-width: ${({ theme }) => theme.Spacing.webMin}) {
+    grid-column: 1;
+  }
+
+  grid-row: 1;
+`;
+
+const SMenu = styled(Menu)`
+  grid-column: 1;
+  grid-row: 2;
 `;
 
 const SContentContainer = styled.div`
+  @media only screen and (min-width: ${({ theme }) => theme.Spacing.webMin}) {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  @media only screen and (max-width: ${({ theme }) => theme.Spacing.webMin}) {
+    grid-column: 1;
+    grid-row: 3;
+  }
+
   display: flex;
   align-items: center;
   flex: 1;
   flex-direction: column;
-  justify-content: center;
-  width: 100%;
 `;
