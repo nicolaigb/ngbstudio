@@ -38,6 +38,14 @@ export const Layout: React.FC<ILayout> = (
 const SLayoutContainer = styled.div`
   display: grid;
   min-height: 100vh;
+  // Layout specific to mobile screen
+  @media only screen and (max-width: ${({ theme }) => theme.Spacing.webMin}) {
+    grid-template-columns: 100%;
+    grid-template-rows: 70px auto auto ${({ theme }) => theme.Spacing.wide};
+    row-gap: ${({ theme }) => theme.Spacing.wide};
+    padding: ${({ theme }) => theme.Spacing.regular};
+  }
+
   // Layout specific to desktop screen
   @media only screen and (min-width: ${({ theme }) => theme.Spacing.webMin}) {
     grid-template-columns: 135px auto 135px;
@@ -46,12 +54,6 @@ const SLayoutContainer = styled.div`
     padding: ${({ theme }) => theme.Spacing.wide};
   }
 
-  // Layout specific to mobile screen
-  @media only screen and (max-width: ${({ theme }) => theme.Spacing.webMin}) {
-    grid-template-columns: 100%;
-    grid-template-rows: 70px 20px auto ${({ theme }) => theme.Spacing.wide};
-    padding: ${({ theme }) => theme.Spacing.regular};
-  }
   background-color: ${({ theme }) => theme.Colors.background};
 `;
 
@@ -66,15 +68,11 @@ const SHeader = styled(Header)`
   }
 
   grid-row: 1;
-
-  border-style: solid;
 `;
 
 const SMenu = styled(Menu)`
   grid-column: 1;
   grid-row: 2;
-
-  border-style: solid;
 `;
 
 const SContentContainer = styled.div`
@@ -92,6 +90,4 @@ const SContentContainer = styled.div`
   align-items: center;
   flex: 1;
   flex-direction: column;
-
-  border-style: solid;
 `;

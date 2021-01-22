@@ -28,7 +28,6 @@ const SDatesContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  border-style: solid;
 `;
 
 const SHorizontalList = styled(HorizontalList)`
