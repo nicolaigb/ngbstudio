@@ -28,8 +28,6 @@ export const ContentPreview: React.FC<IContentPreview> = (
 );
 
 const SContentPreviewContainer = styled.div`
-  width: 240px;
-  height: 120px;
   position: relative;
 `;
 

@@ -27,6 +27,10 @@ declare module 'styled-components' {
       regular: string;
       wide: string;
       extraWide: string;
+      fourColumnMin: string;
+      threeColumnMin: string;
+      twoColumnMin: string;
+      cellWidth: string;
     }
   }
 }

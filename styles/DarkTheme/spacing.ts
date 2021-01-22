@@ -10,4 +10,18 @@ export const Spacing = {
 
   // Also used as the margin size
   extraWide: '64px',
+
+  // Constants for minimum screen size to display columns in grid
+
+  // four columns (MacBook display)
+  fourColumnMin: '1440px',
+
+  // three columns
+  threeColumnMin: '1080px',
+
+  // two columns
+  twoColumnMin: '800px',
+
+  // size of cell in grid
+  cellWidth: '240px',
 };
