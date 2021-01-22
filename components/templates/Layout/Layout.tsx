@@ -44,27 +44,53 @@ const SLayoutContainer = styled.div`
     grid-template-rows: 40px auto ${({ theme }) => theme.Spacing.wide};
     row-gap: ${({ theme }) => theme.Spacing.extraWide};
   }
+
+  // Layout specific to mobile screen
+  @media only screen and (max-width: ${({ theme }) => theme.Spacing.twoColumnMin}) {
+    grid-template-columns: 100%;
+    grid-template-rows: 70px 20px auto ${({ theme }) => theme.Spacing.wide};
+  }
   background-color: ${({ theme }) => theme.Colors.background};
   padding: ${({ theme }) => theme.Spacing.wide};
 `;
 
 const SHeader = styled(Header)`
-  grid-column-start: 1;
-  grid-column-end: 4;
+  @media only screen and (min-width: ${({ theme }) => theme.Spacing.twoColumnMin}) {
+    grid-column-start: 1;
+    grid-column-end: 4;
+  }
+
+  @media only screen and (max-width: ${({ theme }) => theme.Spacing.twoColumnMin}) {
+    grid-column: 1;
+  }
+
   grid-row: 1;
+
+  border-style: solid;
 `;
 
 const SMenu = styled(Menu)`
   grid-column: 1;
   grid-row: 2;
-  max-width: 135px;
+
+  border-style: solid;
 `;
 
 const SContentContainer = styled.div`
-  grid-column: 2;
-  grid-row: 2;
+  @media only screen and (min-width: ${({ theme }) => theme.Spacing.twoColumnMin}) {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  @media only screen and (max-width: ${({ theme }) => theme.Spacing.twoColumnMin}) {
+    grid-column: 1;
+    grid-row: 3;
+  }
+
   display: flex;
   align-items: center;
   flex: 1;
   flex-direction: column;
+
+  border-style: solid;
 `;

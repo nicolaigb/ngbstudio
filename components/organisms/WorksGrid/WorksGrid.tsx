@@ -32,7 +32,7 @@ const SWorksGridContainer = styled.div`
   justify-content: center;
   overflow-y: scroll;
   @media (max-width: ${({ theme }) => theme.Spacing.twoColumnMin}) {
-    grid-template-columns: 60vw;
+    grid-template-columns: 80vw;
   }
   @media (min-width: ${({ theme }) => theme.Spacing.twoColumnMin}) {
     grid-template-columns: repeat(2, auto);
