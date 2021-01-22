@@ -39,14 +39,14 @@ const SLayoutContainer = styled.div`
   display: grid;
   min-height: 100vh;
   // Layout specific to desktop screen
-  @media only screen and (min-width: ${({ theme }) => theme.Spacing.twoColumnMin}) {
+  @media only screen and (min-width: ${({ theme }) => theme.Spacing.webMin}) {
     grid-template-columns: 135px auto 135px;
     grid-template-rows: 40px auto ${({ theme }) => theme.Spacing.wide};
     row-gap: ${({ theme }) => theme.Spacing.extraWide};
   }
 
   // Layout specific to mobile screen
-  @media only screen and (max-width: ${({ theme }) => theme.Spacing.twoColumnMin}) {
+  @media only screen and (max-width: ${({ theme }) => theme.Spacing.webMin}) {
     grid-template-columns: 100%;
     grid-template-rows: 70px 20px auto ${({ theme }) => theme.Spacing.wide};
   }
@@ -55,12 +55,12 @@ const SLayoutContainer = styled.div`
 `;
 
 const SHeader = styled(Header)`
-  @media only screen and (min-width: ${({ theme }) => theme.Spacing.twoColumnMin}) {
+  @media only screen and (min-width: ${({ theme }) => theme.Spacing.webMin}) {
     grid-column-start: 1;
     grid-column-end: 4;
   }
 
-  @media only screen and (max-width: ${({ theme }) => theme.Spacing.twoColumnMin}) {
+  @media only screen and (max-width: ${({ theme }) => theme.Spacing.webMin}) {
     grid-column: 1;
   }
 
@@ -77,12 +77,12 @@ const SMenu = styled(Menu)`
 `;
 
 const SContentContainer = styled.div`
-  @media only screen and (min-width: ${({ theme }) => theme.Spacing.twoColumnMin}) {
+  @media only screen and (min-width: ${({ theme }) => theme.Spacing.webMin}) {
     grid-column: 2;
     grid-row: 2;
   }
 
-  @media only screen and (max-width: ${({ theme }) => theme.Spacing.twoColumnMin}) {
+  @media only screen and (max-width: ${({ theme }) => theme.Spacing.webMin}) {
     grid-column: 1;
     grid-row: 3;
   }

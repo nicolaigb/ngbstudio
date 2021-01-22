@@ -29,7 +29,7 @@ declare module 'styled-components' {
       extraWide: string;
       fourColumnMin: string;
       threeColumnMin: string;
-      twoColumnMin: string;
+      webMin: string;
       cellWidth: string;
     }
   }

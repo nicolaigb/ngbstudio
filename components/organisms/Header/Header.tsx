@@ -23,15 +23,16 @@ export const Header: React.FC<IHeader> = (
   },
 ): ReactElement => (
   <SHeaderContainer {...props}>
-    <STitle styleType="header" {...textProps} />
     <SDates {...datesProps} />
+    <STitle styleType="header" {...textProps} />
   </SHeaderContainer>
 );
 
 const SHeaderContainer = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: row-reverse;
   justify-content: space-between;
+  overflow-x: wrap;
   align-items: flex-start;
 `;
 

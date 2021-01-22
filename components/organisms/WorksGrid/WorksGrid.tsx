@@ -31,10 +31,10 @@ const SWorksGridContainer = styled.div`
   display: grid;
   justify-content: center;
   overflow-y: scroll;
-  @media (max-width: ${({ theme }) => theme.Spacing.twoColumnMin}) {
+  @media (max-width: ${({ theme }) => theme.Spacing.webMin}) {
     grid-template-columns: 80vw;
   }
-  @media (min-width: ${({ theme }) => theme.Spacing.twoColumnMin}) {
+  @media (min-width: ${({ theme }) => theme.Spacing.webMin}) {
     grid-template-columns: repeat(2, auto);
   }
   @media (min-width: ${({ theme }) => theme.Spacing.threeColumnMin}) {
@@ -48,11 +48,11 @@ const SWorksGridContainer = styled.div`
 `;
 
 const SContentPreviewContainer = styled.div`
-  @media (min-width: ${({ theme }) => theme.Spacing.twoColumnMin}) {
+  @media (min-width: ${({ theme }) => theme.Spacing.webMin}) {
     width: ${({ theme }) => theme.Spacing.cellWidth};
   }
   // If this is on a screen smaller than minimum width for two columns, display with full width
-  @media screen and (max-width: ${({ theme }) => theme.Spacing.twoColumnMin}) {
+  @media screen and (max-width: ${({ theme }) => theme.Spacing.webMin}) {
     width: 100%;
   }
   height: 0;
