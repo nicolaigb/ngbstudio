@@ -52,7 +52,7 @@ const SContentPreviewContainer = styled.div`
     width: ${({ theme }) => theme.Spacing.cellWidth};
   }
   // If this is on a screen smaller than minimum width for two columns, display with full width
-  @media screen and (max-width: ${({ theme }) => theme.Spacing.webMin}) {
+  @media screen and (max-width: ${({ theme }) => theme.Spacing.webMin} - 1) {
     width: 100%;
   }
   height: 0;

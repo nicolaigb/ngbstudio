@@ -17,10 +17,10 @@ export const Spacing = {
   fourColumnMin: '1440px',
 
   // three columns
-  threeColumnMin: '1080px',
+  threeColumnMin: '1124px',
 
   // minimum screen width for displaying on web
-  webMin: '800px',
+  webMin: '850px',
 
   // size of cell in grid
   cellWidth: '240px',
