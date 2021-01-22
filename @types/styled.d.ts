@@ -4,7 +4,6 @@ import { FlattenSimpleInterpolation } from 'styled-components';
 declare module 'styled-components' {
   export interface DefaultTheme {
     Typography: {
-      bigTitleStyle: FlattenSimpleInterpolation;
       titleStyle: FlattenSimpleInterpolation;
       headerStyle: FlattenSimpleInterpolation;
       subheaderStyle: FlattenSimpleInterpolation;
@@ -19,6 +18,20 @@ declare module 'styled-components' {
       lightGrey: string;
       text: string;
       emphasis: string;
+      borderLine: string;
+    }
+
+    Spacing: {
+      condensed: string;
+      tight: string;
+      regular: string;
+      wide: string;
+      extraWide: string;
+      fourColumnMin: string;
+      threeColumnMin: string;
+      webMin: string;
+      mobileMax: string;
+      cellWidth: string;
     }
   }
 }

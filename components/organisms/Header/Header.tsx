@@ -1,6 +1,5 @@
 import React, { ReactElement } from 'react';
 import { Text, IText } from '@atoms';
-import { Menu, IMenu } from '@molecules';
 import { Dates, IDates } from '@organisms/Dates';
 import styled from 'styled-components';
 
@@ -11,11 +10,6 @@ export interface IHeader extends React.HTMLAttributes<HTMLDivElement> {
   datesProps: IDates;
 
   /**
-   * Props for the menu in the header
-   */
-  menuProps: IMenu;
-
-  /**
    * Props for the text in the header
    */
   textProps: IText;
@@ -24,35 +18,47 @@ export interface IHeader extends React.HTMLAttributes<HTMLDivElement> {
 export const Header: React.FC<IHeader> = (
   {
     datesProps,
-    menuProps,
     textProps,
     ...props
   },
 ): ReactElement => (
   <SHeaderContainer {...props}>
-    <SLeftContainer>
-      <STitle {...textProps} />
-      <Menu {...menuProps} />
-    </SLeftContainer>
     <SDates {...datesProps} />
+    <STitle styleType="header" {...textProps} />
   </SHeaderContainer>
 );
 
 const SHeaderContainer = styled.div`
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  // Stacked header on mobile
+  @media only screen and (max-width: ${({ theme }) => theme.Spacing.mobileMax}) {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  // Lengthwise row on web
+  @media only screen and (min-width: ${({ theme }) => theme.Spacing.webMin}) {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
   align-items: flex-start;
-  width: 100%;
-  padding: 15px;
 `;
-
-const SLeftContainer = styled.div``;
 
 const STitle = styled(Text)`
   color: ${({ theme }) => theme.Colors.text};
+  // Add vertical spacing on mobile
+  @media only screen and (max-width: ${({ theme }) => theme.Spacing.mobileMax}) {
+    margin-top: ${({ theme }) => theme.Spacing.tight};
+  }
 `;
 
 const SDates = styled(Dates)`
-  min-width: 420px;
+  // Fill entire container on mobile
+  @media only screen and (max-width: ${({ theme }) => theme.Spacing.mobileMax}) {
+    width: 100%;
+  }
+
+  // Keep restrained to pre-defined height on web
+  @media only screen and (min-width: ${({ theme }) => theme.Spacing.webMin}) {
+    width: 375px;
+  }
 `;

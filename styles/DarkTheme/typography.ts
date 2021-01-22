@@ -2,50 +2,47 @@ import { css } from 'styled-components';
 
 export const primaryFont = 'neue-haas-grotesk-text';
 
-const boldTextStyle = css`
-  font-family: ${primaryFont};
-  font-weight: bold;
-`;
-
 const baseTextStyle = css`
   font-family: ${primaryFont};
+`;
+
+const boldTextStyle = css`
+  ${baseTextStyle};
+  font-weight: bold;
 `;
 
 export const Typography = {
   primaryFontFamily: 'neue-haas-grotesk-text',
 
-  bigTitleStyle: css`
-    ${boldTextStyle};
-    font-size: 42px;
-  `,
-
   titleStyle: css`
     ${boldTextStyle};
-    font-size: 32px;
+    font-size: 48px;
+    line-height: 100%;
   `,
 
   headerStyle: css`
     ${boldTextStyle};
-    font-size: 22px;
+    font-size: 32px;
   `,
 
   subheaderStyle: css`
     ${boldTextStyle};
-    font-size: 14px;
+    font-size: 24px;
   `,
 
   emphasizedStyle: css`
     ${boldTextStyle};
-    font-size: 10px;
+    font-size: 16px;
   `,
 
   regularStyle: css`
     ${baseTextStyle};
-    font-size: 10px;
+    font-size: 16px;
+    line-height: 150%;
   `,
 
   subtitleStyle: css`
-    ${baseTextStyle};
-    font-size: 8px;
+    ${boldTextStyle};
+    font-size: 10px;
   `,
 };

@@ -25,7 +25,7 @@ export const DateContainer: React.FC<IDateContainer> = (
   },
 ): ReactElement => (
   <SDateContainer {...props}>
-    <SText styleType="emphasized">{text}</SText>
+    <SText styleType="subtitle">{text}</SText>
     <SDate timezone={timezone} />
   </SDateContainer>
 );

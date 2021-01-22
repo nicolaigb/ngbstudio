@@ -1,6 +1,5 @@
 import React from 'react';
 import { getDatesArgs } from '@organisms/Dates';
-import { getMenuArgs } from '@molecules';
 import { Story } from '@storybook/react';
 import { Header, IHeader } from './index';
 
@@ -10,9 +9,7 @@ export default {
 
 export const getHeaderArgs = () => ({
   datesProps: getDatesArgs(),
-  menuProps: getMenuArgs(),
   textProps: {
-    styleType: 'title',
     children: 'Nicolai Garcia',
   },
 });

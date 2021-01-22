@@ -22,7 +22,7 @@ export const Date: React.FC<IDate> = (
 
   return (
     <SDateContainer {...props}>
-      <Text styleType="emphasized">{date}</Text>
+      <Text styleType="subtitle">{date}</Text>
     </SDateContainer>
   );
 };
