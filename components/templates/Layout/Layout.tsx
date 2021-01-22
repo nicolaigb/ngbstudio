@@ -38,29 +38,31 @@ export const Layout: React.FC<ILayout> = (
 const SLayoutContainer = styled.div`
   display: grid;
   min-height: 100vh;
-  grid-template-rows: ${({ theme }) => theme.Spacing.wide} 36px auto ${({ theme }) => theme.Spacing.wide};
-  grid-template-columns: ${({ theme }) => theme.Spacing.wide} 135px auto ${({ theme }) => theme.Spacing.wide};
-  /* row-gap: ${({ theme }) => theme.Spacing.extraWide}; */
+  // Layout specific to desktop screen
+  @media only screen and (min-width: ${({ theme }) => theme.Spacing.twoColumnMin}) {
+    grid-template-columns: 135px auto 135px;
+    grid-template-rows: 40px auto ${({ theme }) => theme.Spacing.wide};
+    row-gap: ${({ theme }) => theme.Spacing.extraWide};
+  }
   background-color: ${({ theme }) => theme.Colors.background};
+  padding: ${({ theme }) => theme.Spacing.wide};
 `;
 
 const SHeader = styled(Header)`
-  grid-column-start: 2;
+  grid-column-start: 1;
   grid-column-end: 4;
-  grid-row: 2;
-  /* padding: ${({ theme }) => theme.Spacing.wide}; */
+  grid-row: 1;
 `;
 
 const SMenu = styled(Menu)`
-  grid-column: 2;
-  grid-row: 3;
-  margin-top: ${({ theme }) => theme.Spacing.extraWide};
+  grid-column: 1;
+  grid-row: 2;
+  max-width: 135px;
 `;
 
 const SContentContainer = styled.div`
-  margin-top: ${({ theme }) => theme.Spacing.extraWide};
-  grid-column: 3;
-  grid-row: 3;
+  grid-column: 2;
+  grid-row: 2;
   display: flex;
   align-items: center;
   flex: 1;
