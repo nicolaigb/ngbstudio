@@ -30,6 +30,7 @@ declare module 'styled-components' {
       fourColumnMin: string;
       threeColumnMin: string;
       webMin: string;
+      mobileMax: string;
       cellWidth: string;
     }
   }

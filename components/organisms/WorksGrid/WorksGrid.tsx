@@ -48,12 +48,14 @@ const SWorksGridContainer = styled.div`
 `;
 
 const SContentPreviewContainer = styled.div`
+  // Display at full width on mobile
+  @media screen and (max-width: ${({ theme }) => theme.Spacing.mobileMax}) {
+    width: 100%;
+  }
+
+  // Pre-determined display size on web
   @media (min-width: ${({ theme }) => theme.Spacing.webMin}) {
     width: ${({ theme }) => theme.Spacing.cellWidth};
-  }
-  // If this is on a screen smaller than minimum width for two columns, display with full width
-  @media screen and (max-width: ${({ theme }) => theme.Spacing.webMin} - 1) {
-    width: 100%;
   }
   height: 0;
   padding-bottom: 50%;

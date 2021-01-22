@@ -22,6 +22,9 @@ export const Spacing = {
   // minimum screen width for displaying on web
   webMin: '850px',
 
+  // maximum screen width for displaying on mobile
+  mobileMax: '849px',
+
   // size of cell in grid
   cellWidth: '240px',
 };

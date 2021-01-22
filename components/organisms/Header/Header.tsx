@@ -31,7 +31,7 @@ export const Header: React.FC<IHeader> = (
 const SHeaderContainer = styled.div`
   display: flex;
   // Stacked header on mobile
-  @media only screen and (max-width: ${({ theme }) => theme.Spacing.webMin} - 1) {
+  @media only screen and (max-width: ${({ theme }) => theme.Spacing.mobileMax}) {
     flex-direction: column;
     justify-content: flex-start;
   }
@@ -45,14 +45,15 @@ const SHeaderContainer = styled.div`
 
 const STitle = styled(Text)`
   color: ${({ theme }) => theme.Colors.text};
-  @media only screen and (max-width: ${({ theme }) => theme.Spacing.webMin} - 1) {
+  // Add vertical spacing on mobile
+  @media only screen and (max-width: ${({ theme }) => theme.Spacing.mobileMax}) {
     margin-top: ${({ theme }) => theme.Spacing.tight};
   }
 `;
 
 const SDates = styled(Dates)`
   // Fill entire container on mobile
-  @media only screen and (max-width: ${({ theme }) => theme.Spacing.webMin} - 1) {
+  @media only screen and (max-width: ${({ theme }) => theme.Spacing.mobileMax}) {
     width: 100%;
   }
 
