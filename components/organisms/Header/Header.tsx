@@ -50,4 +50,14 @@ const STitle = styled(Text)`
   }
 `;
 
-const SDates = styled(Dates)``;
+const SDates = styled(Dates)`
+  // Fill entire container on mobile
+  @media only screen and (max-width: ${({ theme }) => theme.Spacing.webMin}) {
+    width: 100%;
+  }
+
+  // Keep restrained to pre-defined height on web
+  @media only screen and (min-width: ${({ theme }) => theme.Spacing.webMin}) {
+    width: 375px;
+  }
+`;

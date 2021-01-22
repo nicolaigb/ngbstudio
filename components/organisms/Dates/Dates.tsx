@@ -1,10 +1,10 @@
-import { HorizontalList, IHorizontalList } from '@atoms';
+import { HorizontalList } from '@atoms';
 import { DateContainer, IDateContainer } from '@molecules/DateContainer';
 import React, { ReactElement } from 'react';
 import { MdLanguage } from 'react-icons/md';
 import styled from 'styled-components';
 
-export interface IDates extends IHorizontalList {
+export interface IDates extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * Props for each Date component included in dates
    */
@@ -16,9 +16,9 @@ export const Dates: React.FC<IDates> = (
     ...props
   },
 ): ReactElement => (
-  <SDatesContainer>
+  <SDatesContainer {...props}>
     <SGlobe />
-    <SHorizontalList {...props}>
+    <SHorizontalList>
       {dateProps.map((itemProps, idx) => <DateContainer key={idx} {...itemProps} />)}
     </SHorizontalList>
   </SDatesContainer>
@@ -28,6 +28,7 @@ const SDatesContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  border-style: solid;
 `;
 
 const SHorizontalList = styled(HorizontalList)`
