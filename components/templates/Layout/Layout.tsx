@@ -43,15 +43,16 @@ const SLayoutContainer = styled.div`
     grid-template-columns: 135px auto 135px;
     grid-template-rows: 40px auto ${({ theme }) => theme.Spacing.wide};
     row-gap: ${({ theme }) => theme.Spacing.extraWide};
+    padding: ${({ theme }) => theme.Spacing.wide};
   }
 
   // Layout specific to mobile screen
   @media only screen and (max-width: ${({ theme }) => theme.Spacing.webMin}) {
     grid-template-columns: 100%;
     grid-template-rows: 70px 20px auto ${({ theme }) => theme.Spacing.wide};
+    padding: ${({ theme }) => theme.Spacing.regular};
   }
   background-color: ${({ theme }) => theme.Colors.background};
-  padding: ${({ theme }) => theme.Spacing.wide};
 `;
 
 const SHeader = styled(Header)`

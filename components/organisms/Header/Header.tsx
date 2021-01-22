@@ -30,16 +30,24 @@ export const Header: React.FC<IHeader> = (
 
 const SHeaderContainer = styled.div`
   display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-between;
-  overflow-x: wrap;
+  // Stacked header on mobile
+  @media only screen and (max-width: ${({ theme }) => theme.Spacing.webMin}) {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  // Lengthwise row on web
+  @media only screen and (min-width: ${({ theme }) => theme.Spacing.webMin}) {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
   align-items: flex-start;
 `;
 
 const STitle = styled(Text)`
   color: ${({ theme }) => theme.Colors.text};
+  @media only screen and (max-width: ${({ theme }) => theme.Spacing.webMin}) {
+    margin-top: ${({ theme }) => theme.Spacing.tight};
+  }
 `;
 
-const SDates = styled(Dates)`
-  /* min-width: 420px; */
-`;
+const SDates = styled(Dates)``;

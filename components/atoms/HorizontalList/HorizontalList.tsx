@@ -23,5 +23,5 @@ const SHorizontalList = styled.div`
 `;
 
 const SItemContainer = styled.div`
-  margin-right: ${({ theme }) => theme.Spacing.regular};
+  margin-right: ${({ theme }) => theme.Spacing.condensed};
 `;

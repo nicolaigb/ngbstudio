@@ -27,11 +27,12 @@ export const Dates: React.FC<IDates> = (
 const SDatesContainer = styled.div`
   display: flex;
   flex-direction: row;
+  align-items: center;
 `;
 
 const SHorizontalList = styled(HorizontalList)`
   flex-grow: 1;
-  margin-left: 10px;
+  margin-left: ${({ theme }) => theme.Spacing.tight};
 `;
 
 const SGlobe = styled(MdLanguage).attrs(() => ({
