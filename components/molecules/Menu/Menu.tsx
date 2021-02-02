@@ -1,27 +1,38 @@
 import {
-  IInternalLink, InternalLink,
+  Text, InternalLink,
 } from '@atoms';
 import React, { ReactElement } from 'react';
 import styled from 'styled-components';
+
+interface IMenuItem {
+  /**
+   * Text to be displayed in menu item
+   */
+  text: string;
+
+  href: string;
+}
 
 export interface IMenu extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * List of items to be displayed in the menu
    */
-  menuItemProps: IInternalLink[],
+  menuItems: IMenuItem[],
 }
 
 export const Menu: React.FC<IMenu> = (
   {
-    menuItemProps,
+    menuItems,
     ...props
   },
 ): ReactElement => (
   <SMenuContainer {...props}>
-    {menuItemProps.map(
-      (internalLinkProps, idx) => (
+    {menuItems.map(
+      (menuItem, idx) => (
         <SMenuItemContainer key={idx}>
-          <InternalLink {...internalLinkProps} />
+          <InternalLink styleType="subdued" href={menuItem.href}>
+            <Text styleType="emphasized">{menuItem.text}</Text>
+          </InternalLink>
         </SMenuItemContainer>
       ),
     )}
