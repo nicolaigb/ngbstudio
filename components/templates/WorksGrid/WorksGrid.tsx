@@ -27,10 +27,9 @@ export const WorksGrid: React.FC<IWorksGrid> = (
 );
 
 const SWorksGridContainer = styled.div`
-  flex: 1 0;
+  width: 100%;
   display: grid;
-  justify-content: start;
-  border: solid white;
+  justify-content: space-between;
   overflow-y: scroll;
   // Mobile
   @media (max-width: ${({ theme }) => theme.Spacing.webMin}) {
