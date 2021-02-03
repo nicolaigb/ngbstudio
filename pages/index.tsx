@@ -4,7 +4,7 @@ import {
   Layout, getLayoutArgs, HomePage, getHomePageArgs,
 } from '@templates';
 import { Work } from 'model';
-import getWorks from '../api/index';
+import { getWorks } from '../api/index';
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const works = await getWorks();

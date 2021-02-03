@@ -5,6 +5,14 @@ const instance = axios.create({
   timeout: 1000,
 });
 
+/**
+ * GET all works in database
+ */
 const getWorks = async () => instance.request({ url: 'works' }).then((value) => value.data).catch(() => null);
 
-export default getWorks;
+/**
+ * GET specific work based on its tag
+ */
+const getWork = async (tag) => instance.request({ url: `works/${tag}` }).then((value) => value.data).catch(() => null);
+
+export { getWorks, getWork };
