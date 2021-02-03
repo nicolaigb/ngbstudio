@@ -26,6 +26,7 @@ const Home = ({ works }: IHome) => (
         works.map((work) => ({
           name: work.title,
           src: work.thumbnail,
+          url: `/work/${work.tag}`,
         }))
       }
     />

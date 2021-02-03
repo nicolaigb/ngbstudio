@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import { Text, Image } from '@atoms';
+import { Text, Image, InternalLink } from '@atoms';
 import styled from 'styled-components';
 
 export interface IContentPreview extends React.HTMLAttributes<HTMLDivElement> {
@@ -12,19 +12,27 @@ export interface IContentPreview extends React.HTMLAttributes<HTMLDivElement> {
    * Name of content
    */
   name: string;
+
+  /**
+   * URL pointing to work this thumbnail previews
+   */
+  url: string;
 }
 
 export const ContentPreview: React.FC<IContentPreview> = (
   {
     src,
     name,
+    url,
     ...props
   },
 ): ReactElement => (
-  <SContentPreviewContainer {...props}>
-    <SImage src={src} />
-    <SText styleType="title">{name}</SText>
-  </SContentPreviewContainer>
+  <InternalLink styleType="subdued" href={url}>
+    <SContentPreviewContainer {...props}>
+      <SImage src={src} />
+      <SText styleType="title">{name}</SText>
+    </SContentPreviewContainer>
+  </InternalLink>
 );
 
 const SContentPreviewContainer = styled.div`

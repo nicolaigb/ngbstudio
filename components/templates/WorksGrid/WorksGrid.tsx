@@ -16,13 +16,11 @@ export const WorksGrid: React.FC<IWorksGrid> = (
   },
 ): ReactElement => (
   <SWorksGridContainer {...props}>
-    {worksProps.map(
-      (contentPreviewProps, idx) => (
-        <SContentPreviewContainer key={idx}>
-          <SContentPreview {...contentPreviewProps} />
-        </SContentPreviewContainer>
-      ),
-    )}
+    {worksProps.map((contentPreviewProps, idx) => (
+      <SContentPreviewContainer key={idx}>
+        <SContentPreview {...contentPreviewProps} />
+      </SContentPreviewContainer>
+    ))}
   </SWorksGridContainer>
 );
 
@@ -31,8 +29,8 @@ const SWorksGridContainer = styled.div`
   display: grid;
   justify-content: space-between;
   overflow-y: scroll;
-  // Mobile
-  @media (max-width: ${({ theme }) => theme.Spacing.webMin}) {
+  // Media queries to determine number of columns based on screen size
+  @media (max-width: ${({ theme }) => theme.Spacing.webMin}) { // Mobile
     grid-template-columns: 80vw;
   }
   @media (min-width: ${({ theme }) => theme.Spacing.webMin}) {
