@@ -1,6 +1,5 @@
 import React from 'react';
 import { Story } from '@storybook/react';
-import wavy from 'assets/cant-grow-exclusively-from-anguish-unless-we-cherish-every-moment.jpg';
 import { ContentPreview, IContentPreview } from './index';
 
 export default {
@@ -8,7 +7,7 @@ export default {
 };
 
 export const getContentPreviewArgs = () => ({
-  src: wavy,
+  src: 'https://elasticbeanstalk-us-east-1-574094957622.s3.amazonaws.com/images/wavy-line/cant-grow-exclusively-from-anguish-we-must-cherish-every-moment.jpg',
   name: 'Wavy Line',
   url: 'http://localhost:3000/work/wavy-line',
 });
