@@ -58,16 +58,19 @@ const SLayoutContainer = styled.div`
 `;
 
 const SHeader = styled(Header)`
-  @media only screen and (min-width: ${({ theme }) => theme.Spacing.webMin}) {
-    grid-column-start: 1;
-    grid-column-end: 4;
-  }
+  position: fixed;
 
   @media only screen and (max-width: ${({ theme }) => theme.Spacing.webMin}) {
-    grid-column: 1;
+    top: ${({ theme }) => theme.Spacing.regular};
+    left: ${({ theme }) => theme.Spacing.regular};
+    right: ${({ theme }) => theme.Spacing.regular};
   }
 
-  grid-row: 1;
+  @media only screen and (min-width: ${({ theme }) => theme.Spacing.webMin}) {
+    top: ${({ theme }) => theme.Spacing.wide};
+    left: ${({ theme }) => theme.Spacing.wide};
+    right: ${({ theme }) => theme.Spacing.wide};
+  }
 `;
 
 const SMenu = styled(Menu)`
