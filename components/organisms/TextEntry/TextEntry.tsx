@@ -29,7 +29,7 @@ export const TextEntry: React.FC<ITextEntry> = (
 ): ReactElement => (
   <STextEntryContainer {...props}>
     <SHeader>
-      <Text styleType="header">{title}</Text>
+      <SHeaderText styleType="header">{title}</SHeaderText>
       <Text styleType="subheader">{year}</Text>
     </SHeader>
     <Text styleType="regular">{description}</Text>
@@ -38,4 +38,10 @@ export const TextEntry: React.FC<ITextEntry> = (
 
 const STextEntryContainer = styled.div``;
 
-const SHeader = styled.div``;
+const SHeader = styled.div`
+  margin-bottom: ${({ theme }) => theme.Spacing.wide};
+`;
+
+const SHeaderText = styled(Text)`
+  margin-bottom: ${({ theme }) => theme.Spacing.condensed};
+`;
