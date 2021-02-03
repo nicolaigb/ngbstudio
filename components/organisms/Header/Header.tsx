@@ -29,8 +29,6 @@ export const Header: React.FC<IHeader> = (
 );
 
 const SHeaderContainer = styled.div`
-  position: fixed;
-  width: 100%;
   display: flex;
   // Stacked header on mobile
   @media only screen and (max-width: ${({ theme }) => theme.Spacing.mobileMax}) {
