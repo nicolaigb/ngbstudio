@@ -29,7 +29,7 @@ export const Layout: React.FC<ILayout> = (
   },
 ): ReactElement => (
   <SLayoutContainer {...props}>
-    <SHeader {...headerProps} />
+    <SHeader {...headerProps} headerURL="/" />
     <SMenu {...menuProps} />
     <SContentContainer>{children}</SContentContainer>
   </SLayoutContainer>

@@ -10,6 +10,7 @@ export default {
 export const getHeaderArgs = () => ({
   datesProps: getDatesArgs(),
   headerText: 'Nicolai Garcia',
+  headerURL: 'http://localhost:3000/',
 });
 const Template: Story<IHeader> = (args) => <Header {...args} />;
 export const header = Template.bind({});
