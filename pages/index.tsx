@@ -2,7 +2,7 @@ import React from 'react';
 import { GetServerSideProps } from 'next';
 import {
   WorksGrid,
-  Layout, getLayoutArgs,
+  Layout,
 } from '@templates';
 
 import { Work } from 'model';
@@ -20,7 +20,7 @@ interface IHome {
 }
 
 const Home = ({ works }: IHome) => (
-  <Layout {...getLayoutArgs()}>
+  <Layout>
     <WorksGrid
       worksProps={
         works.map((work) => ({

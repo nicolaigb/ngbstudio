@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Layout, getLayoutArgs, WorkDetail,
+  Layout, WorkDetail,
 } from '@templates';
 import { GetServerSideProps } from 'next';
 import { getWork } from 'api';
@@ -22,7 +22,7 @@ interface IWorkDetailPage {
 }
 
 const WorkDetailPage = ({ work }: IWorkDetailPage) => (
-  <Layout {...getLayoutArgs()}>
+  <Layout>
     <WorkDetail
       mainImage={work.images[0]}
       textEntryProps={{
