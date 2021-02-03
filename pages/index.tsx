@@ -1,8 +1,10 @@
 import React from 'react';
 import { GetServerSideProps } from 'next';
 import {
-  Layout, getLayoutArgs, HomePage, getHomePageArgs,
+  WorksGrid,
+  Layout, getLayoutArgs,
 } from '@templates';
+
 import { Work } from 'model';
 import { getWorks } from '../api/index';
 
@@ -19,14 +21,13 @@ interface IHome {
 
 const Home = ({ works }: IHome) => (
   <Layout {...getLayoutArgs()}>
-    <HomePage
-      {...getHomePageArgs()}
-      worksGridProps={{
-        worksProps: works.map((work) => ({
+    <WorksGrid
+      worksProps={
+        works.map((work) => ({
           name: work.title,
           src: work.thumbnail,
-        })),
-      }}
+        }))
+      }
     />
   </Layout>
 );

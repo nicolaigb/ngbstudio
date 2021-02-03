@@ -4,7 +4,7 @@ import { getContentPreviewArgs } from '@molecules';
 import { WorksGrid, IWorksGrid } from './index';
 
 export default {
-  title: 'Organisms/WorksGrid',
+  title: 'Templates/WorksGrid',
 };
 
 export const getWorksGridArgs = () => ({
