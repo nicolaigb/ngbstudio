@@ -18,7 +18,7 @@ export const getTextEntryArgs = () => ({
   say something is beautiful and have a delicious bite to eat because they realize that\
   beautify in the world is actually possible and not just a myth.\n
   Pen on paper
-  /\\|\\//|\\|//|//||/\\|||`,
+  \\/\\|\\//|\\|//|//||/\\|||`,
 });
 const Template: Story<ITextEntry> = (args) => <TextEntry {...args} />;
 export const textEntry = Template.bind({});
