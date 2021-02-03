@@ -43,5 +43,5 @@ const SHeader = styled.div`
 `;
 
 const SHeaderText = styled(Text)`
-  margin-bottom: ${({ theme }) => theme.Spacing.condensed};
+  margin-bottom: ${({ theme }) => theme.Spacing.tight};
 `;

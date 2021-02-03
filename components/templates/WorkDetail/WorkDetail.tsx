@@ -52,6 +52,6 @@ const SFeedImage = styled(SImage)`
 `;
 
 const STextEntry = styled(TextEntry)`
-  margin: ${({ theme }) => theme.Spacing.wide} 0;
+  margin-bottom: ${({ theme }) => theme.Spacing.wide};
   width: 100%;
 `;
