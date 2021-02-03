@@ -29,28 +29,26 @@ export const WorkDetail: React.FC<IWorkDetail> = (
   },
 ): ReactElement => (
   <SWorkDetailContainer {...props}>
-    <SMainImage src={mainImage} />
+    <SImage src={mainImage} />
     <STextEntry {...textEntryProps} />
-    {images.map((imageSrc, idx) => <SImage src={imageSrc} key={idx} />)}
+    {images.map((imageSrc, idx) => <SFeedImage src={imageSrc} key={idx} />)}
   </SWorkDetailContainer>
 );
 
 const SWorkDetailContainer = styled.div`
-  padding: 0 ${({ theme }) => theme.Spacing.extraWide};
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 `;
 
-const SMainImage = styled(Image)`
+const SImage = styled(Image)`
   width: 100%;
   margin-bottom: ${({ theme }) => theme.Spacing.wide};
 `;
 
-const SImage = styled(Image)`
-  width: 50%;
-  margin: ${({ theme }) => theme.Spacing.wide} 0;
+const SFeedImage = styled(SImage)`
+  margin-top: ${({ theme }) => theme.Spacing.wide};
 `;
 
 const STextEntry = styled(TextEntry)`

@@ -84,6 +84,7 @@ const SMenu = styled(Menu)`
   @media only screen and (min-width: ${({ theme }) => theme.Spacing.webMin}) {
     position: fixed;
     top: 132px;
+    width: ${({ theme }) => theme.Spacing.extraWide};
     left: ${({ theme }) => theme.Spacing.wide};
     right: ${({ theme }) => theme.Spacing.wide};
   }
