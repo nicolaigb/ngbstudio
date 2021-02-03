@@ -29,8 +29,8 @@ export const TextEntry: React.FC<ITextEntry> = (
 ): ReactElement => (
   <STextEntryContainer {...props}>
     <SHeader>
-      <SHeaderText styleType="header">{title}</SHeaderText>
-      <Text styleType="subheader">{year}</Text>
+      <SHeaderText styleType="subheader">{title}</SHeaderText>
+      <Text styleType="emphasized">{year}</Text>
     </SHeader>
     <Text styleType="regular">{description}</Text>
   </STextEntryContainer>

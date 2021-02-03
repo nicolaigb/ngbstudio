@@ -22,7 +22,7 @@ export const getMenuArgs = () => ({
     },
     {
       href: 'https://www.cryptovoxels.com/',
-      text: 'Moooooood Board',
+      text: 'Moooood',
     },
   ],
 });

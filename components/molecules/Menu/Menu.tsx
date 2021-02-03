@@ -43,8 +43,7 @@ const SMenuContainer = styled.div`
   display: flex;
   @media only screen and (max-width: ${({ theme }) => theme.Spacing.mobileMax}) {
     flex-direction: row;
-    justify-content: flex-start;
-    overflow-x: scroll;
+    justify-content: space-between;
   }
 
   @media only screen and (min-width: ${({ theme }) => theme.Spacing.webMin}) {
@@ -54,11 +53,6 @@ const SMenuContainer = styled.div`
 `;
 
 const SMenuItemContainer = styled.div`
-  // Add horizontal spacing between items on mobile
-  @media only screen and (max-width: ${({ theme }) => theme.Spacing.mobileMax}) {
-    margin-right: ${({ theme }) => theme.Spacing.wide};
-  }
-
   // Add vertical spacing between items on web
   @media only screen and (min-width: ${({ theme }) => theme.Spacing.webMin}) {
     margin-bottom: ${({ theme }) => theme.Spacing.tight}

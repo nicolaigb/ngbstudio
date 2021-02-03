@@ -42,7 +42,7 @@ const SLayoutContainer = styled.div`
   @media only screen and (max-width: ${({ theme }) => theme.Spacing.webMin}) {
     grid-template-columns: 100%;
     grid-template-rows: 70px auto auto ${({ theme }) => theme.Spacing.wide};
-    row-gap: ${({ theme }) => theme.Spacing.wide};
+    row-gap: ${({ theme }) => theme.Spacing.regular};
     padding: ${({ theme }) => theme.Spacing.regular};
   }
 
