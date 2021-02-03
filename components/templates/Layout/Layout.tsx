@@ -58,15 +58,15 @@ const SLayoutContainer = styled.div`
 `;
 
 const SHeader = styled(Header)`
-  position: fixed;
-
+  // Keep in grid on mobile
   @media only screen and (max-width: ${({ theme }) => theme.Spacing.webMin}) {
-    top: ${({ theme }) => theme.Spacing.regular};
-    left: ${({ theme }) => theme.Spacing.regular};
-    right: ${({ theme }) => theme.Spacing.regular};
+    grid-row: 1;
+    grid-column: 1;
   }
 
+  // Fix on web
   @media only screen and (min-width: ${({ theme }) => theme.Spacing.webMin}) {
+    position: fixed;
     top: ${({ theme }) => theme.Spacing.wide};
     left: ${({ theme }) => theme.Spacing.wide};
     right: ${({ theme }) => theme.Spacing.wide};
@@ -74,8 +74,19 @@ const SHeader = styled(Header)`
 `;
 
 const SMenu = styled(Menu)`
-  grid-column: 1;
-  grid-row: 2;
+  // Keep in grid on mobile
+  @media only screen and (max-width: ${({ theme }) => theme.Spacing.webMin}) {
+    grid-row: 2;
+    grid-column: 1;
+  }
+
+  // Fix on web
+  @media only screen and (min-width: ${({ theme }) => theme.Spacing.webMin}) {
+    position: fixed;
+    top: 132px;
+    left: ${({ theme }) => theme.Spacing.wide};
+    right: ${({ theme }) => theme.Spacing.wide};
+  }
 `;
 
 const SContentContainer = styled.div`
