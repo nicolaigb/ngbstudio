@@ -46,17 +46,10 @@ const SText = styled(Text)`
   
   top: 0;
   left: 0;
-  
-  // Centering small text
-  
-  /* top: 50%;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%); */
+
+  color: ${({ theme }) => theme.Colors.inverse};
 
   ${SContentPreviewContainer}:hover & {
     visibility: visible;
   }
 `;
-
-// Centering Small Text
