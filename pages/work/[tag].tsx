@@ -1,6 +1,7 @@
 import React from 'react';
-import { Text } from '@atoms';
-import { Layout, getLayoutArgs } from '@templates';
+import {
+  Layout, getLayoutArgs, WorkDetail,
+} from '@templates';
 import { GetServerSideProps } from 'next';
 import { getWork } from 'api';
 import { Work } from 'model';
@@ -16,14 +17,22 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   };
 };
 
-interface IWorkDetail {
+interface IWorkDetailPage {
   work: Work;
 }
 
-const WorkDetail = ({ work }: IWorkDetail) => (
+const WorkDetailPage = ({ work }: IWorkDetailPage) => (
   <Layout {...getLayoutArgs()}>
-    <Text styleType="title">{work.title}</Text>
+    <WorkDetail
+      mainImage={work.images[0]}
+      textEntryProps={{
+        title: work.title,
+        year: work.createdAt,
+        description: work.description,
+      }}
+      images={work.images.slice(1)}
+    />
   </Layout>
 );
 
-export default WorkDetail;
+export default WorkDetailPage;
