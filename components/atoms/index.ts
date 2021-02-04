@@ -1,5 +1,6 @@
 export * from './Button/index';
 export * from './Date/index';
+export * from './ExternalLink/index';
 export * from './HorizontalList/index';
 export * from './Image/index';
 export * from './InternalLink/index';
