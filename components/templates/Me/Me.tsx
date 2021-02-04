@@ -1,32 +1,13 @@
 import React, { ReactElement } from 'react';
 import { Text, ExternalLink } from '@atoms';
+import { InformationEntry, IInformationEntry } from '@organisms';
 import styled from 'styled-components';
 
 export interface IMe extends React.HTMLAttributes<HTMLDivElement> {
   /**
-   * Text displayed for what I do
+   * Props for information component displayed at top
    */
-  aboutText: string;
-
-  /**
-   * First link displayed beneath text
-   */
-  upperSocialLink: string;
-
-  /**
-   * Text for upper link
-   */
-  upperSocialLinkText: string;
-
-  /**
-   * Second link
-   */
-  bottomSocialLink: string;
-
-  /**
-   * Text displayed with bottom social link
-   */
-  bottomSocialLinkText: string;
+  informationEntryProps: IInformationEntry;
 
   /**
    * Header displayed above contact
@@ -53,11 +34,7 @@ export interface IMe extends React.HTMLAttributes<HTMLDivElement> {
 
 export const Me: React.FC<IMe> = (
   {
-    aboutText,
-    upperSocialLink,
-    upperSocialLinkText,
-    bottomSocialLink,
-    bottomSocialLinkText,
+    informationEntryProps,
     contactHeader,
     emailEmoji,
     email,
@@ -67,13 +44,7 @@ export const Me: React.FC<IMe> = (
   },
 ): ReactElement => (
   <SMeContainer {...props}>
-    <SAboutText styleType="regular">{aboutText}</SAboutText>
-    <ExternalLink href={upperSocialLink}>
-      <SSocialText styleType="emphasized">{upperSocialLinkText}</SSocialText>
-    </ExternalLink>
-    <ExternalLink href={bottomSocialLink}>
-      <SSocialText styleType="emphasized">{bottomSocialLinkText}</SSocialText>
-    </ExternalLink>
+    <InformationEntry {...informationEntryProps} />
     <SContactHeader styleType="emphasized">{contactHeader}</SContactHeader>
     <SContactContainer>
       <Text styleType="regular">{`${emailEmoji}:`}</Text>
@@ -91,15 +62,6 @@ export const Me: React.FC<IMe> = (
 );
 
 const SMeContainer = styled.div``;
-
-const SAboutText = styled(Text)`
-  margin-bottom: ${({ theme }) => theme.Spacing.wide};
-`;
-
-const SSocialText = styled(Text)`
-  color: ${({ theme }) => theme.Colors.emphasis};
-  margin-bottom: ${({ theme }) => theme.Spacing.wide};
-`;
 
 const SContactHeader = styled(Text)`
   margin-bottom: ${({ theme }) => theme.Spacing.regular};
