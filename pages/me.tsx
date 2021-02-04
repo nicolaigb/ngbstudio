@@ -1,2 +1,12 @@
 import React from 'react';
-import { Text, ExternalLink } from '@atoms';
+import {
+  Layout, getLayoutArgs, Me, getMeArgs,
+} from '@templates';
+
+const MePage = () => (
+  <Layout {...getLayoutArgs()}>
+    <Me {...getMeArgs()} />
+  </Layout>
+);
+
+export default MePage;
