@@ -1,2 +1,2 @@
-export * from './Mosaic.stories';
-export * from './Mosaic';
+export * from './Masonry.stories';
+export * from './Masonry';
