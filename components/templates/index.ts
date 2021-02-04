@@ -1,3 +1,4 @@
+export * from './Ideas';
 export * from './Layout';
 export * from './Me';
 export * from './WorkDetail';

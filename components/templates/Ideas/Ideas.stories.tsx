@@ -21,7 +21,7 @@ export const getIdeasArgs = () => ({
       },
     ],
   },
-  figmaURL: 'https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAbeYDDmRcT5Xs3AodifRtk%2FPortfolio-Website%3Fnode-id%3D214%253A6',
+  figmaURL: 'https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAbeYDDmRcT5Xs3AodifRtk%2FPortfolio-Website%3Fnode-id%3D67%253A2',
 });
 const Template: Story<IIdeas> = (args) => <Ideas {...args} />;
 export const ideas = Template.bind({});
