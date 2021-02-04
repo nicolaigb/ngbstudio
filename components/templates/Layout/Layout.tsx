@@ -88,8 +88,6 @@ const SMenu = styled(Menu)`
     left: ${({ theme }) => theme.Spacing.wide};
     right: ${({ theme }) => theme.Spacing.wide};
   }
-
-  border: solid white
 `;
 
 const SContentContainer = styled.div`
@@ -106,6 +104,4 @@ const SContentContainer = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-
-  border: solid white;
 `;
