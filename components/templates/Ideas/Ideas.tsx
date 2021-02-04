@@ -34,7 +34,7 @@ export const Ideas: React.FC<IIdeas> = (
 const SIdeasContainer = styled.div``;
 
 const SFigmaEmbed = styled.iframe`
-  width: 800px;
+  width: 100%;
   height: 450px;
   align-self: center;
 `;
