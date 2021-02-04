@@ -19,6 +19,7 @@ declare module 'styled-components' {
       text: string;
       emphasis: string;
       borderLine: string;
+      inverse: string;
     }
 
     Spacing: {
