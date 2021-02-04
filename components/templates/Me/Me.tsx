@@ -83,7 +83,7 @@ export const Me: React.FC<IMe> = (
     </SContactContainer>
     <SContactContainer>
       <Text styleType="regular">{`${phoneNumberEmoji}:`}</Text>
-      <ExternalLink href={`callto:${phoneNumber}`}>
+      <ExternalLink href={`callto:${phoneNumber.replace(/[\s-()]/g, '')}`}>
         <SContact styleType="regular">{phoneNumber}</SContact>
       </ExternalLink>
     </SContactContainer>
