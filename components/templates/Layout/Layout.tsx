@@ -1,9 +1,19 @@
 import React, { ReactElement } from 'react';
-import { Menu, getMenuArgs } from '@molecules';
-import { Header, getHeaderArgs } from '@organisms';
+import { Menu, IMenu } from '@molecules';
+import { Header, IHeader } from '@organisms';
 import styled from 'styled-components';
 
 export interface ILayout extends React.HTMLAttributes<HTMLDivElement> {
+  /**
+   * Props for Layout header
+   */
+  headerProps: IHeader;
+
+  /**
+   * Props for menu embedded in layout
+   */
+  menuProps: IMenu;
+
   /**
    * Content of page
    */
@@ -12,13 +22,15 @@ export interface ILayout extends React.HTMLAttributes<HTMLDivElement> {
 
 export const Layout: React.FC<ILayout> = (
   {
+    headerProps,
+    menuProps,
     children,
     ...props
   },
 ): ReactElement => (
   <SLayoutContainer {...props}>
-    <SHeader {...getHeaderArgs()} headerURL="/" />
-    <SMenu {...getMenuArgs()} />
+    <SHeader {...headerProps} headerURL="/" />
+    <SMenu {...menuProps} />
     <SContentContainer>{children}</SContentContainer>
   </SLayoutContainer>
 );
