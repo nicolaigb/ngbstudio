@@ -41,7 +41,7 @@ const SLayoutContainer = styled.div`
   // Layout specific to mobile screen
   @media only screen and (max-width: ${({ theme }) => theme.Spacing.webMin}) {
     grid-template-columns: 100%;
-    grid-template-rows: 70px auto auto ${({ theme }) => theme.Spacing.wide};
+    grid-template-rows: 70px 30px auto ${({ theme }) => theme.Spacing.wide};
     row-gap: ${({ theme }) => theme.Spacing.regular};
     padding: ${({ theme }) => theme.Spacing.regular};
   }
@@ -83,27 +83,29 @@ const SMenu = styled(Menu)`
   // Fix on web
   @media only screen and (min-width: ${({ theme }) => theme.Spacing.webMin}) {
     position: fixed;
-    top: 132px;
+    top: 138px;
     width: ${({ theme }) => theme.Spacing.extraWide};
     left: ${({ theme }) => theme.Spacing.wide};
     right: ${({ theme }) => theme.Spacing.wide};
   }
+
+  border: solid white
 `;
 
 const SContentContainer = styled.div`
-  @media only screen and (min-width: ${({ theme }) => theme.Spacing.webMin}) {
-    grid-column: 2;
-    grid-row: 2;
-  }
-
   @media only screen and (max-width: ${({ theme }) => theme.Spacing.webMin}) {
     grid-column: 1;
     grid-row: 3;
   }
 
+  @media only screen and (min-width: ${({ theme }) => theme.Spacing.webMin}) {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
   display: flex;
   align-items: center;
-  flex: 1;
-  width: 100%;
   flex-direction: column;
+
+  border: solid white;
 `;
