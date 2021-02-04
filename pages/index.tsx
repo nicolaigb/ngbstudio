@@ -6,6 +6,7 @@ import {
 } from '@templates';
 
 import { Work } from 'model';
+import { getLayoutArgs } from '@templates/Layout/Layout.stories';
 import { getWorks } from '../api/index';
 
 export const getServerSideProps: GetServerSideProps = async () => {
@@ -20,7 +21,7 @@ interface IHome {
 }
 
 const Home = ({ works }: IHome) => (
-  <Layout>
+  <Layout {...getLayoutArgs()}>
     <WorksGrid
       worksProps={
         works.map((work) => ({
