@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import { Text, IText } from '@atoms';
+import { InternalLink, Text } from '@atoms';
 import { Dates, IDates } from '@organisms/Dates';
 import styled from 'styled-components';
 
@@ -12,19 +12,27 @@ export interface IHeader extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * Props for the text in the header
    */
-  textProps: IText;
+  headerText: string;
+
+  /**
+   * URL that clicking on header title points to
+   */
+  headerURL: string;
 }
 
 export const Header: React.FC<IHeader> = (
   {
     datesProps,
-    textProps,
+    headerText,
+    headerURL,
     ...props
   },
 ): ReactElement => (
   <SHeaderContainer {...props}>
     <SDates {...datesProps} />
-    <STitle styleType="header" {...textProps} />
+    <InternalLink styleType="subdued" href={headerURL}>
+      <STitle styleType="header">{headerText}</STitle>
+    </InternalLink>
   </SHeaderContainer>
 );
 

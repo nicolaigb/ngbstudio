@@ -1,6 +1,7 @@
 import React from "react";
 import { ThemeProvider } from "styled-components";
 import { DarkTheme } from "../styles";
+import { withNextRouter } from 'storybook-addon-next-router';
 
 export const parameters = {
   backgrounds: {
@@ -25,4 +26,5 @@ export const decorators = [
       <Story />
     </ThemeProvider>
   ),
+  withNextRouter()
 ];

@@ -30,4 +30,6 @@ ${({ styleType, theme }) => ({
     regular: theme.Typography.regularStyle,
     subtitle: theme.Typography.subtitleStyle,
   }[styleType])}
+  white-space: pre-line;
+  color: ${({ theme }) => theme.Colors.text};
 `;

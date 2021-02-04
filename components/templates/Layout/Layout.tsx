@@ -5,14 +5,14 @@ import styled from 'styled-components';
 
 export interface ILayout extends React.HTMLAttributes<HTMLDivElement> {
   /**
-   * Props for header shown in layout
+   * Props for Layout header
    */
-  headerProps: IHeader,
+  headerProps: IHeader;
 
   /**
-   * Props for the menu shown alongside the content
+   * Props for menu embedded in layout
    */
-  menuProps: IMenu,
+  menuProps: IMenu;
 
   /**
    * Content of page
@@ -29,7 +29,7 @@ export const Layout: React.FC<ILayout> = (
   },
 ): ReactElement => (
   <SLayoutContainer {...props}>
-    <SHeader {...headerProps} />
+    <SHeader {...headerProps} headerURL="/" />
     <SMenu {...menuProps} />
     <SContentContainer>{children}</SContentContainer>
   </SLayoutContainer>
@@ -42,7 +42,7 @@ const SLayoutContainer = styled.div`
   @media only screen and (max-width: ${({ theme }) => theme.Spacing.webMin}) {
     grid-template-columns: 100%;
     grid-template-rows: 70px auto auto ${({ theme }) => theme.Spacing.wide};
-    row-gap: ${({ theme }) => theme.Spacing.wide};
+    row-gap: ${({ theme }) => theme.Spacing.regular};
     padding: ${({ theme }) => theme.Spacing.regular};
   }
 
@@ -58,21 +58,36 @@ const SLayoutContainer = styled.div`
 `;
 
 const SHeader = styled(Header)`
-  @media only screen and (min-width: ${({ theme }) => theme.Spacing.webMin}) {
-    grid-column-start: 1;
-    grid-column-end: 4;
-  }
-
+  // Keep in grid on mobile
   @media only screen and (max-width: ${({ theme }) => theme.Spacing.webMin}) {
+    grid-row: 1;
     grid-column: 1;
   }
 
-  grid-row: 1;
+  // Fix on web
+  @media only screen and (min-width: ${({ theme }) => theme.Spacing.webMin}) {
+    position: fixed;
+    top: ${({ theme }) => theme.Spacing.wide};
+    left: ${({ theme }) => theme.Spacing.wide};
+    right: ${({ theme }) => theme.Spacing.wide};
+  }
 `;
 
 const SMenu = styled(Menu)`
-  grid-column: 1;
-  grid-row: 2;
+  // Keep in grid on mobile
+  @media only screen and (max-width: ${({ theme }) => theme.Spacing.webMin}) {
+    grid-row: 2;
+    grid-column: 1;
+  }
+
+  // Fix on web
+  @media only screen and (min-width: ${({ theme }) => theme.Spacing.webMin}) {
+    position: fixed;
+    top: 132px;
+    width: ${({ theme }) => theme.Spacing.extraWide};
+    left: ${({ theme }) => theme.Spacing.wide};
+    right: ${({ theme }) => theme.Spacing.wide};
+  }
 `;
 
 const SContentContainer = styled.div`
@@ -89,5 +104,6 @@ const SContentContainer = styled.div`
   display: flex;
   align-items: center;
   flex: 1;
+  width: 100%;
   flex-direction: column;
 `;

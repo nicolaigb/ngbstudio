@@ -9,9 +9,8 @@ export default {
 
 export const getHeaderArgs = () => ({
   datesProps: getDatesArgs(),
-  textProps: {
-    children: 'Nicolai Garcia',
-  },
+  headerText: 'Nicolai Garcia',
+  headerURL: '/',
 });
 const Template: Story<IHeader> = (args) => <Header {...args} />;
 export const header = Template.bind({});
