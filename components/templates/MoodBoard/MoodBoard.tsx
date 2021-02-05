@@ -24,13 +24,14 @@ export const MoodBoard: React.FC<IMoodBoard> = (
     <SMoodBoardContainer {...props}>
       <MoodImageModal
         isOpen={modalOpen}
+        onRequestClose={() => setSelectedIdx(null)}
         image={selectedImage ? selectedImage.url : null}
         text={selectedImage ? selectedImage.title : null}
       />
       <Masonry columns={3}>
         {images.map((img, idx) => (
-          <Button styleType="icon" onClick={() => setSelectedIdx(idx)}>
-            <Image key={idx} src={img.url} />
+          <Button key={idx} styleType="icon" onClick={() => setSelectedIdx(idx)}>
+            <Image src={img.url} />
           </Button>
         ))}
       </Masonry>

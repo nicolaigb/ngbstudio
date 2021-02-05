@@ -26,26 +26,31 @@ export const MoodImageModal: React.FC<IMoodImageModal> = (
   <SModal {...props}>
     <SContentContainer>
       <SImage src={image} />
-      <Text styleType="emphasized">{text}</Text>
+      <SText styleType="emphasized">{text}</SText>
     </SContentContainer>
   </SModal>
 );
 
-const SModal = styled(Modal)`
-  height: 100%;
-`;
+const SModal = styled(Modal)``;
 
 const SContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  padding: ${({ theme }) => theme.Spacing.regular};
+  height: auto;
+  width: auto;
 `;
 
 const SImage = styled(Image)`
-  max-height: 90%;
-  max-width: 90%;
+  max-height: 90vh;
+  max-width: 90vh;
   width: auto;
   margin-bottom: ${({ theme }) => theme.Spacing.tight};
+`;
+
+const SText = styled(Text)`
+  width: 100%;
+  text-align: start;
 `;
