@@ -9,4 +9,9 @@ declare module 'model' {
     images: string[];
     createdAt: string;
   }
+
+  export interface MoodImage {
+    title: string;
+    url: string;
+  }
 }

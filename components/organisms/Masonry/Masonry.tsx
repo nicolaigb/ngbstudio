@@ -25,7 +25,7 @@ export const Masonry: React.FC<IMasonry> = (
   // Fill columns with children
   images.forEach((image, idx) => {
     const hash = idx % columns;
-    const item = <SImage src={image} />;
+    const item = <SImage src={image} key={idx} />;
     buckets[hash] = buckets[hash] ? buckets[hash].concat([item]) : [item];
   });
   // Wrap columns in divs
