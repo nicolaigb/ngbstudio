@@ -45,7 +45,7 @@ const SContentContainer = styled.div`
 
 const SImage = styled(Image)`
   max-height: 90vh;
-  max-width: 90vh;
+  max-width: 90vw;
   width: auto;
   margin-bottom: ${({ theme }) => theme.Spacing.tight};
 `;
