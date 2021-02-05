@@ -27,7 +27,7 @@ export const WorksGrid: React.FC<IWorksGrid> = (
 const SWorksGridContainer = styled.div`
   width: 100%;
   display: grid;
-  justify-content: space-between;
+  justify-content: center;
   overflow-y: scroll;
   // Media queries to determine number of columns based on screen size
   @media (max-width: ${({ theme }) => theme.Spacing.webMin}) { // Mobile
