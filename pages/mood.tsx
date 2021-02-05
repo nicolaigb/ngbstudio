@@ -7,7 +7,6 @@ import { getMoodImages } from '../api/index';
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const moodImages = await getMoodImages();
-  console.log(moodImages);
   return {
     props: {
       moodImages,
