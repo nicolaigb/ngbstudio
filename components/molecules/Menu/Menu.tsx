@@ -2,6 +2,7 @@ import {
   Text, InternalLink,
 } from '@atoms';
 import React, { ReactElement } from 'react';
+import { useRouter } from 'next/router';
 import styled from 'styled-components';
 
 interface IMenuItem {
@@ -10,6 +11,9 @@ interface IMenuItem {
    */
   text: string;
 
+  /**
+   * URL menu item is pointing to
+   */
   href: string;
 }
 
@@ -25,19 +29,24 @@ export const Menu: React.FC<IMenu> = (
     menuItems,
     ...props
   },
-): ReactElement => (
-  <SMenuContainer {...props}>
-    {menuItems.map(
-      (menuItem, idx) => (
-        <SMenuItemContainer key={idx}>
-          <InternalLink styleType="subdued" href={menuItem.href}>
-            <Text styleType="emphasized">{menuItem.text}</Text>
-          </InternalLink>
-        </SMenuItemContainer>
-      ),
-    )}
-  </SMenuContainer>
-);
+): ReactElement => {
+  const router = useRouter();
+  return (
+    <SMenuContainer {...props}>
+      {menuItems.map(
+        (menuItem, idx) => (
+          <SMenuItemContainer key={idx}>
+            <InternalLink styleType="subdued" href={menuItem.href}>
+              {(router.pathname === menuItem.href)
+                ? <SSelectedText styleType="emphasized">{menuItem.text}</SSelectedText>
+                : <Text styleType="emphasized">{menuItem.text}</Text>}
+            </InternalLink>
+          </SMenuItemContainer>
+        ),
+      )}
+    </SMenuContainer>
+  );
+};
 
 const SMenuContainer = styled.div`
   display: flex;
@@ -57,4 +66,8 @@ const SMenuItemContainer = styled.div`
   @media only screen and (min-width: ${({ theme }) => theme.Spacing.webMin}) {
     margin-bottom: ${({ theme }) => theme.Spacing.tight}
   }
+`;
+
+const SSelectedText = styled(Text)`
+  color: ${({ theme }) => theme.Colors.emphasis};
 `;

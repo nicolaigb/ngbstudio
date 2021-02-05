@@ -15,4 +15,9 @@ const getWorks = async () => instance.request({ url: 'works' }).then((value) => 
  */
 const getWork = async (tag) => instance.request({ url: `works/${tag}` }).then((value) => value.data).catch(() => null);
 
-export { getWorks, getWork };
+/**
+ * GET mood images
+ */
+const getMoodImages = async () => instance.request({ url: 'mood-images' }).then((value) => value.data).catch(() => null);
+
+export { getWorks, getWork, getMoodImages };
