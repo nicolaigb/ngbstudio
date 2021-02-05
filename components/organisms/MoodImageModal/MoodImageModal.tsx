@@ -38,13 +38,14 @@ const SModal = styled(Modal)`
 const SContentContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
   height: 100%;
 `;
 
 const SImage = styled(Image)`
   max-height: 90%;
+  max-width: 90%;
   width: auto;
   margin-bottom: ${({ theme }) => theme.Spacing.tight};
 `;

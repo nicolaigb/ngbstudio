@@ -2,15 +2,18 @@ import React, { ReactElement } from 'react';
 import ReactModal from 'react-modal';
 import styled from 'styled-components';
 
-export interface IModal extends ReactModal.Props {}
+export interface IModal extends ReactModal.Props {
+  isOpen: boolean;
+}
 
 export const Modal: React.FC<IModal> = (
   {
     children,
+    isOpen,
     ...props
   },
 ): ReactElement => (
-  <SModal {...props} style={{ overlay: { backgroundColor: 'rgba(52, 55, 64, 0.85)' } }}>
+  <SModal {...props} isOpen={isOpen} style={{ overlay: { backgroundColor: 'rgba(52, 55, 64, 0.85)' } }}>
     {children}
   </SModal>
 );
