@@ -4,7 +4,7 @@ import {
 } from '@atoms';
 import styled from 'styled-components';
 
-export interface IMoodImageModal extends IModal {
+export interface IImageModal extends IModal {
   /**
    * URL to image displayed in modal
    */
@@ -16,7 +16,7 @@ export interface IMoodImageModal extends IModal {
   text: string;
 }
 
-export const MoodImageModal: React.FC<IMoodImageModal> = (
+export const ImageModal: React.FC<IImageModal> = (
   {
     image,
     text,

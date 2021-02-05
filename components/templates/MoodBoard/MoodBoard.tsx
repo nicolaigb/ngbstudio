@@ -1,7 +1,7 @@
 import React, { ReactElement, useState } from 'react';
 import { MoodImage } from 'model';
 import { Button, Image } from '@atoms';
-import { Masonry, MoodImageModal } from '@organisms';
+import { Masonry, ImageModal } from '@organisms';
 import styled from 'styled-components';
 
 export interface IMoodBoard extends React.HTMLAttributes<HTMLDivElement> {
@@ -22,7 +22,7 @@ export const MoodBoard: React.FC<IMoodBoard> = (
   const modalOpen = (selectedIdx !== null);
   return (
     <SMoodBoardContainer {...props}>
-      <MoodImageModal
+      <ImageModal
         isOpen={modalOpen}
         onRequestClose={() => setSelectedIdx(null)}
         image={selectedImage ? selectedImage.url : null}
