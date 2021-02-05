@@ -8,7 +8,7 @@ export default {
 };
 
 export const getWorksGridArgs = () => ({
-  worksProps: new Array(1).fill(getContentPreviewArgs()),
+  worksProps: new Array(16).fill(getContentPreviewArgs()),
 });
 const Template: Story<IWorksGrid> = (args) => <WorksGrid {...args} />;
 export const worksGrid = Template.bind({});

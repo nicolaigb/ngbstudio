@@ -14,6 +14,7 @@ declare module 'styled-components' {
 
     Colors: {
       background: string;
+      modal: string;
       placeholder: string;
       lightGrey: string;
       text: string;

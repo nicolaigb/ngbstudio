@@ -1,7 +1,6 @@
 import React from 'react';
 import { GetServerSideProps } from 'next';
-import { Masonry } from '@organisms';
-import { Layout, getLayoutArgs } from '@templates';
+import { Layout, getLayoutArgs, MoodBoard } from '@templates';
 import { MoodImage } from 'model';
 import { getMoodImages } from '../api/index';
 
@@ -20,9 +19,8 @@ interface IMood {
 
 const Home = ({ moodImages }: IMood) => (
   <Layout {...getLayoutArgs()}>
-    <Masonry
-      columns={3}
-      images={moodImages.map((moodImage) => moodImage.url)}
+    <MoodBoard
+      images={moodImages}
     />
   </Layout>
 );
