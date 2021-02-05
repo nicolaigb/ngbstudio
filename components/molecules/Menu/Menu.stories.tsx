@@ -9,19 +9,19 @@ export default {
 export const getMenuArgs = () => ({
   menuItems: [
     {
-      href: 'https://blonded.co',
+      href: '/',
       text: 'Home',
     },
     {
-      href: 'http://www.playboicarti.com/',
+      href: '/me',
       text: 'Me',
     },
     {
-      href: 'https://www.beta.cent.co/',
+      href: '/ideas',
       text: 'Ideas',
     },
     {
-      href: 'https://www.cryptovoxels.com/',
+      href: '/mood',
       text: 'Moooood',
     },
   ],

@@ -28,7 +28,7 @@ const WorkDetailPage = ({ work }: IWorkDetailPage) => (
       mainImage={work.images[0]}
       textEntryProps={{
         title: work.title,
-        year: work.createdAt,
+        year: work.year,
         description: work.description,
       }}
       images={work.images.slice(1)}

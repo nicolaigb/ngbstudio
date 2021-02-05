@@ -1,2 +1,2 @@
-export * from "./ExternalLink.stories";
-export * from "./ExternalLink";
+export * from './ExternalLink.stories';
+export * from './ExternalLink';

@@ -3,10 +3,10 @@ import { GetServerSideProps } from 'next';
 import {
   WorksGrid,
   Layout,
+  getLayoutArgs,
 } from '@templates';
 
 import { Work } from 'model';
-import { getLayoutArgs } from '@templates/Layout/Layout.stories';
 import { getWorks } from '../api/index';
 
 export const getServerSideProps: GetServerSideProps = async () => {

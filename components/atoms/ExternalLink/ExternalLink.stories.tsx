@@ -8,9 +8,6 @@ export default {
 };
 
 export const getExternalLinkArgs = () => ({
-  textProps: {
-    styleType: 'header',
-  },
   children: <Text styleType="header">HELLO, BLONDED!</Text>,
   href: 'https://blonded.co',
 });
