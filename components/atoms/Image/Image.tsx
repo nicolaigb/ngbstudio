@@ -13,4 +13,5 @@ export const Image: React.FC<IImage> = (
 
 const SImage = styled.img`
   object-fit: cover;
+  width: 100%;
 `;

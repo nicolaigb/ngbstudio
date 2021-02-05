@@ -2,6 +2,8 @@
 export const Colors = {
   background: '#343740',
 
+  modal: 'rgba(52, 55, 64, 0.85)',
+
   placeholder: '#BDBDBD',
 
   lightGrey: '#C4C4C4',

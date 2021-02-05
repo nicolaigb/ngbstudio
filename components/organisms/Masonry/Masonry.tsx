@@ -1,12 +1,12 @@
 import React, { ReactElement } from 'react';
-import { Image } from '@atoms';
+// import { Image } from '@atoms';
 import styled from 'styled-components';
 
 export interface IMasonry extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * Components to be displayed in Masonry format
    */
-  images: string[];
+  children: ReactElement[];
 
   /**
    * Number of columns to hold children
@@ -16,16 +16,21 @@ export interface IMasonry extends React.HTMLAttributes<HTMLDivElement> {
 
 export const Masonry: React.FC<IMasonry> = (
   {
+    children,
     columns,
-    images,
     ...props
   },
 ): ReactElement => {
   const buckets = {};
   // Fill columns with children
-  images.forEach((image, idx) => {
+  // images.forEach((image, idx) => {
+  //   const hash = idx % columns;
+  //   const item = <SImage src={image} key={idx} />;
+  //   buckets[hash] = buckets[hash] ? buckets[hash].concat([item]) : [item];
+  // });
+  children.forEach((child, idx) => {
     const hash = idx % columns;
-    const item = <SImage src={image} key={idx} />;
+    const item = <SItemContainer>{child}</SItemContainer>;
     buckets[hash] = buckets[hash] ? buckets[hash].concat([item]) : [item];
   });
   // Wrap columns in divs
@@ -51,7 +56,13 @@ const SColumnContainer = styled.div`
   margin: 0 ${({ theme }) => theme.Spacing.tight};
 `;
 
-const SImage = styled(Image)`
+// const SImage = styled(Image)`
+//   width: 100%;
+//   height: auto;
+//   margin: ${({ theme }) => theme.Spacing.tight} 0;
+// `;
+
+const SItemContainer = styled.div`
   width: 100%;
   height: auto;
   margin: ${({ theme }) => theme.Spacing.tight} 0;
