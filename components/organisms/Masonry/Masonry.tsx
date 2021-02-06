@@ -30,7 +30,7 @@ export const Masonry: React.FC<IMasonry> = (
   // });
   children.forEach((child, idx) => {
     const hash = idx % columns;
-    const item = <SItemContainer>{child}</SItemContainer>;
+    const item = <SItemContainer key={idx}>{child}</SItemContainer>;
     buckets[hash] = buckets[hash] ? buckets[hash].concat([item]) : [item];
   });
   // Wrap columns in divs
