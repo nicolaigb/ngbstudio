@@ -52,15 +52,15 @@ const SMasonryContainer = styled.div`
 const SColumnContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 30%;
-  margin: 0 ${({ theme }) => theme.Spacing.tight};
+  @media only screen and (max-width: ${({ theme }) => theme.Spacing.mobileMax}) {
+    width: 40%;
+    margin: 0 ${({ theme }) => theme.Spacing.condensed};
+  }
+  @media only screen and (min-width: ${({ theme }) => theme.Spacing.webMin}) {
+    width: 30%;
+    margin: 0 ${({ theme }) => theme.Spacing.tight};
+  }
 `;
-
-// const SImage = styled(Image)`
-//   width: 100%;
-//   height: auto;
-//   margin: ${({ theme }) => theme.Spacing.tight} 0;
-// `;
 
 const SItemContainer = styled.div`
   width: 100%;
