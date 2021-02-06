@@ -25,13 +25,12 @@ interface IWorkDetailPage {
 const WorkDetailPage = ({ work }: IWorkDetailPage) => (
   <Layout {...getLayoutArgs()}>
     <WorkDetail
-      mainImage={work.images[0]}
       textEntryProps={{
         title: work.title,
         year: work.year,
         description: work.description,
       }}
-      images={work.images.slice(1)}
+      images={work.images}
     />
   </Layout>
 );
