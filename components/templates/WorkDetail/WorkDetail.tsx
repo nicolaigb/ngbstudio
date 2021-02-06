@@ -1,14 +1,9 @@
-import React, { ReactElement } from 'react';
-import { Image } from '@atoms';
-import { TextEntry, ITextEntry } from '@organisms';
+import React, { ReactElement, useState } from 'react';
+import { Image, Button } from '@atoms';
+import { ImageModal, TextEntry, ITextEntry } from '@organisms';
 import styled from 'styled-components';
 
 export interface IWorkDetail extends React.HTMLAttributes<HTMLDivElement> {
-  /**
-   * Main image displayed at top of work detail
-   */
-  mainImage: string;
-
   /**
    * Props for text entry
    */
@@ -22,18 +17,34 @@ export interface IWorkDetail extends React.HTMLAttributes<HTMLDivElement> {
 
 export const WorkDetail: React.FC<IWorkDetail> = (
   {
-    mainImage,
     textEntryProps,
     images,
     ...props
   },
-): ReactElement => (
-  <SWorkDetailContainer {...props}>
-    <SImage src={mainImage} />
-    <STextEntry {...textEntryProps} />
-    {images.map((imageSrc, idx) => <SFeedImage src={imageSrc} key={idx} />)}
-  </SWorkDetailContainer>
-);
+): ReactElement => {
+  const [selectedIdx, setSelectedIdx] = useState(null);
+  const selectedImage = images[selectedIdx];
+  const modalOpen = (selectedIdx !== null);
+  return (
+    <SWorkDetailContainer {...props}>
+      <ImageModal
+        isOpen={modalOpen}
+        onRequestClose={() => setSelectedIdx(null)}
+        image={selectedImage ?? null}
+        text={selectedIdx ? `${selectedIdx}/${images.length}` : null}
+      />
+      <Button styleType="icon" onClick={() => setSelectedIdx(0)}>
+        <SImage src={images[0]} />
+      </Button>
+      <STextEntry {...textEntryProps} />
+      {images.slice(1).map((imageSrc, idx) => (
+        <Button key={idx + 1} styleType="icon" onClick={() => setSelectedIdx(idx + 1)}>
+          <SFeedImage src={imageSrc} />
+        </Button>
+      ))}
+    </SWorkDetailContainer>
+  );
+};
 
 const SWorkDetailContainer = styled.div`
   display: flex;
