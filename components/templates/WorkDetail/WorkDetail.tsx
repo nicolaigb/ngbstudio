@@ -23,7 +23,6 @@ export const WorkDetail: React.FC<IWorkDetail> = (
   },
 ): ReactElement => {
   const [selectedIdx, setSelectedIdx] = useState(null);
-  console.log(selectedIdx);
   const selectedImage = images[selectedIdx];
   const modalOpen = (selectedIdx !== null);
   return (
