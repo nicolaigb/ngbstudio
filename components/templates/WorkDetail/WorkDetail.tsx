@@ -54,12 +54,19 @@ const SWorkDetailContainer = styled.div`
 `;
 
 const SImage = styled(Image)`
-  width: 100%;
+  max-height: 90vh;
+  max-width: 80vw;
+  width: auto;
   margin-bottom: ${({ theme }) => theme.Spacing.wide};
 `;
 
 const SFeedImage = styled(SImage)`
   margin-top: ${({ theme }) => theme.Spacing.wide};
+  // Make feed images smaller on web
+  @media only screen and (min-width: ${({ theme }) => theme.Spacing.webMin}) {
+    max-height: 80vh;
+    width: auto;
+  }
 `;
 
 const STextEntry = styled(TextEntry)`
