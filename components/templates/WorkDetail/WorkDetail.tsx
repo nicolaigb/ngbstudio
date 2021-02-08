@@ -33,12 +33,12 @@ export const WorkDetail: React.FC<IWorkDetail> = (
         image={selectedImage ?? null}
         text={selectedIdx ? `${selectedIdx}/${images.length}` : null}
       />
-      <Button styleType="icon" onClick={() => setSelectedIdx(0)}>
+      <Button styleType="image" onClick={() => setSelectedIdx(0)}>
         <SImage src={images[0]} />
       </Button>
       <STextEntry {...textEntryProps} />
       {images.slice(1).map((imageSrc, idx) => (
-        <Button key={idx + 1} styleType="icon" onClick={() => setSelectedIdx(idx + 1)}>
+        <Button key={idx + 1} styleType="image" onClick={() => setSelectedIdx(idx + 1)}>
           <SFeedImage src={imageSrc} />
         </Button>
       ))}
@@ -49,24 +49,25 @@ export const WorkDetail: React.FC<IWorkDetail> = (
 const SWorkDetailContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  overflow: hidden;
 `;
 
 const SImage = styled(Image)`
-  max-height: 90vh;
-  max-width: 80vw;
-  width: auto;
+  @media only screen and (max-width: ${({ theme }) => theme.Spacing.mobileMax}) {
+    width: 100%;
+    height: auto;
+  }
+  // Make images smaller on web
+  @media only screen and (min-width: ${({ theme }) => theme.Spacing.webMin}) {
+    max-height: 90vh;
+    max-width: 80vw;
+    width: auto;
+  }
   margin-bottom: ${({ theme }) => theme.Spacing.wide};
 `;
 
 const SFeedImage = styled(SImage)`
   margin-top: ${({ theme }) => theme.Spacing.wide};
-  // Make feed images smaller on web
-  @media only screen and (min-width: ${({ theme }) => theme.Spacing.webMin}) {
-    max-height: 80vh;
-    width: auto;
-  }
 `;
 
 const STextEntry = styled(TextEntry)`
