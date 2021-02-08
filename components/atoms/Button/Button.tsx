@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react';
 import styled, { css } from 'styled-components';
 
-export type TSButtonVariants = 'regular' | 'icon';
+export type TSButtonVariants = 'regular' | 'icon' | 'image';
 
 export interface IButton extends React.HTMLAttributes<HTMLButtonElement> {
   /**
@@ -32,10 +32,15 @@ const regularButtonStyle = css`
 
 const iconButtonStyle = css``;
 
+const imageButtonStyle = css`
+  padding: 0;
+`;
+
 const SButtonContainer = styled.button<Pick<IButton, 'styleType'>>`
   ${({ styleType }) => ({
     regular: regularButtonStyle,
     icon: iconButtonStyle,
+    image: imageButtonStyle,
   }[styleType])}
   border-style: none;
   outline: none;

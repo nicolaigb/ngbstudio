@@ -30,7 +30,7 @@ export const MoodBoard: React.FC<IMoodBoard> = (
       />
       <Masonry columns={3}>
         {images.map((img, idx) => (
-          <Button key={idx} styleType="icon" onClick={() => setSelectedIdx(idx)}>
+          <Button key={idx} styleType="image" onClick={() => setSelectedIdx(idx)}>
             <Image src={img.url} />
           </Button>
         ))}
