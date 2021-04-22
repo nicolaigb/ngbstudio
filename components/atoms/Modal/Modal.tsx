@@ -1,8 +1,7 @@
 import React, { ReactElement } from 'react';
-import ReactModal from 'react-modal';
 import styled from 'styled-components';
 
-export interface IModal extends ReactModal.Props {
+export interface IModal extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * Boolean determining whether the modal is open
    */
@@ -22,30 +21,28 @@ export const Modal: React.FC<IModal> = (
     ...props
   },
 ): ReactElement => (
-  <SModal
-    {...props}
-    isOpen={isOpen}
-    onRequestClose={onRequestClose}
-    shouldCloseOnOverlayClick
-    style={{
-      overlay: {
-        backgroundColor: 'rgba(52, 55, 64, 0.85)',
-      },
-      content: {
-        position: 'absolute',
-        top: '50%',
-        left: '50%',
-        right: 'auto',
-        bottom: 'auto',
-        marginRight: '-50%',
-        transform: 'translate(-50%, -50%)',
-      },
-    }}
-  >
-    {children}
-  </SModal>
+  <SModalContainer {...props} hidden={!isOpen} onClick={onRequestClose}>
+    <SModalContent>
+      {children}
+    </SModalContent>
+  </SModalContainer>
 );
 
-const SModal = styled(ReactModal)`
-  outline: none;
+const SModalContainer = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: ${({ theme }) => theme.Colors.modal};
+`;
+
+const SModalContent = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
 `;
