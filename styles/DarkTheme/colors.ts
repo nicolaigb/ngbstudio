@@ -2,7 +2,7 @@
 export const Colors = {
   background: '#343740',
 
-  modal: 'rgba(52, 55, 64, 0.85)',
+  modal: 'rgba(1, 3, 9, 0.65)',
 
   placeholder: '#BDBDBD',
 
@@ -10,7 +10,7 @@ export const Colors = {
 
   text: '#FFFFFF',
 
-  emphasis: '#F14B4B',
+  emphasis: '#E58D4D',
 
   borderLine: 'rgba(24, 24, 24, .5)',
 
