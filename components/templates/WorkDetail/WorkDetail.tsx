@@ -25,20 +25,22 @@ export const WorkDetail: React.FC<IWorkDetail> = (
   const [selectedIdx, setSelectedIdx] = useState(null);
   const selectedImage = images[selectedIdx];
   const modalOpen = (selectedIdx !== null);
+  console.log(selectedIdx);
+  console.log(modalOpen);
   return (
     <SWorkDetailContainer {...props}>
       <ImageModal
         isOpen={modalOpen}
         onRequestClose={() => setSelectedIdx(null)}
         image={selectedImage ?? null}
-        text={selectedIdx ? `${selectedIdx}/${images.length}` : null}
+        text={selectedIdx !== null ? `${selectedIdx + 1}/${images.length}` : null}
       />
       <Button styleType="image" onClick={() => setSelectedIdx(0)}>
         <SImage src={images[0]} />
       </Button>
       <STextEntry {...textEntryProps} />
       {images.slice(1).map((imageSrc, idx) => (
-        <Button key={idx + 1} styleType="image" onClick={() => setSelectedIdx(idx + 1)}>
+        <Button key={`image-${idx + 1}`} styleType="image" onClick={() => setSelectedIdx(idx + 1)}>
           <SFeedImage src={imageSrc} />
         </Button>
       ))}

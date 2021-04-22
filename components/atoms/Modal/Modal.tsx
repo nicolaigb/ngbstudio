@@ -1,4 +1,4 @@
-import React, { ReactElement, useState } from 'react';
+import React, { ReactElement } from 'react';
 import styled from 'styled-components';
 
 export interface IModal extends React.HTMLAttributes<HTMLDivElement> {
@@ -20,17 +20,13 @@ export const Modal: React.FC<IModal> = (
     onRequestClose,
     ...props
   },
-): ReactElement => {
-  const [open, setOpen] = useState(isOpen);
-
-  return (
-    <SModalContainer {...props} hidden={!open} onClick={() => setOpen(false)}>
-      <SModalContent>
-        {children}
-      </SModalContent>
-    </SModalContainer>
-  );
-};
+): ReactElement => (
+  <SModalContainer {...props} hidden={!isOpen} onClick={onRequestClose}>
+    <SModalContent>
+      {children}
+    </SModalContent>
+  </SModalContainer>
+);
 
 const SModalContainer = styled.div`
   position: fixed;
