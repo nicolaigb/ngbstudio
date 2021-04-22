@@ -25,8 +25,6 @@ export const WorkDetail: React.FC<IWorkDetail> = (
   const [selectedIdx, setSelectedIdx] = useState(null);
   const selectedImage = images[selectedIdx];
   const modalOpen = (selectedIdx !== null);
-  console.log(selectedIdx);
-  console.log(modalOpen);
   return (
     <SWorkDetailContainer {...props}>
       <ImageModal
