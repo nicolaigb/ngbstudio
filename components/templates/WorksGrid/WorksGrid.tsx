@@ -28,7 +28,6 @@ const SWorksGridContainer = styled.div`
   width: 100%;
   display: grid;
   justify-content: center;
-  overflow-y: scroll;
   // Media queries to determine number of columns based on screen size
   @media (max-width: ${({ theme }) => theme.Spacing.webMin}) { // Mobile
     grid-template-columns: 100%;
