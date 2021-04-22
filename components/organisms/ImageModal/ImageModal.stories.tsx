@@ -3,7 +3,7 @@ import { Story } from '@storybook/react';
 import { IImageModal, ImageModal } from './index';
 
 export default {
-  title: 'Organisms/MoodImageModal',
+  title: 'Organisms/ImageModal',
 };
 
 export const getImageModalArgs = () => ({
