@@ -9,7 +9,7 @@ export default {
 
 export const getHeaderArgs = () => ({
   datesProps: getDatesArgs(),
-  headerText: 'Nicolai Garcia',
+  headerText: 'NG',
   headerURL: '/',
 });
 const Template: Story<IHeader> = (args) => <Header {...args} />;
