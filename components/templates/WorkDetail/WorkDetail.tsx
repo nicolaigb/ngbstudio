@@ -49,6 +49,7 @@ export const WorkDetail: React.FC<IWorkDetail> = (
 const SWorkDetailContainer = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   overflow: hidden;
 `;
 
@@ -59,7 +60,7 @@ const SButton = styled(Button)`
   }
   // Make images smaller on web
   @media only screen and (min-width: ${({ theme }) => theme.Spacing.webMin}) {
-    max-height: 90%;
+    max-width: 90%;
     width: auto;
   }
   margin-bottom: ${({ theme }) => theme.Spacing.wide};
