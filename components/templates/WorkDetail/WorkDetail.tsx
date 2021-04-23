@@ -1,6 +1,8 @@
 import React, { ReactElement, useState } from 'react';
 import { Image, Button } from '@atoms';
-import { ImageModal, TextEntry, ITextEntry } from '@organisms';
+import {
+  ImageModal, TextEntry, ITextEntry, Masonry,
+} from '@organisms';
 import styled from 'styled-components';
 
 export interface IWorkDetail extends React.HTMLAttributes<HTMLDivElement> {
@@ -37,11 +39,13 @@ export const WorkDetail: React.FC<IWorkDetail> = (
         <Image src={images[0]} />
       </SButton>
       <STextEntry {...textEntryProps} />
-      {images.slice(1).map((imageSrc, idx) => (
-        <SFeedButton key={`image-${idx + 1}`} styleType="image" onClick={() => setSelectedIdx(idx + 1)}>
-          <Image src={imageSrc} />
-        </SFeedButton>
-      ))}
+      <Masonry columns={2}>
+        {images.slice(1).map((imageSrc, idx) => (
+          <Button key={`image-${idx + 1}`} styleType="image" onClick={() => setSelectedIdx(idx + 1)}>
+            <Image src={imageSrc} />
+          </Button>
+        ))}
+      </Masonry>
     </SWorkDetailContainer>
   );
 };
@@ -64,10 +68,6 @@ const SButton = styled(Button)`
     width: auto;
   }
   margin-bottom: ${({ theme }) => theme.Spacing.wide};
-`;
-
-const SFeedButton = styled(SButton)`
-  margin-top: ${({ theme }) => theme.Spacing.wide};
 `;
 
 const STextEntry = styled(TextEntry)`
