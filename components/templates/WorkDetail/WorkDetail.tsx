@@ -67,7 +67,7 @@ const SButton = styled(Button)`
     max-width: 90%;
     width: auto;
   }
-  margin-bottom: ${({ theme }) => theme.Spacing.wide};
+  margin-bottom: ${({ theme }) => theme.Spacing.extraWide};
 `;
 
 const STextEntry = styled(TextEntry)`
