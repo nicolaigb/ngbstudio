@@ -10,7 +10,7 @@ export const Colors = {
 
   text: '#FFFFFF',
 
-  emphasis: '#E58D4D',
+  emphasis: '#FF9195',
 
   borderLine: 'rgba(24, 24, 24, .5)',
 
