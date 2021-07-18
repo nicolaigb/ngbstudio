@@ -46,18 +46,17 @@ export const Masonry: React.FC<IMasonry> = (
 const SMasonryContainer = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
 `;
 
 const SColumnContainer = styled.div`
   display: flex;
   flex-direction: column;
+  flex: 1;
   @media only screen and (max-width: ${({ theme }) => theme.Spacing.mobileMax}) {
-    width: 40%;
     margin: 0 ${({ theme }) => theme.Spacing.condensed};
   }
   @media only screen and (min-width: ${({ theme }) => theme.Spacing.webMin}) {
-    width: 30%;
     margin: 0 ${({ theme }) => theme.Spacing.tight};
   }
 `;
@@ -65,5 +64,9 @@ const SColumnContainer = styled.div`
 const SItemContainer = styled.div`
   width: 100%;
   height: auto;
+
+  @media only screen and (max-width: ${({ theme }) => theme.Spacing.mobileMax}) {
+    margin: ${({ theme }) => theme.Spacing.condensed} 0;
+  }
   margin: ${({ theme }) => theme.Spacing.tight} 0;
 `;
