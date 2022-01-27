@@ -9,13 +9,13 @@ import {
 import { Work } from 'model';
 
 // UNCOMMENT FOR SPORT MODE
-import styled from 'styled-components';
-import { Image } from 'components/atoms';
+// import styled from 'styled-components';
+// import { Image } from 'components/atoms';
 
 import { getWorks } from '../api/index';
 
-const SLIT_URL = 'https://elasticbeanstalk-us-east-1-574094957622.s3.amazonaws.com/images/vlc-record-2021-07-18-02h27m21s-Lost+in+Translation.gif';
-const SPORT_MODE = false;
+// const SLIT_URL = 'https://elasticbeanstalk-us-east-1-574094957622.s3.amazonaws.com/images/vlc-record-2021-07-18-02h27m21s-Lost+in+Translation.gif';
+// const SPORT_MODE = false;
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const works = await getWorks();
@@ -41,21 +41,21 @@ const Home = ({ works }: IHome) => (
       }
       />
     </Layout>
-    {
+    {/* {
     SPORT_MODE
       && <SLIT src={SLIT_URL} />
-  }
+  } */}
   </div>
 );
 
 // UNCOMMENT FOR SPORT MODE
 
-const SLIT = styled(Image)`
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-`;
+// const SLIT = styled(Image)`
+//   position: absolute;
+//   left: 0;
+//   top: 0;
+//   width: 100%;
+//   height: 100%;
+// `;
 
 export default Home;
