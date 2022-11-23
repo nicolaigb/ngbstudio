@@ -5,7 +5,6 @@ import {
 import { GetServerSideProps } from 'next';
 import { getWork } from 'api';
 import { Work } from 'model';
-import { getLayoutArgs } from '@templates/Layout/Layout.stories';
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { query } = context;
@@ -23,7 +22,7 @@ interface IWorkDetailPage {
 }
 
 const WorkDetailPage = ({ work }: IWorkDetailPage) => (
-  <Layout {...getLayoutArgs()}>
+  <Layout>
     <WorkDetail
       textEntryProps={{
         title: work.title,

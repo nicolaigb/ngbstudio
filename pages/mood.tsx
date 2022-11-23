@@ -1,6 +1,9 @@
 import React from 'react';
 import { GetServerSideProps } from 'next';
-import { Layout, getLayoutArgs, MoodBoard } from '@templates';
+import {
+  Layout,
+  MoodBoard,
+} from '@templates';
 import { MoodImage } from 'model';
 import { getMoodImages } from '../api/index';
 
@@ -18,7 +21,7 @@ interface IMood {
 }
 
 const Home = ({ moodImages }: IMood) => (
-  <Layout {...getLayoutArgs()}>
+  <Layout>
     <MoodBoard
       images={moodImages}
     />
