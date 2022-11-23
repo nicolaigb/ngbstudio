@@ -1,5 +1,4 @@
 import React, { ReactElement } from 'react';
-// import { Image } from '@atoms';
 import styled from 'styled-components';
 
 export interface IMasonry extends React.HTMLAttributes<HTMLDivElement> {
@@ -22,12 +21,6 @@ export const Masonry: React.FC<IMasonry> = (
   },
 ): ReactElement => {
   const buckets = {};
-  // Fill columns with children
-  // images.forEach((image, idx) => {
-  //   const hash = idx % columns;
-  //   const item = <SImage src={image} key={idx} />;
-  //   buckets[hash] = buckets[hash] ? buckets[hash].concat([item]) : [item];
-  // });
   children.forEach((child, idx) => {
     const hash = idx % columns;
     const item = <SItemContainer key={idx}>{child}</SItemContainer>;

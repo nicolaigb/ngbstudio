@@ -1,12 +1,10 @@
 import React from 'react';
 import {
-  Ideas, getIdeasArgs, Layout,
+  Layout,
 } from '@templates';
 
 const IdeasPage = () => (
-  <Layout>
-    <Ideas {...getIdeasArgs()} />
-  </Layout>
+  <Layout />
 );
 
 export default IdeasPage;
