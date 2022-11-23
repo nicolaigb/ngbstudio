@@ -1,10 +1,12 @@
 import React from 'react';
 import {
-  Layout, getLayoutArgs, Me, getMeArgs,
+  Layout,
+  Me,
+  getMeArgs,
 } from '@templates';
 
 const MePage = () => (
-  <Layout {...getLayoutArgs()}>
+  <Layout>
     <Me {...getMeArgs()} />
   </Layout>
 );
