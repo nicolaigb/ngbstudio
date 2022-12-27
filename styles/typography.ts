@@ -1,9 +1,9 @@
 import { css } from 'styled-components';
 
-export const primaryFont = 'neue-haas-grotesk-text';
+export const primaryFont = 'Neue Haas Grotesk Display Pro';
 
 const baseTextStyle = css`
-  font-family: ${primaryFont};
+  font-family: ${primaryFont}, Helvetica, sans-serif;
 `;
 
 const boldTextStyle = css`
@@ -12,7 +12,7 @@ const boldTextStyle = css`
 `;
 
 export const Typography = {
-  primaryFontFamily: 'neue-haas-grotesk-text',
+  primaryFontFamily: primaryFont,
 
   titleStyle: css`
     ${boldTextStyle};
