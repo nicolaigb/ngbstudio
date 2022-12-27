@@ -3,13 +3,13 @@ import {
   Layout, WorkDetail,
 } from '@templates';
 import { GetServerSideProps } from 'next';
-import { getWork } from 'api';
 import { Work } from 'model';
+import WorksData from '@constants/works';
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { query } = context;
   const { tag } = query;
-  const work = await getWork(tag);
+  const work = WorksData.filter((entry) => entry.tag === tag)[0];
   return {
     props: {
       work,
