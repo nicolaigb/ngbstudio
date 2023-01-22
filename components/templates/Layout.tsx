@@ -1,5 +1,4 @@
 import React from 'react';
-import { Menu } from '@molecules';
 import { Header } from '@organisms';
 import styled from 'styled-components';
 
@@ -9,98 +8,23 @@ export const Layout = ({
 }: React.HTMLAttributes<HTMLDivElement>) => (
   <SLayoutContainer {...props}>
     <SHeader />
-    <SMenu
-      menuItems={[
-        {
-          href: '/',
-          text: 'Home',
-        },
-        {
-          href: '/me',
-          text: 'Me',
-        },
-        {
-          href: '/ideas',
-          text: 'Ideas',
-        },
-        {
-          href: '/mood',
-          text: 'Moooood',
-        },
-      ]}
-    />
     <SContentContainer>{children}</SContentContainer>
   </SLayoutContainer>
 );
 
 const SLayoutContainer = styled.div`
-  display: grid;
-  min-height: 100vh;
-  // Layout specific to mobile screen
-  @media only screen and (max-width: ${({ theme }) => theme.Spacing.webMin}) {
-    grid-template-columns: 100%;
-    grid-template-rows: 70px 30px auto ${({ theme }) => theme.Spacing.wide};
-    row-gap: ${({ theme }) => theme.Spacing.regular};
-    padding: ${({ theme }) => theme.Spacing.regular};
-  }
-
-  // Layout specific to desktop screen
-  @media only screen and (min-width: ${({ theme }) => theme.Spacing.webMin}) {
-    grid-template-columns: 135px auto 135px;
-    grid-template-rows: 40px auto ${({ theme }) => theme.Spacing.wide};
-    row-gap: ${({ theme }) => theme.Spacing.extraWide};
-    column-gap: 20px;
-    padding: ${({ theme }) => theme.Spacing.wide};
-  }
-
-  background-color: ${({ theme }) => theme.Colors.background};
+  position: relative;
 `;
 
 const SHeader = styled(Header)`
-  // Keep in grid on mobile
-  @media only screen and (max-width: ${({ theme }) => theme.Spacing.webMin}) {
-    grid-row: 1;
-    grid-column: 1;
-  }
-
-  // Fix on web
-  @media only screen and (min-width: ${({ theme }) => theme.Spacing.webMin}) {
-    position: fixed;
-    top: ${({ theme }) => theme.Spacing.wide};
-    left: ${({ theme }) => theme.Spacing.wide};
-    right: ${({ theme }) => theme.Spacing.wide};
-  }
-`;
-
-const SMenu = styled(Menu)`
-  // Keep in grid on mobile
-  @media only screen and (max-width: ${({ theme }) => theme.Spacing.webMin}) {
-    grid-row: 2;
-    grid-column: 1;
-  }
-
-  // Fix on web
-  @media only screen and (min-width: ${({ theme }) => theme.Spacing.webMin}) {
-    position: fixed;
-    top: 138px;
-    width: ${({ theme }) => theme.Spacing.extraWide};
-    left: ${({ theme }) => theme.Spacing.wide};
-    right: ${({ theme }) => theme.Spacing.wide};
-  }
+  position: sticky;
+  top: 0;
 `;
 
 const SContentContainer = styled.div`
+  padding: ${({ theme }) => theme.Spacing.wide};
+  // Layout specific to mobile screen
   @media only screen and (max-width: ${({ theme }) => theme.Spacing.webMin}) {
-    grid-column: 1;
-    grid-row: 3;
+    padding: ${({ theme }) => theme.Spacing.regular};
   }
-
-  @media only screen and (min-width: ${({ theme }) => theme.Spacing.webMin}) {
-    grid-column: 2;
-    grid-row: 2;
-  }
-
-  display: flex;
-  align-items: center;
-  flex-direction: column;
 `;

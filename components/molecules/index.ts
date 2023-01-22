@@ -1,3 +1,3 @@
 export * from './ContentPreview';
-export * from './DateContainer';
+export * from './Dates';
 export * from './Menu';

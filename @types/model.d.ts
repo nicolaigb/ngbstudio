@@ -6,6 +6,11 @@ declare module 'model' {
     thumbnail: string;
   }
 
+  export interface NavItem {
+    name: string;
+    slug: string;
+  }
+
   export interface MoodImage {
     title: string;
     url: string;
