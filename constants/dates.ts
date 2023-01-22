@@ -1,23 +1,23 @@
 const dates = [
   {
     timezone: 'America/Los_Angeles',
-    text: 'BRK',
+    city: 'BRK',
   },
   {
     timezone: 'America/New_York',
-    text: 'NYC',
+    city: 'NYC',
   },
   {
     timezone: 'Europe/London',
-    text: 'LDN',
+    city: 'LDN',
   },
   {
     timezone: 'Europe/Berlin',
-    text: 'BER',
+    city: 'BER',
   },
   {
     timezone: 'Asia/Tokyo',
-    text: 'TYO',
+    city: 'TYO',
   },
 ];
 

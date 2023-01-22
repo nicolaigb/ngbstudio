@@ -1,13 +1,14 @@
 import React, { ReactElement, useState } from 'react';
 import { Text } from '@atoms/Text';
 import { DateTime } from 'luxon';
-import styled from 'styled-components';
 
 export interface IDate {
+  city: string;
   timezone: string;
 }
 export const Date: React.FC<IDate> = (
   {
+    city,
     timezone,
     ...props
   },
@@ -21,10 +22,10 @@ export const Date: React.FC<IDate> = (
   setInterval(() => setDate(getDateTime()), 1000);
 
   return (
-    <SDateContainer {...props}>
-      <Text styleType="subtitle">{date}</Text>
-    </SDateContainer>
+    <Text {...props} styleType="subtitle">
+      {city}
+      {' '}
+      {date}
+    </Text>
   );
 };
-
-const SDateContainer = styled.div``;

@@ -1,73 +1,42 @@
+import React from 'react';
+import { useRouter } from 'next/router';
+import styled from 'styled-components';
+import classnames from 'classnames';
 import {
   Text, InternalLink,
 } from '@atoms';
-import React, { ReactElement } from 'react';
-import { useRouter } from 'next/router';
-import styled from 'styled-components';
+import navItems from '@constants/navItems';
 
-interface IMenuItem {
-  /**
-   * Text to be displayed in menu item
-   */
-  text: string;
-
-  /**
-   * URL menu item is pointing to
-   */
-  href: string;
-}
-
-export interface IMenu extends React.HTMLAttributes<HTMLDivElement> {
-  /**
-   * List of items to be displayed in the menu
-   */
-  menuItems: IMenuItem[],
-}
-
-export const Menu: React.FC<IMenu> = (
-  {
-    menuItems,
-    ...props
-  },
-): ReactElement => {
+export const Menu = () => {
   const router = useRouter();
   return (
-    <SMenuContainer {...props}>
-      {menuItems.map(
-        (menuItem, idx) => (
-          <SMenuItemContainer key={idx}>
-            <InternalLink styleType="subdued" href={menuItem.href}>
-              {(router.pathname === menuItem.href)
-                ? <SSelectedText styleType="emphasized">{menuItem.text}</SSelectedText>
-                : <Text styleType="emphasized">{menuItem.text}</Text>}
-            </InternalLink>
-          </SMenuItemContainer>
-        ),
-      )}
+    <SMenuContainer>
+      {
+        navItems.map((item, idx) => (
+          <InternalLink styleType="subdued" href={item.href} key={idx}>
+            <SNavItem
+              className={classnames({ selected: item.href === router.pathname })}
+              styleType="emphasized"
+            >
+              {item.name}
+            </SNavItem>
+          </InternalLink>
+        ))
+      }
     </SMenuContainer>
   );
 };
 
 const SMenuContainer = styled.div`
   display: flex;
-  @media only screen and (max-width: ${({ theme }) => theme.Spacing.mobileMax}) {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
-  @media only screen and (min-width: ${({ theme }) => theme.Spacing.webMin}) {
-    flex-direction: column;
-    justify-content: flex-start;
-  }
+  gap: ${({ theme }) => theme.Spacing.regular};
 `;
 
-const SMenuItemContainer = styled.div`
-  // Add vertical spacing between items on web
-  @media only screen and (min-width: ${({ theme }) => theme.Spacing.webMin}) {
-    margin-bottom: ${({ theme }) => theme.Spacing.tight}
+const SNavItem = styled(Text)`
+  &:hover {
+    text-decoration: underline;
   }
-`;
-
-const SSelectedText = styled(Text)`
-  color: ${({ theme }) => theme.Colors.emphasis};
+  &.selected {
+    text-decoration: underline;
+  }
 `;
