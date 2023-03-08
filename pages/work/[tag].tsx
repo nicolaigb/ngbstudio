@@ -3,14 +3,13 @@ import {
   Layout, WorkDetail,
 } from '@templates';
 import { GetServerSideProps } from 'next';
-import { getWork } from 'api';
 import { Work } from 'model';
-import { getLayoutArgs } from '@templates/Layout/Layout.stories';
+import WorksData from '@constants/works';
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { query } = context;
   const { tag } = query;
-  const work = await getWork(tag);
+  const work = WorksData.filter((entry) => entry.tag === tag)[0];
   return {
     props: {
       work,
@@ -23,14 +22,9 @@ interface IWorkDetailPage {
 }
 
 const WorkDetailPage = ({ work }: IWorkDetailPage) => (
-  <Layout {...getLayoutArgs()}>
+  <Layout>
     <WorkDetail
-      textEntryProps={{
-        title: work.title,
-        year: work.year,
-        description: work.description,
-      }}
-      images={work.images}
+      work={work}
     />
   </Layout>
 );
