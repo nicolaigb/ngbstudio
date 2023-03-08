@@ -1,11 +1,18 @@
 /* eslint-disable import/prefer-default-export */
 import { DefaultTheme } from 'styled-components';
-import { Typography as DarkTypography } from './DarkTheme/typography';
+import { Typography } from './typography';
 import { Colors as DarkColors } from './DarkTheme/colors';
-import { Spacing as DarkSpacing } from './DarkTheme/spacing';
+import { Colors as LightColors } from './LightTheme/colors';
+import { Spacing } from './spacing';
 
 export const DarkTheme: DefaultTheme = {
-  Typography: DarkTypography,
+  Typography,
   Colors: DarkColors,
-  Spacing: DarkSpacing,
+  Spacing,
+};
+
+export const LightTheme: DefaultTheme = {
+  Typography,
+  Colors: LightColors,
+  Spacing,
 };

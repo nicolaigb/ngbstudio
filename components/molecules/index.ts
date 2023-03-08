@@ -1,3 +1,3 @@
-export * from './ContentPreview/index';
-export * from './DateContainer/index';
-export * from './Menu/index';
+export * from './ContentPreview';
+export * from './Dates';
+export * from './Menu';
