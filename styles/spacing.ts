@@ -14,7 +14,7 @@ export const Spacing = {
   // Constants for minimum screen size to display columns in grid
 
   // four columns (MacBook display)
-  fourColumnMin: '1440px',
+  fourColumnMin: '1196px',
 
   // three columns
   threeColumnMin: '1124px',

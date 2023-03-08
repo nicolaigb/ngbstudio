@@ -4,6 +4,7 @@ export const primaryFont = 'Neue Haas Grotesk Display Pro';
 
 const baseTextStyle = css`
   font-family: ${primaryFont}, Helvetica, sans-serif;
+  font-weight: 500;
 `;
 
 const boldTextStyle = css`

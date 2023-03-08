@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  WorksGrid,
+  Grid,
   Layout,
 } from '@templates';
 import WorksData from '@constants/works';
@@ -20,11 +20,11 @@ interface IHome {
 const Home = ({ works }: IHome) => (
   <div>
     <Layout>
-      <WorksGrid
+      <Grid
         worksProps={
           works.map((work) => ({
             name: work.title,
-            src: work.thumbnail,
+            src: work.images[0],
             url: `/work/${work.tag}`,
           }))
         }
