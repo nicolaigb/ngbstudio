@@ -24,12 +24,7 @@ interface IWorkDetailPage {
 const WorkDetailPage = ({ work }: IWorkDetailPage) => (
   <Layout>
     <WorkDetail
-      textEntryProps={{
-        title: work.title,
-        year: work.year,
-        description: work.description,
-      }}
-      images={work.images}
+      work={work}
     />
   </Layout>
 );

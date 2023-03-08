@@ -23,6 +23,7 @@ const SHeaderContainer = styled.div`
   justify-content: space-between;
   padding: ${({ theme }) => theme.Spacing.regular};
   padding-left: ${({ theme }) => theme.Spacing.wide};
+  backdrop-filter: blur(4px);
 
   // Stacked header on mobile
   @media only screen and (max-width: ${({ theme }) => theme.Spacing.mobileMax}) {

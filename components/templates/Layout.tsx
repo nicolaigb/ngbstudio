@@ -19,6 +19,7 @@ const SLayoutContainer = styled.div`
 const SHeader = styled(Header)`
   position: sticky;
   top: 0;
+  z-index: 100;
 `;
 
 const SContentContainer = styled.div`

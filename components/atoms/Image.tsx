@@ -15,4 +15,5 @@ export const Image: React.FC<IImage> = (
 const SImage = styled(NextImage)`
   object-fit: cover;
   width: 100%;
+  height: auto;
 `;

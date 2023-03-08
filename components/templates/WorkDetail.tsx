@@ -1,76 +1,80 @@
 import React, { ReactElement, useState } from 'react';
-import { Image, Button } from '@atoms';
-import {
-  ImageModal, TextEntry, ITextEntry, Masonry,
-} from '@organisms';
+import Image from 'next/image';
+import Work from '@types';
+import { Text } from '@atoms';
 import styled from 'styled-components';
 
 export interface IWorkDetail extends React.HTMLAttributes<HTMLDivElement> {
-  /**
-   * Props for text entry
-   */
-  textEntryProps: ITextEntry
-
-  /**
-   * Images displayed in feed
-   */
-  images: string[];
+  work: Work;
 }
 
 export const WorkDetail: React.FC<IWorkDetail> = (
   {
-    textEntryProps,
-    images,
+    work,
     ...props
   },
 ): ReactElement => {
-  const [selectedIdx, setSelectedIdx] = useState(null);
-  const selectedImage = images[selectedIdx];
-  const modalOpen = (selectedIdx !== null);
+  const {
+    images,
+    title,
+    year,
+    medium,
+    description,
+  } = work;
   return (
     <SWorkDetailContainer {...props}>
-      <ImageModal
-        isOpen={modalOpen}
-        onRequestClose={() => setSelectedIdx(null)}
-        image={selectedImage ?? null}
-        text={selectedIdx !== null ? `${selectedIdx + 1}/${images.length}` : null}
-      />
-      <SButton styleType="image" onClick={() => setSelectedIdx(0)}>
-        <Image src={images[0]} />
-      </SButton>
-      <STextEntry {...textEntryProps} />
-      <Masonry columns={2}>
-        {images.slice(1).map((imageSrc, idx) => (
-          <Button key={`image-${idx + 1}`} styleType="image" onClick={() => setSelectedIdx(idx + 1)}>
-            <Image src={imageSrc} />
-          </Button>
-        ))}
-      </Masonry>
+      <SImageContainer>
+        <Image src={images[0]} layout="fill" objectFit="contain" />
+      </SImageContainer>
+      <SBody>
+        <SHeader>
+          <Text styleType="subheader">{title}</Text>
+          <Text styleType="emphasized">{year}</Text>
+          <Text styleType="regular" style={{ fontStyle: 'italic' }}>{medium}</Text>
+        </SHeader>
+        <SDescription styleType="regular" dangerouslySetInnerHTML={{ __html: description }} />
+      </SBody>
+      {
+        images.slice(1).map((image, idx) => (
+          <SImageContainer key={`image-${idx}`}>
+            <Image src={image} layout="fill" objectFit="contain" />
+          </SImageContainer>
+        ))
+      }
     </SWorkDetailContainer>
   );
 };
 
 const SWorkDetailContainer = styled.div`
   display: flex;
+  height: 100%;
   flex-direction: column;
   align-items: center;
   overflow: hidden;
+  position: relative;
 `;
 
-const SButton = styled(Button)`
-  @media only screen and (max-width: ${({ theme }) => theme.Spacing.mobileMax}) {
-    width: 100%;
-    height: auto;
-  }
-  // Make images smaller on web
-  @media only screen and (min-width: ${({ theme }) => theme.Spacing.webMin}) {
-    max-width: 90%;
-    width: auto;
-  }
-  margin-bottom: ${({ theme }) => theme.Spacing.extraWide};
-`;
-
-const STextEntry = styled(TextEntry)`
-  margin-bottom: ${({ theme }) => theme.Spacing.wide};
+const SImageContainer = styled.div`
+  position: relative;
   width: 100%;
+  height: 600px;
+`;
+
+const SBody = styled.div`
+  margin: ${({ theme }) => theme.Spacing.wide} 0;
+  width: 100%;
+  max-width: 800px;
+`;
+
+const SHeader = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: ${({ theme }) => theme.Spacing.tight};
+  margin-bottom: ${({ theme }) => theme.Spacing.regular};
+`;
+
+const SDescription = styled(Text)`
+  a {
+    text-decoration: underline;
+  }
 `;
