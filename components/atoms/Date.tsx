@@ -1,4 +1,4 @@
-import React, { ReactElement, useState } from 'react';
+import React, { useState } from 'react';
 import { Text } from '@atoms/Text';
 import { DateTime } from 'luxon';
 
@@ -6,13 +6,12 @@ export interface IDate {
   city: string;
   timezone: string;
 }
-export const Date: React.FC<IDate> = (
+export const Date = (
   {
     city,
     timezone,
-    ...props
   },
-): ReactElement => {
+) => {
   const getDateTime = () => DateTime.local()
     .setZone(timezone)
     .toLocaleString(DateTime.TIME_24_SIMPLE);
@@ -22,7 +21,7 @@ export const Date: React.FC<IDate> = (
   setInterval(() => setDate(getDateTime()), 1000);
 
   return (
-    <Text {...props} styleType="subtitle">
+    <Text styleType="subtitle">
       {city}
       {' '}
       {date}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Story } from '@storybook/react';
 import { Text } from '@atoms/Text';
-import { Modal, IModal } from './index';
+import { Modal, IModal } from '@atoms/Modal';
 
 export default {
   title: 'Atoms/Modal',

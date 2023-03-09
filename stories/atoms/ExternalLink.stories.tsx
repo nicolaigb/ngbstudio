@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text } from '@atoms/Text';
 import { Story } from '@storybook/react';
-import { ExternalLink, IExternalLink } from './index';
+import { ExternalLink, IExternalLink } from '@atoms/ExternalLink';
 
 export default {
   title: 'Atoms/ExternalLink',

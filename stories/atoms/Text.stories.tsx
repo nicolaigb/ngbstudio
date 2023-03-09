@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text } from './Text';
+import { Text } from '@atoms/Text';
 
 export default {
   title: 'Atoms/Text',
