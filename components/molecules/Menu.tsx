@@ -3,7 +3,8 @@ import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import classnames from 'classnames';
 import {
-  Text, InternalLink,
+  Text,
+  InternalLink,
 } from '@atoms';
 import navItems from '@constants/navItems';
 

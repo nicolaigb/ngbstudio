@@ -1,6 +1,6 @@
-import React, { ReactElement, useState } from 'react';
+import React, { ReactElement } from 'react';
 import Image from 'next/image';
-import Work from '@types';
+import { Work } from 'model';
 import { Text } from '@atoms';
 import styled from 'styled-components';
 

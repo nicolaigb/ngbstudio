@@ -11,7 +11,7 @@ declare module 'model' {
 
   export interface NavItem {
     name: string;
-    slug: string;
+    href: string;
   }
 
   export interface MoodImage {
