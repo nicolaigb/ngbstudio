@@ -1,6 +1,6 @@
 import React from 'react';
 import { Story } from '@storybook/react';
-import { Date, IDate } from './index';
+import { Date, IDate } from '@atoms/Date';
 
 export default {
   title: 'Atoms/Date',

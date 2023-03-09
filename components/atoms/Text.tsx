@@ -8,11 +8,6 @@ export interface IText extends React.HTMLAttributes<HTMLDivElement> {
    * Variant defining how text should be styled
    */
   styleType: TSTextVariants
-
-  /**
-   * Text to be displayed
-   */
-  children: string,
 }
 
 export const Text: React.FC<IText> = ({

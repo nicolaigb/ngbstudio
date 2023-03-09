@@ -2,7 +2,7 @@ import React from 'react';
 import { Date } from '@atoms';
 import { MdLanguage } from 'react-icons/md';
 import styled from 'styled-components';
-import dates from '@constants/dates';
+import dates from '../../constants/dates';
 
 export const Dates = ({
   ...props

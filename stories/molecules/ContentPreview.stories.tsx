@@ -1,6 +1,6 @@
 import React from 'react';
 import { Story } from '@storybook/react';
-import { ContentPreview, IContentPreview } from './index';
+import { ContentPreview, IContentPreview } from '@molecules/ContentPreview';
 
 export default {
   title: 'Molecules/ContentPreview',
