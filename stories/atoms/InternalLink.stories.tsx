@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text } from '@atoms/Text';
 import { Story } from '@storybook/react';
-import { InternalLink, IInternalLink } from './index';
+import { InternalLink, IInternalLink } from '@atoms/InternalLink';
 
 export default {
   title: 'Atoms/InternalLink',

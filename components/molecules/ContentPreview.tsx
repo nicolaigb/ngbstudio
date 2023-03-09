@@ -1,5 +1,9 @@
 import React, { ReactElement } from 'react';
-import { Text, Image, InternalLink } from '@atoms';
+import Image from 'next/image';
+import {
+  Text,
+  InternalLink,
+} from '@atoms';
 import styled from 'styled-components';
 
 export interface IContentPreview extends React.HTMLAttributes<HTMLDivElement> {
@@ -29,7 +33,7 @@ export const ContentPreview: React.FC<IContentPreview> = (
 ): ReactElement => (
   <InternalLink styleType="subdued" href={url}>
     <SContentPreviewContainer {...props}>
-      <SImage src={src} />
+      <Image src={src} layout="fill" objectFit="cover" />
       <SText styleType="title">{name}</SText>
     </SContentPreviewContainer>
   </InternalLink>
@@ -37,15 +41,6 @@ export const ContentPreview: React.FC<IContentPreview> = (
 
 const SContentPreviewContainer = styled.div`
   position: relative;
-`;
-
-const SImage = styled(Image)`
-  width: 100%;
-  height: 100%;
-
-  ${SContentPreviewContainer}:hover & {
-    opacity: 85%;
-  }
 `;
 
 const SText = styled(Text)`
