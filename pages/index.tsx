@@ -24,7 +24,7 @@ const Home = ({ works }: IHome) => (
         worksProps={
           works.map((work) => ({
             name: work.title,
-            src: work.images[0],
+            src: work.thumbnail,
             url: `/work/${work.tag}`,
           }))
         }
