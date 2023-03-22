@@ -1,7 +1,7 @@
 const dates = [
   {
     timezone: 'America/Los_Angeles',
-    city: 'BRK',
+    city: 'BAY',
   },
   {
     timezone: 'America/New_York',
