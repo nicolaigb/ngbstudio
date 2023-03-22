@@ -2,6 +2,7 @@ import React, { ReactElement } from 'react';
 import Image from 'next/image';
 import { Work } from 'model';
 import { Text } from '@atoms';
+import { ContentView } from '@molecules';
 import styled from 'styled-components';
 
 export interface IWorkDetail extends React.HTMLAttributes<HTMLDivElement> {
@@ -15,7 +16,7 @@ export const WorkDetail: React.FC<IWorkDetail> = (
   },
 ): ReactElement => {
   const {
-    images,
+    content,
     title,
     year,
     medium,
@@ -23,9 +24,7 @@ export const WorkDetail: React.FC<IWorkDetail> = (
   } = work;
   return (
     <SWorkDetailContainer {...props}>
-      <SImageContainer>
-        <Image src={images[0]} layout="fill" objectFit="contain" />
-      </SImageContainer>
+      <ContentView data={content[0]} />
       <SBody>
         <SHeader>
           <Text styleType="subheader">{title}</Text>
@@ -35,10 +34,8 @@ export const WorkDetail: React.FC<IWorkDetail> = (
         <SDescription styleType="regular" dangerouslySetInnerHTML={{ __html: description }} />
       </SBody>
       {
-        images.slice(1).map((image, idx) => (
-          <SImageContainer key={`image-${idx}`}>
-            <Image src={image} layout="fill" objectFit="contain" />
-          </SImageContainer>
+        content.slice(1).map((data, idx) => (
+          <ContentView data={data} key={idx} />
         ))
       }
     </SWorkDetailContainer>
@@ -46,22 +43,16 @@ export const WorkDetail: React.FC<IWorkDetail> = (
 };
 
 const SWorkDetailContainer = styled.div`
-  display: flex;
   height: 100%;
+  display: flex;
   flex-direction: column;
+  gap: ${({ theme }) => theme.Spacing.wide};
   align-items: center;
   overflow: hidden;
   position: relative;
 `;
 
-const SImageContainer = styled.div`
-  position: relative;
-  width: 100%;
-  height: 600px;
-`;
-
 const SBody = styled.div`
-  margin: ${({ theme }) => theme.Spacing.wide} 0;
   width: 100%;
   max-width: 800px;
 `;
