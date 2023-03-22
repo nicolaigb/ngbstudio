@@ -1,7 +1,16 @@
 declare module 'model' {
+  type TContent = 'image' | 'video';
+
+  export interface ContentData {
+    type: TContent;
+    src: string;
+    caption?: string;
+  }
+
   export interface Work {
     id: Number;
-    images: Array<string>;
+    thumbnail: string;
+    content: Array<ContentData>;
     title: string;
     tag: string;
     description: string;
