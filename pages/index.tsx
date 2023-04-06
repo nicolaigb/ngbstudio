@@ -17,20 +17,20 @@ interface IHome {
   works: Work[];
 }
 
-const Home = ({ works }: IHome) => (
-  <div>
-    <Layout>
-      <Grid
-        worksProps={
-          works.map((work) => ({
-            name: work.title,
-            src: work.thumbnail,
-            url: `/work/${work.tag}`,
-          }))
-        }
-      />
-    </Layout>
-  </div>
-);
-
-export default Home;
+export default function Home({ works }: IHome) {
+  return (
+    <div>
+      <Layout>
+        <Grid
+          worksProps={
+            works.map((work) => ({
+              name: work.title,
+              src: work.thumbnail,
+              url: `/work/${work.tag}`,
+            }))
+          }
+        />
+      </Layout>
+    </div>
+  );
+}
