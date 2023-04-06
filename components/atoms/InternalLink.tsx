@@ -1,6 +1,5 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
 import Link, { LinkProps } from 'next/link';
-import styled, { css } from 'styled-components';
 
 export type TSlinkVariants = 'prominent' | 'subdued';
 
@@ -13,30 +12,15 @@ export interface IInternalLink extends LinkProps {
   /**
    * child text to be displayed with link
    */
-  children: ReactElement | ReactElement[];
+  children: React.ReactNode;
 }
 
-export const InternalLink: React.FC<IInternalLink> = ({
+export function InternalLink({
   styleType, children, ...props
-}) => (
-  <Link {...props} passHref>
-    <SAnchor styleType={styleType}>
+}: IInternalLink) {
+  return (
+    <Link {...props} passHref>
       {children}
-    </SAnchor>
-  </Link>
-);
-
-const prominentStyle = css`
-  color: ${({ theme }) => theme.Colors.emphasis};
-`;
-
-const subduedStyle = css`
-  color:${({ theme }) => theme.Colors.text};
-`;
-
-const SAnchor = styled.a<Pick<IInternalLink, 'styleType'>>`
-  ${({ styleType }) => ({
-    prominent: prominentStyle,
-    subdued: subduedStyle,
-  }[styleType])}
-`;
+    </Link>
+  );
+}
