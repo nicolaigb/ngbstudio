@@ -7,9 +7,9 @@ export interface IContentView extends React.HTMLAttributes<HTMLDivElement> {
   data: ContentData;
 }
 
-export function ContentView({
+export const ContentView = ({
   data,
-}: IContentView) {
+}: IContentView) => {
   switch (data.type) {
     case 'image':
       return (

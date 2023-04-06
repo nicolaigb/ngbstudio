@@ -33,7 +33,7 @@ export const ContentPreview: React.FC<IContentPreview> = (
 ): ReactElement => (
   <InternalLink styleType="subdued" href={url}>
     <SContentPreviewContainer {...props}>
-      <Image src={src} layout="fill" objectFit="cover" />
+      <SImage src={src} alt="Work preview" fill />
       <SText styleType="title">{name}</SText>
     </SContentPreviewContainer>
   </InternalLink>
@@ -41,6 +41,10 @@ export const ContentPreview: React.FC<IContentPreview> = (
 
 const SContentPreviewContainer = styled.div`
   position: relative;
+`;
+
+const SImage = styled(Image)`
+  object-fit: cover;
 `;
 
 const SText = styled(Text)`

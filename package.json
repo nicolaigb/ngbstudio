@@ -5,9 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "start": "next start"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.3",
@@ -21,15 +19,10 @@
     "react-redux": "^8.0.5",
     "redux": "^4.2.1",
     "sharp": "^0.32.0",
-    "storybook-addon-next-router": "^4.0.2",
     "styled-components": "^5.3.9"
   },
   "devDependencies": {
     "@babel/core": "^7.21.4",
-    "@storybook/addon-actions": "^6.1.11",
-    "@storybook/addon-essentials": "^6.1.11",
-    "@storybook/addon-links": "^6.1.11",
-    "@storybook/react": "^7.0.2",
     "@types/styled-components": "^5.1.26",
     "@typescript-eslint/eslint-plugin": "^5.57.1",
     "@typescript-eslint/parser": "^5.57.1",

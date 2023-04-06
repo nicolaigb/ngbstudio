@@ -17,7 +17,6 @@ const generateStoryFile = (filePath, atomicComponentType, componentName) => {
     .charAt(0)
     .toUpperCase()}${atomicComponentType.slice(1)}s`;
   const storyFileContents = `import React from "react";
-import { Story } from "@storybook/react";
 import { ${componentName}, I${componentName} } from "./index";
 
 export default {
