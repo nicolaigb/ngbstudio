@@ -21,6 +21,12 @@
         "@typescript-eslint"
     ],
     "rules": {
+        "react/function-component-definition": [
+            "on",
+            {
+                "namedComponents": "arrow-function"
+            }
+        ],
         "react/jsx-props-no-spreading": "off",
         "react/jsx-filename-extension": "off",
         "no-use-before-define": "off",
