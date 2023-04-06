@@ -2,15 +2,33 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@atoms" : [ "components/atoms/" ],
-      "@atoms/*" : [ "components/atoms/*" ],
-      "@molecules" : [ "components/molecules/" ],
-      "@molecules/*" : [ "components/molecules/*" ],
-      "@organisms" : [ "components/organisms/" ],
-      "@organisms/*" : [ "components/organisms/*" ],
-      "@templates" : [ "components/templates/" ],
-      "@templates/*" : [ "components/templates/*" ],
-      "@constants/*" : [ "constants/*" ],
+      "@atoms": [
+        "components/atoms/"
+      ],
+      "@atoms/*": [
+        "components/atoms/*"
+      ],
+      "@molecules": [
+        "components/molecules/"
+      ],
+      "@molecules/*": [
+        "components/molecules/*"
+      ],
+      "@organisms": [
+        "components/organisms/"
+      ],
+      "@organisms/*": [
+        "components/organisms/*"
+      ],
+      "@templates": [
+        "components/templates/"
+      ],
+      "@templates/*": [
+        "components/templates/*"
+      ],
+      "@constants/*": [
+        "constants/*"
+      ]
     },
     "target": "es5",
     "lib": [
@@ -28,7 +46,8 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "incremental": true
   },
   "include": [
     "next-env.d.ts",
