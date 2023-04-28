@@ -33,7 +33,7 @@ export const ContentPreview: React.FC<IContentPreview> = (
 ): ReactElement => (
   <InternalLink styleType="subdued" href={url}>
     <SContentPreviewContainer {...props}>
-      <SImage src={src} alt="Work preview" fill />
+      <SImage src={src} alt={`Thumbnail preview for ${name}`} fill />
       <SText styleType="title">{name}</SText>
     </SContentPreviewContainer>
   </InternalLink>
