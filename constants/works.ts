@@ -13,18 +13,21 @@ const works: Work[] = [
       {
         type: 'image',
         src: `${S3_BUCKET_URL}/abstract-dcgan/image_at_epoch_0100.png`,
+        alt: '16x16 grid of images produced by abstract-DCGAN after 100 epochs of training'
       },
       {
         type: 'image',
         src: `${S3_BUCKET_URL}/abstract-dcgan/image_at_epoch_0099.png`,
+        alt: '16x16 grid of images produced by abstract-DCGAN after 99 epochs of training'
       },
       {
         type: 'image',
         src: `${S3_BUCKET_URL}/abstract-dcgan/image_at_epoch_0100_landscape.png`,
+        alt: '16x16 grid of images produced by DCGAN after 100 epochs of training on a dataset of landscape images'
       },
     ],
     year: '2020',
-    medium: 'TensorFlow',
+    medium: 'Deep Convolutional Generative Adversarial Network',
     description: '\
       <p>\
         abstract-DCGAN is a deep learning model that uses a Deep Convolutional Generative Adversarial Network (DCGAN) architecture to generate abstract artwork. The model was trained on a large dataset of abstract artworks from the likes of Jackson Pollock, Mark Rothko, and Franz Kline.\
@@ -44,25 +47,6 @@ const works: Work[] = [
       ',
   },
   {
-    id: 3,
-    title: 'Wavy Line',
-    tag: 'wavy-line',
-    thumbnail: `${S3_BUCKET_URL}/wavy-line/wavy-line-thumbnail.png`,
-    content: [
-      {
-        type: 'image',
-        src: `${S3_BUCKET_URL}/wavy-line/cant-grow-exclusively-from-anguish-we-must-cherish-every-moment.jpg`,
-      },
-      {
-        type: 'image',
-        src: `${S3_BUCKET_URL}/wavy-line/untitled_2018-11-02.jpg`,
-      },
-    ],
-    year: '2019',
-    medium: 'Pen on paper',
-    description: 'Lorem ipsum <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment">HELLO</a> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Morbi leo urna molestie at elementum eu facilisis. Vitae semper quis lectus nulla at volutpat. Justo laoreet sit amet cursus sit amet dictum sit. Vel pretium lectus quam id. Morbi leo urna molestie at elementum eu facilisis sed odio. Consequat ac felis donec et odio pellentesque diam volutpat commodo. Eget egestas purus viverra accumsan in nisl nisi scelerisque eu. Turpis egestas maecenas pharetra convallis. Enim facilisis gravida neque convallis a. Sit amet mattis vulputate enim nulla. At tellus at urna condimentum mattis pellentesque id. Risus pretium quam vulputate dignissim suspendisse. In hendrerit gravida rutrum quisque non tellus. Vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras. Enim nec dui nunc mattis enim ut tellus. Sagittis orci a scelerisque purus semper eget duis. Laoreet suspendisse interdum consectetur libero id faucibus nisl tincidunt eget. Nibh sed pulvinar proin gravida hendrerit lectus a. Lacus sed viverra tellus in hac habitasse platea. Pretium fusce id velit ut tortor. Malesuada fames ac turpis egestas. Nunc sed velit dignissim sodales. Molestie a iaculis at erat pellentesque adipiscing commodo.'
-  },
-  {
     id: 0,
     title: 'Visualize',
     tag: 'visualize',
@@ -71,14 +55,17 @@ const works: Work[] = [
       {
         type: 'video',
         src: `${S3_BUCKET_URL}/visualize/visualize_screen-recording.mov`,
+        alt: 'Screen recording of Visualize program set to Frank Ocean\'s cover of At Your Best (You Are Love)'
       },
       {
         type: 'image',
         src: `${S3_BUCKET_URL}/visualize/screenshot-01.png`,
+        alt: 'Still from Visualize program with an orange background and blue circle',
       },
       {
         type: 'image',
         src: `${S3_BUCKET_URL}/visualize/screenshot-00.png`,
+        alt: 'Still from Visualize program with a brown background and blue circle',
       },
     ],
     year: '2019',
@@ -94,14 +81,17 @@ const works: Work[] = [
       {
         type: 'video',
         src: `${S3_BUCKET_URL}/self-portrait/processing-self-portrait_screen-recording.mov`,
+        alt: 'Screen recording of Self Portrait where the mouse scrolls around the image and the corresponding texts display at the top.'
       },
       {
         type: 'image',
         src: `${S3_BUCKET_URL}/self-portrait/Screenshot 2023-03-11 at 00.36.35.png`,
+        alt: 'Still from Self Portrait with the text \"Hey its Nico\"'
       },
       {
         type: 'image',
         src: `${S3_BUCKET_URL}/self-portrait/Screenshot 2023-03-11 at 00.38.22.png`,
+        alt: 'Still from Self Portrait with the text \"How long does it take to grow\"'
       },
     ],
     year: '2019',

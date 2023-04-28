@@ -1,4 +1,5 @@
 import React from 'react';
+import Head from 'next/head';
 import { ThemeProvider } from 'styled-components';
 import { Analytics } from '@vercel/analytics/react';
 import store from 'src/app/store';
@@ -10,6 +11,13 @@ function MyApp({ Component, pageProps }) {
   return (
     <Provider store={store}>
       <ThemeProvider theme={LightTheme}>
+        <Head>
+          <title>Nico Garcia</title>
+          <meta property="og:title" content="Nico Garcia" key="title" />
+          <meta name="og:description" content="Heaven is the life." key="desc" />
+          <meta property="og:url" content="https://end-i.ng/" />
+          <meta name="og:image" content="/open-graph.png" />
+        </Head>
         <Component {...pageProps} />
         <Analytics />
       </ThemeProvider>

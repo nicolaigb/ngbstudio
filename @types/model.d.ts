@@ -4,6 +4,7 @@ declare module 'model' {
   export interface ContentData {
     type: TContent;
     src: string;
+    alt: string;
     caption?: string;
   }
 
