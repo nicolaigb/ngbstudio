@@ -6,16 +6,35 @@ import styled from 'styled-components';
 export const Header = ({
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) => (
-  <SHeaderContainer {...props}>
-    <SNavContainer>
-      <InternalLink styleType="subdued" href="/">
-        <STitle styleType="header">NG</STitle>
-      </InternalLink>
-      <Menu />
-    </SNavContainer>
-    <Dates />
-  </SHeaderContainer>
+  <div>
+    <SBanner styleType="emphasized">
+      GRAND OPENI
+    </SBanner>
+    <SHeaderContainer {...props}>
+      <SNavContainer>
+        <InternalLink styleType="subdued" href="/">
+          <STitle styleType="header">NG</STitle>
+        </InternalLink>
+        <Menu />
+      </SNavContainer>
+      <Dates />
+    </SHeaderContainer>
+  </div>
 );
+
+const SBanner = styled(Text)`
+  color: #FF1010;
+  background: repeating-linear-gradient(
+    -45deg,
+    #FFF,
+    #FFF 40px,
+    #F5F5F5 40px,
+    #F5F5F5 80px
+  );
+  padding: 0 8px;
+  text-align: center;
+  letter-spacing: 8px;
+`;
 
 const SHeaderContainer = styled.div`
   display: flex;
