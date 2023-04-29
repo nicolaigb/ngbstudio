@@ -1,5 +1,6 @@
 import React from 'react';
 import Link, { LinkProps } from 'next/link';
+import styled from 'styled-components';
 
 export type TSlinkVariants = 'prominent' | 'subdued';
 
