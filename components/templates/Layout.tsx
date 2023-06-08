@@ -1,6 +1,6 @@
 import React from 'react';
-import { Header } from '@organisms';
 import styled from 'styled-components';
+import { Header } from '@organisms';
 
 export const Layout = ({
   children,
