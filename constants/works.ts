@@ -1,7 +1,7 @@
 /* eslint-disable no-multi-str */
 import { Work } from 'model';
 
-const S3_BUCKET_URL = 'https://ng-web.s3.amazonaws.com';
+export const S3_BUCKET_URL = 'https://ng-web.s3.amazonaws.com';
 
 const works: Work[] = [
   {
@@ -13,17 +13,23 @@ const works: Work[] = [
       {
         type: 'image',
         src: `${S3_BUCKET_URL}/abstract-dcgan/image_at_epoch_0100.png`,
-        alt: '16x16 grid of images produced by abstract-DCGAN after 100 epochs of training'
+        alt: '16x16 grid of images produced by abstract-DCGAN after 100 epochs of training',
+        width: 800,
+        height: 800,
       },
       {
         type: 'image',
         src: `${S3_BUCKET_URL}/abstract-dcgan/image_at_epoch_0099.png`,
-        alt: '16x16 grid of images produced by abstract-DCGAN after 99 epochs of training'
+        alt: '16x16 grid of images produced by abstract-DCGAN after 99 epochs of training',
+        width: 800,
+        height: 800,
       },
       {
         type: 'image',
         src: `${S3_BUCKET_URL}/abstract-dcgan/image_at_epoch_0100_landscape.png`,
-        alt: '16x16 grid of images produced by DCGAN after 100 epochs of training on a dataset of landscape images'
+        alt: '16x16 grid of images produced by DCGAN after 100 epochs of training on a dataset of landscape images',
+        width: 800,
+        height: 800,
       },
     ],
     year: '2020',
@@ -61,11 +67,15 @@ const works: Work[] = [
         type: 'image',
         src: `${S3_BUCKET_URL}/visualize/screenshot-01.png`,
         alt: 'Still from Visualize program with an orange background and blue circle',
+        width: 1394,
+        height: 1396,
       },
       {
         type: 'image',
         src: `${S3_BUCKET_URL}/visualize/screenshot-00.png`,
         alt: 'Still from Visualize program with a brown background and blue circle',
+        width: 1394,
+        height: 1396,
       },
     ],
     year: '2019',
@@ -86,12 +96,16 @@ const works: Work[] = [
       {
         type: 'image',
         src: `${S3_BUCKET_URL}/self-portrait/Screenshot 2023-03-11 at 00.36.35.png`,
-        alt: 'Still from Self Portrait with the text \"Hey its Nico\"'
+        alt: 'Still from Self Portrait with the text \"Hey its Nico\"',
+        width: 2784,
+        height: 1690,
       },
       {
         type: 'image',
         src: `${S3_BUCKET_URL}/self-portrait/Screenshot 2023-03-11 at 00.38.22.png`,
-        alt: 'Still from Self Portrait with the text \"How long does it take to grow\"'
+        alt: 'Still from Self Portrait with the text \"How long does it take to grow\"',
+        width: 2784,
+        height: 1690,
       },
     ],
     year: '2019',

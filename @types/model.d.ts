@@ -5,7 +5,11 @@ declare module 'model' {
     type: TContent;
     src: string;
     alt: string;
+    width?: number;
+    height?: number;
     caption?: string;
+    width?: number;
+    height?: number;
   }
 
   export interface Work {

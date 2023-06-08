@@ -6,9 +6,9 @@ import styled from 'styled-components';
 export const Header = ({
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) => (
-  <div>
+  <SContainer {...props}>
     <SBanner styleType="emphasized">
-      GRAND OPENI
+      GRAND OPENI––
     </SBanner>
     <SHeaderContainer {...props}>
       <SNavContainer>
@@ -19,17 +19,21 @@ export const Header = ({
       </SNavContainer>
       <Dates />
     </SHeaderContainer>
-  </div>
+  </SContainer>
 );
+
+const SContainer = styled.div`
+  backdrop-filter: blur(4px);
+`;
 
 const SBanner = styled(Text)`
   color: #FF1010;
   background: repeating-linear-gradient(
     -45deg,
-    #FFF,
-    #FFF 40px,
-    #F5F5F5 40px,
-    #F5F5F5 80px
+    transparent,
+    transparent 40px,
+    #EEEEEE90 40px,
+    #EEEEEE90 80px
   );
   padding: 0 8px;
   text-align: center;
@@ -42,7 +46,6 @@ const SHeaderContainer = styled.div`
   justify-content: space-between;
   padding: ${({ theme }) => theme.Spacing.regular};
   padding-left: ${({ theme }) => theme.Spacing.wide};
-  backdrop-filter: blur(4px);
 
   // Stacked header on mobile
   @media only screen and (max-width: ${({ theme }) => theme.Spacing.mobileMax}) {
