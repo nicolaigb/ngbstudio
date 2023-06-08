@@ -8,7 +8,7 @@ export const Header = ({
 }: React.HTMLAttributes<HTMLDivElement>) => (
   <div>
     <SBanner styleType="emphasized">
-      GRAND OPENI
+      GRAND OPENI––
     </SBanner>
     <SHeaderContainer {...props}>
       <SNavContainer>

@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import Image from 'next/image';
 import { ContentData } from 'model';
 
+const IMG_HEIGHT = 600;
+
 export interface IContentView extends React.HTMLAttributes<HTMLDivElement> {
   data: ContentData;
 }
@@ -13,9 +15,14 @@ export const ContentView = ({
   switch (data.type) {
     case 'image':
       return (
-        <SImageContainer>
-          <SImage src={data.src} alt={data.alt} fill placeholder="blur" blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAQAAAAD+Fb1AAAAEElEQVR42mP8+p8BDBhxMwCkegfV2VbptgAAAABJRU5ErkJggg==" />
-        </SImageContainer>
+        <SImage
+          src={data.src}
+          alt={data.alt}
+          width={IMG_HEIGHT * (data.width / data.height)}
+          height={IMG_HEIGHT}
+          placeholder="blur"
+          blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAQAAAAD+Fb1AAAAEElEQVR42mP8+p8BDBhxMwCkegfV2VbptgAAAABJRU5ErkJggg=="
+        />
       );
     case 'video':
       return (

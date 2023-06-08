@@ -6,6 +6,8 @@ declare module 'model' {
     src: string;
     alt: string;
     caption?: string;
+    width?: number;
+    height?: number;
   }
 
   export interface Work {
