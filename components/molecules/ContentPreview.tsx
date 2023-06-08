@@ -59,4 +59,8 @@ const SText = styled(Text)`
   ${SContentPreviewContainer}:hover & {
     visibility: visible;
   }
+
+  @media (max-width: ${({ theme }) => theme.Spacing.mobileMax}) {
+    visibility: visible
+  }
 `;
