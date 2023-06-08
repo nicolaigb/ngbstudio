@@ -1,7 +1,7 @@
 /* eslint-disable no-multi-str */
 import { Work } from 'model';
 
-const S3_BUCKET_URL = 'https://ng-web.s3.amazonaws.com';
+export const S3_BUCKET_URL = 'https://ng-web.s3.amazonaws.com';
 
 const works: Work[] = [
   {
