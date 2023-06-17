@@ -24,7 +24,7 @@ const Home = () => {
       <SContainer ref={containerRef}>
         {
           images.map((img, idx) => (
-            <DraggableImage data={img} />
+            <DraggableImage data={img} key={`inspo-img-${idx}`} />
           ))
         }
       </SContainer>
