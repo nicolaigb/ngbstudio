@@ -5,7 +5,7 @@ import { Text, ExternalLink } from '@atoms';
 
 const IdeasPage = () => (
   <Layout>
-    <SFrame src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwrOKJmJRMyHLn2FrAvzRw8%2FWebsite%3Ftype%3Ddesign%26node-id%3D1%253A251%26t%3DkV30QzqvHBNJ0zZA-1" allowfullscreen />
+    <SFrame src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwrOKJmJRMyHLn2FrAvzRw8%2FWebsite%3Ftype%3Ddesign%26node-id%3D1%253A251%26t%3DkV30QzqvHBNJ0zZA-1" allowFullScreen />
     <SContainer>
       <Text className="subheader" styleType="subheader">Ideas</Text>
       <Text styleType="regular">
