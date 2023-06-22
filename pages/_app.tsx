@@ -7,14 +7,15 @@ import { Provider } from 'react-redux';
 import { LightTheme } from '../styles';
 import '../styles/globals.css';
 
+// eslint-disable-next-line react/function-component-definition
 function MyApp({ Component, pageProps }) {
   return (
     <Provider store={store}>
       <ThemeProvider theme={LightTheme}>
         <Head>
-          <title>Nico Garcia</title>
-          <meta property="og:title" content="Nico Garcia" key="title" />
-          <meta name="og:description" content="Heaven is the life." key="desc" />
+          <title>NG</title>
+          <meta property="og:title" content="Nicolai Garcia Beckmann" key="title" />
+          <meta name="og:description" content="Heavin is the life." key="desc" />
           <meta property="og:url" content="https://end-i.ng/" />
           <meta name="og:image" content="/open-graph.png" />
         </Head>

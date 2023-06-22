@@ -5,33 +5,33 @@ import Image from 'next/image';
 import { ContentData } from 'model';
 
 export interface IDraggableImage {
-	data: ContentData
+  data: ContentData
 }
 
 export const DraggableImage = ({
-	data
+  data,
 }: IDraggableImage) => {
-	const {
-		src,
-		alt,
-		width,
-		height,
-	} = data;
-	return (
-		<Draggable>
-			<SImageContainer>
-				<Image
-					src={src}
-					alt={alt}
-					width={width}
-					height={height}
-					draggable="false"
-				/>
-			</SImageContainer>
-		</Draggable>
-	)
-}
+  const {
+    src,
+    alt,
+    width,
+    height,
+  } = data;
+  return (
+    <Draggable>
+      <SImageContainer>
+        <Image
+          src={src}
+          alt={alt}
+          width={width}
+          height={height}
+          draggable="false"
+        />
+      </SImageContainer>
+    </Draggable>
+  );
+};
 
 const SImageContainer = styled.div`
-	cursor: move;
+  cursor: move;
 `;
