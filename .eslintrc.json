@@ -6,6 +6,7 @@
     },
     "extends": [
         "plugin:react/recommended",
+        "plugin:@next/next/recommended",
         "airbnb"
     ],
     "parser": "@typescript-eslint/parser",
@@ -22,11 +23,12 @@
     ],
     "rules": {
         "react/function-component-definition": [
-            "on",
+            1,
             {
                 "namedComponents": "arrow-function"
             }
         ],
+        "max-len": "off",
         "react/jsx-props-no-spreading": "off",
         "react/jsx-filename-extension": "off",
         "no-use-before-define": "off",
