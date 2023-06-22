@@ -61,7 +61,9 @@ const works: Work[] = [
       {
         type: 'video',
         src: `${S3_BUCKET_URL}/visualize/visualize_screen-recording.mov`,
-        alt: 'Screen recording of Visualize program set to Frank Ocean\'s cover of At Your Best (You Are Love)'
+        alt: 'Screen recording of Visualize program set to Frank Ocean\'s cover of At Your Best (You Are Love) by Aaliyah',
+        width: 600,
+        height: 600,
       },
       {
         type: 'image',
@@ -91,7 +93,9 @@ const works: Work[] = [
       {
         type: 'video',
         src: `${S3_BUCKET_URL}/self-portrait/processing-self-portrait_screen-recording.mov`,
-        alt: 'Screen recording of Self Portrait where the mouse scrolls around the image and the corresponding texts display at the top.'
+        alt: 'Screen recording of Self Portrait where the mouse scrolls around the image and the corresponding texts display at the top.',
+        width: 2560,
+        height: 1454,
       },
       {
         type: 'image',
