@@ -24,7 +24,15 @@ export const ContentView = ({
       );
     case 'video':
       return (
-        <SVideoContainer autoPlay loop>
+        <SVideoContainer
+          width={data.width}
+          height={data.height}
+          autoPlay
+          playsInline
+          controls
+          muted
+          loop
+        >
           <source src={data.src} />
         </SVideoContainer>
       );
