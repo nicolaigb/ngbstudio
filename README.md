@@ -1,3 +1,1 @@
-# COMING SOON 🔐
-
-![wavy](./assets/sneak-peak.png)
+![end-i.ng](https://end-i.ng/)
