@@ -29,6 +29,8 @@ export const ContentView = ({
           height={data.height}
           autoPlay
           playsInline
+          controls
+          muted
           loop
         >
           <source src={data.src} />
