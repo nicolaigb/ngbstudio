@@ -9,8 +9,15 @@ const IdeasPage = () => (
     <SContainer>
       <Text className="subheader" styleType="subheader">Ideas</Text>
       <Text styleType="regular">
-        <p>Due to the highly mercurial nature of the world wibe web, nothing you see here is ever permanent. To that end, I've linked to the Figma file behind this site. Feel free to browse through and preview what I'm working on. If you're up for it, leave me a comment with an idea you have or something you want fixed.</p>
-        <p>The Github repo for end-i.ng is <ExternalLink href="https://github.com/nicog98/ng-web">here</ExternalLink>. Open to PRs.</p>
+        <p>
+          Due to the highly mercurial nature of the world wibe web, nothing you see here is ever permanent. To that end, I&aposve linked to the Figma file behind this site. Feel free to browse through and preview what I&aposm working on. If you&aposre up for it, leave me a comment with an idea you have or something you want fixed.
+        </p>
+        <p>
+          The Github repo for end-i.ng is
+          {' '}
+          <ExternalLink href="https://github.com/nicog98/ng-web">here</ExternalLink>
+          . Open to PRs.
+        </p>
         <p>I appreciate your support 🩵</p>
       </Text>
     </SContainer>
@@ -18,7 +25,7 @@ const IdeasPage = () => (
 );
 
 const SContainer = styled.div`
-  width: 800px;
+  max-width: 800px;
   margin: 0 auto;
   padding: ${({ theme }) => theme.Spacing.wide} 0;
   .subheader {

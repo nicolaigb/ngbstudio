@@ -1,5 +1,4 @@
 import React, { ReactElement } from 'react';
-import Image from 'next/image';
 import { Work } from 'model';
 import { Text } from '@atoms';
 import { ContentView } from '@molecules';

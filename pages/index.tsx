@@ -33,4 +33,4 @@ const Home = ({ works }: IHome) => (
   </div>
 );
 
-export default Home
+export default Home;

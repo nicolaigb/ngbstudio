@@ -8,7 +8,7 @@ export const Header = ({
 }: React.HTMLAttributes<HTMLDivElement>) => (
   <SContainer {...props}>
     <SBanner styleType="emphasized">
-      GRAND OPENI––
+      IT&apos;SMYMFBDAY
     </SBanner>
     <SHeaderContainer {...props}>
       <SNavContainer>

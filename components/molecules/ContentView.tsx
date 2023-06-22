@@ -3,8 +3,6 @@ import styled from 'styled-components';
 import Image from 'next/image';
 import { ContentData } from 'model';
 
-const IMG_HEIGHT = 600;
-
 export interface IContentView extends React.HTMLAttributes<HTMLDivElement> {
   data: ContentData;
 }
@@ -18,8 +16,8 @@ export const ContentView = ({
         <SImage
           src={data.src}
           alt={data.alt}
-          width={IMG_HEIGHT * (data.width / data.height)}
-          height={IMG_HEIGHT}
+          width={data.width}
+          height={data.height}
           placeholder="blur"
           blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAQAAAAD+Fb1AAAAEElEQVR42mP8+p8BDBhxMwCkegfV2VbptgAAAABJRU5ErkJggg=="
         />
@@ -33,19 +31,14 @@ export const ContentView = ({
     default:
       return <div />;
   }
-}
-
-const SImageContainer = styled.div`
-  position: relative;
-  width: 100%;
-  height: 600px;
-`;
+};
 
 const SImage = styled(Image)`
-  object-fit: contain;
+  max-width: 100%;
+  height: auto;
 `;
 
 const SVideoContainer = styled.video`
-  width: 100%;
-  height: 600px;
+  max-width: 100%;
+  height: auto;
 `;
