@@ -27,17 +27,13 @@ const SContainer = styled.div`
 `;
 
 const SBanner = styled(Text)`
-  color: #FF1010;
-  background: repeating-linear-gradient(
-    -45deg,
-    transparent,
-    transparent 40px,
-    #EEEEEE90 40px,
-    #EEEEEE90 80px
-  );
+  position: relative;
+  color: #FFFFFF;
   padding: 0 8px;
   text-align: center;
-  letter-spacing: 8px;
+  letter-spacing: 24px;
+  overflow: hidden;
+  background-image: url(/clouds-banner.png);
 `;
 
 const SHeaderContainer = styled.div`
