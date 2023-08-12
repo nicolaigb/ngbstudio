@@ -1,13 +1,9 @@
 import React from 'react';
 import Link, { LinkProps } from 'next/link';
 
-export type TSlinkVariants = 'prominent' | 'subdued';
-
 export interface IInternalLink extends LinkProps {
-  /**
-   * Variant determining how this link should be styled
-   */
-  styleType: TSlinkVariants;
+  // eslint-disable-next-line react/require-default-props
+  underline?: boolean;
 
   /**
    * child text to be displayed with link
@@ -16,11 +12,15 @@ export interface IInternalLink extends LinkProps {
 }
 
 export const InternalLink = ({
-  styleType,
+  underline = false,
   children,
   ...props
 }: IInternalLink) => (
-  <Link {...props} passHref>
+  <Link
+    {...props}
+    style={underline ? { textDecoration: 'underline' } : {}}
+    passHref
+  >
     {children}
   </Link>
 );

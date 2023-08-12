@@ -14,7 +14,7 @@ export const Menu = () => {
     <SMenuContainer>
       {
         navItems.map((item, idx) => (
-          <InternalLink styleType="subdued" href={item.href} key={idx}>
+          <InternalLink href={item.href} key={idx}>
             <SNavItem
               className={classnames({ selected: item.href === router.pathname })}
               styleType="emphasized"

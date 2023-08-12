@@ -31,8 +31,9 @@ declare module 'styled-components' {
       extraWide: string;
       fourColumnMin: string;
       threeColumnMin: string;
-      webMin: string;
-      mobileMax: string;
+      large: string;
+      medium: string;
+      small: string;
       cellWidth: string;
     }
   }

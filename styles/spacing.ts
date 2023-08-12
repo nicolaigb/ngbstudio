@@ -20,10 +20,12 @@ export const Spacing = {
   threeColumnMin: '1124px',
 
   // minimum screen width for displaying on web
-  webMin: '850px',
+  large: '850px',
 
   // maximum screen width for displaying on mobile
-  mobileMax: '849px',
+  medium: '849px',
+
+  small: '416px',
 
   // size of cell in grid
   cellWidth: '240px',

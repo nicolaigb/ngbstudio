@@ -29,10 +29,10 @@ const SGridContainer = styled.div`
   display: grid;
   justify-content: center;
   // Media queries to determine number of columns based on screen size
-  @media (max-width: ${({ theme }) => theme.Spacing.webMin}) { // Mobile
+  @media (max-width: ${({ theme }) => theme.Spacing.large}) { // Mobile
     grid-template-columns: 100%;
   }
-  @media (min-width: ${({ theme }) => theme.Spacing.webMin}) {
+  @media (min-width: ${({ theme }) => theme.Spacing.large}) {
     grid-template-columns: repeat(2, 1fr);
   }
   @media (min-width: ${({ theme }) => theme.Spacing.threeColumnMin}) {

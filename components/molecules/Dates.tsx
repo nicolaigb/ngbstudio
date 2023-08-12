@@ -20,6 +20,11 @@ const SDatesContainer = styled.div`
   flex-direction: row;
   align-items: center;
   gap: ${({ theme }) => theme.Spacing.tight};
+
+  @media only screen and (max-width: ${({ theme }) => theme.Spacing.small}) {
+    width: 100%;
+    justify-content: space-between;
+  }
 `;
 
 const SGlobe = styled(MdLanguage).attrs(() => ({
