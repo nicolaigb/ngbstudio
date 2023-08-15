@@ -31,7 +31,7 @@ export const ContentPreview: React.FC<IContentPreview> = (
     ...props
   },
 ): ReactElement => (
-  <InternalLink styleType="subdued" href={url}>
+  <InternalLink href={url}>
     <SContentPreviewContainer {...props}>
       <SImage src={src} alt={`Thumbnail preview for ${name}`} fill />
       <SText styleType="title">{name}</SText>
@@ -50,13 +50,17 @@ const SImage = styled(Image)`
 const SText = styled(Text)`
   visibility: hidden;
   position: absolute;
-  
   top: 0;
   left: 0;
-
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
   color: ${({ theme }) => theme.Colors.inverse};
 
   ${SContentPreviewContainer}:hover & {
     visibility: visible;
+    background-color: white;
+    border: 1px solid black;
   }
 `;

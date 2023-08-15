@@ -7,12 +7,9 @@ export const Header = ({
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) => (
   <SContainer {...props}>
-    <SBanner styleType="emphasized">
-      GRANDOPENI
-    </SBanner>
     <SHeaderContainer {...props}>
       <SNavContainer>
-        <InternalLink styleType="subdued" href="/">
+        <InternalLink href="/">
           <STitle styleType="header">NG</STitle>
         </InternalLink>
         <Menu />
@@ -23,17 +20,8 @@ export const Header = ({
 );
 
 const SContainer = styled.div`
-  backdrop-filter: blur(4px);
-`;
-
-const SBanner = styled(Text)`
-  position: relative;
-  color: #FFFFFF;
-  padding: 0 8px;
-  text-align: center;
-  letter-spacing: 24px;
-  overflow: hidden;
-  background-image: url(/clouds-banner.png);
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(24px) brightness(150%) contrast(135%);
 `;
 
 const SHeaderContainer = styled.div`
@@ -44,7 +32,7 @@ const SHeaderContainer = styled.div`
   padding-left: ${({ theme }) => theme.Spacing.wide};
 
   // Stacked header on mobile
-  @media only screen and (max-width: ${({ theme }) => theme.Spacing.mobileMax}) {
+  @media only screen and (max-width: ${({ theme }) => theme.Spacing.medium}) {
     padding-left: ${({ theme }) => theme.Spacing.regular};
     gap: ${({ theme }) => theme.Spacing.regular};
     flex-direction: column-reverse;
@@ -61,3 +49,14 @@ const SNavContainer = styled.div`
   align-items: flex-end;
   gap: 24px;
 `;
+
+// EXPERIMENTATION
+// const SBanner = styled.div`
+//   position: relative;
+//   color: #FFFFFF;
+//   height: 16px;
+//   text-align: center;
+//   letter-spacing: 24px;
+//   overflow: hidden;
+//   background-image: url(/clouds-banner.png);
+// `;
