@@ -21,7 +21,6 @@ export const Header = ({
 
 const SContainer = styled.div`
   background-color: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(24px) brightness(150%) contrast(135%);
 `;
 
 const SHeaderContainer = styled.div`
