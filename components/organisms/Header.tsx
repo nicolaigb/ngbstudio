@@ -21,6 +21,10 @@ export const Header = ({
 
 const SContainer = styled.div`
   background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(24px) brightness(150%) contrast(135%);
+  @media only screen and (max-width: ${({ theme }) => theme.Spacing.medium}) {
+    backdrop-filter: blur(24px);
+  }
 `;
 
 const SHeaderContainer = styled.div`
