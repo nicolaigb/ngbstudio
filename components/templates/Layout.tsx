@@ -24,6 +24,8 @@ const SHeader = styled(Header)`
 
 const SContentContainer = styled.div`
   padding: ${({ theme }) => theme.Spacing.wide};
+  overflow: hidden;
+  overscroll-behavior-y: none;
   // Layout specific to mobile screen
   @media only screen and (max-width: ${({ theme }) => theme.Spacing.large}) {
     padding: ${({ theme }) => theme.Spacing.regular};

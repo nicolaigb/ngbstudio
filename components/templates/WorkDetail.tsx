@@ -42,12 +42,10 @@ export const WorkDetail: React.FC<IWorkDetail> = (
 };
 
 const SWorkDetailContainer = styled.div`
-  height: 100%;
   display: flex;
   flex-direction: column;
-  gap: ${({ theme }) => theme.Spacing.wide};
+  gap: 64px;
   align-items: center;
-  overflow: hidden;
   position: relative;
 `;
 

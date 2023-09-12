@@ -48,7 +48,7 @@ const SImage = styled(Image)`
 `;
 
 const SText = styled(Text)`
-  visibility: hidden;
+  opacity: 0;
   position: absolute;
   top: 0;
   left: 0;
@@ -59,8 +59,12 @@ const SText = styled(Text)`
   color: ${({ theme }) => theme.Colors.inverse};
 
   ${SContentPreviewContainer}:hover & {
-    visibility: visible;
-    background-color: white;
-    border: 1px solid black;
+    opacity: 1;
+    background-color: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(8px) contrast(135%);
   }
+
+  transition:
+    background-color 150ms ease-in-out,
+    backdrop-filter 250ms;
 `;

@@ -5,10 +5,84 @@ export const S3_BUCKET_URL = 'https://ng-web.s3.amazonaws.com';
 
 const works: Work[] = [
   {
+    id: 6,
+    title: 'Up to Us voter registration',
+    tag: 'up-to-us',
+    thumbnail: `${S3_BUCKET_URL}/up-to-us/up-to-us_thumbnail.png`,
+    content: [
+      {
+        type: 'image',
+        src: `${S3_BUCKET_URL}/up-to-us/up-to-us_00.png`,
+        alt: 'Screenshots of voter registration flow',
+        width: 982.5,
+        height: 639,
+      },
+    ],
+    year: '2022',
+    medium: 'Product design',
+    description: 'Up to Us is a NYC-based non-profit focused on activating young people to engage in civic action like registering to vote and receiving the Covid vaccine. In partnership with HeadCount, we designed a customizable voter registration flow that could be easily co-branded by major clients such as Billie Eilish, Phish, and Toney’s Chocolonely. The product is geared towards Gen-Z voters and provides a simple way for checking voter registration status and updating it accordingly.',
+  },
+  {
+    id: 5,
+    title: 'Cent pages',
+    tag: 'cent-pages',
+    thumbnail: `${S3_BUCKET_URL}/cent-pages/cent-pages_00.png`,
+    content: [
+      {
+        type: 'image',
+        src: `${S3_BUCKET_URL}/cent-pages/cent-pages_00.png`,
+        alt: 'Collection of different creator pages made using Cent Pages',
+        width: 2560,
+        height: 1440,
+        isScreenshot: true,
+      },
+      {
+        type: 'image',
+        src: `${S3_BUCKET_URL}/cent-pages/cent-pages_01.png`,
+        alt: 'Screenshot of the Cent Pages creator interface.',
+        width: 3024,
+        height: 1890,
+        isScreenshot: true,
+      },
+    ],
+    year: '2021–22',
+    medium: 'Product design',
+    description: '\
+      <p>This product provides accessible tools for artists to mint and distribute NFTs for free. Modeled after a &rdquot;Link in Bio&lquot; site, a Cent Page allows creators to can style their page to their liking, and draft multi-media NFTs to promote their work or reward their audience with collectibles. Visitors to their page can then subscribe via email and collect these NFTs for free.</p>\
+      ',
+  },
+  {
+    id: 4,
+    title: 'Valuables',
+    tag: 'valuables',
+    thumbnail: `${S3_BUCKET_URL}/valuables/valuables_thumbnail.png`,
+    content: [
+      {
+        type: 'image',
+        src: `${S3_BUCKET_URL}/valuables/valuables_00.png`,
+        alt: 'Screenshot of the Valuables homepage',
+        width: 3024,
+        height: 1890,
+        isScreenshot: true,
+      },
+      {
+        type: 'image',
+        src: `${S3_BUCKET_URL}/valuables/valuables_01.png`,
+        alt: 'Screenshot of Jack Dorsey&apos;s first ever tweet sold on Valuables',
+        width: 3024,
+        height: 1890,
+        isScreenshot: true,
+      },
+    ],
+    year: '2021',
+    medium: 'Product design',
+    description: 'The Valuables website was an experiment launched by Cent to test monetizing existing social content through NFTs. On the site, anybody with a twitter account is able to mint their tweets for free and place offers on other creator&apos;s tweets. The platform gained mainstream attention in March of 2021 when Twitter founder Jack Dorsey sold the first-ever tweet. After joining Cent I completely redesigned the platform with a minimalist approach, introducing a new form of navigation and onboarding process.',
+  },
+  {
     id: 2,
     title: 'abstract-DCGAN',
     tag: 'abstract-dcgan',
-    thumbnail: `${S3_BUCKET_URL}/abstract-dcgan/image_at_epoch_0100.png`,
+    thumbnail: `${S3_BUCKET_URL}/abstract-dcgan/abstract-dcgan_thumbnail.png`,
     content: [
       {
         type: 'image',
@@ -61,7 +135,7 @@ const works: Work[] = [
       {
         type: 'video',
         src: `${S3_BUCKET_URL}/visualize/visualize_screen-recording.mov`,
-        alt: 'Screen recording of Visualize program set to Frank Ocean\'s cover of At Your Best (You Are Love) by Aaliyah',
+        alt: 'Screen recording of Visualize program set to Frank Ocean&apos;s cover of At Your Best (You Are Love) by Aaliyah',
         width: 600,
         height: 600,
       },
@@ -100,22 +174,21 @@ const works: Work[] = [
       {
         type: 'image',
         src: `${S3_BUCKET_URL}/self-portrait/Screenshot 2023-03-11 at 00.36.35.png`,
-        alt: 'Still from Self Portrait with the text \"Hey its Nico\"',
+        alt: 'Still from Self Portrait with the text &ldquo;Hey its Nico&rdquo;',
         width: 2784,
         height: 1690,
       },
       {
         type: 'image',
         src: `${S3_BUCKET_URL}/self-portrait/Screenshot 2023-03-11 at 00.38.22.png`,
-        alt: 'Still from Self Portrait with the text \"How long does it take to grow\"',
+        alt: 'Still from Self Portrait with the text &ldquo;How long does it take to grow&rdquo;',
         width: 2784,
         height: 1690,
       },
     ],
     year: '2019',
     medium: 'Processing',
-    // eslint-disable-next-line no-useless-escape
-    description: '<p>An interpretation of a \"self-portrait\" wherein I mapped my iMessage history to a screenshot of my computer screensaver, each pixel representing one message. The top left pixel represents the first message in the history and the bottom right represents the last. As the observer scrolls around the image, the message at the mouse\'s position displays at the top.</p><p>As I exhibited the work, I noticed people were nervous to use it, presumably concerned with the level of exposure into my life.</p><p>The screensaver comes from <a href="https://cachemonet.com/" target="__blank">cachemonet</a> one of my favorite places on the web.</p>',
+    description: '<p>An interpretation of a &ldquo;self-portrait&rquot; wherein I mapped my iMessage history to a screenshot of my computer screensaver, each pixel representing one message. The top left pixel represents the first message in the history and the bottom right represents the last. As the observer scrolls around the image, the message at the mouse\'s position displays at the top.</p><p>As I exhibited the work, I noticed people were nervous to use it, presumably concerned with the level of exposure into my life.</p><p>The screensaver comes from <a href="https://cachemonet.com/" target="__blank">cachemonet</a> one of my favorite places on the web.</p>',
   },
 ];
 

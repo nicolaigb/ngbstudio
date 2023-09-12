@@ -1,31 +1,66 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
-import { DraggableImage } from '@molecules';
 import { Layout } from '@templates';
 import images from '@constants/inspoImages';
+import Image from 'next/image';
 
-const Home = () => (
-  <Layout>
-    <SContainer>
-      {
-        images.map((img, idx) => (
-          <DraggableImage data={img} key={`inspo-img-${idx}`} />
-        ))
-      }
-    </SContainer>
-  </Layout>
-);
+const Inspo = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const onWheel = (event: WheelEvent) => {
+      const { deltaY } = event;
+      containerRef.current.scrollBy({
+        top: 0,
+        left: deltaY,
+        behavior: 'auto',
+      });
+    };
+
+    window.addEventListener('wheel', onWheel);
+
+    return () => {
+      window.removeEventListener('wheel', onWheel);
+    };
+  }, []);
+
+  return (
+    <Layout>
+      <SContainer ref={containerRef}>
+        {
+          images.map(({
+            src, alt, width, height,
+          }, idx) => (
+            <SImage key={`Inspo_image-${idx}`} src={src} alt={alt} width={width} height={height} />
+          ))
+        }
+      </SContainer>
+    </Layout>
+  );
+};
 
 const SContainer = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  overflow-x: scroll;
-  gap: 16px;
-  align-items: center;
+  @media (min-width: ${({ theme }) => theme.Spacing.small}) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    overflow-x: scroll;
+    overscroll-behavior-y: none;
+    gap: 16px;
+    align-items: center;
+    padding: 0 32px;
+  }
 `;
 
-export default Home;
+const SImage = styled(Image)`
+  @media (max-width: ${({ theme }) => theme.Spacing.small}) {
+    width: 100%;
+    height: auto;
+    margin-bottom: 16px;
+  }
+`;
+
+export default Inspo;
