@@ -48,7 +48,7 @@ const works: Work[] = [
     year: '2021–22',
     medium: 'Product design',
     description: '\
-      <p>This product provides accessible tools for artists to mint and distribute NFTs for free. Modeled after a &rdquot;Link in Bio&lquot; site, a Cent Page allows creators to can style their page to their liking, and draft multi-media NFTs to promote their work or reward their audience with collectibles. Visitors to their page can then subscribe via email and collect these NFTs for free.</p>\
+      <p>This product provides accessible tools for artists to mint and distribute NFTs for free. Modeled after a &rdquo;Link in Bio&ldquo; site, a Cent Page allows creators to can style their page to their liking, and draft multi-media NFTs to promote their work or reward their audience with collectibles. Visitors to their page can then subscribe via email and collect these NFTs for free.</p>\
       ',
   },
   {
@@ -188,7 +188,7 @@ const works: Work[] = [
     ],
     year: '2019',
     medium: 'Processing',
-    description: '<p>An interpretation of a &ldquo;self-portrait&rquot; wherein I mapped my iMessage history to a screenshot of my computer screensaver, each pixel representing one message. The top left pixel represents the first message in the history and the bottom right represents the last. As the observer scrolls around the image, the message at the mouse\'s position displays at the top.</p><p>As I exhibited the work, I noticed people were nervous to use it, presumably concerned with the level of exposure into my life.</p><p>The screensaver comes from <a href="https://cachemonet.com/" target="__blank">cachemonet</a> one of my favorite places on the web.</p>',
+    description: '<p>An interpretation of a &ldquo;self-portrait&rdquo; wherein I mapped my iMessage history to a screenshot of my computer screensaver, each pixel representing one message. The top left pixel represents the first message in the history and the bottom right represents the last. As the observer scrolls around the image, the message at the mouse\'s position displays at the top.</p><p>As I exhibited the work, I noticed people were nervous to use it, presumably concerned with the level of exposure into my life.</p><p>The screensaver comes from <a href="https://cachemonet.com/" target="__blank">cachemonet</a> one of my favorite places on the web.</p>',
   },
 ];
 
