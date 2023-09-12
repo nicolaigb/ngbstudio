@@ -34,7 +34,7 @@ const MePage = () => (
         <p>I hope you enjoy my little corner of the internet. HMU with any questions / suggestions.</p>
         <p>Also, shout out 🇳🇬 for the domain.</p>
         <p>--</p>
-        <p><ExternalLink href="https://ng-web.s3.amazonaws.com/nicolai-garcia_design-portfolio.pdf">Portfolio</ExternalLink></p>
+        <p><ExternalLink href="https://ng-web.s3.amazonaws.com/nicolai-garcia_design-portfolio.pdf">Product design portfolio (PDF)</ExternalLink></p>
         <p><ExternalLink href="mailto:nicolaigarciastudios@gmail.com">Electronic mail</ExternalLink></p>
         <p><ExternalLink href="https://www.instagram.com/galeo_00/">Gram</ExternalLink></p>
         <p><ExternalLink href="https://twitter.com/galeo_00">Twitter</ExternalLink></p>

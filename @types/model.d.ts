@@ -10,6 +10,7 @@ declare module 'model' {
     caption?: string;
     width?: number;
     height?: number;
+    isScreenshot?: boolean;
   }
 
   export interface Work {
