@@ -1,7 +1,11 @@
-import { ContentData } from 'model';
+import { InspoItem } from 'model';
 import { S3_BUCKET_URL } from './works';
 
-const images: ContentData[] = [
+const images: InspoItem[] = [
+  {
+    type: 'playlist',
+    src: 'https://embed.music.apple.com/us/playlist/homme/pl.u-2aoqG6LfLMxmLy',
+  },
   {
     type: 'image',
     src: `${S3_BUCKET_URL}/inspo/josef-albers-homage-to-the-square-arctic-bloom-1965.jpg`,
@@ -49,6 +53,13 @@ const images: ContentData[] = [
     src: `${S3_BUCKET_URL}/inspo/dan-flavin_the-diagonal_may-25-1963_pink.jpg`,
     alt: 'The Diagonal, Dan Flavin (May 25, 1963). A diagonal pink fluorescent light.',
     width: 400,
+    height: 300,
+  },
+  {
+    type: 'image',
+    src: `${S3_BUCKET_URL}/inspo/lost-in-translation.gif`,
+    alt: 'Screen recording from Lost in Translation.',
+    width: 554,
     height: 300,
   },
 ];
