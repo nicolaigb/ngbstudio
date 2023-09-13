@@ -1,8 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { Layout } from '@templates';
-import images from '@constants/inspoImages';
+import images from '@constants/inspoItems';
 import Image from 'next/image';
+import { Playlist } from '@molecules/Playlist';
 
 const Inspo = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -28,11 +29,20 @@ const Inspo = () => {
     <Layout>
       <SContainer ref={containerRef}>
         {
-          images.map(({
-            src, alt, width, height,
-          }, idx) => (
-            <SImage key={`Inspo_image-${idx}`} src={src} alt={alt} width={width} height={height} />
-          ))
+          images.map((item, idx) => {
+            const {
+              type, src, alt, width, height,
+            } = item;
+            switch (type) {
+              case 'image': return (
+                <SImage key={`Inspo_image-${idx}`} src={src} alt={alt} width={width} height={height} />
+              );
+              case 'playlist':
+                return <Playlist playlistObj={item} />;
+              default:
+                return null;
+            }
+          })
         }
       </SContainer>
     </Layout>

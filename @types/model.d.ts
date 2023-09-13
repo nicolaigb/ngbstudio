@@ -4,7 +4,7 @@ declare module 'model' {
   export interface ContentData {
     type: TContent;
     src: string;
-    alt: string;
+    alt?: string;
     width?: number;
     height?: number;
     caption?: string;
@@ -29,8 +29,9 @@ declare module 'model' {
     href: string;
   }
 
-  export interface MoodImage {
-    title: string;
-    url: string;
+  type TInspoType = 'image' | 'playlist'
+
+  export interface InspoItem extends ContentData {
+    type: TInspoType;
   }
 }
