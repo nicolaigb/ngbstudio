@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 import { ContentData } from 'model';
 
 export interface IVideo {
@@ -10,7 +11,7 @@ export const Video = ({
 }: IVideo) => {
   const { src, width, height } = videoObj;
   return (
-    <video
+    <SVideo
       width={width}
       height={height}
       autoPlay
@@ -20,6 +21,11 @@ export const Video = ({
       loop
     >
       <source src={src} />
-    </video>
+    </SVideo>
   );
 };
+
+const SVideo = styled.video`
+  max-width: 100% !important;
+  height: auto;
+`;

@@ -1,5 +1,4 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
 import { Image, Video } from '@atoms';
 import { ContentData } from 'model';
 
@@ -12,25 +11,12 @@ export const ContentView = ({
 }: IContentView) => {
   const { type } = data;
   return (type === 'image' ? (
-    <SImage
+    <Image
       imageObj={data}
     />
   ) : (
-    <SVideo
+    <Video
       videoObj={data}
     />
   ));
 };
-
-const contentStyle = css`
-  max-width: 100% !important;
-  height: auto;
-`;
-
-const SImage = styled(Image)`
-  ${contentStyle};
-`;
-
-const SVideo = styled(Video)`
-  ${contentStyle};
-`;
