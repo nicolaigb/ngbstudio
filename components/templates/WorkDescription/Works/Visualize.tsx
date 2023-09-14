@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, Text } from '@atoms';
+import { Image } from '@atoms';
 import { IWork, SText } from './util';
 
 export const Visualize = ({
