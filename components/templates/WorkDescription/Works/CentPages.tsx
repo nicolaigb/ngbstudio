@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, Image } from '@atoms';
-import { IWork } from './IWork';
+import { IWork } from './util';
 
 export const CentPages = ({
   content,

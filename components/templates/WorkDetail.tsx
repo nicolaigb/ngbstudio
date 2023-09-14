@@ -51,11 +51,13 @@ const SBody = styled.div`
   max-width: 800px;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 32px;
 `;
 
 const SHeader = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
-  gap: ${({ theme }) => theme.Spacing.tight};
+  gap: 8px;
 `;
