@@ -7,14 +7,14 @@ export interface IText extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * Variant defining how text should be styled
    */
-  styleType: TSTextVariants
+  styleType?: TSTextVariants
 }
 
-export const Text: React.FC<IText> = ({
-  styleType,
+export const Text = ({
+  styleType = 'regular',
   children,
   ...props
-}): ReactElement => <SText styleType={styleType} {...props}>{children}</SText>;
+}: IText): ReactElement => <SText styleType={styleType} {...props}>{children}</SText>;
 
 const SText = styled.div<Pick<IText, 'styleType'>>`
 ${({ styleType, theme }) => ({
@@ -27,4 +27,8 @@ ${({ styleType, theme }) => ({
   }[styleType])}
   white-space: pre-line;
   color: ${({ theme }) => theme.Colors.text};
+
+  a {
+    text-decoration: underline;
+  }
 `;

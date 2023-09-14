@@ -16,10 +16,9 @@ declare module 'model' {
   export interface Work {
     id: Number;
     thumbnail: string;
-    content: Array<ContentData>;
+    content: ContentData[];
     title: string;
     tag: string;
-    description: string;
     year: string;
     medium: string;
   }

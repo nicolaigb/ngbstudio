@@ -1,26 +1,28 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
 import { Work } from 'model';
 import { Text } from '@atoms';
 import { ContentView } from '@molecules';
 import styled from 'styled-components';
+import WorkDescription from './WorkDescription';
 
 export interface IWorkDetail extends React.HTMLAttributes<HTMLDivElement> {
   work: Work;
 }
 
-export const WorkDetail: React.FC<IWorkDetail> = (
+export const WorkDetail = (
   {
     work,
     ...props
-  },
-): ReactElement => {
+  }: IWorkDetail,
+) => {
   const {
     content,
     title,
     year,
     medium,
-    description,
+    tag,
   } = work;
+
   return (
     <SWorkDetailContainer {...props}>
       <ContentView data={content[0]} />
@@ -30,13 +32,8 @@ export const WorkDetail: React.FC<IWorkDetail> = (
           <Text styleType="emphasized">{year}</Text>
           <Text styleType="regular" style={{ fontStyle: 'italic' }}>{medium}</Text>
         </SHeader>
-        <SDescription styleType="regular" dangerouslySetInnerHTML={{ __html: description }} />
+        <WorkDescription tag={tag} content={content} />
       </SBody>
-      {
-        content.slice(1).map((data, idx) => (
-          <ContentView data={data} key={idx} />
-        ))
-      }
     </SWorkDetailContainer>
   );
 };
@@ -52,17 +49,13 @@ const SWorkDetailContainer = styled.div`
 const SBody = styled.div`
   width: 100%;
   max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
 `;
 
 const SHeader = styled.div`
   display: flex;
   flex-direction: column;
   gap: ${({ theme }) => theme.Spacing.tight};
-  margin-bottom: ${({ theme }) => theme.Spacing.regular};
-`;
-
-const SDescription = styled(Text)`
-  a {
-    text-decoration: underline;
-  }
 `;
