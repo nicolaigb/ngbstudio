@@ -37,6 +37,7 @@
         "import/extensions": "off",
         "import/prefer-default-export": "off",
         "react/prop-types": "off",
-        "react/no-array-index-key": "off"
+        "react/no-array-index-key": "off",
+        "react/require-default-props": "off"
     }
 }

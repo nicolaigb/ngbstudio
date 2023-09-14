@@ -20,7 +20,6 @@ const works: Work[] = [
     ],
     year: '2022',
     medium: 'Product design',
-    description: 'Up to Us is a NYC-based non-profit focused on activating young people to engage in civic action like registering to vote and receiving the Covid vaccine. In partnership with HeadCount, we designed a customizable voter registration flow that could be easily co-branded by major clients such as Billie Eilish, Phish, and Toney’s Chocolonely. The product is geared towards Gen-Z voters and provides a simple way for checking voter registration status and updating it accordingly.',
   },
   {
     id: 5,
@@ -34,7 +33,6 @@ const works: Work[] = [
         alt: 'Collection of different creator pages made using Cent Pages',
         width: 2560,
         height: 1440,
-        isScreenshot: true,
       },
       {
         type: 'image',
@@ -47,9 +45,6 @@ const works: Work[] = [
     ],
     year: '2021–22',
     medium: 'Product design',
-    description: '\
-      <p>This product provides accessible tools for artists to mint and distribute NFTs for free. Modeled after a &ldquo;Link in Bio&rdquo; site, a Cent Page allows creators to can style their page to their liking, and draft multi-media NFTs to promote their work or reward their audience with collectibles. Visitors to their page can then subscribe via email and collect these NFTs for free.</p>\
-      ',
   },
   {
     id: 4,
@@ -76,7 +71,6 @@ const works: Work[] = [
     ],
     year: '2021',
     medium: 'Product design',
-    description: 'The Valuables website was an experiment launched by Cent to test monetizing existing social content through NFTs. On the site, anybody with a twitter account is able to mint their tweets for free and place offers on other creator&apos;s tweets. The platform gained mainstream attention in March of 2021 when Twitter founder Jack Dorsey sold the first-ever tweet. After joining Cent I completely redesigned the platform with a minimalist approach, introducing a new form of navigation and onboarding process.',
   },
   {
     id: 2,
@@ -108,23 +102,6 @@ const works: Work[] = [
     ],
     year: '2020',
     medium: 'Deep Convolutional Generative Adversarial Network',
-    description: '\
-      <p>\
-        abstract-DCGAN is a deep learning model that uses a Deep Convolutional Generative Adversarial Network (DCGAN) architecture to generate abstract artwork. The model was trained on a large dataset of abstract artworks from the likes of Jackson Pollock, Mark Rothko, and Franz Kline.\
-      </p>\
-      <p>\
-        The DCGAN model is a type of neural network that is specifically designed for generating images. It consists of two networks: a generator and a discriminator. The generator network takes a random noise vector as input and outputs an image, while the discriminator network tries to distinguish between real and generated images. The two networks are trained together in a process called adversarial training, where the generator tries to create fake data that looks as real as possible, while the discriminator tries to distinguish between real and fake data. The two networks are trained together in a loop. Over time, the generator learns to create more realistic images, while the discriminator improves at distinguishing between the real and fake (generated) images. Eventually, the generator is capable of creating the abstract artwork seen here.\
-      </p>\
-      <p>\
-        DCGAN has become a popular choice for generating figurative artwork, such as realistic portraits, animals, and landscapes. However, my motive with the Abstract-DCGAN project was to work with art that breaks away from figuratism and explores the realm of abstraction. Abstraction in art involves creating non-representational images that explore the use of color, shape, and texture. In this spirit, my motive with abstract-DCGAN was to explore non-traditional methods of artistic expression—namely machine learning. Today, with the widespread accessibility to powerful artificial intelligence (Chat-GPT wrote this description), our traditional mediums and means of artwork will continue to be challenged and expanded.\
-      </p>\
-      <p>\
-        This work was a part of my senior project for Stanford CS. I was supervised by Professor Ron Fedkiw.\
-      </p>\
-      <p>\
-        <a href="https://github.com/nicog98/abstract-DCGAN" target="__blank">Github</a>\
-      </p>\
-      ',
   },
   {
     id: 0,
@@ -156,7 +133,6 @@ const works: Work[] = [
     ],
     year: '2019',
     medium: 'Arduino, Processing',
-    description: '',
   },
   {
     id: 1,
@@ -188,7 +164,6 @@ const works: Work[] = [
     ],
     year: '2019',
     medium: 'Processing',
-    description: '<p>An interpretation of a &ldquo;self-portrait&rdquo; wherein I mapped my iMessage history to a screenshot of my computer screensaver, each pixel representing one message. The top left pixel represents the first message in the history and the bottom right represents the last. As the observer scrolls around the image, the message at the mouse\'s position displays at the top.</p><p>As I exhibited the work, I noticed people were nervous to use it, presumably concerned with the level of exposure into my life.</p><p>The screensaver comes from <a href="https://cachemonet.com/" target="__blank">cachemonet</a> one of my favorite places on the web.</p>',
   },
 ];
 
