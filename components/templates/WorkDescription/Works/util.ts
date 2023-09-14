@@ -8,4 +8,5 @@ export interface IWork {
 
 export const SText = styled(Text)`
   width: 100%;
+  max-width: 800px;
 `;

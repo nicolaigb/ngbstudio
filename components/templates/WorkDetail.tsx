@@ -48,7 +48,6 @@ const SWorkDetailContainer = styled.div`
 
 const SBody = styled.div`
   width: 100%;
-  max-width: 800px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -57,6 +56,7 @@ const SBody = styled.div`
 
 const SHeader = styled.div`
   width: 100%;
+  max-width: 800px;
   display: flex;
   flex-direction: column;
   gap: 8px;

@@ -40,6 +40,7 @@ const works: Work[] = [
         alt: 'Screenshot of the Cent Pages creator interface.',
         width: 3024,
         height: 1890,
+        isScreenshot: true,
       },
     ],
     year: '2021–22',

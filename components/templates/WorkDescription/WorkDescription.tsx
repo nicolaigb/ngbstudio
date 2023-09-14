@@ -18,9 +18,9 @@ const WorkDescription = ({
       return <CentPages content={content} />;
     case 'up-to-us':
       return <UpToUs content={content} />;
-    case 'valueables':
+    case 'valuables':
       return <Valuables content={content} />;
-    case 'abstract-DCGAN':
+    case 'abstract-dcgan':
       return <AbstractDCGAN content={content} />;
     case 'visualize':
       return <Visualize content={content} />;
