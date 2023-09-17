@@ -10,7 +10,7 @@ const IdeasPage = () => (
       <Text className="subheader" styleType="subheader">Ideas</Text>
       <Text styleType="regular">
         <p>
-          Due to the highly mercurial nature of the world wibe web, nothing you see here is ever permanent. To that end, I&aposve linked to the Figma file behind this site. Feel free to browse through and preview what I&aposm working on. If you&aposre up for it, leave me a comment with an idea you have or something you want fixed.
+          Due to the highly mercurial nature of the world wibe web, nothing you see here is ever permanent. To that end, I&apos;ve linked to the Figma file behind this site. Feel free to browse through and preview what I&apos;m working on. If you&apos;re up for it, leave me a comment with an idea you have or something you want fixed.
         </p>
         <p>
           The Github repo for end-i.ng is
