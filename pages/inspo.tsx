@@ -92,6 +92,10 @@ const SDescription = styled(Text)`
   width: 100%;
   padding: 16px 32px;
   text-align: end;
+
+  @media (max-width: ${({ theme }) => theme.Spacing.small}) {
+    display: none;
+  }
 `;
 
 export default Inspo;
