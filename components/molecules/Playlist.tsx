@@ -23,4 +23,8 @@ const SFrame = styled.iframe`
   overflow: hidden;
   border-radius: 10px;
   border: none;
+
+  @media (max-width: ${({ theme }) => theme.Spacing.small}) {
+    height: 450px;
+  }
 `;

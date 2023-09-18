@@ -31,16 +31,24 @@ export const ContentPreview: React.FC<IContentPreview> = (
     ...props
   },
 ): ReactElement => (
-  <InternalLink href={url}>
-    <SContentPreviewContainer {...props}>
+  <SContentPreviewContainer {...props}>
+    <InternalLink href={url}>
       <SImage src={src} alt={`Thumbnail preview for ${name}`} fill loading="lazy" />
       <SText styleType="title">{name}</SText>
-    </SContentPreviewContainer>
-  </InternalLink>
+    </InternalLink>
+  </SContentPreviewContainer>
 );
 
 const SContentPreviewContainer = styled.div`
   position: relative;
+
+  a:focus-visible {
+    outline: 2px solid -webkit-focus-ring-color;
+    border-radius: 1px;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 const SImage = styled(Image)`
@@ -62,6 +70,14 @@ const SText = styled(Text)`
     opacity: 1;
     background-color: rgba(255, 255, 255, 0.75);
     backdrop-filter: blur(8px) contrast(135%);
+  }
+
+  ${SContentPreviewContainer}:active & {
+    backdrop-filter: blur(2px) contrast(135%);
+    background-color: transparent;
+    transition:
+      backdrop-filter: 0ms;
+      backdrop-filter 0ms;
   }
 
   transition:

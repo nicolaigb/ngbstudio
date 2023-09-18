@@ -17,22 +17,7 @@ const MePage = () => (
       <SText styleType="regular">
         <p>Welcome to end-i.ng</p>
         <p>Truth is, it&apos;s really just the beginning.</p>
-        <p>🇺🇸🇩🇪🇲🇽🇪🇸 from Berkeley, CA. Stanford CS &apos;20. Currently living in Brooklyn (sick).</p>
-        <p>
-          I&apos;m constantly thinking about the
-          {' '}
-          <ExternalLink href="https://www.moma.org/calendar/exhibitions/5440">Wolfgang Tillmans MoMA show</ExternalLink>
-          {' '}
-          and Ludwig Mies van der Rohe&apos;s
-          {' '}
-          <ExternalLink href="https://en.wikipedia.org/wiki/Farnsworth_House">Farnsworth House</ExternalLink>
-          . Artists that have been in my rotation lately are Little Dragon, Frank Ocean, Nicolas Jaar, Bicep, and Overmono.
-        </p>
-        <p>
-          &ldquo;–&rdquo; is work in progress.
-        </p>
-        <p>I hope you enjoy my little corner of the internet. HMU with any questions / suggestions.</p>
-        <p>Also, shout out 🇳🇬 for the domain.</p>
+        <p>🇺🇸🇩🇪🇲🇽🇪🇸 from Berkeley, CA. Currently in Brooklyn. A Design Engineer by trade (serving some mixture between designing and coding), I&apos;m using this site to display some of my professional work alongside what I try to craft in my free time.</p>
         <p>--</p>
         <p><ExternalLink href="https://ng-web.s3.amazonaws.com/nicolai-garcia_design-portfolio.pdf">Product design portfolio (PDF)</ExternalLink></p>
         <p><ExternalLink href="mailto:nicolaigarciastudios@gmail.com">Electronic mail</ExternalLink></p>
