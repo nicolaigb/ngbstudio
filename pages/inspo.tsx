@@ -4,7 +4,6 @@ import { Layout } from '@templates';
 import images from '@constants/inspoItems';
 import Image from 'next/image';
 import { Playlist } from '@molecules/Playlist';
-import { ExternalLink, Text } from '@atoms';
 
 const Inspo = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -46,24 +45,6 @@ const Inspo = () => {
           })
         }
       </SContainer>
-      <SNotableContainer>
-        <Text styleType="emphasized">Notable:</Text>
-        <SNotableGrid>
-          <SNotableLink href="">
-            Wolfgang Tillmans,
-            <i>To look without fear</i>
-          </SNotableLink>
-          <SNotableLink href="">
-            Wolfgang Tillmans,
-            <i>To look without fear</i>
-          </SNotableLink>
-          <SNotableLink href="">
-            Wolfgang Tillmans,
-            <i>To look without fear</i>
-          </SNotableLink>
-        </SNotableGrid>
-        <SNotableContainer />
-      </SNotableContainer>
     </Layout>
   );
 };
@@ -91,20 +72,5 @@ const SImage = styled(Image)`
     margin-bottom: 16px;
   }
 `;
-
-const SNotableContainer = styled(Text)`
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 128px;
-  padding: 32px;
-`;
-
-const SNotableGrid = styled.div`
-  display: grid;
-`;
-
-const SNotableLink = styled(ExternalLink)``;
 
 export default Inspo;
