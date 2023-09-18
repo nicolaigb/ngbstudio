@@ -37,11 +37,17 @@ const Inspo = () => {
               type, src, alt, width, height, url,
             } = item;
             switch (type) {
-              case 'image': return (
-                <ExternalLink href={url}>
-                  <SImage key={`Inspo_image-${idx}`} src={src} alt={alt} width={width} height={height} onMouseEnter={() => setDescription(alt)} onMouseLeave={() => setDescription('')} />
-                </ExternalLink>
-              );
+              case 'image': {
+                const image = <SImage key={`Inspo_image-${idx}`} src={src} alt={alt} width={width} height={height} onMouseEnter={() => setDescription(alt)} onMouseLeave={() => setDescription('')} />;
+                return (
+                  url
+                    ? (
+                      <ExternalLink href={url}>
+                        {image}
+                      </ExternalLink>
+                    ) : image
+                );
+              }
               case 'playlist':
                 return <Playlist playlistObj={item} />;
               default:
