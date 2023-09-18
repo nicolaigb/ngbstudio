@@ -1,12 +1,15 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { Layout } from '@templates';
 import images from '@constants/inspoItems';
 import Image from 'next/image';
 import { Playlist } from '@molecules/Playlist';
+import { Text } from '@atoms/Text';
+import { ExternalLink } from '@atoms/ExternalLink';
 
 const Inspo = () => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [description, setDescription] = useState('');
 
   useEffect(() => {
     const onWheel = (event: WheelEvent) => {
@@ -31,11 +34,13 @@ const Inspo = () => {
         {
           images.map((item, idx) => {
             const {
-              type, src, alt, width, height,
+              type, src, alt, width, height, url,
             } = item;
             switch (type) {
               case 'image': return (
-                <SImage key={`Inspo_image-${idx}`} src={src} alt={alt} width={width} height={height} />
+                <ExternalLink href={url}>
+                  <SImage key={`Inspo_image-${idx}`} src={src} alt={alt} width={width} height={height} onMouseEnter={() => setDescription(alt)} onMouseLeave={() => setDescription('')} />
+                </ExternalLink>
               );
               case 'playlist':
                 return <Playlist playlistObj={item} />;
@@ -45,6 +50,7 @@ const Inspo = () => {
           })
         }
       </SContainer>
+      <SDescription dangerouslySetInnerHTML={{ __html: description }} />
     </Layout>
   );
 };
@@ -71,6 +77,15 @@ const SImage = styled(Image)`
     height: auto;
     margin-bottom: 16px;
   }
+`;
+
+const SDescription = styled(Text)`
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 16px 32px;
+  text-align: end;
 `;
 
 export default Inspo;
