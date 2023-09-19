@@ -11,9 +11,8 @@ export const SelfPortrait = ({
       <p>As I exhibited the work, I noticed people were nervous to use it, presumably concerned with the level of exposure into my life.</p>
       <p>
         The screensaver comes from
-        <a href="https://cachemonet.com/" target="__blank">cachemonet</a>
         {' '}
-        one of my favorite places on the web.
+        <a href="https://cachemonet.com/" target="__blank">cachemonet</a>
       </p>
     </SText>
     <Image imageObj={content[1]} />

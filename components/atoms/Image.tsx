@@ -4,10 +4,12 @@ import NextImage from 'next/image';
 import { ContentData } from 'model';
 
 export interface IImage {
+  className?: string;
   imageObj: ContentData;
 }
 
 export const Image = ({
+  className,
   imageObj,
 }: IImage) => {
   const {
@@ -23,6 +25,7 @@ export const Image = ({
       blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAQAAAAD+Fb1AAAAEElEQVR42mP8+p8BDBhxMwCkegfV2VbptgAAAABJRU5ErkJggg=="
       isScreenshot={isScreenshot}
       loading="lazy"
+      className={className}
     />
   );
 };

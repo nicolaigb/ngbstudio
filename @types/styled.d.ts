@@ -24,6 +24,7 @@ declare module 'styled-components' {
     }
 
     Spacing: {
+      contentWidth: string;
       condensed: string;
       tight: string;
       regular: string;

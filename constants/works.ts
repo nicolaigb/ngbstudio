@@ -3,6 +3,8 @@ import { Work } from 'model';
 
 export const S3_BUCKET_URL = 'https://ng-web.s3.amazonaws.com';
 
+const CONTENT_WIDTH = 642;
+
 const works: Work[] = [
   {
     id: 6,
@@ -82,22 +84,22 @@ const works: Work[] = [
         type: 'image',
         src: `${S3_BUCKET_URL}/abstract-dcgan/image_at_epoch_0100.png`,
         alt: '16x16 grid of images produced by abstract-DCGAN after 100 epochs of training',
-        width: 600,
-        height: 600,
+        width: CONTENT_WIDTH,
+        height: CONTENT_WIDTH,
       },
       {
         type: 'image',
         src: `${S3_BUCKET_URL}/abstract-dcgan/image_at_epoch_0099.png`,
         alt: '16x16 grid of images produced by abstract-DCGAN after 99 epochs of training',
-        width: 600,
-        height: 600,
+        width: CONTENT_WIDTH,
+        height: CONTENT_WIDTH,
       },
       {
         type: 'image',
         src: `${S3_BUCKET_URL}/abstract-dcgan/image_at_epoch_0100_landscape.png`,
         alt: '16x16 grid of images produced by DCGAN after 100 epochs of training on a dataset of landscape images',
-        width: 600,
-        height: 600,
+        width: CONTENT_WIDTH,
+        height: CONTENT_WIDTH,
       },
     ],
     year: '2020',
@@ -113,22 +115,22 @@ const works: Work[] = [
         type: 'video',
         src: `${S3_BUCKET_URL}/visualize/visualize_screen-recording.mov`,
         alt: 'Screen recording of Visualize program set to Frank Ocean&apos;s cover of At Your Best (You Are Love) by Aaliyah',
-        width: 600,
-        height: 600,
+        width: 642,
+        height: 642,
       },
       {
         type: 'image',
         src: `${S3_BUCKET_URL}/visualize/screenshot-01.png`,
         alt: 'Still from Visualize program with an orange background and blue circle',
-        width: 600,
-        height: 600,
+        width: CONTENT_WIDTH,
+        height: CONTENT_WIDTH,
       },
       {
         type: 'image',
         src: `${S3_BUCKET_URL}/visualize/screenshot-00.png`,
         alt: 'Still from Visualize program with a brown background and blue circle',
-        width: 600,
-        height: 600,
+        width: CONTENT_WIDTH,
+        height: CONTENT_WIDTH,
       },
     ],
     year: '2019',
