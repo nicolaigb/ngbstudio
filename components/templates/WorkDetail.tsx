@@ -51,13 +51,13 @@ const SBody = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 32px;
 `;
 
 const SHeader = styled.div`
   width: 100%;
-  max-width: 800px;
+  max-width: ${({ theme }) => theme.Spacing.contentTextWidth};
   display: flex;
   flex-direction: column;
   gap: 8px;
+  margin-bottom: 16px;
 `;

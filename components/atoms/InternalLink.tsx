@@ -14,7 +14,6 @@ export const InternalLink = ({
   <Link
     {...props}
     passHref
-    prefetch
     style={{
       textDecoration: underline ? 'underline' : 'none',
     }}

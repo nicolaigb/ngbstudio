@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image } from '@atoms';
+import { ContentView } from '@molecules/ContentView';
 import { IWork, SText } from './util';
 
 export const Visualize = ({
@@ -7,9 +7,12 @@ export const Visualize = ({
 }: IWork) => (
   <>
     <SText>
-      Sound visualization
+      This program flattens sound frequency into color with higher frequencies translate to brighter colors and vise-versa. The background color is the negative of the foreground. This one is set to Frank Ocean&apos;s cover of
+      {' '}
+      <i>At Your Best (You Are Love)</i>
+      , by Aaliyah.
     </SText>
-    <Image imageObj={content[1]} />
-    <Image imageObj={content[2]} />
+    <ContentView data={content[1]} />
+    <ContentView data={content[2]} />
   </>
 );
