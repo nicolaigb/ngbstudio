@@ -55,7 +55,7 @@ const SBody = styled.div`
 
 const SHeader = styled.div`
   width: 100%;
-  max-width: ${({ theme }) => theme.Spacing.contentWidth};
+  max-width: ${({ theme }) => theme.Spacing.contentTextWidth};
   display: flex;
   flex-direction: column;
   gap: 8px;

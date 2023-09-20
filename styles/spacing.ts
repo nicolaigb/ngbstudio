@@ -6,7 +6,9 @@ export const Spacing = {
 
   regular: '16px',
 
-  contentWidth: '642px',
+  contentTextWidth: '642px',
+
+  contentImageWidth: '1024px',
 
   /**
    * Also used as the web margin size

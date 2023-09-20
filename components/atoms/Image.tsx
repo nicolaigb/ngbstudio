@@ -39,7 +39,7 @@ const screenshotStyle = css`
 `;
 
 const SImage = styled(NextImage)<Pick<ContentData, 'isScreenshot'>>`
-  max-width: 100% !important;
+  width: 100% !important;
   height: auto;
   ${({ isScreenshot: showBorder }) => showBorder && screenshotStyle};
 `;

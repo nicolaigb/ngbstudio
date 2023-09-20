@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image } from '@atoms';
+import { ContentView } from '@molecules';
 import { IWork, SText } from './util';
 
 export const SelfPortrait = ({
@@ -15,7 +15,7 @@ export const SelfPortrait = ({
         <a href="https://cachemonet.com/" target="__blank">cachemonet</a>
       </p>
     </SText>
-    <Image imageObj={content[1]} />
-    <Image imageObj={content[2]} />
+    <ContentView data={content[1]} />
+    <ContentView data={content[2]} />
   </>
 );

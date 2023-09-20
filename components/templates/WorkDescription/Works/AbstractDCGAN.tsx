@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image } from '@atoms';
+import { ContentView } from '@molecules/ContentView';
 import { IWork, SText } from './util';
 
 export const AbstractDCGAN = ({
@@ -23,7 +23,7 @@ export const AbstractDCGAN = ({
         <a href="https://github.com/nicog98/abstract-DCGAN" target="__blank">Github</a>
       </p>
     </SText>
-    <Image imageObj={content[1]} />
-    <Image imageObj={content[2]} />
+    <ContentView data={content[1]} />
+    <ContentView data={content[2]} />
   </>
 );
