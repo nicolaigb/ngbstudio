@@ -35,11 +35,10 @@ const screenshotStyle = css`
   box-shadow: 0px 4px 32px 0px rgba(0, 2, 32, 0.16);
   overflow: hidden;
   max-height: 90vh;
-  width: auto;
 `;
 
 const SImage = styled(NextImage)<Pick<ContentData, 'isScreenshot'>>`
-  width: 100% !important;
+  max-width: 100% !important;
   height: auto;
   ${({ isScreenshot: showBorder }) => showBorder && screenshotStyle};
 `;
