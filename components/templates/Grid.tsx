@@ -1,27 +1,12 @@
-import React, { ReactElement } from 'react';
-import { ContentPreview, IContentPreview } from '@molecules';
+import React from 'react';
 import styled from 'styled-components';
 
-export interface IGrid extends React.HTMLAttributes<HTMLDivElement> {
-  /**
-   * Props corresponding to each work featured in the grid
-   */
-  worksProps: IContentPreview[];
-}
-
-export const Grid: React.FC<IGrid> = (
+export const Grid = (
   {
-    worksProps,
     ...props
-  },
-): ReactElement => (
-  <SGridContainer {...props}>
-    {worksProps.map((contentPreviewProps, idx) => (
-      <SContentPreviewContainer key={idx}>
-        <SContentPreview {...contentPreviewProps} />
-      </SContentPreviewContainer>
-    ))}
-  </SGridContainer>
+  }: React.HTMLAttributes<HTMLDivElement>,
+) => (
+  <SGridContainer {...props} />
 );
 
 const SGridContainer = styled.div`
@@ -43,19 +28,4 @@ const SGridContainer = styled.div`
   }
   column-gap: ${({ theme }) => theme.Spacing.wide};
   row-gap: ${({ theme }) => theme.Spacing.wide};
-`;
-
-const SContentPreviewContainer = styled.div`
-  width: 100%;
-  height: 0;
-  padding-bottom: 50%;
-  position: relative;
-`;
-
-const SContentPreview = styled(ContentPreview)`
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
 `;

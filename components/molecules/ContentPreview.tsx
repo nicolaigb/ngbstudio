@@ -1,10 +1,7 @@
-import React, { ReactElement } from 'react';
-import Image from 'next/image';
-import {
-  Text,
-  InternalLink,
-} from '@atoms';
+import React from 'react';
 import styled from 'styled-components';
+import Image from 'next/image';
+import { Text } from '@atoms';
 
 export interface IContentPreview extends React.HTMLAttributes<HTMLDivElement> {
   /**
@@ -16,39 +13,23 @@ export interface IContentPreview extends React.HTMLAttributes<HTMLDivElement> {
    * Name of content
    */
   name: string;
-
-  /**
-   * URL pointing to work this thumbnail previews
-   */
-  url: string;
 }
 
-export const ContentPreview: React.FC<IContentPreview> = (
-  {
-    src,
-    name,
-    url,
-    ...props
-  },
-): ReactElement => (
+export const ContentPreview = ({
+  src,
+  name,
+  ...props
+}: IContentPreview) => (
   <SContentPreviewContainer {...props}>
-    <InternalLink href={url}>
-      <SImage src={src} alt={`Thumbnail preview for ${name}`} fill loading="lazy" />
-      <SText styleType="title">{name}</SText>
-    </InternalLink>
+    <SImage src={src} alt={`Thumbnail preview for ${name}`} fill loading="lazy" />
+    <SText styleType="title">{name}</SText>
   </SContentPreviewContainer>
 );
 
 const SContentPreviewContainer = styled.div`
-  position: relative;
-
-  a:focus-visible {
-    outline: 2px solid -webkit-focus-ring-color;
-    border-radius: 1px;
-    display: block;
-    width: 100%;
-    height: 100%;
-  }
+  position: absolute;
+  width: 100%;
+  height: 100%;
 `;
 
 const SImage = styled(Image)`
@@ -66,21 +47,23 @@ const SText = styled(Text)`
   text-overflow: ellipsis;
   color: ${({ theme }) => theme.Colors.inverse};
 
-  ${SContentPreviewContainer}:hover & {
-    opacity: 1;
-    background-color: rgba(255, 255, 255, 0.75);
-    backdrop-filter: blur(8px) contrast(135%);
-  }
-
-  ${SContentPreviewContainer}:active & {
-    backdrop-filter: blur(2px) contrast(135%);
-    background-color: transparent;
+  @media (min-width: ${({ theme }) => theme.Spacing.medium}) {
+    ${SContentPreviewContainer}:hover & {
+      opacity: 1;
+      background-color: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(8px) contrast(135%);
+    }
+  
+    ${SContentPreviewContainer}:active & {
+      backdrop-filter: blur(2px) contrast(135%);
+      background-color: transparent;
+      transition:
+        backdrop-filter: 0ms;
+        backdrop-filter 0ms;
+    }
+  
     transition:
-      backdrop-filter: 0ms;
-      backdrop-filter 0ms;
+      background-color 150ms ease-in-out,
+      backdrop-filter 250ms;
   }
-
-  transition:
-    background-color 150ms ease-in-out,
-    backdrop-filter 250ms;
 `;
