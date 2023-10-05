@@ -13,10 +13,6 @@ const navItems: Array<NavItem> = [
     name: 'Inspo',
     href: '/inspo',
   },
-  {
-    name: 'Ideas',
-    href: '/ideas',
-  },
 ];
 
 export default navItems;
