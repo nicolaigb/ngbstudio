@@ -49,7 +49,7 @@ const Inspo = () => {
                 );
               }
               case 'playlist':
-                return <Playlist playlistObj={item} />;
+                return <Playlist key={`Inspo-playlist-${idx}`} playlistObj={item} />;
               default:
                 return null;
             }

@@ -60,13 +60,6 @@ const images: InspoItem[] = [
     width: 400,
     height: 300,
   },
-  {
-    type: 'image',
-    src: `${S3_BUCKET_URL}/inspo/lost-in-translation.gif`,
-    alt: '<i>Lost in Translation.</i> (2003)',
-    width: 554,
-    height: 300,
-  },
 ];
 
 export default images;
