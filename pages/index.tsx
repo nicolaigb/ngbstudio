@@ -22,7 +22,7 @@ interface IHome {
 }
 
 const Home = ({ works }: IHome) => {
-  const [curWorkName, setCurWorkName] = useState('');
+  const [curWorkName, setCurWorkName] = useState(works[0].title);
   const workRefs: React.RefObject<HTMLDivElement>[] = Array.from({ length: works.length }, () => useRef(null));
 
   useEffect(() => {
@@ -62,7 +62,7 @@ const Home = ({ works }: IHome) => {
           }
         </Grid>
       </SLayout>
-      <SCurrentWorkTitle>{curWorkName}</SCurrentWorkTitle>
+      <SCurrentWorkTitle styleType="emphasized">{curWorkName}</SCurrentWorkTitle>
     </div>
   );
 };
@@ -95,12 +95,14 @@ const SContentPreviewContainer = styled.div`
 `;
 
 const SCurrentWorkTitle = styled(Text)`
+  display: none;
   @media (max-width: ${({ theme }) => theme.Spacing.large}) {
+    display: block;
     position: fixed;
     width: 100%;
     bottom: 0;
     left: 0;
-    padding: 16px 32px;
+    padding: 16px;
     background-color: white;
   }
 `;
