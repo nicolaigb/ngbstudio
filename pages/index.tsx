@@ -101,7 +101,7 @@ const STitleIndicatorContainer = styled.div`
   @media (max-width: ${({ theme }) => theme.Spacing.large}) {
     position: fixed;
     width: 100%;
-    bottom: 0;
+    top: 100px;
     display: flex;
     justify-content: center;
     padding: 16px;
