@@ -1,20 +1,15 @@
-import React from 'react';
-import styled, { css } from 'styled-components';
-import NextImage from 'next/image';
-import { ContentData } from 'model';
+import React from 'react'
+import styled, { css } from 'styled-components'
+import NextImage from 'next/image'
+import { ContentData } from 'model'
 
 export interface IImage {
-  className?: string;
-  imageObj: ContentData;
+  className?: string
+  imageObj: ContentData
 }
 
-export const Image = ({
-  className,
-  imageObj,
-}: IImage) => {
-  const {
-    src, alt, width, height, isScreenshot,
-  } = imageObj;
+export const Image = ({ className, imageObj }: IImage) => {
+  const { src, alt, width, height, isScreenshot } = imageObj
   return (
     <SImage
       src={src}
@@ -27,8 +22,8 @@ export const Image = ({
       loading="lazy"
       className={className}
     />
-  );
-};
+  )
+}
 
 const screenshotStyle = css`
   border-radius: 8px;
@@ -36,10 +31,10 @@ const screenshotStyle = css`
   overflow: hidden;
   max-height: 90vh;
   width: auto;
-`;
+`
 
 const SImage = styled(NextImage)<Pick<ContentData, 'isScreenshot'>>`
   max-width: 100% !important;
   height: auto;
   ${({ isScreenshot }) => isScreenshot && screenshotStyle};
-`;
+`

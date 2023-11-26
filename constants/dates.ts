@@ -19,6 +19,6 @@ const dates = [
     timezone: 'Asia/Tokyo',
     city: 'TYO',
   },
-];
+]
 
-export default dates;
+export default dates

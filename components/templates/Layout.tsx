@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Header } from '@organisms';
+import React from 'react'
+import styled from 'styled-components'
+import { Header } from '@organisms'
 
 export const Layout = ({
   children,
@@ -10,17 +10,17 @@ export const Layout = ({
     <SHeader />
     <SContentContainer>{children}</SContentContainer>
   </SLayoutContainer>
-);
+)
 
 const SLayoutContainer = styled.div`
   position: relative;
-`;
+`
 
 const SHeader = styled(Header)`
   position: sticky;
   top: 0;
   z-index: 100;
-`;
+`
 
 const SContentContainer = styled.div`
   padding: ${({ theme }) => theme.Spacing.wide};
@@ -30,4 +30,4 @@ const SContentContainer = styled.div`
   @media only screen and (max-width: ${({ theme }) => theme.Spacing.large}) {
     padding: ${({ theme }) => theme.Spacing.regular};
   }
-`;
+`

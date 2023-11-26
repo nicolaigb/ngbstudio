@@ -1,9 +1,9 @@
 /* eslint-disable no-multi-str */
-import { Work } from 'model';
+import { Work } from 'model'
 
-export const S3_BUCKET_URL = 'https://ng-web.s3.amazonaws.com';
+export const S3_BUCKET_URL = 'https://ng-web.s3.amazonaws.com'
 
-const CONTENT_WIDTH = 642;
+const CONTENT_WIDTH = 642
 
 const works: Work[] = [
   {
@@ -199,6 +199,6 @@ const works: Work[] = [
     year: '2019',
     medium: 'Processing',
   },
-];
+]
 
-export default works;
+export default works

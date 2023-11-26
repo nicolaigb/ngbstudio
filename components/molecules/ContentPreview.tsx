@@ -1,40 +1,41 @@
-import React from 'react';
-import styled from 'styled-components';
-import Image from 'next/image';
-import { Text } from '@atoms';
+import React from 'react'
+import styled from 'styled-components'
+import Image from 'next/image'
+import { Text } from '@atoms'
 
 export interface IContentPreview extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * URL to image to be displayed in content preview
    */
-  src: string;
+  src: string
 
   /**
    * Name of content
    */
-  name: string;
+  name: string
 }
 
-export const ContentPreview = ({
-  src,
-  name,
-  ...props
-}: IContentPreview) => (
+export const ContentPreview = ({ src, name, ...props }: IContentPreview) => (
   <SContentPreviewContainer {...props}>
-    <SImage src={src} alt={`Thumbnail preview for ${name}`} fill loading="lazy" />
+    <SImage
+      src={src}
+      alt={`Thumbnail preview for ${name}`}
+      fill
+      loading="lazy"
+    />
     <SText styleType="title">{name}</SText>
   </SContentPreviewContainer>
-);
+)
 
 const SContentPreviewContainer = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
-`;
+`
 
 const SImage = styled(Image)`
   object-fit: cover;
-`;
+`
 
 const SText = styled(Text)`
   opacity: 0;
@@ -66,4 +67,4 @@ const SText = styled(Text)`
       background-color 150ms ease-in-out,
       backdrop-filter 250ms;
   }
-`;
+`

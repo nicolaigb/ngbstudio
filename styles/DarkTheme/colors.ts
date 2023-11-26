@@ -15,4 +15,4 @@ export const Colors = {
   borderLine: 'rgba(24, 24, 24, .5)',
 
   inverse: '#000000',
-};
+}

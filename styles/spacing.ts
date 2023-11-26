@@ -12,7 +12,7 @@ export const Spacing = {
 
   /**
    * Also used as the web margin size
-  */
+   */
   wide: '32px',
 
   extraWide: '64px',
@@ -21,17 +21,17 @@ export const Spacing = {
 
   /**
    * Four columns (MacBook display)
-  */
+   */
   fourColumnMin: '1196px',
 
   /**
    * Three columns
-  */
+   */
   threeColumnMin: '1124px',
 
   /**
    * Minimum screen width for displaying on web
-  */
+   */
   large: '850px',
 
   // maximum screen width for displaying on mobile
@@ -41,4 +41,4 @@ export const Spacing = {
 
   // size of cell in grid
   cellWidth: '240px',
-};
+}

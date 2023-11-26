@@ -1,4 +1,4 @@
-import { NavItem } from 'model';
+import { NavItem } from 'model'
 
 const navItems: Array<NavItem> = [
   {
@@ -13,6 +13,6 @@ const navItems: Array<NavItem> = [
     name: 'Inspo',
     href: '/inspo',
   },
-];
+]
 
-export default navItems;
+export default navItems

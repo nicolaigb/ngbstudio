@@ -1,65 +1,70 @@
-import React, { useState, useEffect, useRef } from 'react';
-import styled from 'styled-components';
-import { Layout } from '@templates';
-import images from '@constants/inspoItems';
-import Image from 'next/image';
-import { Playlist } from '@molecules/Playlist';
-import { Text } from '@atoms/Text';
-import { ExternalLink } from '@atoms/ExternalLink';
+import React, { useState, useEffect, useRef } from 'react'
+import styled from 'styled-components'
+import { Layout } from '@templates'
+import images from '@constants/inspoItems'
+import Image from 'next/image'
+import { Playlist } from '@molecules/Playlist'
+import { Text } from '@atoms/Text'
+import { ExternalLink } from '@atoms/ExternalLink'
 
 const Inspo = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [description, setDescription] = useState('');
+  const containerRef = useRef<HTMLDivElement>(null)
+  const [description, setDescription] = useState('')
 
   useEffect(() => {
     const onWheel = (event: WheelEvent) => {
-      const { deltaY } = event;
+      const { deltaY } = event
       containerRef.current.scrollBy({
         top: 0,
         left: deltaY,
         behavior: 'auto',
-      });
-    };
+      })
+    }
 
-    window.addEventListener('wheel', onWheel);
+    window.addEventListener('wheel', onWheel)
 
     return () => {
-      window.removeEventListener('wheel', onWheel);
-    };
-  }, []);
+      window.removeEventListener('wheel', onWheel)
+    }
+  }, [])
 
   return (
     <Layout>
       <SContainer ref={containerRef}>
-        {
-          images.map((item, idx) => {
-            const {
-              type, src, alt, width, height, url,
-            } = item;
-            switch (type) {
-              case 'image': {
-                const image = <SImage key={`Inspo_image-${idx}`} src={src} alt={alt} width={width} height={height} onMouseEnter={() => setDescription(alt)} onMouseLeave={() => setDescription('')} />;
-                return (
-                  url
-                    ? (
-                      <ExternalLink href={url}>
-                        {image}
-                      </ExternalLink>
-                    ) : image
-                );
-              }
-              case 'playlist':
-                return <Playlist key={`Inspo-playlist-${idx}`} playlistObj={item} />;
-              default:
-                return null;
+        {images.map((item, idx) => {
+          const { type, src, alt, width, height, url } = item
+          switch (type) {
+            case 'image': {
+              const image = (
+                <SImage
+                  key={`Inspo_image-${idx}`}
+                  src={src}
+                  alt={alt}
+                  width={width}
+                  height={height}
+                  onMouseEnter={() => setDescription(alt)}
+                  onMouseLeave={() => setDescription('')}
+                />
+              )
+              return url ? (
+                <ExternalLink href={url}>{image}</ExternalLink>
+              ) : (
+                image
+              )
             }
-          })
-        }
+            case 'playlist':
+              return (
+                <Playlist key={`Inspo-playlist-${idx}`} playlistObj={item} />
+              )
+            default:
+              return null
+          }
+        })}
       </SContainer>
       <SDescription dangerouslySetInnerHTML={{ __html: description }} />
     </Layout>
-  );
-};
+  )
+}
 
 const SContainer = styled.div`
   @media (min-width: ${({ theme }) => theme.Spacing.small}) {
@@ -75,7 +80,7 @@ const SContainer = styled.div`
     align-items: center;
     padding: 0 32px;
   }
-`;
+`
 
 const SImage = styled(Image)`
   @media (max-width: ${({ theme }) => theme.Spacing.small}) {
@@ -83,7 +88,7 @@ const SImage = styled(Image)`
     height: auto;
     margin-bottom: 16px;
   }
-`;
+`
 
 const SDescription = styled(Text)`
   position: fixed;
@@ -96,6 +101,6 @@ const SDescription = styled(Text)`
   @media (max-width: ${({ theme }) => theme.Spacing.small}) {
     display: none;
   }
-`;
+`
 
-export default Inspo;
+export default Inspo

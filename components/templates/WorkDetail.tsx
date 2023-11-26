@@ -1,27 +1,16 @@
-import React from 'react';
-import { Work } from 'model';
-import { Text } from '@atoms';
-import { ContentView } from '@molecules';
-import styled from 'styled-components';
-import WorkDescription from './WorkDescription';
+import React from 'react'
+import { Work } from 'model'
+import { Text } from '@atoms'
+import { ContentView } from '@molecules'
+import styled from 'styled-components'
+import WorkDescription from './WorkDescription'
 
 export interface IWorkDetail extends React.HTMLAttributes<HTMLDivElement> {
-  work: Work;
+  work: Work
 }
 
-export const WorkDetail = (
-  {
-    work,
-    ...props
-  }: IWorkDetail,
-) => {
-  const {
-    content,
-    title,
-    year,
-    medium,
-    tag,
-  } = work;
+export const WorkDetail = ({ work, ...props }: IWorkDetail) => {
+  const { content, title, year, medium, tag } = work
 
   return (
     <SWorkDetailContainer {...props}>
@@ -30,13 +19,15 @@ export const WorkDetail = (
         <SHeader>
           <Text styleType="subheader">{title}</Text>
           <Text styleType="emphasized">{year}</Text>
-          <Text styleType="regular" style={{ fontStyle: 'italic' }}>{medium}</Text>
+          <Text styleType="regular" style={{ fontStyle: 'italic' }}>
+            {medium}
+          </Text>
         </SHeader>
         <WorkDescription tag={tag} content={content} />
       </SBody>
     </SWorkDetailContainer>
-  );
-};
+  )
+}
 
 const SWorkDetailContainer = styled.div`
   display: flex;
@@ -44,14 +35,14 @@ const SWorkDetailContainer = styled.div`
   gap: 64px;
   align-items: center;
   position: relative;
-`;
+`
 
 const SBody = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-`;
+`
 
 const SHeader = styled.div`
   width: 100%;
@@ -60,4 +51,4 @@ const SHeader = styled.div`
   flex-direction: column;
   gap: 8px;
   margin-bottom: 16px;
-`;
+`

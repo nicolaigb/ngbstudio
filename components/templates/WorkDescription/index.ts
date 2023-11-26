@@ -1,3 +1,3 @@
-import WorkDescription from './WorkDescription';
+import WorkDescription from './WorkDescription'
 
-export default WorkDescription;
+export default WorkDescription
