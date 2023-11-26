@@ -30,7 +30,8 @@ const Home = ({ works }: IHome) => {
       if (window.innerWidth <= 850) {
         workRefs.forEach((ref, idx) => {
           if (ref.current && isTopOfViewport(ref.current)) {
-            setCurWorkName(works[idx].title);
+            const { title } = works[idx];
+            setCurWorkName(title);
           }
         });
       }
@@ -117,6 +118,7 @@ const STitleIndicator = styled(Text)`
   backdrop-filter: blur(8px) brightness(124%);
   border-radius: 500px;
   border: 1px solid #EEEEEE;
+
 `;
 
 export default Home;
