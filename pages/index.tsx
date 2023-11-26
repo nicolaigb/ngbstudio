@@ -30,7 +30,8 @@ const Home = ({ works }: IHome) => {
       if (window.innerWidth <= 850) {
         workRefs.forEach((ref, idx) => {
           if (ref.current && isTopOfViewport(ref.current)) {
-            setCurWorkName(works[idx].title);
+            const { title } = works[idx];
+            setCurWorkName(title);
           }
         });
       }
@@ -62,7 +63,9 @@ const Home = ({ works }: IHome) => {
           }
         </Grid>
       </SLayout>
-      <SCurrentWorkTitle styleType="emphasized">{curWorkName}</SCurrentWorkTitle>
+      <STitleIndicatorContainer>
+        <STitleIndicator styleType="emphasized">{curWorkName}</STitleIndicator>
+      </STitleIndicatorContainer>
     </div>
   );
 };
@@ -94,17 +97,28 @@ const SContentPreviewContainer = styled.div`
   }
 `;
 
-const SCurrentWorkTitle = styled(Text)`
+const STitleIndicatorContainer = styled.div`
   display: none;
   @media (max-width: ${({ theme }) => theme.Spacing.large}) {
-    display: block;
     position: fixed;
     width: 100%;
-    bottom: 0;
-    left: 0;
+    top: 100px;
+    display: flex;
+    justify-content: center;
     padding: 16px;
-    background-color: white;
   }
+`;
+
+const STitleIndicator = styled(Text)`
+  display: inline-flex;
+  max-width: unset;
+  justify-content: center;
+  padding: 8px 16px;
+  background-color: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(8px) brightness(124%);
+  border-radius: 500px;
+  border: 1px solid #EEEEEE;
+
 `;
 
 export default Home;
