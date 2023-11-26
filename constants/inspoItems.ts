@@ -1,5 +1,5 @@
-import { InspoItem } from 'model';
-import { S3_BUCKET_URL } from './works';
+import { InspoItem } from 'model'
+import { S3_BUCKET_URL } from './works'
 
 const images: InspoItem[] = [
   {
@@ -9,7 +9,7 @@ const images: InspoItem[] = [
   {
     type: 'image',
     src: `${S3_BUCKET_URL}/inspo/josef-albers-homage-to-the-square-arctic-bloom-1965.jpg`,
-    alt: 'Josef Albers\' <i>Homage to the Square</i> (1888–1976)',
+    alt: "Josef Albers' <i>Homage to the Square</i> (1888–1976)",
     url: 'https://artblart.com/tag/homage-to-the-square/',
     width: 300,
     height: 300,
@@ -67,6 +67,6 @@ const images: InspoItem[] = [
     width: 554,
     height: 300,
   },
-];
+]
 
-export default images;
+export default images

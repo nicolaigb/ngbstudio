@@ -1,11 +1,9 @@
-import React from 'react';
-import { InternalLink, Text } from '@atoms';
-import { Dates, Menu } from '@molecules';
-import styled from 'styled-components';
+import React from 'react'
+import { InternalLink, Text } from '@atoms'
+import { Dates, Menu } from '@molecules'
+import styled from 'styled-components'
 
-export const Header = ({
-  ...props
-}: React.HTMLAttributes<HTMLDivElement>) => (
+export const Header = ({ ...props }: React.HTMLAttributes<HTMLDivElement>) => (
   <SContainer {...props}>
     <SHeaderContainer {...props}>
       <SNavContainer>
@@ -17,13 +15,12 @@ export const Header = ({
       <Dates />
     </SHeaderContainer>
   </SContainer>
-);
+)
 
 const SContainer = styled.div`
   background-color: rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(10px);
-  
-`;
+`
 
 const SHeaderContainer = styled.div`
   display: flex;
@@ -39,17 +36,17 @@ const SHeaderContainer = styled.div`
     flex-direction: column-reverse;
     justify-content: flex-start;
   }
-`;
+`
 
 const STitle = styled(Text)`
   line-height: 100%;
-`;
+`
 
 const SNavContainer = styled.div`
   display: flex;
   align-items: flex-end;
   gap: 24px;
-`;
+`
 
 // EXPERIMENTATION
 // const SBanner = styled.div`

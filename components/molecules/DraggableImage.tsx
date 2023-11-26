@@ -1,22 +1,15 @@
-import React from 'react';
-import styled from 'styled-components';
-import Draggable from 'react-draggable';
-import Image from 'next/image';
-import { ContentData } from 'model';
+import React from 'react'
+import styled from 'styled-components'
+import Draggable from 'react-draggable'
+import Image from 'next/image'
+import { ContentData } from 'model'
 
 export interface IDraggableImage {
   data: ContentData
 }
 
-export const DraggableImage = ({
-  data,
-}: IDraggableImage) => {
-  const {
-    src,
-    alt,
-    width,
-    height,
-  } = data;
+export const DraggableImage = ({ data }: IDraggableImage) => {
+  const { src, alt, width, height } = data
   return (
     <Draggable>
       <SImageContainer>
@@ -29,9 +22,9 @@ export const DraggableImage = ({
         />
       </SImageContainer>
     </Draggable>
-  );
-};
+  )
+}
 
 const SImageContainer = styled.div`
   cursor: move;
-`;
+`

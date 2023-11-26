@@ -1,16 +1,16 @@
-import { css } from 'styled-components';
+import { css } from 'styled-components'
 
-export const primaryFont = 'Neue Haas Grotesk Display Pro';
+export const primaryFont = 'Neue Haas Grotesk Display Pro'
 
 const baseTextStyle = css`
   font-family: ${primaryFont}, Helvetica, sans-serif;
   font-weight: 500;
-`;
+`
 
 const boldTextStyle = css`
   ${baseTextStyle};
   font-weight: bold;
-`;
+`
 
 export const Typography = {
   primaryFontFamily: primaryFont,
@@ -46,4 +46,4 @@ export const Typography = {
     ${boldTextStyle};
     font-size: 10px;
   `,
-};
+}

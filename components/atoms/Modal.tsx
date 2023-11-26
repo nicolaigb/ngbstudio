@@ -1,32 +1,28 @@
-import React, { ReactElement } from 'react';
-import styled from 'styled-components';
+import React, { ReactElement } from 'react'
+import styled from 'styled-components'
 
 export interface IModal extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * Boolean determining whether the modal is open
    */
-  isOpen: boolean;
+  isOpen: boolean
 
   /**
    * Function to handle closing modal
    */
-  onRequestClose: () => void;
+  onRequestClose: () => void
 }
 
-export const Modal: React.FC<IModal> = (
-  {
-    children,
-    isOpen,
-    onRequestClose,
-    ...props
-  },
-): ReactElement => (
+export const Modal: React.FC<IModal> = ({
+  children,
+  isOpen,
+  onRequestClose,
+  ...props
+}): ReactElement => (
   <SModalContainer {...props} hidden={!isOpen} onClick={onRequestClose}>
-    <SModalContent>
-      {children}
-    </SModalContent>
+    <SModalContent>{children}</SModalContent>
   </SModalContainer>
-);
+)
 
 const SModalContainer = styled.div`
   position: fixed;
@@ -35,7 +31,7 @@ const SModalContainer = styled.div`
   width: 100%;
   height: 100%;
   background-color: ${({ theme }) => theme.Colors.modal};
-`;
+`
 
 const SModalContent = styled.div`
   position: absolute;
@@ -45,4 +41,4 @@ const SModalContent = styled.div`
   bottom: auto;
   margin-right: -50%;
   transform: translate(-50%, -50%);
-`;
+`

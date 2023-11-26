@@ -1,9 +1,11 @@
-import React from 'react';
-import Link, { LinkProps } from 'next/link';
+import React from 'react'
+import Link, { LinkProps } from 'next/link'
 
-export interface IInternalLink extends React.HTMLAttributes<HTMLAnchorElement>, LinkProps {
+export interface IInternalLink
+  extends React.HTMLAttributes<HTMLAnchorElement>,
+    LinkProps {
   // eslint-disable-next-line react/require-default-props
-  underline?: boolean;
+  underline?: boolean
 }
 
 export const InternalLink = ({
@@ -20,4 +22,4 @@ export const InternalLink = ({
   >
     {children}
   </Link>
-);
+)

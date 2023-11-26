@@ -1,20 +1,17 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
 
-export const Grid = (
-  {
-    ...props
-  }: React.HTMLAttributes<HTMLDivElement>,
-) => (
+export const Grid = ({ ...props }: React.HTMLAttributes<HTMLDivElement>) => (
   <SGridContainer {...props} />
-);
+)
 
 const SGridContainer = styled.div`
   width: 100%;
   display: grid;
   justify-content: center;
   // Media queries to determine number of columns based on screen size
-  @media (max-width: ${({ theme }) => theme.Spacing.large}) { // Mobile
+  @media (max-width: ${({ theme }) => theme.Spacing.large}) {
+    // Mobile
     grid-template-columns: 100%;
   }
   @media (min-width: ${({ theme }) => theme.Spacing.large}) {
@@ -28,4 +25,4 @@ const SGridContainer = styled.div`
   }
   column-gap: ${({ theme }) => theme.Spacing.wide};
   row-gap: ${({ theme }) => theme.Spacing.wide};
-`;
+`
