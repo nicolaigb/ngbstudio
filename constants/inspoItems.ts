@@ -3,6 +3,30 @@ import { S3_BUCKET_URL } from './works'
 
 const images: InspoItem[] = [
   {
+    type: 'image',
+    src: `${S3_BUCKET_URL}/inspo/tracey-ermin.jpeg`,
+    alt: 'Tracey Emin&apos;s painting from <i>Lovers Grace</i> at White Cube, New York showing from November 4, 2023 — January 13, 2024.',
+    url: 'https://www.whitecube.com/gallery-exhibitions/tracey-emin-lovers-grave-2023',
+    width: 400,
+    height: 300,
+  },
+  {
+    type: 'image',
+    src: `${S3_BUCKET_URL}/inspo/frank-lloyd-wright_kraus-floorplan.png`,
+    alt: 'Floorplan of the Frank Lloyd Wright house in Kirkwood, Missouri. The house was built on the principle of the Parallelogram. Hardly a single right angle exists in the entire house.',
+    url: 'https://ebsworthpark.org/wp-content/uploads/2017/05/FLWEP-Floor-plan-1.pdf',
+    width: 390,
+    height: 300,
+  },
+  {
+    type: 'image',
+    src: `${S3_BUCKET_URL}/inspo/frank-lloyd-wright_kraus.jpeg`,
+    alt: 'Living room of the Frank Lloyd Wright house in Kirkwood, Missouri.',
+    url: 'https://ebsworthpark.org/',
+    width: 400,
+    height: 300,
+  },
+  {
     type: 'playlist',
     src: 'https://embed.music.apple.com/us/playlist/homme/pl.u-2aoqG6LfLMxmLy',
   },

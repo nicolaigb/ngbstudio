@@ -20,7 +20,7 @@ export const Playlist = ({ playlistObj, ...props }: IPlaylist) => {
 }
 
 const SFrame = styled.iframe`
-  height: 300px;
+  height: 450px;
   width: 100%;
   max-width: 660px;
   overflow: hidden;
