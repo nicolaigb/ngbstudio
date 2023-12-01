@@ -32,7 +32,7 @@ export const WorkDetail = ({ work, ...props }: IWorkDetail) => {
 const SWorkDetailContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 64px;
+  gap: 24px;
   align-items: center;
   position: relative;
 `
@@ -50,5 +50,4 @@ const SHeader = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin-bottom: 16px;
 `

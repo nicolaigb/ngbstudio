@@ -1,5 +1,5 @@
 declare module 'model' {
-  type TContent = 'image' | 'video'
+  type TContent = 'image' | 'video' | 'screenshot'
 
   export interface ContentData {
     type: TContent
@@ -10,7 +10,6 @@ declare module 'model' {
     caption?: string
     width?: number
     height?: number
-    isScreenshot?: boolean
   }
 
   export interface Work {
