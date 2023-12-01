@@ -26,7 +26,7 @@ export const Text = ({
   </SText>
 )
 
-const SText = styled.div<Pick<IText, 'styleType'>>`
+const SText = styled.div<{ styleType: string }>`
   ${({ styleType, theme }) =>
     ({
       title: theme.Typography.titleStyle,

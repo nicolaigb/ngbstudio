@@ -14,11 +14,13 @@ const Inspo = () => {
   useEffect(() => {
     const onWheel = (event: WheelEvent) => {
       const { deltaY } = event
-      containerRef.current.scrollBy({
-        top: 0,
-        left: deltaY,
-        behavior: 'auto',
-      })
+      if (containerRef.current) {
+        containerRef.current.scrollBy({
+          top: 0,
+          left: deltaY,
+          behavior: 'auto',
+        })
+      }
     }
 
     window.addEventListener('wheel', onWheel)
@@ -39,10 +41,10 @@ const Inspo = () => {
                 <SImage
                   key={`Inspo_image-${idx}`}
                   src={src}
-                  alt={alt}
+                  alt={alt ?? ''}
                   width={width}
                   height={height}
-                  onMouseEnter={() => setDescription(alt)}
+                  onMouseEnter={() => setDescription(alt ?? '')}
                   onMouseLeave={() => setDescription('')}
                 />
               )
