@@ -9,17 +9,15 @@ export interface IContentView extends React.HTMLAttributes<HTMLDivElement> {
   marginBottom?: string
 }
 
-export const ContentView = ({
-  data,
-  marginBottom = '64px',
-  ...props
-}: IContentView) => {
+export const ContentView = ({ data, ...props }: IContentView) => {
   const { type } = data
 
   const renderContent = () => {
     switch (type) {
       case 'image':
         return <Image imageObj={data} />
+      case 'screenshot':
+        return <SScreenshot imageObj={data} />
       case 'video':
         return <Video videoObj={data} />
       default:
@@ -28,15 +26,21 @@ export const ContentView = ({
   }
 
   return (
-    <SContentViewContainer marginBottom={marginBottom} {...props}>
-      {renderContent()}
-    </SContentViewContainer>
+    <SContentViewContainer {...props}>{renderContent()}</SContentViewContainer>
   )
 }
 
-const SContentViewContainer = styled.div<{ marginBottom?: string }>(
-  ({ marginBottom }) => `
+const SContentViewContainer = styled.div`
   flex-grow: 1;
-  margin-bottom: ${marginBottom};
-`,
-)
+  margin-bottom: 64px;
+`
+
+const SScreenshot = styled(Image)`
+  border-radius: 8px;
+  box-shadow:
+    0 0.6021873017743928px 0.6021873017743928px -1.25px #0000002e,
+    0 2.288533303243457px 2.288533303243457px -2.5px #00000029,
+    0 10px 10px -3.75px #00000010,
+    0 1px 2px #0000001f,
+    0 0 2px #00000014;
+`
