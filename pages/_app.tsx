@@ -28,10 +28,10 @@ function MyApp({ Component, pageProps }) {
           <meta property="og:url" content="https://end-i.ng/" />
           <meta name="og:image" content="/open-graph.png" />
         </Head>
-        <Analytics />
-        <SpeedInsights />
         <Component {...pageProps} />
       </ThemeProvider>
+      <Analytics />
+      <SpeedInsights />
     </Provider>
   )
 }
