@@ -2,9 +2,8 @@ import React, { useState, useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import { Layout } from '@templates'
 import InspoData from '@constants/inspoItems'
-import Image from 'next/image'
 import { Playlist, Footer } from '@molecules'
-import { ExternalLink } from '@atoms/ExternalLink'
+import { Image, ExternalLink } from '@atoms'
 import { useScrolledToTopIndicator } from '@utils/useScrolledToTopIndicator'
 import { InspoItem } from 'model'
 
@@ -28,7 +27,7 @@ const renderInspoItem = (item: InspoItem) => {
       return url ? <ExternalLink href={url}>{image}</ExternalLink> : image
     }
     case 'playlist':
-      return <Playlist playlistObj={item} />
+      return <Playlist {...item} />
     default:
       return null
   }

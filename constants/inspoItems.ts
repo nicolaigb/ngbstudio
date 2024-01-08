@@ -3,6 +3,10 @@ import { S3_BUCKET_URL } from './works'
 
 const images: InspoItem[] = [
   {
+    type: 'playlist',
+    src: 'https://embed.music.apple.com/us/album/boiler-room-jamie-xx-b2b-caribou-in-london-oct-11-2011-dj-mix/1504172222',
+  },
+  {
     type: 'image',
     src: `${S3_BUCKET_URL}/inspo/tracey-ermin.jpeg`,
     alt: 'Tracey Emin&apos;s painting from <i>Lovers Grace</i> at White Cube, New York showing from November 4, 2023 — January 13, 2024.',

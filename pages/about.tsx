@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Image from 'next/image'
-import { Text, ExternalLink } from '@atoms'
+import { Image, Text, ExternalLink } from '@atoms'
 import { Layout } from '@templates'
 import ending from '../public/end-ing-story.png'
 
