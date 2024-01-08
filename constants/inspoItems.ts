@@ -3,7 +3,14 @@ import { S3_BUCKET_URL } from './works'
 
 const images: InspoItem[] = [
   {
-    type: 'playlist',
+    type: 'embed',
+    embedType: 'youtube',
+    alt: 'This might be my favorite set of all time.',
+    src: 'https://www.youtube.com/embed/xgJBhezlMoE?si=L72RGMly-ICKugyl&amp;controls=0',
+  },
+  {
+    type: 'embed',
+    embedType: 'appleMusic',
     src: 'https://embed.music.apple.com/us/album/boiler-room-jamie-xx-b2b-caribou-in-london-oct-11-2011-dj-mix/1504172222',
   },
   {
@@ -31,7 +38,7 @@ const images: InspoItem[] = [
     height: 300,
   },
   {
-    type: 'playlist',
+    type: 'embed',
     src: 'https://embed.music.apple.com/us/playlist/homme/pl.u-2aoqG6LfLMxmLy',
   },
   {

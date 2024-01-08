@@ -27,11 +27,14 @@ declare module 'model' {
     href: string
   }
 
-  type TInspoType = 'image' | 'playlist'
+  type TInspoType = 'image' | 'embed'
+
+  type TEmbed = 'appleMusic' | 'youtube'
 
   export interface InspoItem extends ContentData {
     type: TInspoType
     alt?: string
     url?: string
+    embedType?: TEmbed
   }
 }

@@ -18,7 +18,7 @@ interface IInspo {
 }
 
 const renderInspoItem = (item: InspoItem) => {
-  const { type, src, alt, width, height, url } = item
+  const { type, embedType, src, alt, width, height, url } = item
   switch (type) {
     case 'image': {
       const image = (
@@ -26,8 +26,8 @@ const renderInspoItem = (item: InspoItem) => {
       )
       return url ? <ExternalLink href={url}>{image}</ExternalLink> : image
     }
-    case 'playlist':
-      return <Playlist {...item} />
+    case 'embed':
+      return <Playlist embedType={embedType ?? 'appleMusic'} src={src} />
     default:
       return null
   }
