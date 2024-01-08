@@ -2,19 +2,30 @@ import React from 'react'
 import styled from 'styled-components'
 import { Header } from '@organisms'
 
-export const Layout = ({
-  children,
-  ...props
-}: React.HTMLAttributes<HTMLDivElement>) => (
-  <SLayoutContainer {...props}>
+interface ILayout extends React.HTMLAttributes<HTMLDivElement> {
+  isFeed?: boolean
+}
+
+export const Layout = ({ children, isFeed = false, ...props }: ILayout) => (
+  <SLayoutContainer isFeed={isFeed} {...props}>
     <SHeader />
     <SContentContainer>{children}</SContentContainer>
   </SLayoutContainer>
 )
 
-const SLayoutContainer = styled.div`
+const SLayoutContainer = styled.div<Pick<ILayout, 'isFeed'>>(
+  ({ theme, isFeed }) => `
+  ${
+    isFeed &&
+    `
+    @media (max-width: ${theme.Spacing.large}) {
+      padding-bottom: calc(100vh - 50vw - 100px);
+    }
+  `
+  }
   position: relative;
-`
+`,
+)
 
 const SHeader = styled(Header)`
   position: sticky;

@@ -1,15 +1,52 @@
 import React, { useState, useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import { Layout } from '@templates'
-import images from '@constants/inspoItems'
+import InspoData from '@constants/inspoItems'
 import Image from 'next/image'
-import { Playlist } from '@molecules/Playlist'
-import { Text } from '@atoms/Text'
+import { Playlist, Footer } from '@molecules'
 import { ExternalLink } from '@atoms/ExternalLink'
+import { useScrolledToTopIndicator } from '@utils/useScrolledToTopIndicator'
+import { InspoItem } from 'model'
 
-const Inspo = () => {
+export async function getStaticProps() {
+  return {
+    props: { inspoItems: InspoData },
+  }
+}
+
+interface IInspo {
+  inspoItems: InspoItem[]
+}
+
+const renderInspoItem = (item: InspoItem) => {
+  const { type, src, alt, width, height, url } = item
+  switch (type) {
+    case 'image': {
+      const image = (
+        <SImage src={src} alt={alt ?? ''} width={width} height={height} />
+      )
+      return url ? <ExternalLink href={url}>{image}</ExternalLink> : image
+    }
+    case 'playlist':
+      return <Playlist playlistObj={item} />
+    default:
+      return null
+  }
+}
+
+const Inspo = ({ inspoItems }: IInspo) => {
   const containerRef = useRef<HTMLDivElement>(null)
-  const [description, setDescription] = useState('')
+  const [curCaption, setCurCaption] = useState<string | undefined>(undefined)
+
+  const inspoRefs: React.RefObject<HTMLDivElement>[] = Array.from(
+    { length: inspoItems.length },
+    () => useRef(null),
+  )
+
+  useScrolledToTopIndicator(inspoRefs, (idx) => {
+    const { alt } = inspoItems[idx]
+    setCurCaption(alt)
+  })
 
   useEffect(() => {
     const onWheel = (event: WheelEvent) => {
@@ -31,45 +68,28 @@ const Inspo = () => {
   }, [])
 
   return (
-    <Layout>
-      <SContainer ref={containerRef}>
-        {images.map((item, idx) => {
-          const { type, src, alt, width, height, url } = item
-          switch (type) {
-            case 'image': {
-              const image = (
-                <SImage
-                  key={`Inspo_image-${idx}`}
-                  src={src}
-                  alt={alt ?? ''}
-                  width={width}
-                  height={height}
-                  onMouseEnter={() => setDescription(alt ?? '')}
-                  onMouseLeave={() => setDescription('')}
-                />
-              )
-              return url ? (
-                <ExternalLink href={url}>{image}</ExternalLink>
-              ) : (
-                image
-              )
-            }
-            case 'playlist':
-              return (
-                <Playlist key={`Inspo-playlist-${idx}`} playlistObj={item} />
-              )
-            default:
-              return null
-          }
-        })}
-      </SContainer>
-      <SDescription dangerouslySetInnerHTML={{ __html: description }} />
-    </Layout>
+    <>
+      <Layout isFeed>
+        <SContainer ref={containerRef}>
+          {inspoItems.map((item, idx) => (
+            <div
+              ref={inspoRefs[idx]}
+              key={`InspoItem_${idx}`}
+              onMouseEnter={() => setCurCaption(item.alt)}
+              onMouseLeave={() => setCurCaption(undefined)}
+            >
+              {renderInspoItem(item)}
+            </div>
+          ))}
+        </SContainer>
+      </Layout>
+      <Footer title={curCaption} isPresentOnDesktop renderDescription />
+    </>
   )
 }
 
 const SContainer = styled.div`
-  @media (min-width: ${({ theme }) => theme.Spacing.small}) {
+  @media (min-width: ${({ theme }) => theme.Spacing.large}) {
     position: absolute;
     top: 0;
     left: 0;
@@ -85,23 +105,10 @@ const SContainer = styled.div`
 `
 
 const SImage = styled(Image)`
-  @media (max-width: ${({ theme }) => theme.Spacing.small}) {
+  @media (max-width: ${({ theme }) => theme.Spacing.large}) {
     width: 100%;
     height: auto;
     margin-bottom: 16px;
-  }
-`
-
-const SDescription = styled(Text)`
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  padding: 16px 32px;
-  text-align: end;
-
-  @media (max-width: ${({ theme }) => theme.Spacing.small}) {
-    display: none;
   }
 `
 

@@ -14,14 +14,15 @@ export const Dates = ({ ...props }: React.HTMLAttributes<HTMLDivElement>) => (
 )
 
 const SDatesContainer = styled.div`
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  width: auto;
+  grid-template-columns: 20px repeat(5, 1fr);
   align-items: center;
+  column-gap: 8px;
   gap: ${({ theme }) => theme.Spacing.tight};
 
-  @media only screen and (max-width: ${({ theme }) => theme.Spacing.small}) {
+  @media (max-width: ${({ theme }) => theme.Spacing.large}) {
     width: 100%;
-    justify-content: space-between;
   }
 `
 
