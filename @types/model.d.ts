@@ -4,7 +4,7 @@ declare module 'model' {
   export interface ContentData {
     type: TContent
     src: string
-    alt?: string
+    alt: string
     width?: number
     height?: number
     caption?: string
@@ -31,6 +31,7 @@ declare module 'model' {
 
   export interface InspoItem extends ContentData {
     type: TInspoType
+    alt?: string
     url?: string
   }
 }

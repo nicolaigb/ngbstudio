@@ -15,9 +15,9 @@ export const ContentView = ({ data, ...props }: IContentView) => {
   const renderContent = () => {
     switch (type) {
       case 'image':
-        return <Image imageObj={data} />
+        return <SImage {...data} />
       case 'screenshot':
-        return <SScreenshot imageObj={data} />
+        return <SScreenshot {...data} />
       case 'video':
         return <Video videoObj={data} />
       default:
@@ -35,7 +35,12 @@ const SContentViewContainer = styled.div`
   margin-bottom: 64px;
 `
 
-const SScreenshot = styled(Image)`
+const SImage = styled(Image)`
+  max-width: 100% !important;
+  height: auto;
+`
+
+const SScreenshot = styled(SImage)`
   border-radius: 8px;
   box-shadow:
     0 0.6021873017743928px 0.6021873017743928px -1.25px #0000002e,

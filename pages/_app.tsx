@@ -21,7 +21,7 @@ function MyApp({ Component, pageProps }) {
           />
           <meta
             name="og:description"
-            content="Heavin is the life."
+            content="Heaven is the life."
             key="desc"
           />
           <meta property="og:url" content="https://end-i.ng/" />

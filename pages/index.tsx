@@ -1,12 +1,12 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useState, useRef } from 'react'
 import styled from 'styled-components'
-import { isTopOfViewport } from '@utils/util'
+import { useScrolledToTopIndicator } from '@utils'
 import { Grid, Layout } from '@templates'
 import WorksData from '@constants/works'
 
 import { Work } from 'model'
-import { InternalLink, Text } from '@atoms'
-import { ContentPreview } from '@molecules'
+import { InternalLink } from '@atoms'
+import { ContentPreview, Footer } from '@molecules'
 
 export async function getStaticProps() {
   return {
@@ -25,31 +25,14 @@ const Home = ({ works }: IHome) => {
     () => useRef(null),
   )
 
-  useEffect(
-    () => {
-      const handleScroll = () => {
-        if (window.innerWidth <= 850) {
-          workRefs.forEach((ref, idx) => {
-            if (ref.current && isTopOfViewport(ref.current)) {
-              const { title } = works[idx]
-              setCurWorkName(title)
-            }
-          })
-        }
-      }
-
-      window.addEventListener('scroll', handleScroll)
-
-      return () => {
-        window.removeEventListener('scroll', handleScroll)
-      }
-    },
-    workRefs.map((ref) => ref.current),
-  )
+  useScrolledToTopIndicator(workRefs, (idx) => {
+    const { title } = works[idx]
+    setCurWorkName(title)
+  })
 
   return (
-    <div>
-      <SLayout>
+    <>
+      <Layout isFeed>
         <Grid>
           {works.map((work, idx) => (
             <SContentPreviewContainer
@@ -66,19 +49,11 @@ const Home = ({ works }: IHome) => {
             </SContentPreviewContainer>
           ))}
         </Grid>
-      </SLayout>
-      <STitleIndicatorContainer>
-        <STitleIndicator styleType="emphasized">{curWorkName}</STitleIndicator>
-      </STitleIndicatorContainer>
-    </div>
+      </Layout>
+      <Footer title={curWorkName} />
+    </>
   )
 }
-
-const SLayout = styled(Layout)`
-  @media (max-width: ${({ theme }) => theme.Spacing.large}) {
-    padding-bottom: calc(100vh - 300px);
-  }
-`
 
 const SContentPreviewContainer = styled.div`
   width: 100%;
@@ -99,29 +74,6 @@ const SContentPreviewContainer = styled.div`
     outline-offset: 2px;
     border-radius: 1px;
   }
-`
-
-const STitleIndicatorContainer = styled.div`
-  display: none;
-  @media (max-width: ${({ theme }) => theme.Spacing.large}) {
-    position: fixed;
-    width: 100%;
-    top: 100px;
-    display: flex;
-    justify-content: center;
-    padding: 16px;
-  }
-`
-
-const STitleIndicator = styled(Text)`
-  display: inline-flex;
-  max-width: unset;
-  justify-content: center;
-  padding: 8px 16px;
-  background-color: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(8px) brightness(124%);
-  border-radius: 500px;
-  border: 1px solid #eeeeee;
 `
 
 export default Home

@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Image from 'next/image'
-import { Text } from '@atoms'
+import { Text, Image } from '@atoms'
 
 export interface IContentPreview extends React.HTMLAttributes<HTMLDivElement> {
   /**
@@ -17,12 +16,7 @@ export interface IContentPreview extends React.HTMLAttributes<HTMLDivElement> {
 
 export const ContentPreview = ({ src, name, ...props }: IContentPreview) => (
   <SContentPreviewContainer {...props}>
-    <SImage
-      src={src}
-      alt={`Thumbnail preview for ${name}`}
-      fill
-      loading="lazy"
-    />
+    <SImage src={src} alt={`Thumbnail preview for ${name}`} fill />
     <SText styleType="title">{name}</SText>
   </SContentPreviewContainer>
 )
