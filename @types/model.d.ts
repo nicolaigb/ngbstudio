@@ -31,6 +31,7 @@ declare module 'model' {
 
   export interface InspoItem extends ContentData {
     type: TInspoType
+    alt?: string
     url?: string
   }
 }
