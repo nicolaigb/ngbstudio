@@ -2,13 +2,13 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import { TEmbed } from 'model'
 
-export interface IPlaylist extends React.HTMLAttributes<HTMLIFrameElement> {
+export interface IEmbed extends React.HTMLAttributes<HTMLIFrameElement> {
   src: string
 
   embedType: TEmbed
 }
 
-export const Playlist = ({ src, embedType, ...props }: IPlaylist) => {
+export const Embed = ({ src, embedType, ...props }: IEmbed) => {
   return (
     <SFrame
       allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write"
@@ -22,7 +22,6 @@ export const Playlist = ({ src, embedType, ...props }: IPlaylist) => {
 
 const appleMusicStyle = css`
   height: 450px;
-  max-width: 660px;
   overflow: hidden;
   border-radius: 10px;
 `
@@ -32,15 +31,11 @@ const youtubeStyle = css`
   height: 315px;
 `
 
-const SFrame = styled.iframe<Pick<IPlaylist, 'embedType'>>(
+const SFrame = styled.iframe<Pick<IEmbed, 'embedType'>>(
   ({ embedType }) => `
   border: none;
 
-  ${embedType === 'appleMusic' && appleMusicStyle};
-  ${embedType === 'youtube' && youtubeStyle}
-
-  @media (max-width: ${({ theme }) => theme.Spacing.small}) {
-    height: 450px;
-  }
+  ${embedType === 'appleMusic' ? appleMusicStyle : ''};
+  ${embedType === 'youtube' ? youtubeStyle : ''};
 `,
 )
