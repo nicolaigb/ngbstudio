@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import { Layout } from '@templates'
 import InspoData from '@constants/inspoItems'
-import { Playlist, Footer } from '@molecules'
+import { Embed, Footer } from '@molecules'
 import { Image, ExternalLink } from '@atoms'
 import { useScrolledToTopIndicator } from '@utils/useScrolledToTopIndicator'
 import { InspoItem } from 'model'
@@ -18,7 +18,7 @@ interface IInspo {
 }
 
 const renderInspoItem = (item: InspoItem) => {
-  const { type, src, alt, width, height, url } = item
+  const { type, embedType, src, alt, width, height, url } = item
   switch (type) {
     case 'image': {
       const image = (
@@ -26,8 +26,8 @@ const renderInspoItem = (item: InspoItem) => {
       )
       return url ? <ExternalLink href={url}>{image}</ExternalLink> : image
     }
-    case 'playlist':
-      return <Playlist {...item} />
+    case 'embed':
+      return <SEmbed embedType={embedType ?? 'appleMusic'} src={src} />
     default:
       return null
   }
@@ -71,14 +71,14 @@ const Inspo = ({ inspoItems }: IInspo) => {
       <Layout isFeed>
         <SContainer ref={containerRef}>
           {inspoItems.map((item, idx) => (
-            <div
+            <SInspoItemContainer
               ref={inspoRefs[idx]}
               key={`InspoItem_${idx}`}
               onMouseEnter={() => setCurCaption(item.alt)}
               onMouseLeave={() => setCurCaption(undefined)}
             >
               {renderInspoItem(item)}
-            </div>
+            </SInspoItemContainer>
           ))}
         </SContainer>
       </Layout>
@@ -103,11 +103,23 @@ const SContainer = styled.div`
   }
 `
 
+const SInspoItemContainer = styled.div`
+  @media (max-width: ${({ theme }) => theme.Spacing.large}) {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+`
+
 const SImage = styled(Image)`
   @media (max-width: ${({ theme }) => theme.Spacing.large}) {
     width: 100%;
     height: auto;
-    margin-bottom: 16px;
+  }
+`
+
+const SEmbed = styled(Embed)`
+  @media (max-width: ${({ theme }) => theme.Spacing.large}) {
+    width: 100%;
   }
 `
 
