@@ -11,6 +11,9 @@ const words: string[] = [
   'The',
   'Color',
   'Green',
+  'Atmosphere',
+  'Wave',
+  'Infinite',
 ]
 
 const DashMonet = () => {
@@ -27,9 +30,11 @@ const DashMonet = () => {
   return (
     <SContainer>
       {idxArr.map((idx, i) => (
-        <SText styleType="title" key={`dashmonet-word-${i}`}>
-          {words[idx]}
-        </SText>
+        <STextContainer>
+          <SText styleType="title" key={`dashmonet-word-${i}`}>
+            {words[idx]}
+          </SText>
+        </STextContainer>
       ))}
     </SContainer>
   )
@@ -42,9 +47,15 @@ const SContainer = styled.div`
   flex-direction: column;
 `
 
-const SText = styled(Text)`
+const STextContainer = styled.div`
+  display: flex;
   width: 100%;
   flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+`
+
+const SText = styled(Text)`
   text-align: center;
   font-size: 96px;
 `
