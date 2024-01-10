@@ -14,6 +14,7 @@ const words: string[] = [
   'Atmosphere',
   'Wave',
   'Infinite',
+  'Ride',
 ]
 
 const DashMonet = () => {
@@ -57,7 +58,7 @@ const STextContainer = styled.div`
 
 const SText = styled(Text)`
   text-align: center;
-  font-size: 96px;
+  font-size: 256px;
 `
 
 export default DashMonet
