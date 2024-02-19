@@ -3,9 +3,9 @@ import styled from 'styled-components'
 import { Layout } from '@templates'
 import InspoData from '@constants/inspoItems'
 import { Embed, Footer } from '@molecules'
-import { Image, ExternalLink } from '@atoms'
+import { Text, Image, ExternalLink } from '@atoms'
 import { useScrolledToTopIndicator } from '@utils/useScrolledToTopIndicator'
-import { InspoItem } from 'model'
+import { ContentData, InspoItem } from 'model'
 
 export async function getStaticProps() {
   return {
@@ -18,7 +18,7 @@ interface IInspo {
 }
 
 const renderInspoItem = (item: InspoItem) => {
-  const { type, embedType, src, alt, width, height, url } = item
+  const { type, embedType, src, alt, width, height, url, caption } = item
   switch (type) {
     case 'image': {
       const image = (
@@ -28,6 +28,12 @@ const renderInspoItem = (item: InspoItem) => {
     }
     case 'embed':
       return <SEmbed embedType={embedType ?? 'appleMusic'} src={src} />
+    case 'text':
+      return (
+        <SText width={width} styleType="title">
+          {caption}
+        </SText>
+      )
     default:
       return null
   }
@@ -97,7 +103,7 @@ const SContainer = styled.div`
     display: flex;
     overflow-x: scroll;
     overscroll-behavior-y: none;
-    gap: 16px;
+    gap: 32px;
     align-items: center;
     padding: 0 32px;
   }
@@ -115,6 +121,7 @@ const SImage = styled(Image)`
     width: 100%;
     height: auto;
   }
+  border-radius: 4px;
 `
 
 const SEmbed = styled(Embed)`
@@ -122,5 +129,14 @@ const SEmbed = styled(Embed)`
     width: 100%;
   }
 `
+
+const SText = styled(Text)<Pick<ContentData, 'width' | 'height'>>(
+  ({ width, height }) => `
+  width: ${width}px;
+  height: ${height}px;
+  padding: 4px;
+  box-sizing: unset;
+`,
+)
 
 export default Inspo

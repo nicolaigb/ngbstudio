@@ -8,7 +8,7 @@ export const Header = ({ ...props }: React.HTMLAttributes<HTMLDivElement>) => (
     <SHeaderContainer {...props}>
       <SNavContainer>
         <InternalLink href="/">
-          <STitle styleType="header">NG</STitle>
+          <STitle styleType="header">NGB</STitle>
         </InternalLink>
         <Menu />
       </SNavContainer>

@@ -27,7 +27,7 @@ declare module 'model' {
     href: string
   }
 
-  type TInspoType = 'image' | 'embed'
+  type TInspoType = 'image' | 'embed' | 'text'
 
   type TEmbed = 'appleMusic' | 'youtube'
 

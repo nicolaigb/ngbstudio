@@ -2,7 +2,7 @@ import { NavItem } from 'model'
 
 const navItems: Array<NavItem> = [
   {
-    name: 'Home',
+    name: 'Work',
     href: '/',
   },
   {
@@ -10,7 +10,7 @@ const navItems: Array<NavItem> = [
     href: '/about',
   },
   {
-    name: 'Inspo',
+    name: 'Lately',
     href: '/inspo',
   },
 ]

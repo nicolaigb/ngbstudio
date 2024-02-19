@@ -14,18 +14,14 @@ const MePage = () => (
         height={600}
       />
       <SText styleType="regular">
-        <p>Welcome to end-i.ng</p>
-        <p>Truth is, it&apos;s really just the beginning.</p>
         <p>
-          🇺🇸🇩🇪🇲🇽🇪🇸 from Berkeley, CA. Currently in Brooklyn. A Design Engineer
-          by trade (serving some mixture between designing and coding), I&apos;m
-          using this site to display some of my professional work alongside what
-          I try to craft in my free time.
+          Hi, I&apos;m Nicolai Garcia Beckmann. I am 🇺🇸🇩🇪🇲🇽🇪🇸 from Berkeley, CA
+          and based in Greenpoint, Brooklyn now.
         </p>
         <p>--</p>
         <p>
           <ExternalLink href="https://ng-web.s3.amazonaws.com/nicolai-garcia_design-portfolio.pdf">
-            Product design portfolio (PDF)
+            Product design portfolio (pdf version)
           </ExternalLink>
         </p>
         <p>
