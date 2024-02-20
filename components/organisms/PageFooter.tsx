@@ -24,10 +24,10 @@ export const PageFooter = ({
       <ExternalLink href="https://twitter.com/galeo_00">
         <SiTwitter size={18} />
       </ExternalLink>
-      <ExternalLink href="https://www.linkedin.com/in/nicolai-garcia-66254114b/">
+      <ExternalLink href="https://www.linkedin.com/in/nicolai-garcia-beckmann-66254114b/">
         <SiLinkedin size={18} />
       </ExternalLink>
-      <ExternalLink href="https://music.apple.com/profile/galeo_00">
+      <ExternalLink href="https://music.apple.com/profile/endinggg">
         <SiApplemusic size={18} />
       </ExternalLink>
     </SLinksContainer>
@@ -38,15 +38,20 @@ const SPageFooterContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 16px 24px;
+  padding: 16px 32px;
   border-top: 1px solid black;
   flex-wrap: wrap;
   z-index: 200;
   background-color: white;
+
+  @media (max-width: ${({ theme }) => theme.Spacing.large}) {
+    padding: 16px;
+  }
 `
 
 const SLinksContainer = styled.div`
   display: flex;
   gap: 8px;
+  height: 18px;
   flex-wrap: wrap;
 `

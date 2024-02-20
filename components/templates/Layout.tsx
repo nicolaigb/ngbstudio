@@ -22,15 +22,11 @@ export const Layout = ({
 
 const SLayoutContainer = styled.div(
   ({ theme }) => `
-  display: flex;
-  flex-direction: column;
   position: relative;
 
   @media (min-width: ${theme.Spacing.large}) {
     height: 100vh;
   }
-
-  
 `,
 )
 
@@ -42,7 +38,7 @@ const SHeader = styled(Header)`
 
 const SContentContainer = styled.div<Pick<ILayout, 'isFeed'>>(
   ({ theme, isFeed }) => `
-  flex-grow: 1;
+  min-height: calc(100% - 116px);
   padding: ${theme.Spacing.wide};
   overflow: hidden;
   overscroll-behavior-y: none;
