@@ -41,6 +41,7 @@ const STitleIndicatorContainer = styled.div<
   background-color: rgba(255, 255, 255, 0.75);
   backdrop-filter: blur(8px) brightness(124%);
   padding: 16px;
+  z-index: 100;
 
   @media (min-width: ${theme.Spacing.large}) {
     padding-bottom: 32px;

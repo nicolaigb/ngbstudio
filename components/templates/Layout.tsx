@@ -1,29 +1,32 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Header } from '@organisms'
+import { Header, PageFooter } from '@organisms'
 
 interface ILayout extends React.HTMLAttributes<HTMLDivElement> {
   isFeed?: boolean
+  shouldShowFooter?: boolean
 }
 
-export const Layout = ({ children, isFeed = false, ...props }: ILayout) => (
-  <SLayoutContainer isFeed={isFeed} {...props}>
+export const Layout = ({
+  children,
+  isFeed = false,
+  shouldShowFooter = true,
+  ...props
+}: ILayout) => (
+  <SLayoutContainer {...props}>
     <SHeader />
-    <SContentContainer>{children}</SContentContainer>
+    <SContentContainer isFeed={isFeed}>{children}</SContentContainer>
+    {shouldShowFooter && <PageFooter />}
   </SLayoutContainer>
 )
 
-const SLayoutContainer = styled.div<Pick<ILayout, 'isFeed'>>(
-  ({ theme, isFeed }) => `
-  ${
-    isFeed &&
-    `
-    @media (max-width: ${theme.Spacing.large}) {
-      padding-bottom: calc(100vh - 50vw - 100px);
-    }
-  `
-  }
+const SLayoutContainer = styled.div(
+  ({ theme }) => `
   position: relative;
+
+  @media (min-width: ${theme.Spacing.large}) {
+    height: 100vh;
+  }
 `,
 )
 
@@ -33,12 +36,25 @@ const SHeader = styled(Header)`
   z-index: 100;
 `
 
-const SContentContainer = styled.div`
-  padding: ${({ theme }) => theme.Spacing.wide};
+const SContentContainer = styled.div<Pick<ILayout, 'isFeed'>>(
+  ({ theme, isFeed }) => `
+  min-height: calc(100% - 116px);
+  padding: ${theme.Spacing.wide};
   overflow: hidden;
   overscroll-behavior-y: none;
+
   // Layout specific to mobile screen
-  @media only screen and (max-width: ${({ theme }) => theme.Spacing.large}) {
-    padding: ${({ theme }) => theme.Spacing.regular};
+  @media only screen and (max-width: ${theme.Spacing.large}) {
+    padding: ${theme.Spacing.regular};
   }
-`
+
+  ${
+    isFeed &&
+    `
+    @media (max-width: ${theme.Spacing.large}) {
+      padding-bottom: calc(100vh - 50vw - 100px);
+    }
+  `
+  }
+`,
+)

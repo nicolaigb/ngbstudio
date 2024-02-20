@@ -2,16 +2,12 @@ import { NavItem } from 'model'
 
 const navItems: Array<NavItem> = [
   {
-    name: 'Home',
+    name: 'Work',
     href: '/',
   },
   {
-    name: 'About',
-    href: '/about',
-  },
-  {
-    name: 'Inspo',
-    href: '/inspo',
+    name: 'Lately',
+    href: '/lately',
   },
 ]
 

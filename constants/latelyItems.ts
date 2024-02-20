@@ -1,11 +1,41 @@
-import { InspoItem } from 'model'
+import { LatelyItem } from 'model'
 import { S3_BUCKET_URL } from './works'
 
-const images: InspoItem[] = [
+const images: LatelyItem[] = [
+  {
+    type: 'image',
+    src: `${S3_BUCKET_URL}/inspo/granite-chief_02-18-2024.jpeg`,
+    alt: 'I love this Experts Only graphic',
+    width: 300,
+    height: 400,
+  },
+  {
+    type: 'embed',
+    embedType: 'appleMusic',
+    src: 'https://embed.music.apple.com/us/album/when-will-we-land/1687656892',
+  },
+  {
+    type: 'text',
+    caption: 'RealTree Website',
+    src: '',
+    width: 200,
+  },
   {
     type: 'embed',
     embedType: 'youtube',
-    alt: 'This might be my favorite set of all time.',
+    src: 'https://www.youtube.com/embed/aQwobrLxmXU?si=PdxGUN_OHbWfQO6O',
+    width: 250,
+  },
+  {
+    type: 'text',
+    caption: 'Return\nof\nsunshine\nephemera',
+    src: '',
+    width: 250,
+  },
+  {
+    type: 'embed',
+    embedType: 'youtube',
+    alt: '',
     src: 'https://www.youtube.com/embed/xgJBhezlMoE?si=L72RGMly-ICKugyl&amp;controls=0',
   },
   {
@@ -19,14 +49,6 @@ const images: InspoItem[] = [
     alt: 'Tracey Emin&apos;s painting from <i>Lovers Grace</i> at White Cube, New York showing from November 4, 2023 — January 13, 2024.',
     url: 'https://www.whitecube.com/gallery-exhibitions/tracey-emin-lovers-grave-2023',
     width: 400,
-    height: 300,
-  },
-  {
-    type: 'image',
-    src: `${S3_BUCKET_URL}/inspo/frank-lloyd-wright_kraus-floorplan.png`,
-    alt: 'Floorplan of the Frank Lloyd Wright house in Kirkwood, Missouri. The house was built on the principle of the Parallelogram. Hardly a single right angle exists in the entire house.',
-    url: 'https://ebsworthpark.org/wp-content/uploads/2017/05/FLWEP-Floor-plan-1.pdf',
-    width: 390,
     height: 300,
   },
   {
@@ -45,9 +67,8 @@ const images: InspoItem[] = [
     type: 'image',
     src: `${S3_BUCKET_URL}/inspo/josef-albers-homage-to-the-square-arctic-bloom-1965.jpg`,
     alt: "Josef Albers' <i>Homage to the Square</i> (1888–1976)",
-    url: 'https://artblart.com/tag/homage-to-the-square/',
-    width: 300,
-    height: 300,
+    width: 400,
+    height: 400,
   },
   {
     type: 'image',

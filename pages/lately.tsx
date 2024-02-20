@@ -1,24 +1,24 @@
 import React, { useState, useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import { Layout } from '@templates'
-import InspoData from '@constants/inspoItems'
+import LatelyData from '@constants/latelyItems'
 import { Embed, Footer } from '@molecules'
-import { Image, ExternalLink } from '@atoms'
+import { Text, Image, ExternalLink } from '@atoms'
 import { useScrolledToTopIndicator } from '@utils/useScrolledToTopIndicator'
-import { InspoItem } from 'model'
+import { ContentData, LatelyItem } from 'model'
 
 export async function getStaticProps() {
   return {
-    props: { inspoItems: InspoData },
+    props: { latelyItems: LatelyData },
   }
 }
 
 interface IInspo {
-  inspoItems: InspoItem[]
+  latelyItems: LatelyItem[]
 }
 
-const renderInspoItem = (item: InspoItem) => {
-  const { type, embedType, src, alt, width, height, url } = item
+const renderInspoItem = (item: LatelyItem) => {
+  const { type, embedType, src, alt, width, height, url, caption } = item
   switch (type) {
     case 'image': {
       const image = (
@@ -28,22 +28,28 @@ const renderInspoItem = (item: InspoItem) => {
     }
     case 'embed':
       return <SEmbed embedType={embedType ?? 'appleMusic'} src={src} />
+    case 'text':
+      return (
+        <SText width={width} styleType="title">
+          {caption}
+        </SText>
+      )
     default:
       return null
   }
 }
 
-const Inspo = ({ inspoItems }: IInspo) => {
+const Inspo = ({ latelyItems }: IInspo) => {
   const containerRef = useRef<HTMLDivElement>(null)
   const [curCaption, setCurCaption] = useState<string | undefined>(undefined)
 
-  const inspoRefs: React.RefObject<HTMLDivElement>[] = Array.from(
-    { length: inspoItems.length },
+  const latelyItemRefs: React.RefObject<HTMLDivElement>[] = Array.from(
+    { length: latelyItems.length },
     () => useRef(null),
   )
 
-  useScrolledToTopIndicator(inspoRefs, (idx) => {
-    const { alt } = inspoItems[idx]
+  useScrolledToTopIndicator(latelyItemRefs, (idx) => {
+    const { alt } = latelyItems[idx]
     setCurCaption(alt)
   })
 
@@ -68,11 +74,11 @@ const Inspo = ({ inspoItems }: IInspo) => {
 
   return (
     <>
-      <Layout isFeed>
+      <Layout isFeed shouldShowFooter={false}>
         <SContainer ref={containerRef}>
-          {inspoItems.map((item, idx) => (
+          {latelyItems.map((item, idx) => (
             <SInspoItemContainer
-              ref={inspoRefs[idx]}
+              ref={latelyItemRefs[idx]}
               key={`InspoItem_${idx}`}
               onMouseEnter={() => setCurCaption(item.alt)}
               onMouseLeave={() => setCurCaption(undefined)}
@@ -97,7 +103,7 @@ const SContainer = styled.div`
     display: flex;
     overflow-x: scroll;
     overscroll-behavior-y: none;
-    gap: 16px;
+    gap: 32px;
     align-items: center;
     padding: 0 32px;
   }
@@ -115,6 +121,7 @@ const SImage = styled(Image)`
     width: 100%;
     height: auto;
   }
+  border-radius: 4px;
 `
 
 const SEmbed = styled(Embed)`
@@ -122,5 +129,14 @@ const SEmbed = styled(Embed)`
     width: 100%;
   }
 `
+
+const SText = styled(Text)<Pick<ContentData, 'width' | 'height'>>(
+  ({ width, height }) => `
+  width: ${width}px;
+  height: ${height}px;
+  padding: 4px;
+  box-sizing: unset;
+`,
+)
 
 export default Inspo
