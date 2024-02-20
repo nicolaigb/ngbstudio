@@ -1,7 +1,19 @@
-import { InspoItem } from 'model'
+import { LatelyItem } from 'model'
 import { S3_BUCKET_URL } from './works'
 
-const images: InspoItem[] = [
+const images: LatelyItem[] = [
+  {
+    type: 'image',
+    src: `${S3_BUCKET_URL}/inspo/granite-chief_02-18-2024.jpeg`,
+    alt: 'I love this Experts Only graphic',
+    width: 300,
+    height: 400,
+  },
+  {
+    type: 'embed',
+    embedType: 'appleMusic',
+    src: 'https://embed.music.apple.com/us/album/when-will-we-land/1687656892',
+  },
   {
     type: 'text',
     caption: 'RealTree Website',
@@ -55,9 +67,8 @@ const images: InspoItem[] = [
     type: 'image',
     src: `${S3_BUCKET_URL}/inspo/josef-albers-homage-to-the-square-arctic-bloom-1965.jpg`,
     alt: "Josef Albers' <i>Homage to the Square</i> (1888–1976)",
-    url: 'https://artblart.com/tag/homage-to-the-square/',
-    width: 300,
-    height: 300,
+    width: 400,
+    height: 400,
   },
   {
     type: 'image',

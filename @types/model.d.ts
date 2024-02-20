@@ -31,7 +31,7 @@ declare module 'model' {
 
   type TEmbed = 'appleMusic' | 'youtube'
 
-  export interface InspoItem extends ContentData {
+  export interface LatelyItem extends ContentData {
     type: TInspoType
     alt?: string
     url?: string

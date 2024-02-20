@@ -6,12 +6,8 @@ const navItems: Array<NavItem> = [
     href: '/',
   },
   {
-    name: 'About',
-    href: '/about',
-  },
-  {
     name: 'Lately',
-    href: '/inspo',
+    href: '/lately',
   },
 ]
 

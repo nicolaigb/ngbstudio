@@ -1,23 +1,23 @@
 import React, { useState, useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import { Layout } from '@templates'
-import InspoData from '@constants/inspoItems'
+import LatelyData from '@constants/latelyItems'
 import { Embed, Footer } from '@molecules'
 import { Text, Image, ExternalLink } from '@atoms'
 import { useScrolledToTopIndicator } from '@utils/useScrolledToTopIndicator'
-import { ContentData, InspoItem } from 'model'
+import { ContentData, LatelyItem } from 'model'
 
 export async function getStaticProps() {
   return {
-    props: { inspoItems: InspoData },
+    props: { latelyItems: LatelyData },
   }
 }
 
 interface IInspo {
-  inspoItems: InspoItem[]
+  latelyItems: LatelyItem[]
 }
 
-const renderInspoItem = (item: InspoItem) => {
+const renderInspoItem = (item: LatelyItem) => {
   const { type, embedType, src, alt, width, height, url, caption } = item
   switch (type) {
     case 'image': {
@@ -39,17 +39,17 @@ const renderInspoItem = (item: InspoItem) => {
   }
 }
 
-const Inspo = ({ inspoItems }: IInspo) => {
+const Inspo = ({ latelyItems }: IInspo) => {
   const containerRef = useRef<HTMLDivElement>(null)
   const [curCaption, setCurCaption] = useState<string | undefined>(undefined)
 
-  const inspoRefs: React.RefObject<HTMLDivElement>[] = Array.from(
-    { length: inspoItems.length },
+  const latelyItemRefs: React.RefObject<HTMLDivElement>[] = Array.from(
+    { length: latelyItems.length },
     () => useRef(null),
   )
 
-  useScrolledToTopIndicator(inspoRefs, (idx) => {
-    const { alt } = inspoItems[idx]
+  useScrolledToTopIndicator(latelyItemRefs, (idx) => {
+    const { alt } = latelyItems[idx]
     setCurCaption(alt)
   })
 
@@ -74,11 +74,11 @@ const Inspo = ({ inspoItems }: IInspo) => {
 
   return (
     <>
-      <Layout isFeed>
+      <Layout isFeed shouldShowFooter={false}>
         <SContainer ref={containerRef}>
-          {inspoItems.map((item, idx) => (
+          {latelyItems.map((item, idx) => (
             <SInspoItemContainer
-              ref={inspoRefs[idx]}
+              ref={latelyItemRefs[idx]}
               key={`InspoItem_${idx}`}
               onMouseEnter={() => setCurCaption(item.alt)}
               onMouseLeave={() => setCurCaption(undefined)}
