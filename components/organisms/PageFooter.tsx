@@ -35,6 +35,7 @@ export const PageFooter = ({
 )
 
 const SPageFooterContainer = styled.div`
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -51,7 +52,7 @@ const SPageFooterContainer = styled.div`
 
 const SLinksContainer = styled.div`
   display: flex;
-  gap: 8px;
+  gap: 16px;
   height: 18px;
   flex-wrap: wrap;
 `
