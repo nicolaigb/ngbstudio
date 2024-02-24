@@ -13,19 +13,28 @@ export const Layout = ({
   shouldShowFooter = true,
   ...props
 }: ILayout) => (
-  <SLayoutContainer {...props}>
+  <SLayoutContainer isFeed={isFeed} {...props}>
     <SHeader />
-    <SContentContainer isFeed={isFeed}>{children}</SContentContainer>
+    <SContentContainer>{children}</SContentContainer>
     {shouldShowFooter && <PageFooter />}
   </SLayoutContainer>
 )
 
-const SLayoutContainer = styled.div(
-  ({ theme }) => `
+const SLayoutContainer = styled.div<Pick<ILayout, 'isFeed'>>(
+  ({ theme, isFeed }) => `
   position: relative;
 
   @media (min-width: ${theme.Spacing.large}) {
     height: 100vh;
+  }
+
+  ${
+    isFeed &&
+    `
+    @media (max-width: ${theme.Spacing.large}) {
+      padding-bottom: calc(100vh - 50vw - 100px);
+    }
+  `
   }
 `,
 )
@@ -36,9 +45,9 @@ const SHeader = styled(Header)`
   z-index: 100;
 `
 
-const SContentContainer = styled.div<Pick<ILayout, 'isFeed'>>(
-  ({ theme, isFeed }) => `
-  min-height: calc(100% - 116px);
+const SContentContainer = styled.div(
+  ({ theme }) => `
+  min-height: 100%;
   padding: ${theme.Spacing.wide};
   overflow: hidden;
   overscroll-behavior-y: none;
@@ -46,15 +55,6 @@ const SContentContainer = styled.div<Pick<ILayout, 'isFeed'>>(
   // Layout specific to mobile screen
   @media only screen and (max-width: ${theme.Spacing.large}) {
     padding: ${theme.Spacing.regular};
-  }
-
-  ${
-    isFeed &&
-    `
-    @media (max-width: ${theme.Spacing.large}) {
-      padding-bottom: calc(100vh - 50vw - 100px);
-    }
-  `
   }
 `,
 )
