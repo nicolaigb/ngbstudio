@@ -13,19 +13,24 @@ function MyApp({ Component, pageProps }) {
     <Provider store={store}>
       <ThemeProvider theme={LightTheme}>
         <Head>
-          <title>NG</title>
+          <title>NGB Studio</title>
+          <meta name="title" content="NGB Studio" />
+          <meta name="description" content="Design" />
+          <meta property="og:title" content="NGB Studio" />
+          <meta property="og:description" content="Design" />
+          <meta property="og:url" content="https://ngb.studio/" />
           <meta
-            property="og:title"
-            content="Nicolai Garcia Beckmann"
-            key="title"
+            name="og:image"
+            content="https://ng-web.s3.amazonaws.com/open-graph/ngb-studio_og.svg"
           />
+          <meta property="twitter:card" content="summary_large_image" />
+          <meta property="twitter:url" content="https://ngb.studio/" />
+          <meta property="twitter:title" content="NG" />
+          <meta property="twitter:description" content="Design" />
           <meta
-            name="og:description"
-            content="Heaven is the life."
-            key="desc"
+            property="twitter:image"
+            content="https://ng-web.s3.amazonaws.com/open-graph/ngb-studio_og.svg"
           />
-          <meta property="og:url" content="https://end-i.ng/" />
-          <meta name="og:image" content="/open-graph.png" />
         </Head>
         <Component {...pageProps} />
         <Analytics />
