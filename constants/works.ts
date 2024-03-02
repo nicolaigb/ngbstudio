@@ -8,7 +8,7 @@ const CONTENT_WIDTH = 642
 const works: Work[] = [
   {
     id: 6,
-    title: 'Up to Us voter registration',
+    title: 'Up to Us Voter Registration',
     tag: 'up-to-us',
     thumbnail: `${S3_BUCKET_URL}/up-to-us/up-to-us_thumbnail.png`,
     content: [
@@ -32,7 +32,7 @@ const works: Work[] = [
   },
   {
     id: 5,
-    title: 'Cent pages',
+    title: 'Cent Pages',
     tag: 'cent-pages',
     thumbnail: `${S3_BUCKET_URL}/cent-pages/cent-pages_thumbnail.png`,
     content: [
