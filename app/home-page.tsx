@@ -1,24 +1,22 @@
+'use client'
+
 import React, { useState, useRef } from 'react'
 import styled from 'styled-components'
 import { useScrolledToTopIndicator } from '@utils'
 import { Grid, Layout } from '@templates'
-import WorksData from '@constants/works'
 
 import { Work } from 'model'
 import { InternalLink } from '@atoms'
 import { ContentPreview, Footer } from '@molecules'
 
-export async function getStaticProps() {
-  return {
-    props: { works: WorksData },
-  }
-}
-
 interface IHome {
   works: Work[]
 }
 
-const Home = ({ works }: IHome) => {
+// This is a Client Component (same as components in the `pages` directory)
+// It receives data as props, has access to state and effects, and is
+// prerendered on the server during the initial page load.
+export default function HomePage({ works }: IHome) {
   const [curWorkName, setCurWorkName] = useState(works[0].title)
   const workRefs: React.RefObject<HTMLDivElement>[] = Array.from(
     { length: works.length },
@@ -75,5 +73,3 @@ const SContentPreviewContainer = styled.div`
     border-radius: 1px;
   }
 `
-
-export default Home

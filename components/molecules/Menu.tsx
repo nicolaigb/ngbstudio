@@ -1,18 +1,18 @@
 import React from 'react'
-import { useRouter } from 'next/router'
+import { usePathname } from 'next/navigation'
 import styled from 'styled-components'
 import classnames from 'classnames'
 import { Text, InternalLink } from '@atoms'
 import navItems from '@constants/navItems'
 
 export const Menu = () => {
-  const router = useRouter()
+  const pathname = usePathname()
   return (
     <SMenuContainer>
       {navItems.map((item, idx) => (
         <InternalLink href={item.href} key={idx}>
           <SNavItem
-            className={classnames({ selected: item.href === router.pathname })}
+            className={classnames({ selected: item.href === pathname })}
             styleType="emphasized"
           >
             {item.name}

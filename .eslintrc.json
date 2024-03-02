@@ -24,7 +24,7 @@
     "react/function-component-definition": [
       1,
       {
-        "namedComponents": "arrow-function"
+        "namedComponents": ["arrow-function", "function-declaration"]
       }
     ],
     "max-len": "off",
