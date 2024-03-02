@@ -10,6 +10,21 @@ export const metadata: Metadata = {
     default: 'NGB Studio',
   },
   description: 'Design',
+  openGraph: {
+    title: 'NGB Studio',
+    description: 'Design',
+    url: 'https://ngb.studio',
+    siteName: 'NGB Studio',
+    images: [
+      {
+        url: 'https://ng-web.s3.amazonaws.com/open-graph/ngb-studio_og.svg', // Must be an absolute URL
+        width: 800,
+        height: 800,
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
 }
 
 export default function RootLayout({
