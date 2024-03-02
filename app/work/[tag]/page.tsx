@@ -1,4 +1,5 @@
 import React from 'react'
+import { Metadata } from 'next'
 import WorksData from '@constants/works'
 import WorkPage from './WorkPage'
 
@@ -11,7 +12,7 @@ async function getWork(tag: string) {
   return work
 }
 
-export async function generateMetadata({ params }: Props) {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { tag } = params
 
   const work = await getWork(tag)
