@@ -10,9 +10,7 @@ export default function AppLayout({ children }) {
   const pathname = usePathname()
 
   return (
-    <SLayoutContainer
-      hasBottomPadding={pathname === '/' || pathname === '/lately'}
-    >
+    <SLayoutContainer hasBottomPadding={pathname === '/'}>
       <Header />
       <SContentContainer>{children}</SContentContainer>
       <Footer />
@@ -23,6 +21,8 @@ export default function AppLayout({ children }) {
 const SLayoutContainer = styled.div<{ hasBottomPadding: boolean }>(
   ({ theme, hasBottomPadding }) => `
   position: relative;
+  display: flex;
+  flex-direction: column;
 
   @media (min-width: ${theme.Spacing.large}) {
     height: 100vh;
@@ -39,8 +39,9 @@ const SLayoutContainer = styled.div<{ hasBottomPadding: boolean }>(
 
 const SContentContainer = styled.div(
   ({ theme }) => `
-  min-height: 100%;
   padding: ${theme.Spacing.wide};
+  flex-grow: 1;
+  flex-shrink: 0;
   overflow: hidden;
   overscroll-behavior-y: none;
 
