@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     siteName: 'NGB Studio',
     images: [
       {
-        url: 'https://ng-web.s3.amazonaws.com/open-graph/ngb-studio_og.svg', // Must be an absolute URL
+        url: 'https:ngb.studio/og.svg', // Must be an absolute URL
         width: 800,
         height: 800,
       },
