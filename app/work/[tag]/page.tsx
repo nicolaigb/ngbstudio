@@ -19,6 +19,9 @@ export async function generateMetadata({ params }: Props) {
 
   return {
     title,
+    openGraph: {
+      images: [thumbnail],
+    },
   }
 }
 
