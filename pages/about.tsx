@@ -1,19 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Text } from '@atoms'
-import { Layout } from '@templates'
 
 const MePage = () => (
-  <Layout>
-    <SBody>
-      <SText styleType="regular">
-        <p>
-          Hi, I&apos;m Nicolai Garcia Beckmann. I am 🇺🇸🇩🇪🇲🇽🇪🇸 from Berkeley, CA
-          and based in Greenpoint, Brooklyn.
-        </p>
-      </SText>
-    </SBody>
-  </Layout>
+  <SBody>
+    <SText styleType="regular">
+      <p>
+        Hi, I&apos;m Nicolai Garcia Beckmann. I am 🇺🇸🇩🇪🇲🇽🇪🇸 from Berkeley, CA
+        and based in Greenpoint, Brooklyn.
+      </p>
+    </SText>
+  </SBody>
 )
 
 const SBody = styled.div`

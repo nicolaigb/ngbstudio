@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import styled from 'styled-components'
-import { Layout } from '@templates'
 import LatelyData from '@constants/latelyItems'
-import { Embed, Footer } from '@molecules'
+import { Embed, TitleFooter } from '@molecules'
 import { Text, Image, ExternalLink } from '@atoms'
 import { useScrolledToTopIndicator } from '@utils/useScrolledToTopIndicator'
 import { ContentData, LatelyItem } from 'model'
@@ -74,21 +73,19 @@ const Inspo = ({ latelyItems }: IInspo) => {
 
   return (
     <>
-      <Layout isFeed shouldShowFooter={false}>
-        <SContainer ref={containerRef}>
-          {latelyItems.map((item, idx) => (
-            <SInspoItemContainer
-              ref={latelyItemRefs[idx]}
-              key={`InspoItem_${idx}`}
-              onMouseEnter={() => setCurCaption(item.alt)}
-              onMouseLeave={() => setCurCaption(undefined)}
-            >
-              {renderInspoItem(item)}
-            </SInspoItemContainer>
-          ))}
-        </SContainer>
-      </Layout>
-      <Footer title={curCaption} isPresentOnDesktop renderDescription />
+      <SContainer ref={containerRef}>
+        {latelyItems.map((item, idx) => (
+          <SInspoItemContainer
+            ref={latelyItemRefs[idx]}
+            key={`InspoItem_${idx}`}
+            onMouseEnter={() => setCurCaption(item.alt)}
+            onMouseLeave={() => setCurCaption(undefined)}
+          >
+            {renderInspoItem(item)}
+          </SInspoItemContainer>
+        ))}
+      </SContainer>
+      <TitleFooter title={curCaption} isPresentOnDesktop renderDescription />
     </>
   )
 }

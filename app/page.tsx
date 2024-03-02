@@ -1,6 +1,6 @@
 import React from 'react'
 import WorksData from '@constants/works'
-import HomePage from './home-page'
+import HomePage from './HomePage'
 
 async function getWorks() {
   return WorksData

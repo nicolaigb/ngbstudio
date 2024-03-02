@@ -3,11 +3,11 @@
 import React, { useState, useRef } from 'react'
 import styled from 'styled-components'
 import { useScrolledToTopIndicator } from '@utils'
-import { Grid, Layout } from '@templates'
+import { Grid } from '@templates'
 
 import { Work } from 'model'
 import { InternalLink } from '@atoms'
-import { ContentPreview, Footer } from '@molecules'
+import { ContentPreview, TitleFooter } from '@molecules'
 
 interface IHome {
   works: Work[]
@@ -30,29 +30,26 @@ export default function HomePage({ works }: IHome) {
 
   return (
     <>
-      <Layout isFeed>
-        <Grid>
-          {works.map((work, idx) => (
-            <SContentPreviewContainer
-              key={`ContentPreview_${idx}`}
-              ref={workRefs[idx]}
-            >
-              <InternalLink href={`/work/${work.tag}`}>
-                <ContentPreview
-                  key={`ContentPreview_${idx}`}
-                  name={work.title}
-                  src={work.thumbnail}
-                />
-              </InternalLink>
-            </SContentPreviewContainer>
-          ))}
-        </Grid>
-      </Layout>
-      <Footer title={curWorkName} />
+      <Grid>
+        {works.map((work, idx) => (
+          <SContentPreviewContainer
+            key={`ContentPreview_${idx}`}
+            ref={workRefs[idx]}
+          >
+            <InternalLink href={`/work/${work.tag}`}>
+              <ContentPreview
+                key={`ContentPreview_${idx}`}
+                name={work.title}
+                src={work.thumbnail}
+              />
+            </InternalLink>
+          </SContentPreviewContainer>
+        ))}
+      </Grid>
+      <TitleFooter title={curWorkName} />
     </>
   )
 }
-
 const SContentPreviewContainer = styled.div`
   width: 100%;
   height: 0;

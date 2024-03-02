@@ -8,7 +8,7 @@ interface IFooter extends React.HTMLAttributes<HTMLDivElement> {
   isPresentOnDesktop?: boolean
 }
 
-export const Footer = ({
+export const TitleFooter = ({
   title,
   renderDescription = false,
   isPresentOnDesktop = false,
@@ -16,26 +16,22 @@ export const Footer = ({
 }: IFooter) => {
   if (!title) return null
   return (
-    <STitleIndicatorContainer
-      isPresentOnDesktop={isPresentOnDesktop}
-      {...props}
-    >
+    <STitleFooterContainer isPresentOnDesktop={isPresentOnDesktop} {...props}>
       {renderDescription ? (
         <Text dangerouslySetInnerHTML={{ __html: title }} />
       ) : (
         <Text styleType="emphasized">{title}</Text>
       )}
-    </STitleIndicatorContainer>
+    </STitleFooterContainer>
   )
 }
 
-const STitleIndicatorContainer = styled.div<
-  Pick<IFooter, 'isPresentOnDesktop'>
->(
+const STitleFooterContainer = styled.div<Pick<IFooter, 'isPresentOnDesktop'>>(
   ({ theme, isPresentOnDesktop }) => `
   position: fixed;
   width: 100%;
   bottom: 0;
+  left: 0;
   display: flex;
   justify-content: flex-start;
   background-color: rgba(255, 255, 255, 0.75);

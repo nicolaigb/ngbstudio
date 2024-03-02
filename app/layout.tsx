@@ -2,7 +2,8 @@ import React from 'react'
 import { Metadata } from 'next'
 import { Analytics } from '@vercel/analytics/react'
 import '../styles/globals.css'
-import AppProvider from './app-provider'
+import AppLayout from '@templates/AppLayout'
+import AppProvider from './AppProvider'
 
 export const metadata: Metadata = {
   title: {
@@ -37,8 +38,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <AppProvider>{children}</AppProvider>
-        <Analytics />
+        <AppProvider>
+          <AppLayout>{children}</AppLayout>
+          <Analytics />
+        </AppProvider>
       </body>
     </html>
   )
