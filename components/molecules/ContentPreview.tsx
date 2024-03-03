@@ -21,7 +21,7 @@ export const ContentPreview = ({ src, name, ...props }: IContentPreview) => (
       src={src}
       alt={`Thumbnail preview for ${name}`}
       fill
-      sizes={`(max-width: ${Spacing.large}) 100vw, (max-width: ${Spacing.threeColumnMin}) 50vw, (max-width: ${Spacing.fourColumnMin}) 33vw, 25vw`}
+      sizes={`(max-width: ${Spacing.large}) 100vw, (max-width: ${Spacing.threeColumnMin}) 50vw, (max-width: ${Spacing.fourColumnMin}) 33vw`}
     />
     <SText styleType="title">{name}</SText>
   </SContentPreviewContainer>
