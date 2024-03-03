@@ -1,7 +1,7 @@
-import { LatelyItem } from 'model'
+import { ILatelyItem } from 'model'
 import { S3_BUCKET_URL } from './works'
 
-const images: LatelyItem[] = [
+const images: ILatelyItem[] = [
   {
     type: 'image',
     src: `${S3_BUCKET_URL}/inspo/granite-chief_02-18-2024.jpeg`,

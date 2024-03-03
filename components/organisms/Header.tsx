@@ -1,23 +1,32 @@
+'use client'
+
 import React from 'react'
 import { InternalLink, Text } from '@atoms'
 import { Dates, Menu } from '@molecules'
 import styled from 'styled-components'
 
-export const Header = ({ ...props }: React.HTMLAttributes<HTMLDivElement>) => (
-  <SContainer {...props}>
-    <SHeaderContainer {...props}>
-      <SNavContainer>
-        <InternalLink href="/">
-          <STitle styleType="header">NGB</STitle>
-        </InternalLink>
-        <Menu />
-      </SNavContainer>
-      <Dates />
-    </SHeaderContainer>
-  </SContainer>
-)
+export default function Header({
+  ...props
+}: React.HTMLAttributes<HTMLDivElement>) {
+  return (
+    <SContainer {...props}>
+      <SHeaderContainer {...props}>
+        <SNavContainer>
+          <InternalLink href="/">
+            <STitle styleType="header">NGB</STitle>
+          </InternalLink>
+          <Menu />
+        </SNavContainer>
+        <Dates />
+      </SHeaderContainer>
+    </SContainer>
+  )
+}
 
 const SContainer = styled.div`
+  position: sticky;
+  top: 0;
+  z-index: 100;
   background-color: rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(10px);
 `

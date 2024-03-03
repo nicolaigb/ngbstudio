@@ -1,24 +1,19 @@
+'use client'
+
 import React, { useState, useRef } from 'react'
 import styled from 'styled-components'
 import { useScrolledToTopIndicator } from '@utils'
-import { Grid, Layout } from '@templates'
-import WorksData from '@constants/works'
+import { Grid } from '@templates'
 
 import { Work } from 'model'
 import { InternalLink } from '@atoms'
-import { ContentPreview, Footer } from '@molecules'
-
-export async function getStaticProps() {
-  return {
-    props: { works: WorksData },
-  }
-}
+import { ContentPreview, TitleFooter } from '@molecules'
 
 interface IHome {
   works: Work[]
 }
 
-const Home = ({ works }: IHome) => {
+export default function HomePage({ works }: IHome) {
   const [curWorkName, setCurWorkName] = useState(works[0].title)
   const workRefs: React.RefObject<HTMLDivElement>[] = Array.from(
     { length: works.length },
@@ -32,29 +27,26 @@ const Home = ({ works }: IHome) => {
 
   return (
     <>
-      <Layout isFeed>
-        <Grid>
-          {works.map((work, idx) => (
-            <SContentPreviewContainer
-              key={`ContentPreview_${idx}`}
-              ref={workRefs[idx]}
-            >
-              <InternalLink href={`/work/${work.tag}`}>
-                <ContentPreview
-                  key={`ContentPreview_${idx}`}
-                  name={work.title}
-                  src={work.thumbnail}
-                />
-              </InternalLink>
-            </SContentPreviewContainer>
-          ))}
-        </Grid>
-      </Layout>
-      <Footer title={curWorkName} />
+      <Grid>
+        {works.map((work, idx) => (
+          <SContentPreviewContainer
+            key={`ContentPreview_${idx}`}
+            ref={workRefs[idx]}
+          >
+            <InternalLink href={`/work/${work.tag}`}>
+              <ContentPreview
+                key={`ContentPreview_${idx}`}
+                name={work.title}
+                src={work.thumbnail}
+              />
+            </InternalLink>
+          </SContentPreviewContainer>
+        ))}
+      </Grid>
+      <TitleFooter title={curWorkName} />
     </>
   )
 }
-
 const SContentPreviewContainer = styled.div`
   width: 100%;
   height: 0;
@@ -75,5 +67,3 @@ const SContentPreviewContainer = styled.div`
     border-radius: 1px;
   }
 `
-
-export default Home

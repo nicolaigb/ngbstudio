@@ -6,6 +6,7 @@ export interface IDate {
   city: string
   timezone: string
 }
+
 export const Date = ({ city, timezone }) => {
   const getDateTime = () =>
     DateTime.local().setZone(timezone).toLocaleString(DateTime.TIME_24_SIMPLE)

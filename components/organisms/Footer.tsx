@@ -4,24 +4,24 @@ import { SiLinkedin, SiTwitter } from 'react-icons/si'
 import { MdEmail } from 'react-icons/md'
 import { Text, ExternalLink } from '@atoms'
 
-export const PageFooter = ({
-  ...props
-}: React.HTMLAttributes<HTMLDivElement>) => (
-  <SPageFooterContainer {...props}>
-    <Text styleType="regular">Nicolai Garcia Beckmann</Text>
-    <SLinksContainer>
-      <SExternalLink href="mailto:nicolai@ngb.studio">
-        <MdEmail />
-      </SExternalLink>
-      <SExternalLink href="https://twitter.com/galeo_00">
-        <SiTwitter />
-      </SExternalLink>
-      <SExternalLink href="https://www.linkedin.com/in/nicolai-garcia-beckmann-66254114b/">
-        <SiLinkedin />
-      </SExternalLink>
-    </SLinksContainer>
-  </SPageFooterContainer>
-)
+export default function Footer() {
+  return (
+    <SPageFooterContainer>
+      <Text styleType="regular">Nicolai Garcia Beckmann</Text>
+      <SLinksContainer>
+        <SExternalLink href="mailto:nicolai@ngb.studio">
+          <MdEmail />
+        </SExternalLink>
+        <SExternalLink href="https://twitter.com/galeo_00">
+          <SiTwitter />
+        </SExternalLink>
+        <SExternalLink href="https://www.linkedin.com/in/nicolai-garcia-beckmann-66254114b/">
+          <SiLinkedin />
+        </SExternalLink>
+      </SLinksContainer>
+    </SPageFooterContainer>
+  )
+}
 
 const SPageFooterContainer = styled.div`
   position: relative;
