@@ -1,12 +1,12 @@
 import React from 'react'
-import { Work } from 'model'
+import { IWork } from 'model'
 import { Text } from '@atoms'
 import { ContentView } from '@molecules'
 import styled from 'styled-components'
 import WorkDescription from './WorkDescription'
 
 export interface IWorkDetail extends React.HTMLAttributes<HTMLDivElement> {
-  work: Work
+  work: IWork
 }
 
 export const WorkDetail = ({ work, ...props }: IWorkDetail) => {

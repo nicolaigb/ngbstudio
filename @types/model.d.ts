@@ -12,7 +12,7 @@ declare module 'model' {
     height?: number
   }
 
-  export interface Work {
+  export interface IWork {
     id: Number
     thumbnail: string
     content: ContentData[]
@@ -22,11 +22,13 @@ declare module 'model' {
     medium: string
   }
 
-  export type TWork = {
+  export type Work = {
     _id: string,
+    slug: string,
     content: any,
     heroImage: string,
-    name: string,
+    thumbnail: string,
+    title: string,
   }
 
   export interface NavItem {

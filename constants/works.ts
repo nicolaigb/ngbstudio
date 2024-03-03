@@ -1,11 +1,11 @@
 /* eslint-disable no-multi-str */
-import { Work } from 'model'
+import { IWork } from 'model'
 
 export const S3_BUCKET_URL = 'https://ng-web.s3.amazonaws.com'
 
 const CONTENT_WIDTH = 642
 
-const works: Work[] = [
+const works: IWork[] = [
   {
     id: 6,
     title: 'Up to Us Voter Registration',
