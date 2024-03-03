@@ -22,6 +22,13 @@ declare module 'model' {
     medium: string
   }
 
+  export type TWork = {
+    _id: string,
+    content: any,
+    heroImage: string,
+    name: string,
+  }
+
   export interface NavItem {
     name: string
     href: string

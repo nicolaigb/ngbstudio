@@ -5,18 +5,16 @@ import styled from 'styled-components'
 interface IFooter extends React.HTMLAttributes<HTMLDivElement> {
   title?: string
   renderDescription?: boolean
-  isPresentOnDesktop?: boolean
 }
 
 export const TitleFooter = ({
   title,
   renderDescription = false,
-  isPresentOnDesktop = false,
   ...props
 }: IFooter) => {
   if (!title) return null
   return (
-    <STitleFooterContainer isPresentOnDesktop={isPresentOnDesktop} {...props}>
+    <STitleFooterContainer {...props}>
       {renderDescription ? (
         <Text dangerouslySetInnerHTML={{ __html: title }} />
       ) : (
@@ -26,8 +24,8 @@ export const TitleFooter = ({
   )
 }
 
-const STitleFooterContainer = styled.div<Pick<IFooter, 'isPresentOnDesktop'>>(
-  ({ theme, isPresentOnDesktop }) => `
+const STitleFooterContainer = styled.div(
+  ({ theme }) => `
   position: fixed;
   width: 100%;
   bottom: 0;
@@ -40,8 +38,7 @@ const STitleFooterContainer = styled.div<Pick<IFooter, 'isPresentOnDesktop'>>(
   z-index: 100;
 
   @media (min-width: ${theme.Spacing.large}) {
-    padding-bottom: 32px;
-    ${isPresentOnDesktop ? '' : 'display: none'};
+    display: none;
   }
 `,
 )

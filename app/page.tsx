@@ -1,8 +1,12 @@
 import React from 'react'
 import WorksData from '@constants/works'
 import HomePage from './HomePage'
+import {client} from 'utils/sanity/client'
+import { TWork } from 'model'
 
 async function getWorks() {
+  const posts = await client.fetch<TWork[]>(`*[_type == "work"]`)
+  console.log(posts)
   return WorksData
 }
 
