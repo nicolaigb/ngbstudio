@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Text, Image } from '@atoms'
+import { Spacing } from 'styles/spacing'
 
 export interface IContentPreview extends React.HTMLAttributes<HTMLDivElement> {
   /**
@@ -16,7 +17,12 @@ export interface IContentPreview extends React.HTMLAttributes<HTMLDivElement> {
 
 export const ContentPreview = ({ src, name, ...props }: IContentPreview) => (
   <SContentPreviewContainer {...props}>
-    <SImage src={src} alt={`Thumbnail preview for ${name}`} fill />
+    <SImage
+      src={src}
+      alt={`Thumbnail preview for ${name}`}
+      fill
+      sizes={`(max-width: ${Spacing.large}) 100vw, (max-width: ${Spacing.threeColumnMin}) 50vw, (max-width: ${Spacing.fourColumnMin}) 33vw, 25vw`}
+    />
     <SText styleType="title">{name}</SText>
   </SContentPreviewContainer>
 )
