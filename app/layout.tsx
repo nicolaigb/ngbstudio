@@ -10,15 +10,17 @@ export const metadata: Metadata = {
     template: '%s | NGB Studio',
     default: 'NGB Studio',
   },
-  description: 'Design',
+  description:
+    'Product design and creative technology by Nicolai Garcia Beckmann.',
   openGraph: {
     title: 'NGB Studio',
-    description: 'Design',
+    description:
+      'Product design and creative technology by Nicolai Garcia Beckmann.',
     url: 'https://ngb.studio',
     siteName: 'NGB Studio',
     images: [
       {
-        url: 'https:ngb.studio/og.svg', // Must be an absolute URL
+        url: 'https:ngb.studio/og.png', // Must be an absolute URL
         width: 800,
         height: 800,
       },
