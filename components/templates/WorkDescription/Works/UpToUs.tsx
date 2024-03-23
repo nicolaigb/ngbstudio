@@ -1,6 +1,6 @@
 import React from 'react'
 import { ExternalLink } from '@atoms/ExternalLink'
-import { ContentView } from '@molecules/ContentView'
+import { ContentView } from 'app/work/[slug]/ContentView'
 import { IWork, SText } from './util'
 
 export const UpToUs = ({ content }: IWork) => (
@@ -31,7 +31,7 @@ export const UpToUs = ({ content }: IWork) => (
       </p>
     </SText>
     <ExternalLink href="https://app.impactive.io/campaigns/headcount/activities/dfggmiea/teams/lu6xuw6i">
-      <ContentView data={content[1]} />
+      <ContentView content={content[1]} />
     </ExternalLink>
     <SText>
       <p>

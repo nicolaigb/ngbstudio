@@ -22,7 +22,7 @@ export const SelfPortrait = ({ content }: IWork) => (
         . Arguably my favorite place on the web.
       </p>
     </SText>
-    <ContentView data={content[1]} />
-    <ContentView data={content[2]} />
+    <ContentView content={content[1]} />
+    <ContentView content={content[2]} />
   </>
 )

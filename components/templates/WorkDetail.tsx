@@ -14,7 +14,7 @@ export const WorkDetail = ({ work, ...props }: IWorkDetail) => {
 
   return (
     <SWorkDetailContainer {...props}>
-      <ContentView data={content[0]} />
+      <ContentView content={content[0]} />
       <SBody>
         <SHeader>
           <Text styleType="subheader">{title}</Text>

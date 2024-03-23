@@ -28,8 +28,8 @@ export default defineType({
       },
     },
     {
-      title: 'Content width',
-      name: 'contentWidth',
+      title: 'Maximum width',
+      name: 'maxWidth',
       type: 'number',
     },
     {

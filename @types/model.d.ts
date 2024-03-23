@@ -1,21 +1,17 @@
 declare module 'model' {
   type TContent = 'image' | 'video' | 'screenshot'
 
-  export interface ContentData {
+  export interface Content {
     type: TContent
-    src: string
     alt: string
-    width?: number
-    height?: number
-    caption?: string
-    width?: number
-    height?: number
+    maxWidth: number
+    image?: any
   }
 
   export interface IWork {
     id: Number
     thumbnail: string
-    content: ContentData[]
+    content: Content[]
     title: string
     tag: string
     year: string
@@ -26,7 +22,7 @@ declare module 'model' {
     _id: string
     slug: string
     content: any
-    heroContent: any
+    heroContent: Content
     thumbnail: string
     title: string
     year: string
@@ -42,7 +38,7 @@ declare module 'model' {
 
   type TEmbed = 'appleMusic' | 'youtube'
 
-  export interface ILatelyItem extends ContentData {
+  export interface ILatelyItem extends Content {
     type: TInspoType
     alt?: string
     url?: string

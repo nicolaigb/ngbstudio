@@ -1,5 +1,5 @@
 import React from 'react'
-import { ContentView } from '@molecules/ContentView'
+import { ContentView } from 'app/work/[slug]/ContentView'
 import { IWork, SText } from './util'
 
 export const Valuables = ({ content }: IWork) => (
@@ -14,12 +14,12 @@ export const Valuables = ({ content }: IWork) => (
         om Valuables.
       </p>
     </SText>
-    <ContentView data={content[1]} />
+    <ContentView content={content[1]} />
     <SText>
       At Cent, I redesigned the platform, introducing a new-user onboarding
       experience and a gallery for displaying the tweets you&apos;ve minted and
       collected.
     </SText>
-    <ContentView data={content[2]} />
+    <ContentView content={content[2]} />
   </>
 )

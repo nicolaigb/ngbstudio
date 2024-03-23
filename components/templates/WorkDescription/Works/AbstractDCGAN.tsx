@@ -1,5 +1,5 @@
 import React from 'react'
-import { ContentView } from '@molecules/ContentView'
+import { ContentView } from 'app/work/[slug]/ContentView'
 import { IWork, SText } from './util'
 
 export const AbstractDCGAN = ({ content }: IWork) => (
@@ -49,7 +49,7 @@ export const AbstractDCGAN = ({ content }: IWork) => (
         </a>
       </p>
     </SText>
-    <ContentView data={content[1]} />
-    <ContentView data={content[2]} />
+    <ContentView content={content[1]} />
+    <ContentView content={content[2]} />
   </>
 )

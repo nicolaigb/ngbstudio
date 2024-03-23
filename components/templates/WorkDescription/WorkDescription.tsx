@@ -1,5 +1,5 @@
 import React from 'react'
-import { ContentData } from 'model'
+import { Content } from 'model'
 import {
   AbstractDCGAN,
   CentPages,
@@ -11,7 +11,7 @@ import {
 
 export interface IWorkDescription {
   tag: string
-  content: ContentData[]
+  content: Content[]
 }
 
 const WorkDescription = ({ tag, content }: IWorkDescription) => {

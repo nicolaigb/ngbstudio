@@ -9,7 +9,7 @@ export default function LatelyItem({
   embedType,
   src,
   alt,
-  width,
+  maxWidth: width,
   height,
   url,
   caption,

@@ -1,13 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
-import { ContentData } from 'model'
+import { Content } from 'model'
 
 export interface IVideo {
-  videoObj: ContentData
+  videoObj: Content
 }
 
 export const Video = ({ videoObj }: IVideo) => {
-  const { src, width, height } = videoObj
+  const { src, maxWidth: width, height } = videoObj
   return (
     <SVideo
       width={width}

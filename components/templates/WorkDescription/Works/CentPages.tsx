@@ -1,5 +1,5 @@
 import React from 'react'
-import { ContentView } from '@molecules/ContentView'
+import { ContentView } from 'app/work/[slug]/ContentView'
 import { ExternalLink } from '@atoms/ExternalLink'
 import { IWork, SText } from './util'
 
@@ -34,13 +34,13 @@ export const CentPages = ({ content }: IWork) => (
       </p>
     </SText>
     <ExternalLink href="https://alicedied.cent.co/">
-      <ContentView data={content[1]} />
+      <ContentView content={content[1]} />
     </ExternalLink>
     <ExternalLink href="https://raphaelprinz.cent.co/">
-      <ContentView data={content[2]} />
+      <ContentView content={content[2]} />
     </ExternalLink>
     <ExternalLink href="https://cam.cent.co/">
-      <ContentView data={content[3]} />
+      <ContentView content={content[3]} />
     </ExternalLink>
   </>
 )

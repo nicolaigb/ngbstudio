@@ -6,7 +6,7 @@ const images: ILatelyItem[] = [
     type: 'image',
     src: `${S3_BUCKET_URL}/inspo/granite-chief_02-18-2024.jpeg`,
     alt: 'I love this Experts Only graphic',
-    width: 300,
+    maxWidth: 300,
     height: 400,
   },
   {
@@ -18,19 +18,19 @@ const images: ILatelyItem[] = [
     type: 'text',
     caption: 'RealTree Website',
     src: '',
-    width: 200,
+    maxWidth: 200,
   },
   {
     type: 'embed',
     embedType: 'youtube',
     src: 'https://www.youtube.com/embed/aQwobrLxmXU?si=PdxGUN_OHbWfQO6O',
-    width: 250,
+    maxWidth: 250,
   },
   {
     type: 'text',
     caption: 'Return\nof\nsunshine\nephemera',
     src: '',
-    width: 250,
+    maxWidth: 250,
   },
   {
     type: 'embed',
@@ -48,7 +48,7 @@ const images: ILatelyItem[] = [
     src: `${S3_BUCKET_URL}/inspo/tracey-ermin.jpeg`,
     alt: 'Tracey Emin&apos;s painting from <i>Lovers Grace</i> at White Cube, New York showing from November 4, 2023 — January 13, 2024.',
     url: 'https://www.whitecube.com/gallery-exhibitions/tracey-emin-lovers-grave-2023',
-    width: 400,
+    maxWidth: 400,
     height: 300,
   },
   {
@@ -56,7 +56,7 @@ const images: ILatelyItem[] = [
     src: `${S3_BUCKET_URL}/inspo/frank-lloyd-wright_kraus.jpeg`,
     alt: 'Living room of the Frank Lloyd Wright house in Kirkwood, Missouri.',
     url: 'https://ebsworthpark.org/',
-    width: 400,
+    maxWidth: 400,
     height: 300,
   },
   {
@@ -67,7 +67,7 @@ const images: ILatelyItem[] = [
     type: 'image',
     src: `${S3_BUCKET_URL}/inspo/josef-albers-homage-to-the-square-arctic-bloom-1965.jpg`,
     alt: "Josef Albers' <i>Homage to the Square</i> (1888–1976)",
-    width: 400,
+    maxWidth: 400,
     height: 400,
   },
   {
@@ -75,7 +75,7 @@ const images: ILatelyItem[] = [
     src: `${S3_BUCKET_URL}/inspo/farnsworth-house.jpeg`,
     alt: 'The Farnsworth House, designed by Ludwig Mies van der Rohe',
     url: 'https://en.wikipedia.org/wiki/Farnsworth_House',
-    width: 533,
+    maxWidth: 533,
     height: 300,
   },
   {
@@ -83,7 +83,7 @@ const images: ILatelyItem[] = [
     src: `${S3_BUCKET_URL}/inspo/kandinsky_circles.jpeg`,
     alt: 'Wassily Kandinsky, <i>Several Circles</i> (1886)',
     url: 'https://www.guggenheim.org/audio/track/several-circles-1926',
-    width: 294,
+    maxWidth: 294,
     height: 300,
   },
   {
@@ -91,7 +91,7 @@ const images: ILatelyItem[] = [
     src: `${S3_BUCKET_URL}/inspo/jannik-sinner-gucci-wimbledon.jpeg`,
     alt: 'Jannick Sinner, Wimbledon 2023',
     url: 'https://www.cnn.com/style/jannik-sinners-gucci-bag-wimbledon/index.html',
-    width: 450,
+    maxWidth: 450,
     height: 300,
   },
   {
@@ -99,28 +99,28 @@ const images: ILatelyItem[] = [
     src: `${S3_BUCKET_URL}/inspo/main_image_galaxies_stephans_quintet_sq_nircam_miri_final-1280.jpeg`,
     alt: 'An image of Stephan&apos;s Quintet. One of the first taken by the James Webb telescope.',
     url: 'https://www.nasa.gov/webbfirstimages',
-    width: 313,
+    maxWidth: 313,
     height: 300,
   },
   {
     type: 'image',
     src: `${S3_BUCKET_URL}/inspo/valais-blacknose-sheep.jpeg`,
     alt: 'A group of Valais Blacknose sheep',
-    width: 438.5,
+    maxWidth: 438.5,
     height: 300,
   },
   {
     type: 'image',
     src: `${S3_BUCKET_URL}/inspo/dan-flavin_the-diagonal_may-25-1963_pink.jpg`,
     alt: 'Dan Flavin, <i>The Diagonal</i> (1963).',
-    width: 400,
+    maxWidth: 400,
     height: 300,
   },
   {
     type: 'image',
     src: `${S3_BUCKET_URL}/inspo/lost-in-translation.gif`,
     alt: '<i>Lost in translation</i>, 2003',
-    width: 554,
+    maxWidth: 554,
     height: 300,
   },
 ]

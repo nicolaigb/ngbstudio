@@ -2,11 +2,10 @@
 
 import React from 'react'
 import { Work } from 'model'
-import { Image, Text } from '@atoms'
+import { Text } from '@atoms'
 import styled from 'styled-components'
 import { PortableText } from '@portabletext/react'
-import { useNextSanityImage } from 'next-sanity-image'
-import { client } from '@sanity/lib/client'
+import { ContentView } from './ContentView'
 
 export interface IWorkDetail extends React.HTMLAttributes<HTMLDivElement> {
   work: Work
@@ -14,17 +13,16 @@ export interface IWorkDetail extends React.HTMLAttributes<HTMLDivElement> {
 
 const myPortableTextComponents = {
   types: {
-    image: ({ value }) => <Image src={value.src} alt={value.alt} />,
+    content: ({ value }) => <ContentView contentObj={value} />,
   },
 }
 
 export default function WorkPage({ work, ...props }: IWorkDetail) {
-  const { heroContent, content, title, year, medium, slug } = work
-  const imageProps: any = useNextSanityImage(client, heroContent)
+  const { heroContent, content, title, year, medium } = work
 
   return (
     <SWorkDetailContainer {...props}>
-      <SHeroContent {...imageProps} />
+      <ContentView contentObj={heroContent} />
       <SHeader>
         <Text styleType="subheader">{title}</Text>
         <Text styleType="emphasized">{year}</Text>
@@ -32,7 +30,7 @@ export default function WorkPage({ work, ...props }: IWorkDetail) {
           {medium}
         </Text>
       </SHeader>
-      {/* <PortableText value={content} components={myPortableTextComponents} /> */}
+      <PortableText value={content} components={myPortableTextComponents} />
     </SWorkDetailContainer>
   )
 }
@@ -43,11 +41,6 @@ const SWorkDetailContainer = styled.div`
   gap: 24px;
   align-items: center;
   position: relative;
-`
-
-const SHeroContent = styled(Image)`
-  max-width: 1024px;
-  height: auto;
 `
 
 const SHeader = styled.div`

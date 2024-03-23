@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 import { Text } from '@atoms/Text'
-import { ContentData } from 'model'
+import { Content } from 'model'
 
 export interface IWork {
-  content: ContentData[]
+  content: Content[]
 }
 
 export const SText = styled(Text)`
