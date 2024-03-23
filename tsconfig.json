@@ -12,7 +12,9 @@
       "@templates/*": ["components/templates/*"],
       "@constants/*": ["constants/*"],
       "@utils": ["utils/"],
-      "@utils/*": ["utils/*"]
+      "@utils/*": ["utils/*"],
+      "@sanity": ["sanity/"],
+      "@sanity/*": ["sanity/*"],
     },
     "target": "ES2017",
     "lib": ["dom", "dom.iterable", "esnext"],

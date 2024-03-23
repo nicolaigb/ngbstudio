@@ -23,12 +23,14 @@ declare module 'model' {
   }
 
   export type Work = {
-    _id: string,
-    slug: string,
-    content: any,
-    heroImage: string,
-    thumbnail: string,
-    title: string,
+    _id: string
+    slug: string
+    content: any
+    heroContent: any
+    thumbnail: string
+    title: string
+    year: string
+    medium: string
   }
 
   export interface NavItem {

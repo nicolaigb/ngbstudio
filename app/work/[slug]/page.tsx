@@ -1,21 +1,23 @@
 import React from 'react'
 import { Metadata } from 'next'
-import WorksData from '@constants/works'
+import { client } from '@utils/sanity/client'
+import { GET_WORK_BY_SLUG } from '@utils/sanity/queries'
+import { Work } from 'model'
 import WorkPage from './WorkPage'
 
 type Props = {
-  params: { tag: string }
+  params: { slug: string }
 }
 
-async function getWork(tag: string) {
-  const work = WorksData.filter((entry) => entry.tag === tag)[0]
+async function getWork(slug: string) {
+  const work = await client.fetch<Work>(GET_WORK_BY_SLUG(slug))
   return work
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { tag } = params
+  const { slug } = params
 
-  const work = await getWork(tag)
+  const work = await getWork(slug)
   const { title, thumbnail } = work
 
   return {
@@ -27,7 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page({ params }: Props) {
-  const { tag } = params
-  const work = await getWork(tag)
+  const { slug } = params
+  const work = await getWork(slug)
   return <WorkPage work={work} />
 }
