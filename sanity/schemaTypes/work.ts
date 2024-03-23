@@ -20,19 +20,7 @@ export default defineType({
     defineField({
       name: 'heroContent',
       title: 'Hero Content',
-      type: 'image',
-      fields: [
-        {
-          name: 'alt',
-          type: 'string',
-          title: 'Alternative Text',
-        },
-        {
-          title: 'Width',
-          name: 'width',
-          type: 'number',
-        },
-      ],
+      type: 'content',
     }),
     defineField({
       name: 'title',
