@@ -1,7 +1,7 @@
 import React from 'react'
 import { Metadata } from 'next'
-import { client } from '@utils/sanity/client'
-import { GET_WORK_BY_SLUG } from '@utils/sanity/queries'
+import { client } from '@sanity/lib/client'
+import { GET_WORK_BY_SLUG } from '@sanity/lib/queries'
 import { Work } from 'model'
 import WorkPage from './WorkPage'
 
