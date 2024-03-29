@@ -4,17 +4,18 @@ import React from 'react'
 import { Work } from 'model'
 import { Text } from '@atoms'
 import styled from 'styled-components'
-import { PortableText } from '@portabletext/react'
+import { PortableText, PortableTextComponents } from '@portabletext/react'
 import { ContentView } from './ContentView'
 
 export interface IWorkDetail extends React.HTMLAttributes<HTMLDivElement> {
   work: Work
 }
 
-const myPortableTextComponents = {
+const myPortableTextComponents: PortableTextComponents = {
   types: {
     content: ({ value }) => <ContentView contentObj={value} />,
   },
+  block: ({ children }) => <SBodyText>{children}</SBodyText>,
 }
 
 export default function WorkPage({ work, ...props }: IWorkDetail) {
@@ -38,9 +39,10 @@ export default function WorkPage({ work, ...props }: IWorkDetail) {
 const SWorkDetailContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 32px;
   align-items: center;
   position: relative;
+  padding: 32px 0px;
 `
 
 const SHeader = styled.div`
@@ -49,4 +51,9 @@ const SHeader = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
+  margin-top: 32px;
+`
+
+const SBodyText = styled(Text)`
+  max-width: ${({ theme }) => theme.Spacing.contentTextWidth};
 `

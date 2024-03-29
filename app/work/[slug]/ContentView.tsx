@@ -38,7 +38,6 @@ type TContentViewContainer = {
 const SContentViewContainer = styled.div<TContentViewContainer>(
   ({ $maxWidth }) => `
   flex-grow: 1;
-  margin-bottom: 64px;
   max-width: ${$maxWidth}px;
 `,
 )
