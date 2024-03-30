@@ -6,6 +6,7 @@ declare module 'model' {
     alt: string
     maxWidth: number
     image?: any
+    videoSrc?: string
   }
 
   export interface IWork {

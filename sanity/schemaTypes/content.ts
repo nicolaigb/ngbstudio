@@ -38,6 +38,11 @@ export default defineType({
       type: 'image',
     },
     {
+      title: 'Video',
+      name: 'video',
+      type: 'file',
+    },
+    {
       title: 'Alternative text',
       name: 'alt',
       type: 'string',

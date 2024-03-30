@@ -3,14 +3,14 @@ import styled from 'styled-components'
 import { Content } from 'model'
 import { client } from '@sanity/lib/client'
 import { useNextSanityImage } from 'next-sanity-image'
-import { Image } from '@atoms'
+import { Image, Video } from '@atoms'
 
 export interface IContentView extends React.HTMLAttributes<HTMLDivElement> {
   contentObj: Content
 }
 
 export const ContentView = ({ contentObj, ...props }: IContentView) => {
-  const { type, image, maxWidth } = contentObj
+  const { type, image, videoSrc, maxWidth } = contentObj
   const imageProps: any = useNextSanityImage(client, image)
 
   const renderContent = () => {
@@ -19,6 +19,8 @@ export const ContentView = ({ contentObj, ...props }: IContentView) => {
         return <SImage {...imageProps} />
       case 'screenshot':
         return <SScreenshot {...imageProps} />
+      case 'video':
+        return <Video src={videoSrc ?? ''} />
       default:
         return null
     }
