@@ -6,7 +6,6 @@ import { useScrolledToTopIndicator } from '@utils'
 import { Grid } from '@templates'
 
 import { Work } from 'model'
-import { InternalLink } from '@atoms'
 import { ContentPreview, TitleFooter } from '@molecules'
 import Link from 'next/link'
 

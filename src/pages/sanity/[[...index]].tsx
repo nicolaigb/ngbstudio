@@ -1,3 +1,4 @@
+import React from 'react'
 import Head from 'next/head'
 import { NextStudio } from 'next-sanity/studio'
 import { metadata } from 'next-sanity/studio/metadata'

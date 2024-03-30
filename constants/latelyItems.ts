@@ -1,10 +1,9 @@
 import { ILatelyItem } from 'model'
-import { S3_BUCKET_URL } from './works'
 
 const images: ILatelyItem[] = [
   {
     type: 'image',
-    src: `${S3_BUCKET_URL}/inspo/granite-chief_02-18-2024.jpeg`,
+    src: `inspo/granite-chief_02-18-2024.jpeg`,
     alt: 'I love this Experts Only graphic',
     maxWidth: 300,
     height: 400,
@@ -45,7 +44,7 @@ const images: ILatelyItem[] = [
   },
   {
     type: 'image',
-    src: `${S3_BUCKET_URL}/inspo/tracey-ermin.jpeg`,
+    src: `inspo/tracey-ermin.jpeg`,
     alt: 'Tracey Emin&apos;s painting from <i>Lovers Grace</i> at White Cube, New York showing from November 4, 2023 — January 13, 2024.',
     url: 'https://www.whitecube.com/gallery-exhibitions/tracey-emin-lovers-grave-2023',
     maxWidth: 400,
@@ -53,7 +52,7 @@ const images: ILatelyItem[] = [
   },
   {
     type: 'image',
-    src: `${S3_BUCKET_URL}/inspo/frank-lloyd-wright_kraus.jpeg`,
+    src: `''inspo/frank-lloyd-wright_kraus.jpeg`,
     alt: 'Living room of the Frank Lloyd Wright house in Kirkwood, Missouri.',
     url: 'https://ebsworthpark.org/',
     maxWidth: 400,
@@ -65,14 +64,14 @@ const images: ILatelyItem[] = [
   },
   {
     type: 'image',
-    src: `${S3_BUCKET_URL}/inspo/josef-albers-homage-to-the-square-arctic-bloom-1965.jpg`,
+    src: `inspo/josef-albers-homage-to-the-square-arctic-bloom-1965.jpg`,
     alt: "Josef Albers' <i>Homage to the Square</i> (1888–1976)",
     maxWidth: 400,
     height: 400,
   },
   {
     type: 'image',
-    src: `${S3_BUCKET_URL}/inspo/farnsworth-house.jpeg`,
+    src: `inspo/farnsworth-house.jpeg`,
     alt: 'The Farnsworth House, designed by Ludwig Mies van der Rohe',
     url: 'https://en.wikipedia.org/wiki/Farnsworth_House',
     maxWidth: 533,
@@ -80,7 +79,7 @@ const images: ILatelyItem[] = [
   },
   {
     type: 'image',
-    src: `${S3_BUCKET_URL}/inspo/kandinsky_circles.jpeg`,
+    src: `inspo/kandinsky_circles.jpeg`,
     alt: 'Wassily Kandinsky, <i>Several Circles</i> (1886)',
     url: 'https://www.guggenheim.org/audio/track/several-circles-1926',
     maxWidth: 294,
@@ -88,7 +87,7 @@ const images: ILatelyItem[] = [
   },
   {
     type: 'image',
-    src: `${S3_BUCKET_URL}/inspo/jannik-sinner-gucci-wimbledon.jpeg`,
+    src: `inspo/jannik-sinner-gucci-wimbledon.jpeg`,
     alt: 'Jannick Sinner, Wimbledon 2023',
     url: 'https://www.cnn.com/style/jannik-sinners-gucci-bag-wimbledon/index.html',
     maxWidth: 450,
@@ -96,7 +95,7 @@ const images: ILatelyItem[] = [
   },
   {
     type: 'image',
-    src: `${S3_BUCKET_URL}/inspo/main_image_galaxies_stephans_quintet_sq_nircam_miri_final-1280.jpeg`,
+    src: `inspo/main_image_galaxies_stephans_quintet_sq_nircam_miri_final-1280.jpeg`,
     alt: 'An image of Stephan&apos;s Quintet. One of the first taken by the James Webb telescope.',
     url: 'https://www.nasa.gov/webbfirstimages',
     maxWidth: 313,
@@ -104,21 +103,21 @@ const images: ILatelyItem[] = [
   },
   {
     type: 'image',
-    src: `${S3_BUCKET_URL}/inspo/valais-blacknose-sheep.jpeg`,
+    src: `inspo/valais-blacknose-sheep.jpeg`,
     alt: 'A group of Valais Blacknose sheep',
     maxWidth: 438.5,
     height: 300,
   },
   {
     type: 'image',
-    src: `${S3_BUCKET_URL}/inspo/dan-flavin_the-diagonal_may-25-1963_pink.jpg`,
+    src: `inspo/dan-flavin_the-diagonal_may-25-1963_pink.jpg`,
     alt: 'Dan Flavin, <i>The Diagonal</i> (1963).',
     maxWidth: 400,
     height: 300,
   },
   {
     type: 'image',
-    src: `${S3_BUCKET_URL}/inspo/lost-in-translation.gif`,
+    src: `inspo/lost-in-translation.gif`,
     alt: '<i>Lost in translation</i>, 2003',
     maxWidth: 554,
     height: 300,

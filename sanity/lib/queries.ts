@@ -1,4 +1,4 @@
-export const GET_WORK_QUERY = `*[_type=='work']{
+export const GET_WORKS_QUERY = `*[_type=='work']{
   _id, title, year,
   "slug": slug.current,
   "thumbnail": thumbnail.asset->url
