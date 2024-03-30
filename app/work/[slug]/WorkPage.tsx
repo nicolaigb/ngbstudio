@@ -46,8 +46,8 @@ const SWorkDetailContainer = styled.div`
 `
 
 const SHeader = styled.div`
-  width: 100%;
-  max-width: ${({ theme }) => theme.Spacing.contentTextWidth};
+  width: ${({ theme }) => theme.Spacing.contentTextWidth};
+  max-width: 100%;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -55,5 +55,6 @@ const SHeader = styled.div`
 `
 
 const SBodyText = styled(Text)`
-  max-width: ${({ theme }) => theme.Spacing.contentTextWidth};
+  width: ${({ theme }) => theme.Spacing.contentTextWidth};
+  max-width: 100%;
 `
