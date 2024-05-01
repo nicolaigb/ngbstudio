@@ -28,7 +28,9 @@ const appleMusicStyle = css`
 
 const youtubeStyle = css`
   width: 560px;
-  height: 315px;
+  height: auto;
+  max-width: 100% !important;
+  aspect-ratio: 560 / 315;
 `
 
 const SFrame = styled.iframe<Pick<IEmbed, 'embedType'>>(

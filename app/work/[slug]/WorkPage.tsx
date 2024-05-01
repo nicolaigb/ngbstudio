@@ -5,7 +5,7 @@ import { Work } from 'model'
 import { Text } from '@atoms'
 import styled from 'styled-components'
 import { PortableText, PortableTextComponents } from '@portabletext/react'
-import { ContentView } from './ContentView'
+import { ContentView } from '../../../components/organisms/ContentView'
 
 export interface IWorkDetail extends React.HTMLAttributes<HTMLDivElement> {
   work: Work

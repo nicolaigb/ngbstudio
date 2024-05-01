@@ -2,11 +2,12 @@
 
 import React, { useEffect, useRef } from 'react'
 import styled from 'styled-components'
-import LatelyItem from 'app/lately/LatelyItem'
-import { ILatelyItem } from 'model'
+import { Lately } from 'model'
+import { Text } from '@atoms/Text'
+import { ContentView } from '@organisms/ContentView'
 
 interface ILatelyPage {
-  latelyItems: ILatelyItem[]
+  latelyItems: Lately[]
 }
 
 export default function LatelyPage({ latelyItems }: ILatelyPage) {
@@ -33,9 +34,13 @@ export default function LatelyPage({ latelyItems }: ILatelyPage) {
 
   return (
     <SContainer ref={containerRef}>
-      {latelyItems.map((item, idx) => (
-        <LatelyItem {...item} key={`lately-item_${idx}`} />
-      ))}
+      {latelyItems.map(({ _id, title, isText, content }) => {
+        return isText ? (
+          <SText styleType="title">{title}</SText>
+        ) : (
+          <ContentView contentObj={content} key={_id} />
+        )
+      })}
     </SContainer>
   )
 }
@@ -57,4 +62,8 @@ const SContainer = styled.div`
     align-items: center;
     padding: 0 32px;
   }
+`
+
+const SText = styled(Text)`
+  min-width: 200px;
 `

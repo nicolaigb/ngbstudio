@@ -1,4 +1,4 @@
-import { defineType } from 'sanity'
+import { defineField, defineType } from 'sanity'
 
 export default defineType({
   title: 'Content',
@@ -9,7 +9,6 @@ export default defineType({
       title: 'Type',
       name: 'type',
       type: 'string',
-      initialValue: 'image',
       options: {
         list: [
           {
@@ -23,6 +22,10 @@ export default defineType({
           {
             title: 'Video',
             value: 'video',
+          },
+          {
+            title: 'Embed',
+            value: 'embed',
           },
         ],
       },
@@ -47,5 +50,37 @@ export default defineType({
       name: 'alt',
       type: 'string',
     },
+    {
+      title: 'Caption',
+      name: 'caption',
+      type: 'string',
+    },
+    {
+      title: 'URL',
+      name: 'url',
+      type: 'string',
+    },
+    defineField({
+      title: 'Embbed Type',
+      name: 'embedType',
+      type: 'string',
+      initialValue: 'appleMusic',
+      options: {
+        list: [
+          {
+            title: 'Apple Music',
+            value: 'appleMusic',
+          },
+          {
+            title: 'Youtube',
+            value: 'youtube',
+          },
+          {
+            title: 'Soundcloud',
+            value: 'soundcloud',
+          },
+        ],
+      },
+    }),
   ],
 })

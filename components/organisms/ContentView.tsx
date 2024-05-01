@@ -3,14 +3,15 @@ import styled from 'styled-components'
 import { Content } from 'model'
 import { client } from '@sanity/lib/client'
 import { useNextSanityImage } from 'next-sanity-image'
-import { Image, Video } from '@atoms'
+import { ExternalLink, Image, Video } from '@atoms'
+import { Embed } from '@molecules/Embed'
 
 export interface IContentView extends React.HTMLAttributes<HTMLDivElement> {
   contentObj: Content
 }
 
 export const ContentView = ({ contentObj, ...props }: IContentView) => {
-  const { type, image, videoSrc, maxWidth } = contentObj
+  const { type, image, videoSrc, maxWidth, url, embedType } = contentObj
   const imageProps: any = useNextSanityImage(client, image)
 
   const renderContent = () => {
@@ -21,6 +22,8 @@ export const ContentView = ({ contentObj, ...props }: IContentView) => {
         return <SScreenshot {...imageProps} />
       case 'video':
         return <Video src={videoSrc ?? ''} />
+      case 'embed':
+        return <Embed embedType={embedType} src={url ?? ''} />
       default:
         return null
     }
@@ -28,7 +31,11 @@ export const ContentView = ({ contentObj, ...props }: IContentView) => {
 
   return (
     <SContentViewContainer $maxWidth={maxWidth} {...props}>
-      {renderContent()}
+      {url ? (
+        <ExternalLink href={url}>{renderContent()}</ExternalLink>
+      ) : (
+        renderContent()
+      )}
     </SContentViewContainer>
   )
 }
@@ -39,8 +46,8 @@ type TContentViewContainer = {
 
 const SContentViewContainer = styled.div<TContentViewContainer>(
   ({ $maxWidth }) => `
-  flex-grow: 1;
-  max-width: ${$maxWidth}px;
+  flex-shrink: 0;
+  max-width: ${$maxWidth}px !important;
 `,
 )
 

@@ -1,5 +1,7 @@
 declare module 'model' {
-  type TContent = 'image' | 'video' | 'screenshot'
+  type TContent = 'image' | 'video' | 'screenshot' | 'embed'
+
+  type TEmbed = 'appleMusic' | 'youtube' | 'soundcloud'
 
   export interface Content {
     type: TContent
@@ -7,6 +9,9 @@ declare module 'model' {
     maxWidth: number
     image?: any
     videoSrc?: string
+    caption: string
+    url?: string
+    embedType: TEmbed
   }
 
   export interface IWork {
@@ -30,14 +35,19 @@ declare module 'model' {
     medium: string
   }
 
+  export type Lately = {
+    _id: string
+    title: string
+    isText: boolean
+    content: Content
+  }
+
   export interface NavItem {
     name: string
     href: string
   }
 
   type TInspoType = 'image' | 'embed' | 'text'
-
-  type TEmbed = 'appleMusic' | 'youtube'
 
   export interface ILatelyItem extends Content {
     type: TInspoType

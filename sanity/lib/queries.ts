@@ -16,3 +16,19 @@ export const GET_WORK_BY_SLUG = (
     "videoSrc": video.asset->url
   } 
 }[0]`
+
+export const GET_LATELY = `*[_type=='lately']{
+  _id,
+  title,
+  isText,
+  content {
+    type,
+    image,
+    caption,
+    alt,
+    maxWidth,
+    url,
+    "videoSrc": video.asset->url,
+    embedType,
+  } 
+} | order(_createdAt asc)`

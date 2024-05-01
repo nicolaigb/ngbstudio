@@ -1,5 +1,5 @@
 export * from './ContentPreview'
-export * from '../../app/work/[slug]/ContentView'
+export * from '../organisms/ContentView'
 export * from './Dates'
 export * from './Menu'
 export * from './Embed'

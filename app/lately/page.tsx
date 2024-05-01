@@ -1,10 +1,12 @@
 import React from 'react'
 import { Metadata } from 'next'
-import LatelyItems from '@constants/latelyItems'
+import { client } from '@sanity/lib/client'
+import { Lately } from 'model'
+import { GET_LATELY } from '@sanity/lib/queries'
 import LatelyPage from './LatelyPage'
 
 async function getLatelyItems() {
-  const items = LatelyItems
+  const items = await client.fetch<Lately[]>(GET_LATELY)
   return items
 }
 
@@ -12,7 +14,9 @@ export const metadata: Metadata = {
   title: 'Lately',
   description: 'Lifestyle roll',
   openGraph: {
-    images: ['https://ng-web.s3.amazonaws.com/inspo/farnsworth-house.jpeg'],
+    images: [
+      'https://cdn.sanity.io/images/8vo2xd83/production/ff47b4d62275f4a2e7a4807b609c70917176f063-1000x562.jpg',
+    ],
   },
 }
 
