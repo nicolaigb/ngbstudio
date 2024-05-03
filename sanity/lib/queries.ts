@@ -19,6 +19,7 @@ export const GET_WORK_BY_SLUG = (
 
 export const GET_LATELY = `*[_type=='lately']{
   _id,
+  _createdAt,
   title,
   isText,
   content {
@@ -31,4 +32,4 @@ export const GET_LATELY = `*[_type=='lately']{
     "videoSrc": video.asset->url,
     embedType,
   } 
-} | order(_createdAt asc)`
+} | order(_createdAt desc)`

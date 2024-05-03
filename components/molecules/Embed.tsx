@@ -21,16 +21,16 @@ export const Embed = ({ src, embedType, ...props }: IEmbed) => {
 }
 
 const appleMusicStyle = css`
+  width: 100%;
   height: 450px;
   overflow: hidden;
   border-radius: 10px;
 `
 
 const youtubeStyle = css`
-  width: 560px;
+  width: 100%;
   height: auto;
-  max-width: 100% !important;
-  aspect-ratio: 560 / 315;
+  aspect-ratio: 16 / 9;
 `
 
 const SFrame = styled.iframe<Pick<IEmbed, 'embedType'>>(

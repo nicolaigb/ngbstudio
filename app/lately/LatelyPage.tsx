@@ -48,6 +48,7 @@ export default function LatelyPage({ latelyItems }: ILatelyPage) {
 const SContainer = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 32px;
 
   @media (min-width: ${({ theme }) => theme.Spacing.large}) {
@@ -59,11 +60,10 @@ const SContainer = styled.div`
     flex-direction: row;
     overflow-x: scroll;
     overscroll-behavior-y: none;
-    align-items: center;
     padding: 0 32px;
   }
 `
 
 const SText = styled(Text)`
-  min-width: 200px;
+  max-width: 500px;
 `

@@ -23,4 +23,11 @@ export default defineType({
       hidden: ({ document }) => !!document?.isText,
     }),
   ],
+
+  preview: {
+    select: {
+      title: 'title',
+      media: 'content.image',
+    },
+  },
 })
