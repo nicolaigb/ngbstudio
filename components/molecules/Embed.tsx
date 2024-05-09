@@ -21,23 +21,27 @@ export const Embed = ({ src, embedType, ...props }: IEmbed) => {
 }
 
 const appleMusicStyle = css`
-  width: 100%;
   height: 450px;
   overflow: hidden;
   border-radius: 10px;
 `
 
 const youtubeStyle = css`
-  width: 100%;
   height: auto;
   aspect-ratio: 16 / 9;
+`
+
+const soundcloudStyle = css`
+  height: 150px;
 `
 
 const SFrame = styled.iframe<Pick<IEmbed, 'embedType'>>(
   ({ embedType }) => `
   border: none;
+  width: 100%;
 
   ${embedType === 'appleMusic' ? appleMusicStyle : ''};
   ${embedType === 'youtube' ? youtubeStyle : ''};
+  ${embedType === 'soundcloud' ? soundcloudStyle : ''}
 `,
 )
