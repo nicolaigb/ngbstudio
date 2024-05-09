@@ -3,6 +3,6 @@ module.exports = {
     styledComponents: true,
   },
   images: {
-    domains: ['ng-web.s3.amazonaws.com'],
+    domains: ['ng-web.s3.amazonaws.com', 'cdn.sanity.io'],
   },
 }

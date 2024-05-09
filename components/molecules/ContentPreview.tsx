@@ -16,7 +16,7 @@ export interface IContentPreview extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 export const ContentPreview = ({ src, name, ...props }: IContentPreview) => (
-  <SContentPreviewContainer {...props}>
+  <SContentPreview {...props}>
     <SImage
       src={src}
       alt={`Thumbnail preview for ${name}`}
@@ -24,10 +24,10 @@ export const ContentPreview = ({ src, name, ...props }: IContentPreview) => (
       sizes={`(max-width: ${Spacing.large}) 100vw, (max-width: ${Spacing.threeColumnMin}) 50vw, (max-width: ${Spacing.fourColumnMin}) 33vw`}
     />
     <SText styleType="title">{name}</SText>
-  </SContentPreviewContainer>
+  </SContentPreview>
 )
 
-const SContentPreviewContainer = styled.div`
+const SContentPreview = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
@@ -49,13 +49,13 @@ const SText = styled(Text)`
   color: ${({ theme }) => theme.Colors.inverse};
 
   @media (min-width: ${({ theme }) => theme.Spacing.medium}) {
-    ${SContentPreviewContainer}:hover & {
+    ${SContentPreview}:hover & {
       opacity: 1;
       background-color: rgba(255, 255, 255, 0.75);
       backdrop-filter: blur(8px) contrast(135%);
     }
   
-    ${SContentPreviewContainer}:active & {
+    ${SContentPreview}:active & {
       backdrop-filter: blur(2px) contrast(135%);
       background-color: transparent;
       transition:

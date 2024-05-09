@@ -1,22 +1,21 @@
 import React from 'react'
 import styled from 'styled-components'
-import { ContentData } from 'model'
 
-export interface IVideo {
-  videoObj: ContentData
+export interface IVideo extends React.HTMLAttributes<HTMLVideoElement> {
+  src: string
 }
 
-export const Video = ({ videoObj }: IVideo) => {
-  const { src, width, height } = videoObj
+export const Video = ({ src, ...props }: IVideo) => {
   return (
     <SVideo
-      width={width}
-      height={height}
+      width={800}
+      height={800}
       autoPlay
       playsInline
       controls
       muted
       loop
+      {...props}
     >
       <source src={src} />
     </SVideo>

@@ -1,9 +1,12 @@
 import React from 'react'
-import WorksData from '@constants/works'
+import { client } from '@sanity/lib/client'
+import { GET_WORKS_QUERY } from '@sanity/lib/queries'
+import { Work } from 'model'
 import HomePage from './HomePage'
 
 async function getWorks() {
-  return WorksData
+  const worksData = await client.fetch<Work[]>(GET_WORKS_QUERY)
+  return worksData
 }
 
 export default async function Page() {

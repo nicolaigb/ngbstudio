@@ -27,15 +27,21 @@ const appleMusicStyle = css`
 `
 
 const youtubeStyle = css`
-  width: 560px;
-  height: 315px;
+  height: auto;
+  aspect-ratio: 16 / 9;
+`
+
+const soundcloudStyle = css`
+  height: 150px;
 `
 
 const SFrame = styled.iframe<Pick<IEmbed, 'embedType'>>(
   ({ embedType }) => `
   border: none;
+  width: 100%;
 
   ${embedType === 'appleMusic' ? appleMusicStyle : ''};
   ${embedType === 'youtube' ? youtubeStyle : ''};
+  ${embedType === 'soundcloud' ? soundcloudStyle : ''}
 `,
 )

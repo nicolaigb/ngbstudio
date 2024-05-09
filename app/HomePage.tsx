@@ -6,8 +6,8 @@ import { useScrolledToTopIndicator } from '@utils'
 import { Grid } from '@templates'
 
 import { Work } from 'model'
-import { InternalLink } from '@atoms'
 import { ContentPreview, TitleFooter } from '@molecules'
+import Link from 'next/link'
 
 interface IHome {
   works: Work[]
@@ -33,13 +33,13 @@ export default function HomePage({ works }: IHome) {
             key={`ContentPreview_${idx}`}
             ref={workRefs[idx]}
           >
-            <InternalLink href={`/work/${work.tag}`}>
+            <Link href={`/work/${work.slug}`}>
               <ContentPreview
                 key={`ContentPreview_${idx}`}
                 name={work.title}
                 src={work.thumbnail}
               />
-            </InternalLink>
+            </Link>
           </SContentPreviewContainer>
         ))}
       </Grid>
