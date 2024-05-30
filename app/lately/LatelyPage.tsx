@@ -38,7 +38,7 @@ export default function LatelyPage({ latelyItems }: ILatelyPage) {
         return isText ? (
           <SText styleType="title">{title}</SText>
         ) : (
-          <ContentView contentObj={content} key={_id} />
+          <ContentView contentObj={content} />
         )
       })}
     </SContainer>
