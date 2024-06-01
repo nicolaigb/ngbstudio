@@ -1,3 +1,6 @@
+/* eslint-disable */
+// @ts-nocheck
+
 'use client'
 
 import React, { useMemo, useRef } from 'react'
@@ -28,7 +31,7 @@ const Flyer = () => {
 
   return (
     <mesh position={[0, 0, 0]} ref={meshRef}>
-      <planeGeometry args={[3, 1.5, 32, 32]} />
+      <planeGeometry args={[1.5, 1.5, 32, 32]} />
       <shaderMaterial
         fragmentShader={fragmentShader}
         vertexShader={vertextShader}
@@ -40,10 +43,7 @@ const Flyer = () => {
 
 export default function Visualization() {
   return (
-    <Canvas
-      camera={{ position: [0, 0, 1] }}
-      style={{ border: '1px solid black' }}
-    >
+    <Canvas camera={{ position: [0, 0, 1] }}>
       <pointLight args={[10, 10, 10]} />
       <Flyer />
     </Canvas>

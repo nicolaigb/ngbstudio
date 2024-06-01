@@ -6,7 +6,11 @@ import styled from 'styled-components'
 import Header from '@organisms/Header'
 import Footer from '@organisms/Footer'
 
-export default function AppLayout({ children }) {
+export default function AppLayout({
+  children,
+}: {
+  children?: React.ReactNode
+}) {
   const pathname = usePathname()
 
   return (
