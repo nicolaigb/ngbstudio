@@ -62,11 +62,12 @@ export default function Visualization() {
 const SVisualization = styled.div`
   position: relative;
   width: 100%;
-  height: 100%;
+  height: calc(100vh - 64px);
 `
 
 const STextContainer = styled.div`
   z-index: 100;
+  width: 100%;
   position: absolute;
   left: 50%;
   top: 50%;
