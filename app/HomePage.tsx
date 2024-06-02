@@ -34,11 +34,7 @@ export default function HomePage({ works }: IHome) {
             ref={workRefs[idx]}
           >
             <Link href={`/work/${work.slug}`}>
-              <ContentPreview
-                key={`ContentPreview_${idx}`}
-                name={work.title}
-                src={work.thumbnail}
-              />
+              <ContentPreview name={work.title} src={work.thumbnail} />
             </Link>
           </SContentPreviewContainer>
         ))}

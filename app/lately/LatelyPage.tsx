@@ -34,11 +34,11 @@ export default function LatelyPage({ latelyItems }: ILatelyPage) {
 
   return (
     <SContainer ref={containerRef}>
-      {latelyItems.map(({ _id, title, isText, content }) => {
+      {latelyItems.map(({ title, isText, content }) => {
         return isText ? (
           <SText styleType="title">{title}</SText>
         ) : (
-          <ContentView contentObj={content} key={_id} />
+          <ContentView contentObj={content} />
         )
       })}
     </SContainer>
