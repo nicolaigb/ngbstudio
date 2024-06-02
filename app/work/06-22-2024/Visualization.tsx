@@ -11,6 +11,7 @@ import { Canvas, useFrame } from '@react-three/fiber'
 import vertextShader from './vertexShader.glsl'
 import fragmentShader from './fragmentShader.glsl'
 import { Text } from '@atoms/Text'
+import { ExternalLink } from '@atoms/ExternalLink'
 
 const Flyer = () => {
   const meshRef = useRef<THREE.Mesh>(null)
@@ -48,9 +49,12 @@ export default function Visualization() {
     <SVisualization>
       <STextContainer>
         <Text>JOIN US FOR A BIRTHDAY CELEBRATION</Text>
-        <Text>JUNE 22, 2024 21:00:00</Text>
-        <Text>354 MYRTLE AVE, BROOKLYN</Text>
+        <Text>JUNE 22, 2024 9PM</Text>
+        <Text>354 MYRTLE AVE #7, BROOKLYN, NY</Text>
       </STextContainer>
+      <SCalendarLink href="/nico-and-thebes-birthday-dance-party.ics">
+        ADD TO CALENDAR
+      </SCalendarLink>
       <Canvas camera={{ position: [0, 0, 1] }}>
         <pointLight args={[10, 10, 10]} />
         <Flyer />
@@ -73,5 +77,12 @@ const STextContainer = styled.div`
   top: 50%;
   transform: translateX(-50%) translateY(-50%);
   text-align: center;
-  filter: backdrop-blur(48px);
+`
+
+const SCalendarLink = styled(ExternalLink)`
+  z-index: 100;
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
 `
