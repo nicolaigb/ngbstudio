@@ -3,8 +3,10 @@ import { Metadata } from 'next'
 import Visualization from './Visualization'
 
 export const metadata: Metadata = {
-  title: 'A Birthday Celebration',
-  description: 'June 22, 2024 9PM 354 Myrtle Ave, Brooklyn',
+  title: {
+    absolute: "Nico & Thebe's Birthday Dance Party",
+  },
+  description: 'June 22, 2024 9PM 354 Myrtle Ave #7, Brooklyn',
   openGraph: {
     images: ['/a-birthday-celebration.png'],
   },
