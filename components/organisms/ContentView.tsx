@@ -30,7 +30,11 @@ export const ContentView = ({ contentObj, ...props }: IContentView) => {
   }
 
   return (
-    <SContentViewContainer $maxWidth={maxWidth} {...props}>
+    <SContentViewContainer
+      className="border-1 border-red"
+      $maxWidth={maxWidth}
+      {...props}
+    >
       {url ? (
         <ExternalLink href={url}>{renderContent()}</ExternalLink>
       ) : (
