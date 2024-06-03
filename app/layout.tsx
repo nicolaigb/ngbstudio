@@ -1,6 +1,7 @@
 import React from 'react'
 import { Metadata } from 'next'
 import { SpeedInsights } from '@vercel/speed-insights/next'
+import { Analytics } from '@vercel/analytics/react'
 import '../styles/globals.css'
 import AppLayout from '@templates/AppLayout'
 import AppProvider from './AppProvider'
@@ -43,6 +44,7 @@ export default function RootLayout({
         <AppProvider>
           <AppLayout>{children}</AppLayout>
           <SpeedInsights />
+          <Analytics />
         </AppProvider>
       </body>
     </html>

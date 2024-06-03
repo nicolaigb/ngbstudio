@@ -9,15 +9,15 @@ export default function Footer() {
     <SPageFooterContainer>
       <Text styleType="regular">Nicolai Garcia Beckmann</Text>
       <SLinksContainer>
-        <SExternalLink href="mailto:nicolai@ngb.studio">
+        <ExternalLink href="mailto:nicolai@ngb.studio">
           <MdEmail />
-        </SExternalLink>
-        <SExternalLink href="https://twitter.com/galeo_00">
+        </ExternalLink>
+        <ExternalLink href="https://twitter.com/galeo_00">
           <SiTwitter />
-        </SExternalLink>
-        <SExternalLink href="https://www.linkedin.com/in/nicolai-garcia-beckmann-66254114b/">
+        </ExternalLink>
+        <ExternalLink href="https://www.linkedin.com/in/nicolai-garcia-beckmann-66254114b/">
           <SiLinkedin />
-        </SExternalLink>
+        </ExternalLink>
       </SLinksContainer>
     </SPageFooterContainer>
   )
@@ -43,12 +43,4 @@ const SLinksContainer = styled.div`
   gap: 16px;
   height: 16px;
   flex-wrap: wrap;
-`
-
-const SExternalLink = styled(ExternalLink)`
-  color: #c4c4c4;
-
-  &:hover {
-    color: black;
-  }
 `
