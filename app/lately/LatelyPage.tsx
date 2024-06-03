@@ -1,7 +1,6 @@
 'use client'
 
 import React, { useEffect, useRef } from 'react'
-import styled from 'styled-components'
 import { Lately } from 'model'
 import { Text } from '@atoms/Text'
 import { ContentView } from '@organisms/ContentView'
@@ -33,37 +32,17 @@ export default function LatelyPage({ latelyItems }: ILatelyPage) {
   }, [])
 
   return (
-    <SContainer ref={containerRef}>
+    <div
+      ref={containerRef}
+      className="flex flex-col items-center gap-8 md:absolute md:left-0 md:top-0 md:h-screen md:w-screen md:flex-row md:overflow-scroll md:overscroll-none md:px-8 md:py-0"
+    >
       {latelyItems.map(({ title, isText, content }) => {
         return isText ? (
-          <SText styleType="title">{title}</SText>
+          <Text styleType="title">{title}</Text>
         ) : (
           <ContentView contentObj={content} />
         )
       })}
-    </SContainer>
+    </div>
   )
 }
-
-const SContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 32px;
-
-  @media (min-width: ${({ theme }) => theme.Spacing.large}) {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    flex-direction: row;
-    overflow-x: scroll;
-    overscroll-behavior-y: none;
-    padding: 0 32px;
-  }
-`
-
-const SText = styled(Text)`
-  max-width: 500px;
-`
