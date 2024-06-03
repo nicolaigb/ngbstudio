@@ -28,9 +28,7 @@ const SLayoutContainer = styled.div<{ hasBottomPadding: boolean }>(
   display: flex;
   flex-direction: column;
 
-  @media (min-width: ${theme.Spacing.large}) {
-    height: 100vh;
-  }
+  min-height: 100vh;
 
   ${
     hasBottomPadding &&
