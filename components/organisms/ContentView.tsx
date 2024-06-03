@@ -17,11 +17,8 @@ export const ContentView = ({ contentObj, ...props }: IContentView) => {
   const { type, image, videoSrc, maxWidth, url, embedType } = contentObj
 
   const imageBuilder: UseNextSanityImageBuilder = useMemo(
-    () => (imageURLBuilder, options) => {
-      return imageURLBuilder
-        .width(options.originalImageDimensions.width)
-        .height(options.originalImageDimensions.height)
-        .fit('fill')
+    () => (imageURLBuilder) => {
+      return imageURLBuilder.fit('fill')
     },
     [maxWidth],
   )
