@@ -5,6 +5,8 @@ import { Lately } from 'model'
 import { GET_LATELY } from '@sanity/lib/queries'
 import LatelyPage from './LatelyPage'
 
+export const revalidate = 3600
+
 async function getLatelyItems() {
   const items = await client.fetch<Lately[]>(GET_LATELY)
   return items
