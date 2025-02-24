@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation'
 import styled from 'styled-components'
 import Header from '@organisms/Header'
 import Footer from '@organisms/Footer'
+import clsx from 'clsx'
 
 export default function AppLayout({
   children,
@@ -13,31 +14,22 @@ export default function AppLayout({
 }) {
   const pathname = usePathname()
 
+  if (pathname.includes('studio')) return <div>{children}</div>
+
   return (
-    <SLayoutContainer hasBottomPadding={pathname === '/'}>
+    <div
+      className={clsx('relative flex min-h-screen flex-col', {
+        'pb-[calc(100vh-50vw-100px)] md:pb-0': pathname === '/',
+      })}
+    >
       <Header />
-      <SContentContainer>{children}</SContentContainer>
+      <div className="flex-shrink-0 flex-grow overflow-hidden overscroll-y-none p-4 md:p-6">
+        {children}
+      </div>
       <Footer />
-    </SLayoutContainer>
+    </div>
   )
 }
-
-const SLayoutContainer = styled.div<{ hasBottomPadding: boolean }>(
-  ({ theme, hasBottomPadding }) => `
-  position: relative;
-  display: flex;
-  flex-direction: column;
-
-  min-height: 100vh;
-
-  ${
-    hasBottomPadding &&
-    `@media (max-width: ${theme.Spacing.large}) {
-    padding-bottom: calc(100vh - 50vw - 100px);
-  }`
-  }
-`,
-)
 
 const SContentContainer = styled.div(
   ({ theme }) => `

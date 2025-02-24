@@ -1,13 +1,13 @@
 'use client'
 
 import React, { useState, useRef } from 'react'
-import styled from 'styled-components'
+
 import { useScrolledToTopIndicator } from '@utils'
 import { Grid } from '@templates'
+import { Work } from '@/types/model'
+import { TitleFooter } from '@molecules'
 
-import { Work } from 'model'
-import { ContentPreview, TitleFooter } from '@molecules'
-import Link from 'next/link'
+import WorkTile from './WorkTile'
 
 interface IHome {
   works: Work[]
@@ -29,37 +29,10 @@ export default function HomePage({ works }: IHome) {
     <>
       <Grid>
         {works.map((work, idx) => (
-          <SContentPreviewContainer
-            key={`ContentPreview_${idx}`}
-            ref={workRefs[idx]}
-          >
-            <Link href={`/work/${work.slug}`}>
-              <ContentPreview name={work.title} src={work.thumbnail} />
-            </Link>
-          </SContentPreviewContainer>
+          <WorkTile work={work} ref={workRefs[idx]} />
         ))}
       </Grid>
       <TitleFooter title={curWorkName} />
     </>
   )
 }
-const SContentPreviewContainer = styled.div`
-  width: 100%;
-  height: 0;
-  padding-bottom: 50%;
-  position: relative;
-
-  a {
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-  }
-
-  a:focus-visible {
-    outline: 2px solid -webkit-focus-ring-color;
-    outline-offset: 2px;
-    border-radius: 1px;
-  }
-`

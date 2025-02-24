@@ -5,7 +5,11 @@ module.exports = {
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      aspectRatio: {
+        tile: '2 / 1'
+      }
+    },
   },
   plugins: [],
 }

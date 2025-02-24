@@ -1,9 +1,9 @@
 'use client'
 
 import React, { useEffect, useRef } from 'react'
-import { Lately } from 'model'
 import { Text } from '@atoms/Text'
 import { ContentView } from '@organisms/ContentView'
+import { Lately } from '@/types/model'
 
 interface ILatelyPage {
   latelyItems: Lately[]
@@ -40,7 +40,7 @@ export default function LatelyPage({ latelyItems }: ILatelyPage) {
         return isText ? (
           <Text styleType="title">{title}</Text>
         ) : (
-          <ContentView contentObj={content} />
+          <ContentView content={content} />
         )
       })}
     </div>

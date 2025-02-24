@@ -1,8 +1,8 @@
 import React from 'react'
 import { Metadata } from 'next'
-import { client } from '@sanity/lib/client'
+import { client } from '@/sanity-studio/lib/client'
 import { Lately } from 'model'
-import { GET_LATELY } from '@sanity/lib/queries'
+import { GET_LATELY } from '@/sanity/lib/queries'
 import LatelyPage from './LatelyPage'
 
 export const revalidate = 3600

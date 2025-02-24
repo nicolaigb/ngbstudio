@@ -1,36 +1,29 @@
-import React, { useMemo } from 'react'
+import React from 'react'
+import Image from 'next/image'
 import styled from 'styled-components'
-import { Content } from 'model'
-import { client } from '@sanity/lib/client'
-import {
-  UseNextSanityImageBuilder,
-  useNextSanityImage,
-} from 'next-sanity-image'
-import { ExternalLink, Image, Video } from '@atoms'
-import { Embed } from '@molecules/Embed'
 
-export interface IContentView extends React.HTMLAttributes<HTMLDivElement> {
-  contentObj: Content
+import { ExternalLink, Video } from '@atoms'
+import { Embed } from '@molecules/Embed'
+import { Content } from '@/types/model'
+import { getImageProps } from '@/sanity-studio/lib/image'
+
+export interface ContentViewProps {
+  content: Content
 }
 
-export const ContentView = ({ contentObj, ...props }: IContentView) => {
-  const { type, image, videoSrc, maxWidth, url, embedType } = contentObj
+export const ContentView = ({ content, ...props }: ContentViewProps) => {
+  const { type, alt, image, videoSrc, maxWidth, url, embedType } = content
 
-  const imageBuilder: UseNextSanityImageBuilder = useMemo(
-    () => (imageURLBuilder) => {
-      return imageURLBuilder.fit('fill')
-    },
-    [maxWidth],
-  )
-
-  const imageProps: any = useNextSanityImage(client, image, { imageBuilder })
+  const imageProps = getImageProps({ image, alt })
 
   const renderContent = () => {
     switch (type) {
       case 'image':
-        return <Image {...imageProps} />
+        return imageProps ? <Image {...imageProps} /> : null
       case 'screenshot':
-        return <Image {...imageProps} className="rounded-lg shadow-lg" />
+        return imageProps ? (
+          <Image {...imageProps} className="rounded-lg shadow-lg" />
+        ) : null
       case 'video':
         return <Video src={videoSrc ?? ''} />
       case 'embed':

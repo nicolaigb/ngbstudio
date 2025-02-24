@@ -1,11 +1,12 @@
 'use client'
 
 import React from 'react'
-import { Work } from 'model'
-import { Text } from '@atoms'
-import styled from 'styled-components'
 import { PortableText, PortableTextComponents } from '@portabletext/react'
-import { ContentView } from '../../../components/organisms/ContentView'
+import styled from 'styled-components'
+
+import { Text } from '@atoms'
+import { Work } from '@/types/model'
+import { ContentView } from '@organisms/ContentView'
 
 export interface IWorkDetail extends React.HTMLAttributes<HTMLDivElement> {
   work: Work
@@ -13,7 +14,7 @@ export interface IWorkDetail extends React.HTMLAttributes<HTMLDivElement> {
 
 const myPortableTextComponents: PortableTextComponents = {
   types: {
-    content: ({ value }) => <ContentView contentObj={value} />,
+    content: ({ value }) => <ContentView content={value} />,
   },
   block: ({ children }) => <SBodyText>{children}</SBodyText>,
 }
@@ -23,7 +24,7 @@ export default function WorkPage({ work, ...props }: IWorkDetail) {
 
   return (
     <SWorkDetailContainer {...props}>
-      <ContentView contentObj={heroContent} />
+      <ContentView content={heroContent} />
       <SHeader>
         <Text styleType="subheader">{title}</Text>
         <Text styleType="emphasized">{year}</Text>
