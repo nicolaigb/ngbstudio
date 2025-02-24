@@ -6,24 +6,12 @@ module.exports = {
     domains: ['ng-web.s3.amazonaws.com', 'cdn.sanity.io'],
   },
   webpack: (config) => {
-    // Add the raw-loader for GLSL files
+    // Use built-in asset modules instead of raw-loader
     config.module.rules.push({
       test: /\.(glsl|vs|fs|vert|frag)$/,
-      use: 'raw-loader',
-      exclude: /node_modules/,
+      type: 'asset/source',
     })
-
     return config
   },
-  // Explicitly tell Turbo about this custom loader
-  experimental: {
-    turbo: {
-      rules: {
-        // Configure the custom loader for the .glsl extension
-        '*.glsl': {
-          loaders: ['raw-loader'],
-        },
-      },
-    },
-  },
+  transpilePackages: ['three', '@react-three/fiber', '@react-three/drei']
 }
