@@ -17,7 +17,7 @@ export { metadata, viewport } from 'next-sanity/studio'
 
 export default function StudioPage() {
   return (
-    <div className="fixed left-0 top-0 z-50">
+    <div className="fixed left-0 top-0 z-50 w-full">
       <NextStudio config={config} />
     </div>
   )

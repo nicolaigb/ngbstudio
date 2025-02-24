@@ -8,7 +8,7 @@ import { Text } from '@atoms'
 import { Work } from '@/types/model'
 import { ContentView } from '@organisms/ContentView'
 
-export interface IWorkDetail extends React.HTMLAttributes<HTMLDivElement> {
+export type WorkPageProps = React.HTMLAttributes<HTMLDivElement> & {
   work: Work
 }
 
@@ -19,8 +19,10 @@ const myPortableTextComponents: PortableTextComponents = {
   block: ({ children }) => <SBodyText>{children}</SBodyText>,
 }
 
-export default function WorkPage({ work, ...props }: IWorkDetail) {
+export default function WorkPage({ work, ...props }: WorkPageProps) {
   const { heroContent, content, title, year, medium } = work
+
+  console.log(work)
 
   return (
     <SWorkDetailContainer {...props}>

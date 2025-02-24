@@ -40,7 +40,7 @@ export default function LatelyPage({ latelyItems }: ILatelyPage) {
         return isText ? (
           <Text styleType="title">{title}</Text>
         ) : (
-          <ContentView content={content} />
+          <ContentView contentObj={content} />
         )
       })}
     </div>

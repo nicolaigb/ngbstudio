@@ -1,15 +1,18 @@
+import React from 'react'
+
 import { Text } from '@/components/atoms'
 import { getImageProps } from '@/sanity-studio/lib/image'
 import { Work } from '@/types/model'
 import Image from 'next/image'
 import Link from 'next/link'
+import { RefObject } from 'react'
 
 type WorkTileProps = {
   work: Work
-  ref: React.RefObject<HTMLDivElement>
-}
+  ref: RefObject<HTMLDivElement>
+} & React.HTMLAttributes<HTMLDivElement>
 
-export default function WorkTile({ work, ref }: WorkTileProps) {
+export default function WorkTile({ work, ref, ...props }: WorkTileProps) {
   const { slug, title, thumbnail } = work
 
   const imageProps = getImageProps({
@@ -18,7 +21,11 @@ export default function WorkTile({ work, ref }: WorkTileProps) {
   })
 
   return (
-    <div className="aspect-tile group relative overflow-hidden" ref={ref}>
+    <div
+      className="group relative aspect-tile overflow-hidden"
+      ref={ref}
+      {...props}
+    >
       <Link href={`/work/${slug}`}>
         {imageProps && (
           <Image className="h-full w-full object-cover" {...imageProps} />

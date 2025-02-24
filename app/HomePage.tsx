@@ -29,7 +29,7 @@ export default function HomePage({ works }: IHome) {
     <>
       <Grid>
         {works.map((work, idx) => (
-          <WorkTile work={work} ref={workRefs[idx]} />
+          <WorkTile key={`${work._id}`} work={work} ref={workRefs[idx]} />
         ))}
       </Grid>
       <TitleFooter title={curWorkName} />

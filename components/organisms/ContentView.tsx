@@ -7,7 +7,7 @@ import { Embed } from '@molecules/Embed'
 import { Content } from '@/types/model'
 import { getImageProps } from '@/sanity-studio/lib/image'
 
-export interface ContentViewProps {
+export type ContentViewProps = React.HTMLAttributes<HTMLDivElement> & {
   content: Content
 }
 
