@@ -1,5 +1,6 @@
 'use server'
 
+import { options } from '@/constants/sanityRevalidateOptions'
 import { client } from '@/sanity-studio/lib/client'
 import { Work } from '@/types/model'
 
@@ -10,8 +11,7 @@ const WORKS_QUERY = `*[_type == 'work'] | order(year desc) {
   title,
 }`
 
-const options = { next: { revalidate: 30 } }
-
 export default async function getWorks() {
-  return await client.fetch<Work[]>(WORKS_QUERY, {}, options)
+  const works = await client.fetch<Work[]>(WORKS_QUERY, {}, options)
+  return works
 }

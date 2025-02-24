@@ -19,14 +19,10 @@ export const ContentView = ({ content }: ContentViewProps) => {
   const renderContent = () => {
     switch (type) {
       case 'image':
-        return imageProps ? <Image {...imageProps} width={maxWidth} /> : null
+        return imageProps ? <Image {...imageProps} /> : null
       case 'screenshot':
         return imageProps ? (
-          <Image
-            {...imageProps}
-            className="rounded-lg shadow-lg"
-            width={maxWidth}
-          />
+          <Image {...imageProps} className="rounded-lg shadow-lg" />
         ) : null
       case 'video':
         return <Video src={videoSrc ?? ''} />
@@ -38,23 +34,22 @@ export const ContentView = ({ content }: ContentViewProps) => {
   }
 
   return (
-    <div>
+    <MaxWidthContainer $maxWidth={maxWidth}>
       {url ? (
         <ExternalLink href={url}>{renderContent()}</ExternalLink>
       ) : (
         renderContent()
       )}
-    </div>
+    </MaxWidthContainer>
   )
 }
 
-type ContentViewContainerProps = {
+type MaxWidthContainerProps = {
   $maxWidth: number
 }
 
-const SContentViewContainer = styled.div<ContentViewContainerProps>(
+const MaxWidthContainer = styled.div<MaxWidthContainerProps>(
   ({ $maxWidth }) => `
-  flex-shrink: 0;
   width: 100%;
 
   @media (min-width: 768px) {
