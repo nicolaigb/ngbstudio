@@ -1,17 +1,17 @@
-import React from 'react'
 import Image from 'next/image'
+import React from 'react'
 import styled from 'styled-components'
 
+import { getImageProps } from '@/sanity-studio/lib/image'
+import { Content } from '@/types/model'
 import { ExternalLink, Video } from '@atoms'
 import { Embed } from '@molecules/Embed'
-import { Content } from '@/types/model'
-import { getImageProps } from '@/sanity-studio/lib/image'
 
-export type ContentViewProps = React.HTMLAttributes<HTMLDivElement> & {
+export type ContentViewProps = {
   content: Content
 }
 
-export const ContentView = ({ content, ...props }: ContentViewProps) => {
+export const ContentView = ({ content }: ContentViewProps) => {
   const { type, alt, image, videoSrc, maxWidth, url, embedType } = content
 
   const imageProps = getImageProps({ image, alt })
@@ -19,10 +19,14 @@ export const ContentView = ({ content, ...props }: ContentViewProps) => {
   const renderContent = () => {
     switch (type) {
       case 'image':
-        return imageProps ? <Image {...imageProps} /> : null
+        return imageProps ? <Image {...imageProps} width={maxWidth} /> : null
       case 'screenshot':
         return imageProps ? (
-          <Image {...imageProps} className="rounded-lg shadow-lg" />
+          <Image
+            {...imageProps}
+            className="rounded-lg shadow-lg"
+            width={maxWidth}
+          />
         ) : null
       case 'video':
         return <Video src={videoSrc ?? ''} />
@@ -34,21 +38,21 @@ export const ContentView = ({ content, ...props }: ContentViewProps) => {
   }
 
   return (
-    <SContentView $maxWidth={maxWidth} {...props}>
+    <div>
       {url ? (
         <ExternalLink href={url}>{renderContent()}</ExternalLink>
       ) : (
         renderContent()
       )}
-    </SContentView>
+    </div>
   )
 }
 
-type contentViewProps = {
+type ContentViewContainerProps = {
   $maxWidth: number
 }
 
-const SContentView = styled.div<contentViewProps>(
+const SContentViewContainer = styled.div<ContentViewContainerProps>(
   ({ $maxWidth }) => `
   flex-shrink: 0;
   width: 100%;

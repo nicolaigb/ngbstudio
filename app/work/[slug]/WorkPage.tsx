@@ -2,7 +2,6 @@
 
 import React from 'react'
 import { PortableText, PortableTextComponents } from '@portabletext/react'
-import styled from 'styled-components'
 
 import { Text } from '@atoms'
 import { Work } from '@/types/model'
@@ -16,7 +15,9 @@ const myPortableTextComponents: PortableTextComponents = {
   types: {
     content: ({ value }) => <ContentView content={value} />,
   },
-  block: ({ children }) => <SBodyText>{children}</SBodyText>,
+  block: ({ children }) => (
+    <Text className="w-textContentWidth max-w-full">{children}</Text>
+  ),
 }
 
 export default function WorkPage({ work, ...props }: WorkPageProps) {
@@ -25,39 +26,16 @@ export default function WorkPage({ work, ...props }: WorkPageProps) {
   console.log(work)
 
   return (
-    <SWorkDetailContainer {...props}>
+    <div className="relative flex flex-col items-center gap-8 py-8" {...props}>
       <ContentView content={heroContent} />
-      <SHeader>
+      <div className="w-textContentWidth mt-8 max-w-full space-y-2">
         <Text styleType="subheader">{title}</Text>
         <Text styleType="emphasized">{year}</Text>
         <Text styleType="regular" style={{ fontStyle: 'italic' }}>
           {medium}
         </Text>
-      </SHeader>
+      </div>
       <PortableText value={content} components={myPortableTextComponents} />
-    </SWorkDetailContainer>
+    </div>
   )
 }
-
-const SWorkDetailContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-  align-items: center;
-  position: relative;
-  padding: 32px 0px;
-`
-
-const SHeader = styled.div`
-  width: ${({ theme }) => theme.Spacing.contentTextWidth};
-  max-width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-top: 32px;
-`
-
-const SBodyText = styled(Text)`
-  width: ${({ theme }) => theme.Spacing.contentTextWidth};
-  max-width: 100%;
-`

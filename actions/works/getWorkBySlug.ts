@@ -5,7 +5,10 @@ const GET_WORK_BY_SLUG_QUERY = (
   slug: string,
 ) => `*[_type == "work" && slug.current == "${slug}"]{
   thumbnail,
-  heroContent,
+  heroContent {
+    ...,
+    "videoSrc": video.asset->url,
+  },
   title,
   year,
   medium,

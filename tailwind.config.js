@@ -7,8 +7,11 @@ module.exports = {
   theme: {
     extend: {
       aspectRatio: {
-        tile: '2 / 1'
-      }
+        tile: '2 / 1',
+      },
+      spacing: {
+        textContentWidth: '642px',
+      },
     },
   },
   plugins: [],

@@ -5,11 +5,11 @@
     "node": true
   },
   "extends": [
+    "plugin:prettier/recommended",
     "plugin:react/recommended",
-    "plugin:@next/next/recommended",
     "airbnb",
     "eslint:recommended",
-    "plugin:prettier/recommended"
+    "prettier"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -19,12 +19,30 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": ["react", "@typescript-eslint"],
+  "plugins": ["react", "@typescript-eslint", "import"],
   "rules": {
     "react/function-component-definition": [
       1,
       {
         "namedComponents": ["arrow-function", "function-declaration"]
+      }
+    ],
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "builtin",    // Node.js built-in modules like 'fs', 'path'
+          "external",   // npm packages
+          "internal",   // paths aliased in your project
+          "parent",     // imports from parent directory
+          "sibling",    // imports from same directory
+          "index"       // imports from the same file
+        ],
+        "newlines-between": "always",
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
       }
     ],
     "max-len": "off",
@@ -37,6 +55,19 @@
     "import/prefer-default-export": "off",
     "react/prop-types": "off",
     "react/no-array-index-key": "off",
-    "react/require-default-props": "off"
+    "react/require-default-props": "off",
+    "semi": "off"
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {},
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    },
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    }
   }
+  
 }

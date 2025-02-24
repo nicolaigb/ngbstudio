@@ -10,9 +10,9 @@ export type Content = {
   maxWidth: number
   image?: SanityImageSource
   videoSrc?: string
-  caption: string
+  caption?: string
   url?: string
-  embedType: TEmbed
+  embedType?: TEmbed
 }
 
 export type Work = {
