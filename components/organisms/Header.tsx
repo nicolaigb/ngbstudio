@@ -14,7 +14,9 @@ export default function Header({
       <SHeaderContainer {...props}>
         <SNavContainer>
           <InternalLink href="/">
-            <STitle styleType="header">NGB</STitle>
+            <Text variant="h2" isPlus>
+              NGB
+            </Text>
           </InternalLink>
           <Menu />
         </SNavContainer>
@@ -46,10 +48,6 @@ const SHeaderContainer = styled.div`
     flex-direction: column-reverse;
     justify-content: flex-start;
   }
-`
-
-const STitle = styled(Text)`
-  line-height: 100%;
 `
 
 const SNavContainer = styled.div`

@@ -43,7 +43,9 @@ export default function LatelyPage({ latelyItems }: ILatelyPage) {
           className="w-full flex-shrink-0 md:w-auto"
         >
           {isText ? (
-            <Text styleType="title">{title}</Text>
+            <Text variant="h1" isPlus>
+              {title}
+            </Text>
           ) : (
             <ContentView content={content} />
           )}

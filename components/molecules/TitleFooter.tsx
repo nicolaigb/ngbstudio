@@ -5,22 +5,15 @@ import { Text } from '@atoms/Text'
 
 interface IFooter extends React.HTMLAttributes<HTMLDivElement> {
   title?: string
-  renderDescription?: boolean
 }
 
-export const TitleFooter = ({
-  title,
-  renderDescription = false,
-  ...props
-}: IFooter) => {
+export const TitleFooter = ({ title, ...props }: IFooter) => {
   if (!title) return null
   return (
     <STitleFooterContainer {...props}>
-      {renderDescription ? (
-        <Text dangerouslySetInnerHTML={{ __html: title }} />
-      ) : (
-        <Text styleType="emphasized">{title}</Text>
-      )}
+      <Text variant="body" isPlus>
+        {title}
+      </Text>
     </STitleFooterContainer>
   )
 }

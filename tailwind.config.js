@@ -6,6 +6,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontWeight: {
+        normal: 500,
+      },
       aspectRatio: {
         tile: '2 / 1',
       },

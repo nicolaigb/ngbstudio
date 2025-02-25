@@ -6,8 +6,8 @@ import { Text, ExternalLink } from '@atoms'
 
 export default function Footer() {
   return (
-    <div className="border-t-0.5 relative flex flex-wrap items-center justify-between border-t-black bg-white p-4 md:px-8">
-      <Text styleType="regular">Nicolai Garcia Beckmann</Text>
+    <div className="relative flex flex-wrap items-center justify-between border-t-0.5 border-t-black bg-white p-4 md:px-8">
+      <Text variant="body">Nicolai Garcia Beckmann</Text>
       <div className="flex h-4 flex-wrap gap-4">
         <ExternalLink href="mailto:nicolai@ngb.studio">
           <EnvelopeIcon className="size-4" />

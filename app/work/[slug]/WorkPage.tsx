@@ -18,7 +18,9 @@ const myPortableTextComponents: PortableTextComponents = {
     contentRow: ({ value }) => <ContentRow contentArr={value.content} />,
   },
   block: ({ children }) => (
-    <Text className="w-textContentWidth max-w-full">{children}</Text>
+    <Text variant="p" className="w-textContentWidth max-w-full">
+      {children}
+    </Text>
   ),
 }
 
@@ -29,9 +31,11 @@ export default function WorkPage({ work, ...props }: WorkPageProps) {
     <div className="relative flex flex-col items-center gap-6 py-8" {...props}>
       <ContentView content={heroContent} />
       <div className="w-textContentWidth max-w-full space-y-2 py-4">
-        <Text styleType="subheader">{title}</Text>
-        <Text styleType="emphasized">{year}</Text>
-        <Text styleType="regular" style={{ fontStyle: 'italic' }}>
+        <Text variant="h3">{title}</Text>
+        <Text variant="body" isPlus>
+          {year}
+        </Text>
+        <Text variant="body" className="italic">
           {medium}
         </Text>
       </div>

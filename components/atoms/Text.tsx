@@ -1,50 +1,54 @@
-'use client'
+import clsx from 'clsx'
+import React, { ComponentPropsWithoutRef, ElementType } from 'react'
 
-import React, { ReactElement } from 'react'
-import styled from 'styled-components'
+export type TextVariant = 'h1' | 'h2' | 'h3' | 'h4' | 'body' | 'p' | 'bodySmall'
 
-export type TSTextVariants =
-  | 'title'
-  | 'header'
-  | 'subheader'
-  | 'emphasized'
-  | 'regular'
-  | 'subtitle'
+// Define props for the Text component
+type TextProps<C extends ElementType> = {
+  variant?: TextVariant
+  isPlus?: boolean
+  children: React.ReactNode
+  className?: string
+} & ComponentPropsWithoutRef<C>
 
-export interface IText extends React.HTMLAttributes<HTMLDivElement> {
-  /**
-   * Variant defining how text should be styled
-   */
-  styleType?: TSTextVariants
+const variantMap: Record<TextVariant, ElementType> = {
+  h1: 'h1', // Changed from 'title' to 'h1'
+  h2: 'h2',
+  h3: 'h3',
+  h4: 'h4',
+  body: 'div',
+  p: 'p',
+  bodySmall: 'div',
 }
 
-export const Text = ({
-  styleType = 'regular',
+export const Text = <C extends ElementType>({
+  variant = 'body',
+  isPlus = false, // Explicitly default to false
   children,
+  className = '',
   ...props
-}: IText): ReactElement => (
-  <SText $styleType={styleType} {...props}>
-    {children}
-  </SText>
-)
+}: TextProps<C>) => {
+  const TextComponent = variantMap[variant]
 
-const SText = styled.div<{ $styleType: string }>(
-  ({ theme, $styleType }) => `
-  ${
-    {
-      title: theme.Typography.titleStyle,
-      header: theme.Typography.headerStyle,
-      subheader: theme.Typography.subheaderStyle,
-      emphasized: theme.Typography.emphasizedStyle,
-      regular: theme.Typography.regularStyle,
-      subtitle: theme.Typography.subtitleStyle,
-    }[$styleType]
-  }
-  white-space: pre-line;
-  color: ${theme.Colors.text};
-
-  a {
-    text-decoration: underline;
-  }
-`,
-)
+  return (
+    <TextComponent
+      className={clsx(
+        // Variant specific styles
+        {
+          'text-5xl': variant === 'h1',
+          'text-3xl': variant === 'h2',
+          'text-2xl': variant === 'h3',
+          'text-xl': variant === 'h4',
+          'text-base': variant === 'body',
+          'text-xs': variant === 'bodySmall',
+          'font-bold': isPlus,
+        },
+        // User provided classes come last to allow overrides
+        className,
+      )}
+      {...props}
+    >
+      {children}
+    </TextComponent>
+  )
+}
