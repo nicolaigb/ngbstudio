@@ -83,4 +83,27 @@ export default defineType({
       },
     }),
   ],
+  preview: {
+    select: {
+      type: 'type',
+      media: 'image',
+      caption: 'caption',
+      alt: 'alt',
+    },
+    prepare({ type, media, caption, alt }) {
+      // Map the type value to a more readable format if needed
+      const typeMap = {
+        image: 'Image',
+        screenshot: 'Screenshot',
+        video: 'Video',
+        embed: 'Embed',
+      }
+
+      return {
+        title: typeMap[type] || type,
+        subtitle: caption || alt,
+        media,
+      }
+    },
+  },
 })
