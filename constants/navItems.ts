@@ -1,4 +1,4 @@
-import { NavItem } from 'model'
+import { NavItem } from '@/types/model'
 
 const navItems: Array<NavItem> = [
   {

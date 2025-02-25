@@ -63,5 +63,8 @@ export default defineType({
     defineArrayMember({
       type: 'content',
     }),
+    defineArrayMember({
+      type: 'contentRow',
+    }),
   ],
 })

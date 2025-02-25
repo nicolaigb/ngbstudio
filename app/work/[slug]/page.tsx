@@ -1,35 +1,37 @@
-import React from 'react'
 import { Metadata } from 'next'
-import { client } from '@sanity/lib/client'
-import { GET_WORK_BY_SLUG } from '@sanity/lib/queries'
-import { Work } from 'model'
+import React from 'react'
+
+import getWorkBySlug from '@/actions/works/getWorkBySlug'
+import { getImageProps } from '@/sanity-studio/lib/image'
+
 import WorkPage from './WorkPage'
 
-type Props = {
-  params: { slug: string }
+interface PageProps {
+  params: Promise<{ slug: string }>
 }
 
-async function getWork(slug: string) {
-  const work = await client.fetch<Work>(GET_WORK_BY_SLUG(slug))
-  return work
-}
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const { slug } = await params
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = params
-
-  const work = await getWork(slug)
+  const work = await getWorkBySlug(slug)
   const { title, thumbnail } = work
+
+  const imageProps = getImageProps({ image: thumbnail, alt: '' })
+  const src = imageProps?.src
 
   return {
     title,
     openGraph: {
-      images: [thumbnail],
+      images: [(src as string) ?? ''],
     },
   }
 }
 
-export default async function Page({ params }: Props) {
-  const { slug } = params
-  const work = await getWork(slug)
+export default async function Page({ params }: PageProps) {
+  const { slug } = await params
+  const work = await getWorkBySlug(slug)
+
   return <WorkPage work={work} />
 }

@@ -1,16 +1,16 @@
+import { EnvelopeIcon } from '@heroicons/react/16/solid'
 import React from 'react'
-import styled from 'styled-components'
 import { SiLinkedin, SiTwitter } from 'react-icons/si'
-import { MdEmail } from 'react-icons/md'
+
 import { Text, ExternalLink } from '@atoms'
 
 export default function Footer() {
   return (
-    <SPageFooterContainer>
+    <div className="border-t-0.5 relative flex flex-wrap items-center justify-between border-t-black bg-white p-4 md:px-8">
       <Text styleType="regular">Nicolai Garcia Beckmann</Text>
-      <SLinksContainer>
+      <div className="flex h-4 flex-wrap gap-4">
         <ExternalLink href="mailto:nicolai@ngb.studio">
-          <MdEmail />
+          <EnvelopeIcon className="size-4" />
         </ExternalLink>
         <ExternalLink href="https://twitter.com/galeo_00">
           <SiTwitter />
@@ -18,29 +18,7 @@ export default function Footer() {
         <ExternalLink href="https://www.linkedin.com/in/nicolai-garcia-beckmann-66254114b/">
           <SiLinkedin />
         </ExternalLink>
-      </SLinksContainer>
-    </SPageFooterContainer>
+      </div>
+    </div>
   )
 }
-
-const SPageFooterContainer = styled.div`
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px 32px;
-  border-top: 0.5px solid black;
-  flex-wrap: wrap;
-  background-color: white;
-
-  @media (max-width: ${({ theme }) => theme.Spacing.large}) {
-    padding: 16px;
-  }
-`
-
-const SLinksContainer = styled.div`
-  display: flex;
-  gap: 16px;
-  height: 16px;
-  flex-wrap: wrap;
-`

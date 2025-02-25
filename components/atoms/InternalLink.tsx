@@ -1,5 +1,7 @@
-import React from 'react'
+'use client'
+
 import Link, { LinkProps } from 'next/link'
+import React from 'react'
 
 export interface IInternalLink
   extends React.HTMLAttributes<HTMLAnchorElement>,

@@ -1,3 +1,5 @@
+'use client'
+
 import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 
@@ -21,25 +23,28 @@ export const Text = ({
   children,
   ...props
 }: IText): ReactElement => (
-  <SText styleType={styleType} {...props}>
+  <SText $styleType={styleType} {...props}>
     {children}
   </SText>
 )
 
-const SText = styled.div<{ styleType: string }>`
-  ${({ styleType, theme }) =>
-    ({
+const SText = styled.div<{ $styleType: string }>(
+  ({ theme, $styleType }) => `
+  ${
+    {
       title: theme.Typography.titleStyle,
       header: theme.Typography.headerStyle,
       subheader: theme.Typography.subheaderStyle,
       emphasized: theme.Typography.emphasizedStyle,
       regular: theme.Typography.regularStyle,
       subtitle: theme.Typography.subtitleStyle,
-    })[styleType]}
+    }[$styleType]
+  }
   white-space: pre-line;
-  color: ${({ theme }) => theme.Colors.text};
+  color: ${theme.Colors.text};
 
   a {
     text-decoration: underline;
   }
-`
+`,
+)

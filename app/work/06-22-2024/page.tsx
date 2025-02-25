@@ -1,5 +1,6 @@
-import React from 'react'
 import { Metadata } from 'next'
+import React from 'react'
+
 import Visualization from './Visualization'
 
 export const metadata: Metadata = {

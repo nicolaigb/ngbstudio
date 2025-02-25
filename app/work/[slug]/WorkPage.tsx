@@ -1,60 +1,41 @@
 'use client'
 
-import React from 'react'
-import { Work } from 'model'
-import { Text } from '@atoms'
-import styled from 'styled-components'
 import { PortableText, PortableTextComponents } from '@portabletext/react'
-import { ContentView } from '../../../components/organisms/ContentView'
+import React from 'react'
 
-export interface IWorkDetail extends React.HTMLAttributes<HTMLDivElement> {
+import ContentRow from '@/components/molecules/ContentRow'
+import { Work } from '@/types/model'
+import { Text } from '@atoms'
+import { ContentView } from '@organisms/ContentView'
+
+export type WorkPageProps = React.HTMLAttributes<HTMLDivElement> & {
   work: Work
 }
 
 const myPortableTextComponents: PortableTextComponents = {
   types: {
-    content: ({ value }) => <ContentView contentObj={value} />,
+    content: ({ value }) => <ContentView className="my-4" content={value} />,
+    contentRow: ({ value }) => <ContentRow contentArr={value.content} />,
   },
-  block: ({ children }) => <SBodyText>{children}</SBodyText>,
+  block: ({ children }) => (
+    <Text className="w-textContentWidth max-w-full">{children}</Text>
+  ),
 }
 
-export default function WorkPage({ work, ...props }: IWorkDetail) {
+export default function WorkPage({ work, ...props }: WorkPageProps) {
   const { heroContent, content, title, year, medium } = work
 
   return (
-    <SWorkDetailContainer {...props}>
-      <ContentView contentObj={heroContent} />
-      <SHeader>
+    <div className="relative flex flex-col items-center gap-6 py-8" {...props}>
+      <ContentView content={heroContent} />
+      <div className="w-textContentWidth max-w-full space-y-2 py-4">
         <Text styleType="subheader">{title}</Text>
         <Text styleType="emphasized">{year}</Text>
         <Text styleType="regular" style={{ fontStyle: 'italic' }}>
           {medium}
         </Text>
-      </SHeader>
+      </div>
       <PortableText value={content} components={myPortableTextComponents} />
-    </SWorkDetailContainer>
+    </div>
   )
 }
-
-const SWorkDetailContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-  align-items: center;
-  position: relative;
-  padding: 32px 0px;
-`
-
-const SHeader = styled.div`
-  width: ${({ theme }) => theme.Spacing.contentTextWidth};
-  max-width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-top: 32px;
-`
-
-const SBodyText = styled(Text)`
-  width: ${({ theme }) => theme.Spacing.contentTextWidth};
-  max-width: 100%;
-`

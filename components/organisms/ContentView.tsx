@@ -1,36 +1,32 @@
-import React, { useMemo } from 'react'
+'use client'
+
+import Image from 'next/image'
+import React from 'react'
 import styled from 'styled-components'
-import { Content } from 'model'
-import { client } from '@sanity/lib/client'
-import {
-  UseNextSanityImageBuilder,
-  useNextSanityImage,
-} from 'next-sanity-image'
-import { ExternalLink, Image, Video } from '@atoms'
+
+import { getImageProps } from '@/sanity-studio/lib/image'
+import { Content } from '@/types/model'
+import { ExternalLink, Video } from '@atoms'
 import { Embed } from '@molecules/Embed'
 
-export interface IContentView extends React.HTMLAttributes<HTMLDivElement> {
-  contentObj: Content
+export type ContentViewProps = {
+  content: Content
+  className?: string
 }
 
-export const ContentView = ({ contentObj, ...props }: IContentView) => {
-  const { type, image, videoSrc, maxWidth, url, embedType } = contentObj
+export const ContentView = ({ content, className }: ContentViewProps) => {
+  const { type, alt, image, videoSrc, maxWidth, url, embedType } = content
 
-  const imageBuilder: UseNextSanityImageBuilder = useMemo(
-    () => (imageURLBuilder) => {
-      return imageURLBuilder.fit('fill')
-    },
-    [maxWidth],
-  )
-
-  const imageProps: any = useNextSanityImage(client, image, { imageBuilder })
+  const imageProps = getImageProps({ image, alt })
 
   const renderContent = () => {
     switch (type) {
       case 'image':
-        return <Image {...imageProps} />
+        return imageProps ? <Image {...imageProps} /> : null
       case 'screenshot':
-        return <Image {...imageProps} className="rounded-lg shadow-lg" />
+        return imageProps ? (
+          <Image {...imageProps} className="rounded-lg shadow-lg" />
+        ) : null
       case 'video':
         return <Video src={videoSrc ?? ''} />
       case 'embed':
@@ -41,23 +37,22 @@ export const ContentView = ({ contentObj, ...props }: IContentView) => {
   }
 
   return (
-    <SContentView $maxWidth={maxWidth} {...props}>
+    <MaxWidthContainer className={className} $maxWidth={maxWidth}>
       {url ? (
         <ExternalLink href={url}>{renderContent()}</ExternalLink>
       ) : (
         renderContent()
       )}
-    </SContentView>
+    </MaxWidthContainer>
   )
 }
 
-type contentViewProps = {
+type MaxWidthContainerProps = {
   $maxWidth: number
 }
 
-const SContentView = styled.div<contentViewProps>(
+const MaxWidthContainer = styled.div<MaxWidthContainerProps>(
   ({ $maxWidth }) => `
-  flex-shrink: 0;
   width: 100%;
 
   @media (min-width: 768px) {

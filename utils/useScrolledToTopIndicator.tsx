@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { isTopOfViewport } from './util'
 
 export const useScrolledToTopIndicator = (
-  objRefs: React.RefObject<HTMLDivElement>[],
+  objRefs: React.RefObject<HTMLDivElement | null>[],
   // eslint-disable-next-line no-unused-vars
   onScrolledToTop: (idx: number) => void,
 ) => {

@@ -1,7 +1,8 @@
 'use client'
 
 import React, { useEffect, useRef } from 'react'
-import { Lately } from 'model'
+
+import { Lately } from '@/types/model'
 import { Text } from '@atoms/Text'
 import { ContentView } from '@organisms/ContentView'
 
@@ -36,13 +37,18 @@ export default function LatelyPage({ latelyItems }: ILatelyPage) {
       ref={containerRef}
       className="flex flex-col items-center gap-8 md:absolute md:left-0 md:top-0 md:h-screen md:w-screen md:flex-row md:overflow-scroll md:overscroll-none md:px-8 md:py-0"
     >
-      {latelyItems.map(({ title, isText, content }) => {
-        return isText ? (
-          <Text styleType="title">{title}</Text>
-        ) : (
-          <ContentView contentObj={content} />
-        )
-      })}
+      {latelyItems.map(({ _id, title, isText, content }) => (
+        <div
+          key={`lately-item_${_id}`}
+          className="w-full flex-shrink-0 md:w-auto"
+        >
+          {isText ? (
+            <Text styleType="title">{title}</Text>
+          ) : (
+            <ContentView content={content} />
+          )}
+        </div>
+      ))}
     </div>
   )
 }

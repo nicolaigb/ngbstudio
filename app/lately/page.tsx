@@ -1,16 +1,9 @@
-import React from 'react'
 import { Metadata } from 'next'
-import { client } from '@sanity/lib/client'
-import { Lately } from 'model'
-import { GET_LATELY } from '@sanity/lib/queries'
+import React from 'react'
+
+import getLatelyItems from '@/actions/lately/getLatelyItems'
+
 import LatelyPage from './LatelyPage'
-
-export const revalidate = 3600
-
-async function getLatelyItems() {
-  const items = await client.fetch<Lately[]>(GET_LATELY)
-  return items
-}
 
 export const metadata: Metadata = {
   title: 'Lately',
