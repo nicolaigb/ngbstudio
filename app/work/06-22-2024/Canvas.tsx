@@ -1,10 +1,11 @@
 'use client'
 
+import { Canvas, useFrame } from '@react-three/fiber'
 import React, { useMemo, useRef } from 'react'
 import * as THREE from 'three'
-import { Canvas, useFrame } from '@react-three/fiber'
-import vertexShader from './vertexShader.glsl' // Fixed the typo in the import name
+
 import fragmentShader from './fragmentShader.glsl'
+import vertexShader from './vertexShader.glsl'
 
 const Flyer = () => {
   const meshRef = useRef<THREE.Mesh>(null)
@@ -43,7 +44,7 @@ const Flyer = () => {
 export default function ThreeCanvas() {
   return (
     <Canvas camera={{ position: [0, 0, 1] }}>
-      <pointLight position={[10, 10, 10]} /> // Changed from args to position
+      <pointLight position={[10, 10, 10]} />
       <Flyer />
     </Canvas>
   )

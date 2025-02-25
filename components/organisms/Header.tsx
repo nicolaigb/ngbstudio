@@ -1,9 +1,10 @@
 'use client'
 
 import React from 'react'
+import styled from 'styled-components'
+
 import { InternalLink, Text } from '@atoms'
 import { Dates, Menu } from '@molecules'
-import styled from 'styled-components'
 
 export default function Header({
   ...props

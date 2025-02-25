@@ -1,11 +1,11 @@
 'use client'
 
-import React, { useState, useRef } from 'react'
+import React, { useState, useMemo } from 'react'
 
-import { useScrolledToTopIndicator } from '@utils'
-import { Grid } from '@templates'
 import { Work } from '@/types/model'
 import { TitleFooter } from '@molecules'
+import { Grid } from '@templates'
+import { useScrolledToTopIndicator } from '@utils'
 
 import WorkTile from './WorkTile'
 
@@ -15,9 +15,12 @@ interface IHome {
 
 export default function HomePage({ works }: IHome) {
   const [curWorkName, setCurWorkName] = useState(works[0].title)
-  const workRefs: React.RefObject<HTMLDivElement>[] = Array.from(
-    { length: works.length },
-    () => useRef(null),
+  const workRefs = useMemo(
+    () =>
+      Array(works.length)
+        .fill(null)
+        .map(() => React.createRef<HTMLDivElement>()),
+    [works.length],
   )
 
   useScrolledToTopIndicator(workRefs, (idx) => {

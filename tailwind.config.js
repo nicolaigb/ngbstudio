@@ -12,6 +12,9 @@ module.exports = {
       spacing: {
         textContentWidth: '642px',
       },
+      borderWidth: {
+        0.5: '0.5px',
+      },
     },
   },
   plugins: [],

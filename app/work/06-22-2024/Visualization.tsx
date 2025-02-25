@@ -3,8 +3,10 @@
 // Visualization.tsx
 import React from 'react'
 import styled from 'styled-components'
-import { Text } from '@atoms/Text'
+
 import { ExternalLink } from '@atoms/ExternalLink'
+import { Text } from '@atoms/Text'
+
 import ThreeCanvas from './Canvas'
 
 export default function Visualization() {

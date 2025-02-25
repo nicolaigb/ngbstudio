@@ -1,8 +1,9 @@
 'use client'
 
-import React, { useState } from 'react'
-import { Text } from '@atoms/Text'
 import { DateTime } from 'luxon'
+import React, { useState } from 'react'
+
+import { Text } from '@atoms/Text'
 
 export interface IDate {
   city: string

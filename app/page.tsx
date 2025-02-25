@@ -1,6 +1,7 @@
 import React from 'react'
 
 import getWorks from '@/actions/works/getWorks'
+
 import HomePage from './HomePage'
 
 export default async function Page() {

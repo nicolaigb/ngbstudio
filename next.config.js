@@ -3,15 +3,21 @@ module.exports = {
     styledComponents: true,
   },
   images: {
-    domains: ['ng-web.s3.amazonaws.com', 'cdn.sanity.io'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'cdn.sanity.io',
+        port: '',
+        pathname: '/**',
+      },
+    ],
   },
   webpack: (config) => {
-    // Use built-in asset modules instead of raw-loader
     config.module.rules.push({
       test: /\.(glsl|vs|fs|vert|frag)$/,
       type: 'asset/source',
     })
     return config
   },
-  transpilePackages: ['three', '@react-three/fiber', '@react-three/drei']
+  transpilePackages: ['three', '@react-three/fiber', '@react-three/drei'],
 }

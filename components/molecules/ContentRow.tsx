@@ -1,8 +1,8 @@
 import React from 'react'
 
-import { ContentView } from '../organisms/ContentView'
-
 import { Content } from '@/types/model'
+
+import { ContentView } from '../organisms/ContentView'
 
 type ContentRowProps = {
   contentArr: Content[]

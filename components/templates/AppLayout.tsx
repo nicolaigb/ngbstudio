@@ -1,11 +1,11 @@
 'use client'
 
-import React from 'react'
-import { usePathname } from 'next/navigation'
-import styled from 'styled-components'
-import Header from '@organisms/Header'
-import Footer from '@organisms/Footer'
 import clsx from 'clsx'
+import { usePathname } from 'next/navigation'
+import React from 'react'
+
+import Footer from '@organisms/Footer'
+import Header from '@organisms/Header'
 
 export default function AppLayout({
   children,
@@ -30,18 +30,3 @@ export default function AppLayout({
     </div>
   )
 }
-
-const SContentContainer = styled.div(
-  ({ theme }) => `
-  padding: ${theme.Spacing.wide};
-  flex-grow: 1;
-  flex-shrink: 0;
-  overflow: hidden;
-  overscroll-behavior-y: none;
-
-  // Layout specific to mobile screen
-  @media only screen and (max-width: ${theme.Spacing.large}) {
-    padding: ${theme.Spacing.regular};
-  }
-`,
-)

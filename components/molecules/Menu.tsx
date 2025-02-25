@@ -1,7 +1,8 @@
-import React from 'react'
+import clsx from 'clsx'
 import { usePathname } from 'next/navigation'
+import React from 'react'
 import styled from 'styled-components'
-import classnames from 'classnames'
+
 import { Text, InternalLink } from '@atoms'
 import navItems from '@constants/navItems'
 
@@ -12,7 +13,7 @@ export const Menu = () => {
       {navItems.map((item, idx) => (
         <InternalLink href={item.href} key={idx}>
           <SNavItem
-            className={classnames({ selected: item.href === pathname })}
+            className={clsx({ selected: item.href === pathname })}
             styleType="emphasized"
           >
             {item.name}

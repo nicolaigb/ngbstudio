@@ -1,9 +1,11 @@
-import React from 'react'
-import { Metadata } from 'next'
-import { SpeedInsights } from '@vercel/speed-insights/next'
 import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/next'
+import { Metadata } from 'next'
+import React from 'react'
+
 import '../styles/globals.css'
 import AppLayout from '@templates/AppLayout'
+
 import AppProvider from './AppProvider'
 
 export const metadata: Metadata = {

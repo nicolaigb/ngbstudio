@@ -8,7 +8,7 @@ import { Work } from '@/types/model'
 
 type WorkTileProps = {
   work: Work
-  ref: RefObject<HTMLDivElement>
+  ref: RefObject<HTMLDivElement | null>
 } & React.HTMLAttributes<HTMLDivElement>
 
 export default function WorkTile({ work, ref, ...props }: WorkTileProps) {
