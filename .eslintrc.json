@@ -56,7 +56,8 @@
     "react/prop-types": "off",
     "react/no-array-index-key": "off",
     "react/require-default-props": "off",
-    "semi": "off"
+    "semi": "off",
+    "no-underscore-dangle": "off"
   },
   "settings": {
     "import/resolver": {

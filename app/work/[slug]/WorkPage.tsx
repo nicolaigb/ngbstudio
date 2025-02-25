@@ -3,6 +3,7 @@
 import { PortableText, PortableTextComponents } from '@portabletext/react'
 import React from 'react'
 
+import ContentRow from '@/components/molecules/ContentRow'
 import { Work } from '@/types/model'
 import { Text } from '@atoms'
 import { ContentView } from '@organisms/ContentView'
@@ -14,6 +15,7 @@ export type WorkPageProps = React.HTMLAttributes<HTMLDivElement> & {
 const myPortableTextComponents: PortableTextComponents = {
   types: {
     content: ({ value }) => <ContentView className="my-4" content={value} />,
+    contentRow: ({ value }) => <ContentRow contentArr={value.content} />,
   },
   block: ({ children }) => (
     <Text className="w-textContentWidth max-w-full">{children}</Text>

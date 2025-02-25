@@ -2,9 +2,11 @@ import { SanityImageSource } from '@sanity/asset-utils'
 
 type TContent = 'image' | 'video' | 'screenshot' | 'embed'
 
-type TEmbed = 'appleMusic' | 'youtube' | 'soundcloud'
+export type TEmbed = 'appleMusic' | 'youtube' | 'soundcloud'
 
 export type Content = {
+  _id: string
+  _key: string
   type: TContent
   alt: string
   maxWidth: number
@@ -12,7 +14,7 @@ export type Content = {
   videoSrc?: string
   caption?: string
   url?: string
-  embedType?: TEmbed
+  embedType: TEmbed
 }
 
 export type Work = {
