@@ -8,10 +8,10 @@ import { Work } from '@/types/model'
 
 type WorkTileProps = {
   work: Work
-  ref: RefObject<HTMLDivElement | null>
-} & React.HTMLAttributes<HTMLDivElement>
+  ref: RefObject<HTMLDivElement>
+}
 
-export default function WorkTile({ work, ref, ...props }: WorkTileProps) {
+export default function WorkTile({ work, ref }: WorkTileProps) {
   const { slug, title, thumbnail } = work
 
   const imageProps = getImageProps({
@@ -20,11 +20,7 @@ export default function WorkTile({ work, ref, ...props }: WorkTileProps) {
   })
 
   return (
-    <div
-      className="group relative aspect-tile overflow-hidden"
-      ref={ref}
-      {...props}
-    >
+    <div className="group relative aspect-tile overflow-hidden" ref={ref}>
       <Link href={`/work/${slug}`}>
         {imageProps && (
           <Image className="h-full w-full object-cover" {...imageProps} />
