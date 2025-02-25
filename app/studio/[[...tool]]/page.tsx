@@ -7,8 +7,9 @@
  * https://github.com/sanity-io/next-sanity
  */
 
-import React from 'react'
 import { NextStudio } from 'next-sanity/studio'
+import React from 'react'
+
 import config from '../../../sanity.config'
 
 export const dynamic = 'force-static'

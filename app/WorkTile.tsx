@@ -1,11 +1,10 @@
-import React from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
+import React, { RefObject } from 'react'
 
 import { Text } from '@/components/atoms'
 import { getImageProps } from '@/sanity-studio/lib/image'
 import { Work } from '@/types/model'
-import Image from 'next/image'
-import Link from 'next/link'
-import { RefObject } from 'react'
 
 type WorkTileProps = {
   work: Work

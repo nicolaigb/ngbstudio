@@ -1,3 +1,5 @@
+'use client'
+
 import Image from 'next/image'
 import React from 'react'
 import styled from 'styled-components'
@@ -9,9 +11,10 @@ import { Embed } from '@molecules/Embed'
 
 export type ContentViewProps = {
   content: Content
+  className?: string
 }
 
-export const ContentView = ({ content }: ContentViewProps) => {
+export const ContentView = ({ content, className }: ContentViewProps) => {
   const { type, alt, image, videoSrc, maxWidth, url, embedType } = content
 
   const imageProps = getImageProps({ image, alt })
@@ -34,7 +37,7 @@ export const ContentView = ({ content }: ContentViewProps) => {
   }
 
   return (
-    <MaxWidthContainer $maxWidth={maxWidth}>
+    <MaxWidthContainer className={className} $maxWidth={maxWidth}>
       {url ? (
         <ExternalLink href={url}>{renderContent()}</ExternalLink>
       ) : (

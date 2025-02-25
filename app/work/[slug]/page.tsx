@@ -1,9 +1,10 @@
-import React from 'react'
 import { Metadata } from 'next'
-import WorkPage from './WorkPage'
+import React from 'react'
+
 import getWorkBySlug from '@/actions/works/getWorkBySlug'
 import { getImageProps } from '@/sanity-studio/lib/image'
-import { Text } from '@/components/atoms'
+
+import WorkPage from './WorkPage'
 
 type Props = {
   params: { slug: string }
