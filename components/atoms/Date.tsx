@@ -19,7 +19,7 @@ export const Date = ({ city, timezone }) => {
   setInterval(() => setDate(getDateTime()), 1000)
 
   return (
-    <Text styleType="subtitle">
+    <Text variant="bodySmall" isPlus>
       {city} {date}
     </Text>
   )

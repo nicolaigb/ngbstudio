@@ -14,7 +14,8 @@ export const Menu = () => {
         <InternalLink href={item.href} key={idx}>
           <SNavItem
             className={clsx({ selected: item.href === pathname })}
-            styleType="emphasized"
+            variant="body"
+            isPlus
           >
             {item.name}
           </SNavItem>
