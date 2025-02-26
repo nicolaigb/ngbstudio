@@ -22,10 +22,14 @@ export const ContentView = ({ content, className }: ContentViewProps) => {
   const renderContent = () => {
     switch (type) {
       case 'image':
-        return imageProps ? <Image {...imageProps} /> : null
+        return imageProps ? <Image {...imageProps} quality={100} /> : null
       case 'screenshot':
         return imageProps ? (
-          <Image {...imageProps} className="rounded-lg shadow-lg" />
+          <Image
+            {...imageProps}
+            className="rounded-lg shadow-lg"
+            quality={100}
+          />
         ) : null
       case 'video':
         return <Video src={videoSrc ?? ''} />
