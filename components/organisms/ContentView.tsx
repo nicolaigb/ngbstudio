@@ -6,7 +6,7 @@ import styled from 'styled-components'
 
 import { getImageProps } from '@/sanity-studio/lib/image'
 import { Content } from '@/types/model'
-import { ExternalLink, Video } from '@atoms'
+import { ExternalLink, Text, Video } from '@atoms'
 import { Embed } from '@molecules/Embed'
 
 export type ContentViewProps = {
@@ -15,7 +15,8 @@ export type ContentViewProps = {
 }
 
 export const ContentView = ({ content, className }: ContentViewProps) => {
-  const { type, alt, image, videoSrc, maxWidth, url, embedType } = content
+  const { type, alt, image, videoSrc, maxWidth, url, embedType, caption } =
+    content
 
   const imageProps = getImageProps({ image, alt })
 
@@ -46,6 +47,11 @@ export const ContentView = ({ content, className }: ContentViewProps) => {
         <ExternalLink href={url}>{renderContent()}</ExternalLink>
       ) : (
         renderContent()
+      )}
+      {caption && (
+        <Text className="max-w-full text-wrap" variant="bodySmall">
+          {caption}
+        </Text>
       )}
     </MaxWidthContainer>
   )

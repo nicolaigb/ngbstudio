@@ -1,15 +1,13 @@
-import createImageUrlBuilder from '@sanity/image-url'
 import { SanityImageSource, getImageDimensions } from '@sanity/asset-utils'
+import createImageUrlBuilder from '@sanity/image-url'
+import { ImageProps } from 'next/image'
 
 import { dataset, projectId } from '../env'
-import { ImageProps } from 'next/image'
 
 // https://www.sanity.io/docs/image-url
 const builder = createImageUrlBuilder({ projectId, dataset })
 
-export const urlFor = (source: SanityImageSource) => {
-  return builder.image(source)
-}
+export const urlFor = (source: SanityImageSource) => builder.image(source)
 
 export const getImageProps = ({
   image,
@@ -27,7 +25,8 @@ export const getImageProps = ({
     }
 
     const dimensions = getImageDimensions(image)
-    const blurUrl = imageUrl.width(24).height(24).blur(10).url()
+    const blurUrl =
+      'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8+h8AAu8B9totwrcAAAAASUVORK5CYII='
 
     return {
       src: imageUrl.url() ?? '',
@@ -39,7 +38,6 @@ export const getImageProps = ({
       sizes: '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 40vw',
     }
   } catch (error) {
-    console.error('Error generating image props:', error)
     return undefined
   }
 }

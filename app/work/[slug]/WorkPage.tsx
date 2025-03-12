@@ -16,14 +16,21 @@ const myPortableTextComponents: PortableTextComponents = {
   types: {
     content: ({ value }) => <ContentView className="my-4" content={value} />,
     contentRow: ({ value }) => (
-      <ContentRow className="my-4" contentArr={value.content} />
+      <ContentRow className="my-6" contentArr={value.content} />
     ),
   },
-  block: ({ children }) => (
-    <Text variant="p" className="w-textContentWidth max-w-full">
-      {children}
-    </Text>
-  ),
+  block: {
+    normal: ({ children }) => (
+      <Text variant="p" className="w-textContentWidth">
+        {children}
+      </Text>
+    ),
+    h4: ({ children }) => (
+      <Text variant="h4" className="my-2 w-textContentWidth">
+        {children}
+      </Text>
+    ),
+  },
 }
 
 export default function WorkPage({ work, ...props }: WorkPageProps) {
