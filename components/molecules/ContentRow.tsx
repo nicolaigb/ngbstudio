@@ -12,7 +12,7 @@ type ContentRowProps = {
 
 export default function ContentRow({ contentArr, className }: ContentRowProps) {
   return (
-    <div className={clsx('flex w-full gap-4 overflow-x-scroll', className)}>
+    <div className={clsx('flex max-w-full gap-4 overflow-x-scroll', className)}>
       {contentArr.map((content) => (
         <ContentView
           className="flex-shrink-0"
