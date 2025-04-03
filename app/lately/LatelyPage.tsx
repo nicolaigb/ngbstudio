@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from 'react'
 
 import { Lately } from '@/types/model'
-import { Text } from '@atoms/Text'
+import { H1 } from '@atoms/Text'
 import { ContentView } from '@organisms/ContentView'
 
 interface ILatelyPage {
@@ -42,13 +42,7 @@ export default function LatelyPage({ latelyItems }: ILatelyPage) {
           key={`lately-item_${_id}`}
           className="w-full flex-shrink-0 md:w-auto"
         >
-          {isText ? (
-            <Text variant="h1" isPlus>
-              {title}
-            </Text>
-          ) : (
-            <ContentView content={content} />
-          )}
+          {isText ? <H1 isPlus>{title}</H1> : <ContentView content={content} />}
         </div>
       ))}
     </div>

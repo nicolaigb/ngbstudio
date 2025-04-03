@@ -3,7 +3,7 @@
 import { DateTime } from 'luxon'
 import React, { useState } from 'react'
 
-import { Text } from '@atoms/Text'
+import { BodySmall } from '@atoms/Text'
 
 export interface IDate {
   city: string
@@ -19,8 +19,8 @@ export const Date = ({ city, timezone }) => {
   setInterval(() => setDate(getDateTime()), 1000)
 
   return (
-    <Text variant="bodySmall" isPlus>
+    <BodySmall isPlus>
       {city} {date}
-    </Text>
+    </BodySmall>
   )
 }

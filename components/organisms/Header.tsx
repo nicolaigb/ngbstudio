@@ -3,7 +3,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { InternalLink, Text } from '@atoms'
+import { H2, InternalLink } from '@atoms'
 import { Dates, Menu } from '@molecules'
 
 export default function Header({
@@ -14,9 +14,9 @@ export default function Header({
       <SHeaderContainer {...props}>
         <SNavContainer>
           <InternalLink href="/">
-            <Text variant="h2" isPlus>
+            <H2 variant="h2" isPlus>
               NGB
-            </Text>
+            </H2>
           </InternalLink>
           <Menu />
         </SNavContainer>

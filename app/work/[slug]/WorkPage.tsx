@@ -5,7 +5,7 @@ import React from 'react'
 
 import ContentRow from '@/components/molecules/ContentRow'
 import { Work } from '@/types/model'
-import { Text } from '@atoms'
+import { P, H4, H3, Body } from '@atoms'
 import { ContentView } from '@organisms/ContentView'
 
 export type WorkPageProps = React.HTMLAttributes<HTMLDivElement> & {
@@ -21,14 +21,14 @@ const myPortableTextComponents: PortableTextComponents = {
   },
   block: {
     normal: ({ children }) => (
-      <Text variant="p" className="w-textContentWidth">
+      <P variant="p" className="w-textContentWidth">
         {children}
-      </Text>
+      </P>
     ),
     h4: ({ children }) => (
-      <Text variant="h4" className="my-2 w-textContentWidth">
+      <H4 variant="h4" className="my-2 w-textContentWidth">
         {children}
-      </Text>
+      </H4>
     ),
   },
 }
@@ -40,13 +40,11 @@ export default function WorkPage({ work, ...props }: WorkPageProps) {
     <div className="relative flex flex-col items-center gap-2 py-8" {...props}>
       <ContentView content={heroContent} />
       <div className="w-textContentWidth max-w-full space-y-1 py-4">
-        <Text variant="h3" isPlus>
-          {title}
-        </Text>
-        <Text variant="body">{year}</Text>
-        <Text variant="body" className="italic">
+        <H3 isPlus>{title}</H3>
+        <Body>{year}</Body>
+        <Body variant="body" className="italic">
           {medium}
-        </Text>
+        </Body>
       </div>
       <PortableText value={content} components={myPortableTextComponents} />
     </div>
