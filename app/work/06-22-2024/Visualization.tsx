@@ -5,7 +5,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { ExternalLink } from '@atoms/ExternalLink'
-import { Text } from '@atoms/Text'
+import { Body } from '@atoms/Text'
 
 import ThreeCanvas from './Canvas'
 
@@ -13,9 +13,9 @@ export default function Visualization() {
   return (
     <SVisualization>
       <STextContainer>
-        <Text>JOIN US FOR A BIRTHDAY CELEBRATION</Text>
-        <Text>JUNE 22, 2024 9PM</Text>
-        <Text>354 MYRTLE AVE #7, BROOKLYN, NY</Text>
+        <Body>JOIN US FOR A BIRTHDAY CELEBRATION</Body>
+        <Body>JUNE 22, 2024 9PM</Body>
+        <Body>354 MYRTLE AVE #7, BROOKLYN, NY</Body>
       </STextContainer>
       <SCalendarLink href="/nico-and-thebes-26th-birthday.ics">
         ADD TO CALENDAR

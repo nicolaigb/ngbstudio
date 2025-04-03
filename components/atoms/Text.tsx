@@ -1,54 +1,54 @@
 import clsx from 'clsx'
 import React, { ComponentPropsWithoutRef, ElementType } from 'react'
 
-export type TextVariant = 'h1' | 'h2' | 'h3' | 'h4' | 'body' | 'p' | 'bodySmall'
+export type TextVariant = 'h1' | 'h2' | 'h3' | 'h4' | 'body' | 'bodySmall'
 
 // Define props for the Text component
-type TextProps<C extends ElementType> = {
-  variant?: TextVariant
+type TextProps = {
   isPlus?: boolean
-  children: React.ReactNode
   className?: string
-} & ComponentPropsWithoutRef<C>
+  children: React.ReactNode
+} & Omit<ComponentPropsWithoutRef<ElementType>, 'as' | 'children'>
 
-const variantMap: Record<TextVariant, ElementType> = {
-  h1: 'h1', // Changed from 'title' to 'h1'
-  h2: 'h2',
-  h3: 'h3',
-  h4: 'h4',
-  body: 'div',
-  p: 'p',
-  bodySmall: 'div',
-}
+export const getTextStyles = (variant: TextVariant, isPlus?: boolean) => ({
+  'text-xs': variant === 'bodySmall',
+  'text-base': variant === 'body', // Fallback for body
+  'text-2xl': variant === 'h3',
+  'text-3xl': variant === 'h2',
+  'text-4xl': variant === 'h1',
+  'font-bold': isPlus,
+})
 
-export const Text = <C extends ElementType>({
-  variant = 'body',
-  isPlus = false, // Explicitly default to false
-  children,
-  className = '',
-  ...props
-}: TextProps<C>) => {
-  const TextComponent = variantMap[variant]
+export const BodySmall = ({ isPlus, className, children }: TextProps) => (
+  <div className={clsx(getTextStyles('bodySmall', isPlus), className)}>
+    {children}
+  </div>
+)
 
-  return (
-    <TextComponent
-      className={clsx(
-        // Variant specific styles
-        {
-          'text-5xl': variant === 'h1',
-          'text-3xl': variant === 'h2',
-          'text-2xl': variant === 'h3',
-          'text-xl': variant === 'h4',
-          'text-base': variant === 'body',
-          'text-xs': variant === 'bodySmall',
-          'font-bold': isPlus,
-        },
-        // User provided classes come last to allow overrides
-        className,
-      )}
-      {...props}
-    >
-      {children}
-    </TextComponent>
-  )
-}
+export const Body = ({ isPlus, className, children }: TextProps) => (
+  <div className={clsx(getTextStyles('body', isPlus), 'text-base', className)}>
+    {children}
+  </div>
+)
+
+export const P = ({ isPlus, className, children }: TextProps) => (
+  <p className={clsx(getTextStyles('body', isPlus), 'text-base', className)}>
+    {children}
+  </p>
+)
+
+export const H4 = ({ isPlus, className, children }: TextProps) => (
+  <h4 className={clsx(getTextStyles('body', isPlus), className)}>{children}</h4>
+)
+
+export const H3 = ({ isPlus, className, children }: TextProps) => (
+  <h3 className={clsx(getTextStyles('h3', isPlus), className)}>{children}</h3>
+)
+
+export const H2 = ({ isPlus, className, children }: TextProps) => (
+  <h2 className={clsx(getTextStyles('h2', isPlus), className)}>{children}</h2>
+)
+
+export const H1 = ({ isPlus, className, children }: TextProps) => (
+  <h1 className={clsx(getTextStyles('h1', isPlus), className)}>{children}</h1>
+)

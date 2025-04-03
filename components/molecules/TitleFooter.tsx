@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { Text } from '@atoms/Text'
+import { Body } from '@atoms/Text'
 
 interface IFooter extends React.HTMLAttributes<HTMLDivElement> {
   title?: string
@@ -11,9 +11,7 @@ export const TitleFooter = ({ title, ...props }: IFooter) => {
   if (!title) return null
   return (
     <STitleFooterContainer {...props}>
-      <Text variant="body" isPlus>
-        {title}
-      </Text>
+      <Body isPlus>{title}</Body>
     </STitleFooterContainer>
   )
 }

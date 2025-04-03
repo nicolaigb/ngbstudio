@@ -3,7 +3,7 @@ import { usePathname } from 'next/navigation'
 import React from 'react'
 import styled from 'styled-components'
 
-import { Text, InternalLink } from '@atoms'
+import { Body, InternalLink } from '@atoms'
 import navItems from '@constants/navItems'
 
 export const Menu = () => {
@@ -14,7 +14,6 @@ export const Menu = () => {
         <InternalLink href={item.href} key={idx}>
           <SNavItem
             className={clsx({ selected: item.href === pathname })}
-            variant="body"
             isPlus
           >
             {item.name}
@@ -30,7 +29,7 @@ const SMenuContainer = styled.div`
   gap: ${({ theme }) => theme.Spacing.regular};
 `
 
-const SNavItem = styled(Text)`
+const SNavItem = styled(Body)`
   &:hover {
     text-decoration: underline;
   }

@@ -2,13 +2,13 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React, { RefObject } from 'react'
 
-import { Text } from '@/components/atoms'
+import { H1 } from '@/components/atoms'
 import { getImageProps } from '@/sanity-studio/lib/image'
 import { Work } from '@/types/model'
 
 type WorkTileProps = {
   work: Work
-  ref: RefObject<HTMLDivElement>
+  ref: RefObject<HTMLDivElement | null>
 }
 
 export default function WorkTile({ work, ref }: WorkTileProps) {
@@ -25,13 +25,12 @@ export default function WorkTile({ work, ref }: WorkTileProps) {
         {imageProps && (
           <Image className="h-full w-full object-cover" {...imageProps} />
         )}
-        <Text
-          variant="h1"
+        <H1
           isPlus
           className="absolute left-0 top-0 z-10 h-full w-full opacity-0 transition-all duration-200 ease-in-out group-hover:bg-white/75 group-hover:opacity-100 group-hover:backdrop-blur-sm group-hover:backdrop-contrast-150"
         >
           {title}
-        </Text>
+        </H1>
       </Link>
     </div>
   )

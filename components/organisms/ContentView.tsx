@@ -6,7 +6,7 @@ import styled from 'styled-components'
 
 import { getImageProps } from '@/sanity-studio/lib/image'
 import { Content } from '@/types/model'
-import { ExternalLink, Text, Video } from '@atoms'
+import { ExternalLink, BodySmall, Video } from '@atoms'
 import { Embed } from '@molecules/Embed'
 
 export type ContentViewProps = {
@@ -23,11 +23,14 @@ export const ContentView = ({ content, className }: ContentViewProps) => {
   const renderContent = () => {
     switch (type) {
       case 'image':
-        return imageProps ? <Image {...imageProps} quality={100} /> : null
+        return imageProps ? (
+          <Image {...imageProps} alt={alt} quality={100} />
+        ) : null
       case 'screenshot':
         return imageProps ? (
           <Image
             {...imageProps}
+            alt={alt}
             className="rounded-lg shadow-lg"
             quality={100}
           />
@@ -49,9 +52,9 @@ export const ContentView = ({ content, className }: ContentViewProps) => {
         renderContent()
       )}
       {caption && (
-        <Text className="max-w-full text-wrap" variant="bodySmall">
+        <BodySmall className="max-w-full text-wrap" variant="bodySmall">
           {caption}
-        </Text>
+        </BodySmall>
       )}
     </MaxWidthContainer>
   )
