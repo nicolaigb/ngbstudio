@@ -21,12 +21,12 @@ const myPortableTextComponents: PortableTextComponents = {
   },
   block: {
     normal: ({ children }) => (
-      <P variant="p" className="w-textContentWidth">
+      <P variant="p" className="w-textContentWidth max-w-full">
         {children}
       </P>
     ),
     h4: ({ children }) => (
-      <H4 variant="h4" className="my-2 w-textContentWidth">
+      <H4 variant="h4" className="my-2 w-textContentWidth max-w-full">
         {children}
       </H4>
     ),
