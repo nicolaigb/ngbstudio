@@ -1,7 +1,14 @@
 import clsx from 'clsx'
 import React, { ComponentPropsWithoutRef, ElementType } from 'react'
 
-export type TextVariant = 'h1' | 'h2' | 'h3' | 'h4' | 'body' | 'bodySmall'
+export type TextVariant =
+  | 'title'
+  | 'h1'
+  | 'h2'
+  | 'h3'
+  | 'h4'
+  | 'body'
+  | 'bodySmall'
 
 // Define props for the Text component
 type TextProps = {
@@ -16,6 +23,7 @@ export const getTextStyles = (variant: TextVariant, isPlus?: boolean) => ({
   'text-2xl': variant === 'h3',
   'text-3xl': variant === 'h2',
   'text-4xl': variant === 'h1',
+  'text-5xl': variant === 'title',
   'font-bold': isPlus,
 })
 
@@ -51,4 +59,10 @@ export const H2 = ({ isPlus, className, children }: TextProps) => (
 
 export const H1 = ({ isPlus, className, children }: TextProps) => (
   <h1 className={clsx(getTextStyles('h1', isPlus), className)}>{children}</h1>
+)
+
+export const Title = ({ isPlus, className, children }: TextProps) => (
+  <h1 className={clsx(getTextStyles('title', isPlus), className)}>
+    {children}
+  </h1>
 )
