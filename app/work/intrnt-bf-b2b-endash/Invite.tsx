@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import { checkRSVPExists } from '@/actions/rsvp/checkRSVP'
 import { createRSVP } from '@/actions/rsvp/createRSVP'
@@ -11,8 +11,24 @@ import RSVPSnackBar, {
 } from '@/components/organisms/RSVPSnackBar'
 import UnicornScene from '@/components/UnicornScene'
 
+const SCENE_HEIGHT = 900 // Default height for the scene
+
 export default function Invite() {
   const [rsvpState, setRsvpState] = useState<RSVPSnackBarState>('initial')
+  const [sceneHeight, setSceneHeight] = useState(SCENE_HEIGHT)
+
+  useEffect(() => {
+    const calculateHeight = () => {
+      // Available height is viewport height minus 116px (from container) minus 100px
+      const availableHeight = window.innerHeight
+      setSceneHeight(Math.max(SCENE_HEIGHT, availableHeight)) // Minimum height of 400px
+    }
+
+    calculateHeight()
+    window.addEventListener('resize', calculateHeight)
+
+    return () => window.removeEventListener('resize', calculateHeight)
+  }, [])
 
   const handleRSVPClick = () => {
     setRsvpState('entering-email')
@@ -98,7 +114,7 @@ export default function Invite() {
             7PM
           </H3>
         </div>
-        <UnicornScene height={900} projectId="OEzAfEz0yujlULaD6sEZ" />
+        <UnicornScene height={sceneHeight} projectId="OEzAfEz0yujlULaD6sEZ" />
         <RSVPSnackBar
           state={rsvpState}
           onRSVPClick={handleRSVPClick}

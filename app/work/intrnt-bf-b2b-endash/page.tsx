@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   },
   description: 'June 21, 2025 7PM Under the "K" Bridge',
   openGraph: {
-    images: ['/intrnt-bf-b2b-endash.png'],
+    images: ['https://ngb.studio/intrnt-bf-b2b-endash.png'],
   },
 }
 
