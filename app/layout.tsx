@@ -1,6 +1,7 @@
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { Metadata } from 'next'
+import Script from 'next/script'
 import React from 'react'
 
 import '../styles/globals.css'
@@ -43,6 +44,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <Script
+          src="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.25/dist/unicornStudio.umd.js"
+          strategy="beforeInteractive"
+        />
         <AppProvider>
           <AppLayout>{children}</AppLayout>
           <SpeedInsights />

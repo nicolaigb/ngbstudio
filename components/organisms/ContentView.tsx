@@ -30,8 +30,8 @@ export const ContentView = ({ content, className }: ContentViewProps) => {
         return imageProps ? (
           <Image
             {...imageProps}
+            className="rounded-lg shadow-sm"
             alt={alt}
-            className="rounded-lg shadow-lg"
             quality={100}
           />
         ) : null
