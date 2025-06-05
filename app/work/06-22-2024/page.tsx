@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   },
   description: 'June 22, 2024 9PM 354 Myrtle Ave #7, Brooklyn',
   openGraph: {
-    images: ['/a-birthday-celebration.png'],
+    images: ['https://ngb.studio/a-birthday-celebration.png'],
   },
 }
 

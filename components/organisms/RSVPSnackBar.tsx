@@ -140,7 +140,7 @@ export default function RSVPSnackBar({
     <div
       className={clsx(
         className,
-        'fixed bottom-3 left-1/2 z-50 flex h-12 w-fit -translate-x-1/2 items-center rounded-full border-[0.5px] border-stone-500 bg-stone-50 bg-opacity-85 shadow-lg backdrop-blur-md backdrop-contrast-125 backdrop-filter transition-all duration-300 ease-in-out',
+        'fixed bottom-3 left-1/2 z-[99999999] flex h-12 w-fit -translate-x-1/2 items-center rounded-full border-[0.5px] border-stone-500 bg-stone-50 bg-opacity-85 shadow-lg backdrop-blur-md backdrop-contrast-125 backdrop-filter transition-all duration-300 ease-in-out',
         {
           'bottom-4 h-10 hover:scale-110': state === 'initial',
         },
