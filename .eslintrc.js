@@ -4,6 +4,20 @@ module.exports = {
     es2021: true,
     node: true,
   },
+  overrides: [
+    {
+      // Add Jest environment and disable no-undef for test files
+      files: ['**/__tests__/**/*.ts', '**/__tests__/**/*.tsx', '**/*.test.ts', '**/*.test.tsx'],
+      env: {
+        jest: true
+      },
+      rules: {
+        'no-undef': 'off', // Turn off undefined variable errors in test files
+        'no-restricted-syntax': 'off', // Allow for...of loops in test files
+        'no-await-in-loop': 'off' // Allow awaiting in loops in test files
+      }
+    }
+  ],
   extends: [
     'next/core-web-vitals',
     'airbnb',
