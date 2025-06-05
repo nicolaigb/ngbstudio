@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { Display, H3 } from '@/components/atoms'
+import RSVPSnackBar from '@/components/organisms/RSVPSnackBar'
 import UnicornScene from '@/components/UnicornScene'
 
 export default function Page() {
@@ -37,10 +38,11 @@ export default function Page() {
           2025
         </H3>
         <H3 isPlus className="text-white">
-          7 PM
+          7PM
         </H3>
       </div>
       <UnicornScene height={900} projectId="OEzAfEz0yujlULaD6sEZ" />
+      <RSVPSnackBar />
     </div>
   )
 }

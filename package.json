@@ -12,6 +12,7 @@
     "test:rsvp": "jest __tests__/actions/rsvp.test.ts"
   },
   "dependencies": {
+    "@headlessui/react": "^2.2.4",
     "@heroicons/react": "^2.2.0",
     "@neondatabase/serverless": "^1.0.0",
     "@portabletext/react": "^3.2.1",
