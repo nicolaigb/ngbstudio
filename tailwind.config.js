@@ -18,6 +18,9 @@ module.exports = {
       borderWidth: {
         0.5: '0.5px',
       },
+      boxShadow: {
+        sm: '0px 0px 1px 0px rgba(0, 0, 0, .2), 0px 1px 4px 0px rgba(0, 0, 0, .03), 0px 1px 1px 0px rgba(0, 0, 0, .06)',
+      },
     },
   },
   plugins: [],

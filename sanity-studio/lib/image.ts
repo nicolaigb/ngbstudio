@@ -24,18 +24,19 @@ export const getImageProps = ({
       return undefined
     }
 
-    const dimensions = getImageDimensions(image)
+    const { width, height } = getImageDimensions(image)
+
     const blurUrl =
       'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8+h8AAu8B9totwrcAAAAASUVORK5CYII='
 
     return {
       src: imageUrl.url() ?? '',
       alt,
-      width: dimensions.width,
-      height: dimensions.height,
+      width,
+      height,
       placeholder: 'blur',
       blurDataURL: blurUrl,
-      sizes: '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 40vw',
+      sizes: '(max-width: 768px) 100vw, (max-width: 1200px) 50vw',
     }
   } catch (error) {
     return undefined

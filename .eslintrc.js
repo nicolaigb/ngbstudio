@@ -1,14 +1,30 @@
 module.exports = {
+  ignorePatterns: ['**/*.ics'],
   env: {
     browser: true,
     es2021: true,
     node: true,
   },
-  extends: [
-    'next/core-web-vitals',
-    'airbnb',
-    'prettier',
+  overrides: [
+    {
+      // Add Jest environment and disable no-undef for test files
+      files: [
+        '**/__tests__/**/*.ts',
+        '**/__tests__/**/*.tsx',
+        '**/*.test.ts',
+        '**/*.test.tsx',
+      ],
+      env: {
+        jest: true,
+      },
+      rules: {
+        'no-undef': 'off', // Turn off undefined variable errors in test files
+        'no-restricted-syntax': 'off', // Allow for...of loops in test files
+        'no-await-in-loop': 'off', // Allow awaiting in loops in test files
+      },
+    },
   ],
+  extends: ['next/core-web-vitals', 'airbnb', 'prettier'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
@@ -84,9 +100,10 @@ module.exports = {
     'react/prop-types': 'off',
     'react/no-array-index-key': 'off',
     'react/require-default-props': 'off',
-    'semi': 'off',
+    semi: 'off',
     'no-underscore-dangle': 'off',
     '@next/next/no-html-link-for-pages': 'off',
+    'no-unused-vars': 'off',
   },
   settings: {
     next: {
@@ -102,4 +119,4 @@ module.exports = {
       '@typescript-eslint/parser': ['.ts', '.tsx'],
     },
   },
-};
+}

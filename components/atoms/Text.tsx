@@ -2,6 +2,7 @@ import clsx from 'clsx'
 import React, { ComponentPropsWithoutRef, ElementType } from 'react'
 
 export type TextVariant =
+  | 'display'
   | 'title'
   | 'h1'
   | 'h2'
@@ -20,10 +21,12 @@ type TextProps = {
 export const getTextStyles = (variant: TextVariant, isPlus?: boolean) => ({
   'text-xs': variant === 'bodySmall',
   'text-base': variant === 'body', // Fallback for body
+  'text-lg': variant === 'h4',
   'text-2xl': variant === 'h3',
   'text-3xl': variant === 'h2',
   'text-4xl': variant === 'h1',
   'text-5xl': variant === 'title',
+  'text-6xl': variant === 'display',
   'font-bold': isPlus,
 })
 
@@ -40,13 +43,15 @@ export const Body = ({ isPlus, className, children }: TextProps) => (
 )
 
 export const P = ({ isPlus, className, children }: TextProps) => (
-  <p className={clsx(getTextStyles('body', isPlus), 'text-base', className)}>
+  <p
+    className={clsx(getTextStyles('body', isPlus), 'my-2 text-base', className)}
+  >
     {children}
   </p>
 )
 
 export const H4 = ({ isPlus, className, children }: TextProps) => (
-  <h4 className={clsx(getTextStyles('body', isPlus), className)}>{children}</h4>
+  <h4 className={clsx(getTextStyles('h4', isPlus), className)}>{children}</h4>
 )
 
 export const H3 = ({ isPlus, className, children }: TextProps) => (
@@ -63,6 +68,12 @@ export const H1 = ({ isPlus, className, children }: TextProps) => (
 
 export const Title = ({ isPlus, className, children }: TextProps) => (
   <h1 className={clsx(getTextStyles('title', isPlus), className)}>
+    {children}
+  </h1>
+)
+
+export const Display = ({ isPlus, className, children }: TextProps) => (
+  <h1 className={clsx(getTextStyles('display', isPlus), className)}>
     {children}
   </h1>
 )
