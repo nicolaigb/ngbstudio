@@ -74,7 +74,7 @@ export default function RSVPSnackBar({
     const buttonCenterX = rect.left + rect.width / 2
     const buttonCenterY = rect.top + rect.height / 2
 
-    const emojis = ['🎉', '🎊', '✨', '🌟', '💫', '🎈', '🎆', '🎁', '🥳', '🎭']
+    const emojis = ['✨', '🌟', '💫', '🐾', '🫡', '🙂‍↔️', '🙂‍↕️', '⚡️', '🫶']
     const newConfetti: ConfettiEmoji[] = []
 
     for (let i = 0; i < 15; i += 1) {
@@ -119,7 +119,7 @@ export default function RSVPSnackBar({
         cancelAnimationFrame(animationRef.current)
       }
       setConfetti([])
-    }, 3000)
+    }, 5000)
   }, [snackBarRef])
 
   useEffect(
@@ -234,7 +234,7 @@ export default function RSVPSnackBar({
       {confetti.map((emoji) => (
         <div
           key={emoji.id}
-          className="pointer-events-none fixed z-40 text-2xl"
+          className="pointer-events-none fixed z-40 text-4xl"
           style={{
             left: emoji.x,
             top: emoji.y,
