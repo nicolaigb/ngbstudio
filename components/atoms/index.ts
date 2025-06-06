@@ -1,6 +1,7 @@
 export * from './Button'
 export * from './Date'
 export * from './ExternalLink'
+export * from './Icon'
 export * from './IconButton'
 export * from './InternalLink'
 export * from './Modal'

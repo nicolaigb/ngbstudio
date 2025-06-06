@@ -1,5 +1,6 @@
 import clsx from 'clsx'
 import React, { ComponentPropsWithoutRef, ElementType } from 'react'
+import { hasCommentMessageValue } from 'sanity'
 
 export type TextVariant =
   | 'display'
@@ -36,8 +37,22 @@ export const BodySmall = ({ isPlus, className, children }: TextProps) => (
   </div>
 )
 
-export const Body = ({ isPlus, className, children }: TextProps) => (
-  <div className={clsx(getTextStyles('body', isPlus), 'text-base', className)}>
+export const Body = ({
+  isPlus,
+  hasMaxWidth,
+  className,
+  children,
+}: TextProps) => (
+  <div
+    className={clsx(
+      getTextStyles('body', isPlus),
+      'text-base',
+      {
+        'w-full max-w-textContentWidth': hasMaxWidth,
+      },
+      className,
+    )}
+  >
     {children}
   </div>
 )
@@ -54,7 +69,7 @@ export const H4 = ({ isPlus, className, children }: TextProps) => (
   <h4 className={clsx(getTextStyles('h4', isPlus), className)}>{children}</h4>
 )
 
-export const H3 = ({ isPlus, className, children }: TextProps) => (
+export const H3 = ({ isPlus, hasMaxWidth, className, children }: TextProps) => (
   <h3 className={clsx(getTextStyles('h3', isPlus), className)}>{children}</h3>
 )
 
