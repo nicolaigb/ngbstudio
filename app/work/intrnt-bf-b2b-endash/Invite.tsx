@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react'
 
 import { checkRSVPExists } from '@/actions/rsvp/checkRSVP'
 import { createRSVP } from '@/actions/rsvp/createRSVP'
-import { Display, ExternalLink, H3, P } from '@/components/atoms'
+import { Display, ExternalLink, H3, H4, P } from '@/components/atoms'
 import { Embed } from '@/components/molecules'
 import RSVPSnackBar, {
   RSVPSnackBarState,
@@ -124,39 +124,58 @@ export default function Invite() {
         />
       </div>
       <div className="my-6 flex flex-col items-center">
-        <P className="w-full max-w-textContentWidth">
-          We&apos;re throwing down to celebrate the longest day of the year,
-          bringing in a summer that will be one for the books. RSVP using the
-          little floating thing to let us know you&apos;re coming and save the
-          event to your calendar.
-        </P>
-        <P className="w-full max-w-textContentWidth">
-          In the meantime check out some of our mixes:
-        </P>
-        <div className="my-3 flex w-full max-w-textContentWidth flex-col items-center gap-4">
-          <Embed
-            className="w-full max-w-textContentWidth"
-            embedType="soundcloud"
-            src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2059644748&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
-          />
-          <Embed
-            className="w-full max-w-textContentWidth"
-            embedType="soundcloud"
-            src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2096765721&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
-          />
+        <div className="w-full max-w-textContentWidth">
+          <P>
+            Join us for a FREE party under the *gasp* bridge to celebrate the
+            longest day of the year. We set up the dancefloor, you shut it down.
+            Bring your best vibe, your worst enemies, and something fun to
+            share.
+          </P>
+          <P>
+            RSVP using the little floatie. We&apos;ll holler at you closer to
+            the event with more deets.
+          </P>
+          <P>In the meantime check out some of our mixes:</P>
+          <div className="my-3 flex w-full max-w-textContentWidth flex-col items-center gap-4">
+            <Embed
+              className="w-full max-w-textContentWidth"
+              embedType="soundcloud"
+              src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2059644748&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+            />
+            <Embed
+              className="w-full max-w-textContentWidth"
+              embedType="soundcloud"
+              src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2096765721&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+            />
+          </div>
+          <P className="mt-6">
+            <strong>P.S.</strong> The visual was made using{' '}
+            <ExternalLink href="https://www.unicorn.studio/">
+              Unicorn
+            </ExternalLink>{' '}
+            but I chopped off the watermark. If you&apos;re on their team and
+            looking at this:
+          </P>
+          <ol className="w-full max-w-textContentWidth list-decimal pl-4">
+            <li>sick</li>
+            <li>let me know and I&apos;ll add it back</li>
+          </ol>
+          <P className="mt-6">
+            <strong>P.P.S.</strong> If you&apos;re from the NYC Department of
+            Parks & Recreation
+          </P>
+          <ol className="w-full max-w-textContentWidth list-decimal pl-4">
+            <li>thank you for your service</li>
+            <li>please don&apos;t shut us down</li>
+          </ol>
+          <P isPlus className="mt-6">
+            Notes from the community
+          </P>
+          <P>
+            The longest day of 2025 in the northern hemisphere is Friday, June
+            20th - commonly referred to as the Summer Solstice.
+          </P>
         </div>
-        <P className="mt-6 w-full max-w-textContentWidth">
-          P.S. The visual was made using{' '}
-          <ExternalLink href="https://www.unicorn.studio/">
-            Unicorn
-          </ExternalLink>{' '}
-          but I chopped of the watermark. If you&apos;re on their team and
-          looking at this:
-        </P>
-        <ol className="w-full max-w-textContentWidth list-decimal pl-4">
-          <li>sick</li>
-          <li>let me know and I&apos;ll add it back.</li>
-        </ol>
       </div>
     </>
   )
