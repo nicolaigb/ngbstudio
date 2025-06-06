@@ -5,9 +5,9 @@ import Invite from './Invite'
 
 export const metadata: Metadata = {
   title: {
-    absolute: 'Intrnt BF B2B “–”',
+    absolute: 'INTRNT BF B2B “–” Under the “K” Bridge June 21, 2025 7PM',
   },
-  description: 'June 21, 2025 7PM Under the "K" Bridge',
+  description: 'Stay locked',
   openGraph: {
     images: ['https://ngb.studio/intrnt-bf-b2b-endash.png'],
   },
