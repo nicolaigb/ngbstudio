@@ -1,10 +1,22 @@
 'use client'
 
 import { Button, Input } from '@headlessui/react'
+import { CalendarDaysIcon } from '@heroicons/react/16/solid'
 import clsx from 'clsx'
-import React, { useMemo, useState, useRef, useEffect } from 'react'
+import React, { useMemo, useState, useRef, useEffect, useCallback } from 'react'
 
-import { Body, IconButton } from '../atoms'
+import { Body, Icon, IconButton, THeroIconName } from '../atoms'
+
+interface ConfettiEmoji {
+  id: number
+  emoji: string
+  x: number
+  y: number
+  vx: number
+  vy: number
+  rotation: number
+  rotationSpeed: number
+}
 
 export type RSVPSnackBarState =
   | 'initial'
@@ -33,14 +45,17 @@ export default function RSVPSnackBar({
 }: RSVPSnackBarProps) {
   const [inputValue, setInputValue] = useState('')
   const [inputWidth, setInputWidth] = useState(100)
+  const [confetti, setConfetti] = useState<ConfettiEmoji[]>([])
   const measureRef = useRef<HTMLSpanElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
+  const snackBarRef = useRef<HTMLDivElement>(null)
+  const animationRef = useRef<number>(null)
 
   useEffect(() => {
     if (measureRef.current) {
       const textWidth = measureRef.current.offsetWidth
-      const padding = 24 // px-3 = 12px * 2
-      const minWidth = 100
+      const padding = 12 // px-3 = 12px * 2
+      const minWidth = 64
       const newWidth = Math.max(minWidth, textWidth + padding)
       setInputWidth(newWidth)
     }
@@ -51,6 +66,70 @@ export default function RSVPSnackBar({
       inputRef.current.focus()
     }
   }, [state])
+
+  const spawnConfetti = useCallback(() => {
+    if (!snackBarRef.current) return
+
+    const rect = snackBarRef.current.getBoundingClientRect()
+    const buttonCenterX = rect.left + rect.width / 2
+    const buttonCenterY = rect.top + rect.height / 2
+
+    const emojis = ['🎉', '🎊', '✨', '🌟', '💫', '🎈', '🎆', '🎁', '🥳', '🎭']
+    const newConfetti: ConfettiEmoji[] = []
+
+    for (let i = 0; i < 15; i += 1) {
+      newConfetti.push({
+        id: Date.now() + i,
+        emoji: emojis[Math.floor(Math.random() * emojis.length)],
+        x: buttonCenterX + (Math.random() - 0.5) * 30,
+        y: buttonCenterY,
+        vx: (Math.random() - 0.5) * 8,
+        vy: -Math.random() * 12 - 8,
+        rotation: Math.random() * 360,
+        rotationSpeed: (Math.random() - 0.5) * 10,
+      })
+    }
+
+    setConfetti(newConfetti)
+
+    const animate = () => {
+      setConfetti((prev) =>
+        prev
+          .map((emoji) => ({
+            ...emoji,
+            x: emoji.x + emoji.vx,
+            y: emoji.y + emoji.vy,
+            vy: emoji.vy + 0.5, // gravity
+            rotation: emoji.rotation + emoji.rotationSpeed,
+          }))
+          .filter((emoji) => emoji.y < window.innerHeight + 50),
+      )
+
+      animationRef.current = requestAnimationFrame(animate)
+    }
+
+    if (animationRef.current) {
+      cancelAnimationFrame(animationRef.current)
+    }
+    animate()
+
+    // Clear confetti after 3 seconds
+    setTimeout(() => {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current)
+      }
+      setConfetti([])
+    }, 3000)
+  }, [snackBarRef])
+
+  useEffect(
+    () => () => {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current)
+      }
+    },
+    [],
+  )
 
   const content = useMemo(() => {
     switch (state) {
@@ -73,6 +152,11 @@ export default function RSVPSnackBar({
               type="email"
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                  onEmailSubmitClick?.(inputValue)
+                }
+              }}
               disabled={state === 'submitting'}
               className={clsx(
                 'h-full rounded-full bg-stone-100 px-3 transition-all duration-200 ease-out',
@@ -100,30 +184,23 @@ export default function RSVPSnackBar({
         )
       case 'add-to-calendar':
         return (
-          <div className="flex h-full items-center gap-2 rounded-full pl-3 pr-1">
-            <Body>Add to calendar</Body>
-            <IconButton
-              size="large"
-              iconName="CalendarIcon"
-              onClick={() => onAddToCalendarClick?.()}
-            />
-          </div>
+          <SnackBarButton
+            onClick={onAddToCalendarClick}
+            iconName="CalendarDaysIcon"
+          >
+            Add to calendar
+          </SnackBarButton>
         )
       case 'success':
         return (
-          <div className="flex h-full items-center rounded-full px-3">
-            <Body>See you there :)</Body>
-          </div>
+          <SnackBarButton onClick={spawnConfetti} iconName="SparklesIcon">
+            See you there
+          </SnackBarButton>
         )
       case 'initial':
       default:
         return (
-          <Button
-            onClick={() => onRSVPClick?.()}
-            className="flex h-full items-center rounded-full px-3 data-[hover]:bg-slate-100"
-          >
-            <Body>RSVP</Body>
-          </Button>
+          <SnackBarButton onClick={() => onRSVPClick?.()}>RSVP</SnackBarButton>
         )
     }
   }, [
@@ -134,19 +211,57 @@ export default function RSVPSnackBar({
     onAddToCalendarClick,
     onRSVPClick,
     onCancelClick,
+    spawnConfetti,
   ])
 
   return (
-    <div
-      className={clsx(
-        className,
-        'fixed bottom-3 left-1/2 z-[99999999] flex h-12 w-fit -translate-x-1/2 items-center rounded-full border-[0.5px] border-stone-500 bg-stone-50 bg-opacity-85 shadow-lg backdrop-blur-md backdrop-contrast-125 backdrop-filter transition-all duration-300 ease-in-out',
-        {
-          'bottom-4 h-10 hover:scale-110': state === 'initial',
-        },
-      )}
-    >
-      {content}
-    </div>
+    <>
+      <div
+        ref={snackBarRef}
+        className={clsx(
+          className,
+          'fixed bottom-3 left-1/2 z-50 flex h-12 w-fit -translate-x-1/2 items-center rounded-full border-[0.5px] border-stone-500 bg-stone-50 bg-opacity-85 shadow-lg backdrop-blur-md backdrop-contrast-125 backdrop-filter transition-all duration-300 ease-in-out',
+          {
+            'hover:scale-110 active:scale-95':
+              state === 'initial' ||
+              state === 'add-to-calendar' ||
+              state === 'success',
+          },
+        )}
+      >
+        {content}
+      </div>
+      {confetti.map((emoji) => (
+        <div
+          key={emoji.id}
+          className="pointer-events-none fixed z-40 text-2xl"
+          style={{
+            left: emoji.x,
+            top: emoji.y,
+            transform: `rotate(${emoji.rotation}deg)`,
+          }}
+        >
+          {emoji.emoji}
+        </div>
+      ))}
+    </>
   )
 }
+
+const SnackBarButton = ({
+  onClick,
+  children,
+  iconName,
+}: {
+  onClick?: () => void
+  children: React.ReactNode
+  iconName?: THeroIconName
+}) => (
+  <Button
+    onClick={onClick}
+    className="flex h-full items-center gap-2 rounded-full px-3 data-[hover]:bg-slate-100"
+  >
+    {iconName && <Icon name={iconName} />}
+    <Body>{children}</Body>
+  </Button>
+)
