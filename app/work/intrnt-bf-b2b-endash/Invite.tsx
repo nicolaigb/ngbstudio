@@ -1,10 +1,18 @@
 'use client'
 
+import Image from 'next/image'
 import React, { useState, useEffect } from 'react'
 
 import { checkRSVPExists } from '@/actions/rsvp/checkRSVP'
 import { createRSVP } from '@/actions/rsvp/createRSVP'
-import { Display, ExternalLink, H3, H4, P } from '@/components/atoms'
+import {
+  Body,
+  BodySmall,
+  Display,
+  ExternalLink,
+  H3,
+  P,
+} from '@/components/atoms'
 import { Embed } from '@/components/molecules'
 import RSVPSnackBar, {
   RSVPSnackBarState,
@@ -124,7 +132,38 @@ export default function Invite() {
         />
       </div>
       <div className="my-6 flex flex-col items-center">
-        <div className="w-full max-w-textContentWidth">
+        <div className="w-full max-w-textContentWidth items-start space-y-4">
+          <BodySmall className="text-stone-600" isPlus>
+            Update Jun. 20, 2025
+          </BodySmall>
+          <Body isPlus>Getting there</Body>
+          <P>
+            There will be another festival happening in the main part of the
+            venue so the Uber drop-off may be a bit complicated. I&apos;d
+            suggest taking a Citi bike to McGolrick park and walking up from
+            there. If you do want to Uber, calling it to 5 Bridgewater St,
+            Brooklyn, NY 11222 will get you closest to our location. We&apos;ll
+            be set up in the “Creekside” area of the park. The coordinates are
+            <ExternalLink href="https://www.google.com/maps/search/40.727412,+-73.929280?entry=tts&g_ep=EgoyMDI1MDYxNy4wIPu8ASoASAFQAw%3D%3D&skid=5e18e908-e820-4547-ac2a-296d437be5f0">
+              40.7273820626131, -73.92940071708577
+            </ExternalLink>{' '}
+            (Google maps will show you street view of the bridge. We will be
+            underneath that. Don&apos;t go on the bridge pls). It looks like
+            this:
+          </P>
+          <Image
+            src="/creekside.jpeg"
+            alt="Creekside area of the park"
+            width={640}
+            height={480}
+          />
+          <Body isPlus>What to bring</Body>
+          <P>
+            We’ll have a cooler with refreshments. Feel free to bring anything
+            to add to it. It’ll be a scorcher, stay hydrated. Keep that body
+            moving.
+          </P>
+          <hr className="my-3 w-full border-stone-200" />
           <P>
             Join us for a FREE party under the *gasp* bridge to celebrate the
             longest day of the year. We set up the dancefloor, you shut it down.
