@@ -29,7 +29,6 @@ float biDirectionalSine(float x, float n) {
 
 void main() {
   // "Normalizing" with an arbitrary value
-  // We'll see a cleaner technique later :)   
   vec3 color = vec3(0.0);
 
   vec3 pct = vec3(vUv.x);
