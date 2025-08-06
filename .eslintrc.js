@@ -104,6 +104,7 @@ module.exports = {
     'no-underscore-dangle': 'off',
     '@next/next/no-html-link-for-pages': 'off',
     'no-unused-vars': 'off',
+    'react/react-in-jsx-scope': 'off',
   },
   settings: {
     next: {
