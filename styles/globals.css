@@ -33,3 +33,45 @@ a {
 * {
   box-sizing: border-box;
 }
+
+/* Fullscreen overlay styles */
+.fullscreen-overlay {
+  /* Position fixed to cover entire viewport */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* High z-index to ensure it appears above all other content */
+  z-index: 9999;
+  /* Smooth fade-in animation */
+  animation: fullscreen-fade-in 0.3s ease-out forwards;
+}
+
+.fullscreen-content {
+  /* Fill entire overlay container */
+  width: 100%;
+  height: 100%;
+  /* Remove any default margins/padding */
+  margin: 0;
+  padding: 0;
+  /* Ensure content fits exactly */
+  overflow: hidden;
+}
+
+/* Fade-in animation for smooth fullscreen entrance */
+@keyframes fullscreen-fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Ensure body doesn't scroll when in fullscreen mode */
+body.fullscreen-active {
+  overflow: hidden;
+}

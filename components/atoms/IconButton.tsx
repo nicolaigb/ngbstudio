@@ -6,7 +6,7 @@ import React, { ReactElement } from 'react'
 
 import { Icon, THeroIconName } from './Icon'
 
-export interface IIconButton extends ButtonProps {
+export interface IconButtonProps extends ButtonProps {
   /**
    * Name of the hero icon to display
    */
@@ -19,7 +19,7 @@ export interface IIconButton extends ButtonProps {
   size?: 'small' | 'medium' | 'large'
 }
 
-export const IconButton: React.FC<IIconButton> = ({
+export const IconButton: React.FC<IconButtonProps> = ({
   iconName,
   loading = false,
   className = '',

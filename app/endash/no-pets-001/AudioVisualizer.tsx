@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect, useRef } from 'react'
+import React, { useRef } from 'react'
 
 import { AudioController } from '@/components/audio/AudioController'
 import { AudioVisualizerCanvas } from '@/components/audio/AudioVisualizerCanvas'
@@ -25,7 +25,7 @@ export default function AudioVisualizer() {
 
   const handleAudioReady = () => {}
 
-  const handlePlayStateChange = (isPlaying: boolean) => {}
+  const handlePlayStateChange = () => {}
 
   return (
     <div className="relative h-screen w-full overflow-hidden bg-black">
