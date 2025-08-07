@@ -5,6 +5,9 @@ module.exports = {
     es2021: true,
     node: true,
   },
+  globals: {
+    NodeJS: 'readonly',
+  },
   overrides: [
     {
       // Add Jest environment and disable no-undef for test files
@@ -100,11 +103,11 @@ module.exports = {
     'react/prop-types': 'off',
     'react/no-array-index-key': 'off',
     'react/require-default-props': 'off',
+    'react/react-in-jsx-scope': 'off',
     semi: 'off',
     'no-underscore-dangle': 'off',
     '@next/next/no-html-link-for-pages': 'off',
     'no-unused-vars': 'off',
-    'react/react-in-jsx-scope': 'off',
   },
   settings: {
     next: {
