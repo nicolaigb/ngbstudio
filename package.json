@@ -23,6 +23,8 @@
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
     "clsx": "^2.1.1",
+    "dat.gui": "^0.7.9",
+    "gsap": "^3.13.0",
     "luxon": "^3.3.0",
     "next": "^15.2.4",
     "next-sanity": "^9.9.9",
@@ -34,7 +36,8 @@
     "redux": "^4.2.1",
     "sanity": "^3.82.0",
     "styled-components": "^6.1.15",
-    "three": "^0.175.0"
+    "three": "^0.175.0",
+    "web-audio-beat-detector": "^8.2.30"
   },
   "devDependencies": {
     "@babel/core": "^7.21.4",

@@ -4,11 +4,12 @@ export const ENDASH_DATES: TDateRowGroup[] = [
   {
     year: '2025',
     rows: [
-      {
-        date: 'AUG. 23',
-        title: 'No Pets 001',
-        href: 'endash/no-pets-001',
-      },
+      // TODO: ADD BACK WHEN READY
+      // {
+      //   date: 'AUG. 23',
+      //   title: 'No Pets 001',
+      //   href: 'endash/no-pets-001',
+      // },
       {
         date: 'JUN. 21',
         title: 'INTRNT BF B2B “–”',

@@ -8,11 +8,7 @@ import EndashAbloh from '@/public/endash-abloh.jpeg'
 export default function Page() {
   return (
     <div className="flex flex-col items-center gap-6">
-      <Image
-        src={EndashAbloh}
-        alt="Endash Abloh"
-        className="h-[500px] w-auto"
-      />
+      <Image src={EndashAbloh} alt="Endash Abloh" className="h-[60vh] w-auto" />
       <H1 isPlus>&ldquo;–&rdquo;</H1>
       <Body className="text-center">
         (endash)
