@@ -1,6 +1,5 @@
 import { Body, H1 } from '@/components/atoms'
 import { FullscreenContainer } from '@/components/ui/FullscreenContainer'
-import { FullscreenToggle } from '@/components/ui/FullscreenToggle'
 
 import AudioVisualizer from './AudioVisualizer'
 

@@ -7,8 +7,7 @@ import { AudioVisualizerCanvas } from '@/components/audio/AudioVisualizerCanvas'
 import { ReactiveParticles } from '@/components/audio/ReactiveParticles'
 
 // Sample audio URL - replace with your desired track
-const AUDIO_URL =
-  'https://p.scdn.co/mp3-preview/3be3fb77f5b2945c95e86d4c40ceceac20e5108f?cid=b62f0af3b0d54eca9bb49b99a2fc5820'
+const AUDIO_URL = '/flight-fm.mp3'
 
 export default function AudioVisualizer() {
   const particlesRef = useRef<{
