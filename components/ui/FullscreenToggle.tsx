@@ -17,7 +17,7 @@ export type FullscreenToggleProps = {
   className?: string
   /** Position of the toggle button relative to its container */
   position?: TPosition
-} & Pick<IconButtonProps, 'size'>
+} & Pick<IconButtonProps, 'size' | 'variant'>
 
 /**
  * A reusable fullscreen toggle button component that can be positioned anywhere
@@ -30,6 +30,7 @@ export type FullscreenToggleProps = {
 export const FullscreenToggle: React.FC<FullscreenToggleProps> = ({
   className = '',
   position = 'top-right',
+  ...props
 }) => {
   const { isFullscreen, toggleFullscreen } = useFullscreen()
 
@@ -52,6 +53,7 @@ export const FullscreenToggle: React.FC<FullscreenToggleProps> = ({
       )}
       aria-label={isFullscreen ? 'Exit fullscreen' : 'Enter fullscreen'}
       title={isFullscreen ? 'Exit fullscreen' : 'Enter fullscreen'}
+      {...props}
     />
   )
 }

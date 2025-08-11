@@ -1,47 +1,45 @@
 'use client'
 
-import React, { ReactElement } from 'react'
-import styled, { css } from 'styled-components'
+import { Button as HeadlessButton, ButtonProps } from '@headlessui/react'
+import clsx from 'clsx'
+import React, { ReactElement, ReactNode } from 'react'
 
 export type TSButtonVariants = 'regular' | 'icon' | 'image'
 
-export interface IButton extends React.HTMLAttributes<HTMLButtonElement> {
+export interface IButton extends ButtonProps {
   /**
    * Variant defining how button is styled according to use
    */
-  styleType: TSButtonVariants
+  variant?: TSButtonVariants
   /**
    * Child components to be displayed in the button
    */
-  children: ReactElement | ReactElement[]
+  children: ReactNode
 }
 
 export const Button: React.FC<IButton> = ({
   children,
+  variant = 'regular',
+  className,
+  disabled,
   ...props
-}): ReactElement => <SButtonContainer {...props}>{children}</SButtonContainer>
+}): ReactElement => {
+  const baseClasses = 'border-none outline-none bg-transparent'
 
-const regularButtonStyle = css`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0;
-`
+  const variantClasses = {
+    regular: 'flex justify-center items-center m-0',
+    icon: '',
+    image: 'p-0',
+  }[variant]
 
-const iconButtonStyle = css``
-
-const imageButtonStyle = css`
-  padding: 0;
-`
-
-const SButtonContainer = styled.button<Pick<IButton, 'styleType'>>`
-  ${({ styleType }) =>
-    ({
-      regular: regularButtonStyle,
-      icon: iconButtonStyle,
-      image: imageButtonStyle,
-    })[styleType]}
-  border-style: none;
-  outline: none;
-  background: none;
-`
+  return (
+    <HeadlessButton
+      className={clsx(baseClasses, variantClasses, className, {
+        'pointer-events-none opacity-50': disabled,
+      })}
+      {...props}
+    >
+      {children}
+    </HeadlessButton>
+  )
+}

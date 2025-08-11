@@ -14,23 +14,28 @@ type FullscreenContainerProps = {
   children: ReactNode
   className?: string
   fullscreenClassName?: string
-} & Pick<FullscreenToggleProps, 'position'>
+  fullScreenToggleProps?: Pick<
+    FullscreenToggleProps,
+    'position' | 'size' | 'variant'
+  >
+}
 
 export const FullscreenContainer: React.FC<FullscreenContainerProps> = ({
   children,
   className = '',
   fullscreenClassName = 'fullscreen-content',
+  fullScreenToggleProps = { size: 'medium', position: 'top-right' },
 }) => {
   const { isFullscreen } = useFullscreen()
 
   const contents = useMemo(
     () => (
       <>
-        <FullscreenToggle />
+        <FullscreenToggle {...fullScreenToggleProps} />
         {children}
       </>
     ),
-    [children],
+    [children, fullScreenToggleProps],
   )
 
   const containerClassName = 'relative'
@@ -47,5 +52,9 @@ export const FullscreenContainer: React.FC<FullscreenContainerProps> = ({
     )
   }
 
-  return <div className={clsx(containerClassName, className)}>{contents}</div>
+  return (
+    <div className={clsx('rounded-lg', containerClassName, className)}>
+      {contents}
+    </div>
+  )
 }

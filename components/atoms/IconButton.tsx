@@ -16,11 +16,14 @@ export interface IconButtonProps extends ButtonProps {
    */
   loading?: boolean
 
+  variant?: 'default' | 'white'
+
   size?: 'small' | 'medium' | 'large'
 }
 
 export const IconButton: React.FC<IconButtonProps> = ({
   iconName,
+  variant = 'default',
   loading = false,
   className = '',
   ...props
@@ -28,11 +31,17 @@ export const IconButton: React.FC<IconButtonProps> = ({
   <Button
     className={clsx(
       className,
-      'flex cursor-pointer items-center justify-center rounded-full border-none bg-stone-100 text-black outline-none transition-all duration-150 focus:outline-2 focus:outline-offset-2 focus:outline-blue-500 active:bg-stone-300 data-[hover]:bg-stone-200',
+      'flex cursor-pointer items-center justify-center rounded-full outline-none transition-all duration-150 focus:outline-2 focus:outline-offset-2 focus:outline-blue-500',
       {
         'h-6 w-6': props.size === 'small',
         'h-8 w-8': props.size === 'medium' || !props.size,
         'h-10 w-10': props.size === 'large',
+      },
+      {
+        'border-none bg-stone-100 text-black active:bg-stone-400 data-[hover]:bg-stone-300':
+          variant === 'default',
+        'bg-transparent text-white data-[hover]:bg-stone-900':
+          variant === 'white',
       },
     )}
     disabled={loading}

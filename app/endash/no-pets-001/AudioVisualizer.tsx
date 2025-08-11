@@ -28,11 +28,11 @@ export default function AudioVisualizer() {
   const handlePlayStateChange = () => {}
 
   return (
-    <div className="relative h-screen w-full overflow-hidden bg-black">
+    <div className="relative h-full w-full overflow-hidden bg-black">
       <AudioController
         audioUrl={AUDIO_URL}
         autoPlay
-        showControls={false}
+        showControls
         onAudioReady={handleAudioReady}
         onPlayStateChange={handlePlayStateChange}
       >
