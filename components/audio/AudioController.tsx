@@ -123,7 +123,7 @@ export const AudioController: React.FC<AudioControllerProps> = ({
             <Body className="text-white">
               {bpmManager.isDetecting
                 ? 'Analyzing audio...'
-                : 'Click anywhere to start visualization'}
+                : 'Click anywhere to start visualization. Warning: flashing lights.'}
             </Body>
           </Button>
         )}

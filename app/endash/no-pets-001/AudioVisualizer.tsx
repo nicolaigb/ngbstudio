@@ -18,8 +18,8 @@ export default function AudioVisualizer() {
   }>({
     autoMix: true,
     autoRotate: true,
-    startColor: 0xff00ff,
-    endColor: 0x00ffff,
+    startColor: 0x954fff,
+    endColor: 0x00e626,
   })
 
   const handleAudioReady = () => {}
