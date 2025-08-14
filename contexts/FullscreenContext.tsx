@@ -4,7 +4,6 @@ import React, {
   createContext,
   useContext,
   useState,
-  useEffect,
   ReactNode,
   useMemo,
 } from 'react'
@@ -42,30 +41,6 @@ export const FullscreenProvider = ({ children }: FullscreenProviderProps) => {
   const setFullscreen = (fullscreen: boolean) => {
     setIsFullscreen(fullscreen)
   }
-
-  // Handle body scroll locking when entering/exiting fullscreen
-  useEffect(() => {
-    if (typeof document === 'undefined') return
-
-    if (isFullscreen) {
-      // Prevent body scroll when in fullscreen
-      document.body.classList.add('fullscreen-active')
-      // Store original overflow style to restore later
-      const originalOverflow = document.body.style.overflow
-      document.body.style.overflow = 'hidden'
-
-      return () => {
-        // Cleanup function to restore original overflow
-        document.body.classList.remove('fullscreen-active')
-        document.body.style.overflow = originalOverflow
-      }
-    }
-    return () => {
-      // Remove fullscreen class and restore scroll
-      document.body.classList.remove('fullscreen-active')
-      document.body.style.overflow = ''
-    }
-  }, [isFullscreen])
 
   const value = useMemo(
     () => ({
