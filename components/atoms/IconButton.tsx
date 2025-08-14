@@ -40,7 +40,7 @@ export const IconButton: React.FC<IconButtonProps> = ({
       {
         'border-none bg-stone-100 text-black active:bg-stone-400 data-[hover]:bg-stone-300':
           variant === 'default',
-        'bg-transparent text-white data-[hover]:bg-stone-900':
+        'bg-transparent text-white data-[hover]:bg-white/20':
           variant === 'white',
       },
     )}

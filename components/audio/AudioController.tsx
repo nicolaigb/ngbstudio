@@ -120,7 +120,7 @@ export const AudioController: React.FC<AudioControllerProps> = ({
             className="absolute inset-0 z-50 flex animate-pulse cursor-pointer items-center justify-center bg-black/70 backdrop-blur-sm transition-opacity duration-300"
             onClick={handleUserInteraction}
           >
-            <Body className="text-white">
+            <Body className="mx-2 text-white">
               {bpmManager.isDetecting
                 ? 'Analyzing audio...'
                 : 'Click anywhere to start visualization. Warning: flashing lights.'}
