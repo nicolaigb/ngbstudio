@@ -3,26 +3,26 @@ import { Metadata } from 'next'
 import Invite from './Invite'
 
 export const metadata: Metadata = {
-  title: 'No Pets 001 - Endash',
+  title: 'NO PETS 001',
   description: 'Audio visualizer with fullscreen capability',
   openGraph: {
-    title: 'No Pets 001 ',
+    title: 'NO PETS 001',
     description:
-      'INTRNT BF & "–" are in the mix at Transmitter Park on August 23, 2025 from 6–10PM',
+      'INTRNT BF & "–" in the mix at Transmitter Park on August 23, 2025 from 6–10PM',
     images: [
       {
         url: '/no-pets-001.png',
         width: 1200,
         height: 630,
-        alt: 'No Pets 001',
+        alt: 'NO PETS 001',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'No Pets 001',
+    title: 'NO PETS 001',
     description:
-      'INTRNT BF & "–" are in the mix at Transmitter Park on August 23, 2025 from 6–10PM',
+      'INTRNT BF & "–" in the mix at Transmitter Park on August 23, 2025 from 6–10PM',
     images: ['/no-pets-001.png'],
   },
 }

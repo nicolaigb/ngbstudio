@@ -6,7 +6,7 @@ export const ENDASH_DATES: TDateRowGroup[] = [
     rows: [
       {
         date: 'AUG. 23',
-        title: 'No Pets 001',
+        title: 'NO PETS 001',
         href: 'endash/no-pets-001',
       },
       {
