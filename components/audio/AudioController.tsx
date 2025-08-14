@@ -121,9 +121,19 @@ export const AudioController: React.FC<AudioControllerProps> = ({
             onClick={handleUserInteraction}
           >
             <Body className="mx-2 text-white">
-              {bpmManager.isDetecting
-                ? 'Analyzing audio...'
-                : 'Click anywhere to start visualization. Warning: flashing lights.'}
+              {bpmManager.isDetecting ? (
+                'Analyzing audio...'
+              ) : (
+                <>
+                  Click anywhere to start visualization.
+                  <br />
+                  Warning: flashing lights.
+                  <br />
+                  Also, uuuuhhhh...turn off silent mode.
+                  <br />
+                  Enjoy!
+                </>
+              )}
             </Body>
           </Button>
         )}
