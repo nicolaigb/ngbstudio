@@ -34,7 +34,7 @@ export const FullscreenContainer: React.FC<FullscreenContainerProps> = ({
     if (startFullscreen) {
       setFullscreen(true)
     }
-  }, []) // Only run on mount
+  }) // Only run on mount
 
   const contents = useMemo(
     () => (
