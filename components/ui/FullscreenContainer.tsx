@@ -1,7 +1,7 @@
 'use client'
 
 import clsx from 'clsx'
-import React, { ReactNode, useMemo } from 'react'
+import React, { ReactNode, useMemo, useEffect } from 'react'
 
 import {
   useFullscreen,
@@ -14,6 +14,7 @@ type FullscreenContainerProps = {
   children: ReactNode
   className?: string
   fullscreenClassName?: string
+  startFullscreen?: boolean
   fullScreenToggleProps?: Pick<
     FullscreenToggleProps,
     'position' | 'size' | 'variant'
@@ -24,9 +25,16 @@ export const FullscreenContainer: React.FC<FullscreenContainerProps> = ({
   children,
   className = '',
   fullscreenClassName = 'fullscreen-content',
+  startFullscreen = false,
   fullScreenToggleProps = { size: 'medium', position: 'top-right' },
 }) => {
-  const { isFullscreen } = useFullscreen()
+  const { isFullscreen, setFullscreen } = useFullscreen()
+
+  useEffect(() => {
+    if (startFullscreen) {
+      setFullscreen(true)
+    }
+  }, []) // Only run on mount
 
   const contents = useMemo(
     () => (

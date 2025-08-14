@@ -34,6 +34,7 @@ const Invite = () => {
         className="relative h-[80vh] w-full overflow-hidden bg-black"
         fullscreenClassName="fullscreen-content bg-black"
         fullScreenToggleProps={{ variant: 'white' }}
+        startFullscreen
       >
         <div className="absolute left-6 top-6 z-[100]">
           <H1 isPlus className="text-white">
