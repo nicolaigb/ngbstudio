@@ -1,10 +1,13 @@
 'use client'
 
+import Image from 'next/image'
+
 import { Body, ExternalLink, H1, P } from '@/components/atoms'
 import { Embed } from '@/components/molecules/Embed'
 import RSVPSnackBar from '@/components/organisms/RSVPSnackBar'
 import { FullscreenContainer } from '@/components/ui/FullscreenContainer'
 import { useRSVP, EventConfig } from '@/hooks/useRSVP'
+import Hero from '@/public/no-pets-hero.jpg'
 
 import AudioVisualizer from './AudioVisualizer'
 
@@ -49,13 +52,41 @@ const Invite = () => {
       <div className="flex flex-col items-center">
         <div className="w-full max-w-textContentWidth space-y-5">
           <P>
-            Join us for a FREE party at{' '}
+            Born out of a very improvised party in June 2025, NO PETS is a free
+            party concept hosted by Brennan Fendt & Nicolai Garcia Beckmann at
+            WNYC Transmitter Park.
+          </P>
+          <P>
+            At the heart of this event are the beliefs that music and dance
+            should be accessible to all, and the more people involved in a party
+            the better. While party specifics will change with each iteration,
+            these values will remain constant as NO PETS continues to grow &
+            evolve in the future. With that said, we are excited to invite
+            literally everyone to join us on Saturday, August 23rd from 6:00 PM
+            - 10:00 PM at{' '}
             <ExternalLink href="https://maps.app.goo.gl/rtpp5Fp3b1FFGWp17">
               Transmitter Park
-            </ExternalLink>{' '}
-            to celebrate a summer to remember.
+            </ExternalLink>
+            .{' '}
           </P>
-          <P>In the meantime check out some of our mixes:</P>
+          <P>
+            for the first installment of NO PETS. Come hang out, walk the park,
+            lay in the grass, enjoy the sunset, people watch…maybe even dance!
+            Musical selections from INTRNT BF & “–” will take us into the night
+            and transform this city park into a revelrous dreamscape. Bring your
+            friends, make some new ones and let&apos;s see how much fun we can
+            have together :))
+          </P>
+          <P>
+            ***Water & restrooms available on site; BYOB;
+            FREEPARTYFREEPARTYFREEPARTY***
+          </P>
+          <Image
+            src={Hero}
+            alt="NO PETS 001"
+            className="mx-auto w-full max-w-[400px]"
+          />
+          <P>Check out the DJs:</P>
           <div className="my-3 flex w-full max-w-textContentWidth flex-col items-center gap-4">
             <Embed
               className="w-full max-w-textContentWidth"
@@ -69,7 +100,7 @@ const Invite = () => {
             />
           </div>
           <P>
-            The audio reactive visual is inspired by Tiago Canzian&apos;s
+            The audioreactive visual is inspired by Tiago Canzian&apos;s
             tutorial found{' '}
             <ExternalLink href="https://tympanus.net/codrops/2023/12/19/creating-audio-reactive-visuals-with-dynamic-particles-in-three-js/">
               here
@@ -77,9 +108,10 @@ const Invite = () => {
             .
           </P>
           <P>
-            P.S. We&apos;re not licensing Joy Orbison&apos;s chune of the year
-            to play here. If you&apos;re Joy or from his team (sick) let us know
-            and we&apos;ll take it down. Also, uuhhhh, pull up.
+            The track is Joy Orbison&apos;s chune of the year. We don&apos;t
+            have the licensing for it so if you&apos;re Joy or from his team
+            please reach out. We&apos;ll take it down but also uuuhhhh...pull
+            up.
           </P>
         </div>
       </div>
