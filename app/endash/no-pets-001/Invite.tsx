@@ -77,10 +77,6 @@ const Invite = () => {
             have together :))
           </P>
           <P>
-            RSVP below to get more info for this party and those that we throw
-            in the future.
-          </P>
-          <P>
             ***Water & restrooms available on site; BYOB;
             FREEPARTYFREEPARTYFREEPARTY***
           </P>
@@ -89,9 +85,12 @@ const Invite = () => {
             width={1200}
             height={1600}
             alt="NO PETS 001"
-            className="mx-auto w-full max-w-[400px]"
+            className="mx-auto w-full max-w-[400px] py-5"
           />
-          <P>Check out the DJs:</P>
+          <P>
+            RSVP below to get more info on this party and tune in to what&apos;s
+            next. In the meantime, check out the DJs:
+          </P>
           <div className="my-3 flex w-full max-w-textContentWidth flex-col items-center gap-4">
             <Embed
               className="w-full max-w-textContentWidth"
