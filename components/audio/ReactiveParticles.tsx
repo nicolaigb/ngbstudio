@@ -48,9 +48,9 @@ export const ReactiveParticles: React.FC<ReactiveParticlesProps> = ({
         size: 2,
       }
     }
-    const widthSeg = Math.floor(THREE.MathUtils.randInt(5, 20))
-    const heightSeg = Math.floor(THREE.MathUtils.randInt(1, 40))
-    const depthSeg = Math.floor(THREE.MathUtils.randInt(5, 80))
+    const widthSeg = Math.floor(THREE.MathUtils.randInt(15, 20))
+    const heightSeg = Math.floor(THREE.MathUtils.randInt(10, 40))
+    const depthSeg = Math.floor(THREE.MathUtils.randInt(12, 80))
     return {
       geometry: createParticleGeometry.box(
         1,
@@ -178,17 +178,19 @@ export const ReactiveParticles: React.FC<ReactiveParticlesProps> = ({
         // Dynamically update amplitude based on the high frequency data from the audio manager
         uniformsUpdates.amplitude = {
           value:
-            0.8 +
-            THREE.MathUtils.mapLinear(frequencyData.high, 0, 0.6, -0.1, 0.2),
+            1.2 + THREE.MathUtils.mapLinear(frequencyData.high, 0, 0.6, 0, 0.8),
         }
 
-        // Update offset gain based on the low frequency data for subtle effect changes
-        uniformsUpdates.offsetGain = { value: frequencyData.mid * 0.6 }
+        // Update offset gain based on the low frequency data for more intense effect changes
+        uniformsUpdates.offsetGain = { value: frequencyData.mid * 1 }
+
+        // Update frequency for more dynamic movement
+        uniformsUpdates.frequency = { value: 0.8 + frequencyData.high * 0.5 }
 
         // Map low frequency data to a range and use it to increment the time uniform
-        const t = THREE.MathUtils.mapLinear(frequencyData.low, 0.6, 1, 0.2, 0.5)
+        const t = THREE.MathUtils.mapLinear(frequencyData.low, 0.6, 1, 0.3, 0.8)
         uniformsUpdates.time = {
-          value: time + THREE.MathUtils.clamp(t, 0.2, 0.5),
+          value: time + THREE.MathUtils.clamp(t, 0.3, 0.8),
         } // Clamp the value to ensure it stays within a desired range
       } else {
         uniformsUpdates.frequency = { value: 0.8 }
@@ -203,7 +205,7 @@ export const ReactiveParticles: React.FC<ReactiveParticlesProps> = ({
 
   // Handle BPM beat events
   useEffect(() => {
-    const cleanup = onBeat(() => {
+    const onBeatHandler = onBeat(() => {
       if (!isPlaying || !holderRef.current) return
 
       // Random rotation
@@ -222,7 +224,7 @@ export const ReactiveParticles: React.FC<ReactiveParticlesProps> = ({
       }
     })
 
-    return cleanup
+    return onBeatHandler
   }, [onBeat, isPlaying, autoRotate, autoMix, bpmDuration])
 
   // Setup initial position and rotation animations

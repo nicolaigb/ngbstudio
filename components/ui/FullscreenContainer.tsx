@@ -1,7 +1,7 @@
 'use client'
 
 import clsx from 'clsx'
-import React, { ReactNode, useMemo } from 'react'
+import React, { ReactNode, useMemo, useEffect, useRef } from 'react'
 
 import {
   useFullscreen,
@@ -14,23 +14,38 @@ type FullscreenContainerProps = {
   children: ReactNode
   className?: string
   fullscreenClassName?: string
-} & Pick<FullscreenToggleProps, 'position'>
+  startFullscreen?: boolean
+  fullScreenToggleProps?: Pick<
+    FullscreenToggleProps,
+    'position' | 'size' | 'variant'
+  >
+}
 
 export const FullscreenContainer: React.FC<FullscreenContainerProps> = ({
   children,
   className = '',
   fullscreenClassName = 'fullscreen-content',
+  startFullscreen = false,
+  fullScreenToggleProps = { size: 'medium', position: 'top-right' },
 }) => {
-  const { isFullscreen } = useFullscreen()
+  const { isFullscreen, setFullscreen } = useFullscreen()
+  const hasInitialized = useRef(false)
+
+  useEffect(() => {
+    if (startFullscreen && !hasInitialized.current) {
+      setFullscreen(true)
+      hasInitialized.current = true
+    }
+  }, [startFullscreen, setFullscreen])
 
   const contents = useMemo(
     () => (
       <>
-        <FullscreenToggle />
+        <FullscreenToggle {...fullScreenToggleProps} />
         {children}
       </>
     ),
-    [children],
+    [children, fullScreenToggleProps],
   )
 
   const containerClassName = 'relative'
@@ -47,5 +62,9 @@ export const FullscreenContainer: React.FC<FullscreenContainerProps> = ({
     )
   }
 
-  return <div className={clsx(containerClassName, className)}>{contents}</div>
+  return (
+    <div className={clsx('rounded-lg', containerClassName, className)}>
+      {contents}
+    </div>
+  )
 }

@@ -7,8 +7,7 @@ import { AudioVisualizerCanvas } from '@/components/audio/AudioVisualizerCanvas'
 import { ReactiveParticles } from '@/components/audio/ReactiveParticles'
 
 // Sample audio URL - replace with your desired track
-const AUDIO_URL =
-  'https://p.scdn.co/mp3-preview/3be3fb77f5b2945c95e86d4c40ceceac20e5108f?cid=b62f0af3b0d54eca9bb49b99a2fc5820'
+const AUDIO_URL = '/flight-fm.mp3'
 
 export default function AudioVisualizer() {
   const particlesRef = useRef<{
@@ -19,8 +18,8 @@ export default function AudioVisualizer() {
   }>({
     autoMix: true,
     autoRotate: true,
-    startColor: 0xff00ff,
-    endColor: 0x00ffff,
+    startColor: 0x954fff,
+    endColor: 0x00e626,
   })
 
   const handleAudioReady = () => {}
@@ -28,11 +27,11 @@ export default function AudioVisualizer() {
   const handlePlayStateChange = () => {}
 
   return (
-    <div className="relative h-screen w-full overflow-hidden bg-black">
+    <div className="relative h-full w-full overflow-hidden bg-black">
       <AudioController
         audioUrl={AUDIO_URL}
         autoPlay
-        showControls={false}
+        showControls
         onAudioReady={handleAudioReady}
         onPlayStateChange={handlePlayStateChange}
       >

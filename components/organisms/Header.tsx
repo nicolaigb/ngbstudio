@@ -29,7 +29,7 @@ export default function Header({
 const SContainer = styled.div`
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 200;
   background-color: rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(10px);
 `

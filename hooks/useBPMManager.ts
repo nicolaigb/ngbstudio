@@ -50,6 +50,7 @@ export const useBPMManager = (): BPMManagerHook => {
   const detectBPM = useCallback(
     async (audioBuffer: AudioBuffer): Promise<void> => {
       setIsDetecting(true)
+      console.log('Detecting BPM...')
       try {
         const { bpm: detectedBPM } = await guess(audioBuffer)
         setBPMValue(detectedBPM)

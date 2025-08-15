@@ -1,10 +1,14 @@
 'use client'
 
+import clsx from 'clsx'
 import React, { ReactNode, useEffect, useMemo, useState } from 'react'
-import styled from 'styled-components'
 
 import { useAudioManager } from '@/hooks/useAudioManager'
 import { useBPMManager } from '@/hooks/useBPMManager'
+
+import { Body, Button } from '../atoms'
+
+import AudioControls from './AudioControls'
 
 interface AudioControllerProps {
   children: ReactNode
@@ -45,19 +49,26 @@ export const AudioController: React.FC<AudioControllerProps> = ({
   useEffect(() => {
     const initializeAudio = async () => {
       await audioManager.loadAudio(audioUrl)
-
-      if (audioManager.audioBuffer) {
-        await bpmManager.detectBPM(audioManager.audioBuffer)
-      }
-
-      setIsInitialized(true)
-      onAudioReady?.()
     }
 
     if (audioUrl && !isInitialized) {
       initializeAudio()
     }
-  }, [audioUrl, isInitialized, onAudioReady, audioManager, bpmManager])
+  }, [audioUrl, isInitialized, audioManager])
+
+  // Wait for audioBuffer to be available, then detect BPM
+  useEffect(() => {
+    const processBPM = async () => {
+      if (audioManager.audioBuffer && !isInitialized) {
+        await bpmManager.detectBPM(audioManager.audioBuffer)
+
+        setIsInitialized(true)
+        onAudioReady?.()
+      }
+    }
+
+    processBPM()
+  }, [audioManager.audioBuffer, isInitialized, bpmManager, onAudioReady])
 
   // Handle user interaction to start audio
   const handleUserInteraction = () => {
@@ -100,49 +111,55 @@ export const AudioController: React.FC<AudioControllerProps> = ({
 
   return (
     <AudioContext.Provider value={contextValue}>
-      <SContainer className={className}>
+      <div
+        className={clsx('relative h-full w-full overflow-hidden', className)}
+      >
         {/* User interaction overlay (shows until first interaction) */}
         {!hasUserInteracted && audioManager.isLoaded && (
-          <SInteractionOverlay onClick={handleUserInteraction}>
-            <SInteractionText>
-              {bpmManager.isDetecting
-                ? 'Analyzing audio...'
-                : 'Click to start visualization'}
-            </SInteractionText>
-          </SInteractionOverlay>
+          <Button
+            className="absolute inset-0 z-50 flex animate-pulse cursor-pointer items-center justify-center bg-black/70 backdrop-blur-sm transition-opacity duration-300"
+            onClick={handleUserInteraction}
+          >
+            <Body className="mx-2 text-white">
+              {bpmManager.isDetecting ? (
+                'Analyzing audio...'
+              ) : (
+                <>
+                  Click anywhere to start visualization.
+                  <br />
+                  Warning: flashing lights.
+                  <br />
+                  Also, uuuuhhhh...turn off silent mode.
+                  <br />
+                  Enjoy!
+                </>
+              )}
+            </Body>
+          </Button>
         )}
 
         {/* Loading state */}
         {!isInitialized && (
-          <SLoadingOverlay>
-            <SLoadingText>Loading audio...</SLoadingText>
-          </SLoadingOverlay>
+          <div className="absolute inset-0 z-[101] flex items-center justify-center bg-black/90">
+            <div className="text-base text-white">Loading audio...</div>
+          </div>
         )}
 
         {/* Optional playback controls */}
         {showControls && hasUserInteracted && (
-          <SControls>
-            <SControlButton
-              onClick={handlePlay}
-              disabled={audioManager.isPlaying}
-            >
-              Play
-            </SControlButton>
-            <SControlButton
-              onClick={handlePause}
-              disabled={!audioManager.isPlaying}
-            >
-              Pause
-            </SControlButton>
-            {bpmManager.bpm > 0 && (
-              <SBPMDisplay>BPM: {Math.round(bpmManager.bpm)}</SBPMDisplay>
-            )}
-          </SControls>
+          <AudioControls
+            title="Flight fm"
+            subtitle="Joy Orbison"
+            className="absolute bottom-5 left-5 z-50"
+            isPlaying={audioManager.isPlaying}
+            onPlay={handlePlay}
+            onPause={handlePause}
+          />
         )}
 
         {/* Visualization content */}
         {children}
-      </SContainer>
+      </div>
     </AudioContext.Provider>
   )
 }
@@ -155,92 +172,3 @@ export const useAudioContext = (): AudioContextType => {
   }
   return context
 }
-
-// Styled components
-const SContainer = styled.div`
-  position: relative;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-`
-
-const SInteractionOverlay = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0, 0, 0, 0.7);
-  cursor: pointer;
-  z-index: 100;
-  transition: opacity 0.3s ease;
-
-  &:hover {
-    background: rgba(0, 0, 0, 0.8);
-  }
-`
-
-const SInteractionText = styled.div`
-  color: white;
-  font-size: 1.2rem;
-  text-align: center;
-  padding: 20px;
-`
-
-const SLoadingOverlay = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0, 0, 0, 0.9);
-  z-index: 101;
-`
-
-const SLoadingText = styled.div`
-  color: white;
-  font-size: 1rem;
-`
-
-const SControls = styled.div`
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  z-index: 50;
-`
-
-const SControlButton = styled.button`
-  padding: 8px 16px;
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background 0.2s ease;
-
-  &:hover:not(:disabled) {
-    background: rgba(255, 255, 255, 0.2);
-  }
-
-  &:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
-`
-
-const SBPMDisplay = styled.div`
-  color: white;
-  font-size: 0.9rem;
-  padding: 8px 12px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
-`

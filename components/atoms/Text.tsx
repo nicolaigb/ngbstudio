@@ -1,6 +1,5 @@
 import clsx from 'clsx'
 import React, { ComponentPropsWithoutRef, ElementType } from 'react'
-import { hasCommentMessageValue } from 'sanity'
 
 export type TextVariant =
   | 'display'
