@@ -7,7 +7,6 @@ import { Embed } from '@/components/molecules/Embed'
 import RSVPSnackBar from '@/components/organisms/RSVPSnackBar'
 import { FullscreenContainer } from '@/components/ui/FullscreenContainer'
 import { useRSVP, EventConfig } from '@/hooks/useRSVP'
-import Hero from '@/public/no-pets-hero.jpg'
 
 import AudioVisualizer from './AudioVisualizer'
 
@@ -78,11 +77,17 @@ const Invite = () => {
             have together :))
           </P>
           <P>
+            RSVP below to get more info for this party and those that we throw
+            in the future.
+          </P>
+          <P>
             ***Water & restrooms available on site; BYOB;
             FREEPARTYFREEPARTYFREEPARTY***
           </P>
           <Image
-            src={Hero}
+            src="/no-pets-hero.JPG"
+            width={1200}
+            height={1600}
             alt="NO PETS 001"
             className="mx-auto w-full max-w-[400px]"
           />
