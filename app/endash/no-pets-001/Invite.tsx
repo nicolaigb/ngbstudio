@@ -111,12 +111,6 @@ const Invite = () => {
             </ExternalLink>
             .
           </P>
-          <P>
-            The track is Joy Orbison&apos;s chune of the year. We don&apos;t
-            have the licensing for it so if you&apos;re Joy or from his team
-            please reach out. We&apos;ll take it down but also uuuhhhh...pull
-            up.
-          </P>
         </div>
       </div>
       <RSVPSnackBar
