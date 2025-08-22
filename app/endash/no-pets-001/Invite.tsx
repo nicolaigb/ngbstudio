@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 
-import { Body, ExternalLink, H1, P } from '@/components/atoms'
+import { Body, ExternalLink, H1, H2, P } from '@/components/atoms'
 import { Embed } from '@/components/molecules/Embed'
 import RSVPSnackBar from '@/components/organisms/RSVPSnackBar'
 import { FullscreenContainer } from '@/components/ui/FullscreenContainer'
@@ -52,8 +52,8 @@ const Invite = () => {
         <div className="w-full max-w-textContentWidth space-y-5">
           <P>
             Born out of a very improvised party in June 2025, NO PETS is a free
-            party concept hosted by Brennan Fendt & Nicolai Garcia Beckmann at
-            WNYC Transmitter Park.
+            party concept hosted by Brennan Fendt (INTRNT BF) & Nicolai Garcia
+            Beckmann (&ldquo;–&rdquo;) at WNYC Transmitter Park.
           </P>
           <P>
             At the heart of this event are the beliefs that music and dance
@@ -80,6 +80,9 @@ const Invite = () => {
             ***Water & restrooms available on site; BYOB;
             FREEPARTYFREEPARTYFREEPARTY***
           </P>
+          <P>
+            Keep it locked <ExternalLink href="">@nopetsnyc</ExternalLink>
+          </P>
           <Image
             src="/no-pets-hero.JPG"
             width={1200}
@@ -91,18 +94,24 @@ const Invite = () => {
             RSVP below to get more info on this party and tune in to what&apos;s
             next. In the meantime, check out the DJs:
           </P>
-          <div className="my-3 flex w-full max-w-textContentWidth flex-col items-center gap-4">
-            <Embed
-              className="w-full max-w-textContentWidth"
-              embedType="soundcloud"
-              src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2131456740&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
-            />
-            <Embed
-              className="w-full max-w-textContentWidth"
-              embedType="soundcloud"
-              src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2150145033&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
-            />
-          </div>
+          <H2>&ldquo;–&rdquo;</H2>
+          <ExternalLink href="https://www.instagram.com/____endash?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
+            @____endash
+          </ExternalLink>
+          <Embed
+            className="w-full max-w-textContentWidth"
+            embedType="soundcloud"
+            src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2131456740&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+          />
+          <H2>INTRNT BF</H2>
+          <ExternalLink href="https://www.instagram.com/intrnt_bf?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
+            @intrnt_bf
+          </ExternalLink>
+          <Embed
+            className="w-full max-w-textContentWidth"
+            embedType="soundcloud"
+            src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2150145033&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+          />
           <P>
             The audioreactive visual is inspired by Tiago Canzian&apos;s
             tutorial found{' '}
