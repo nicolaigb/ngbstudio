@@ -23,7 +23,7 @@ export default function AppLayout({
       })}
     >
       <Header />
-      <div className="flex-shrink-0 flex-grow overflow-hidden overscroll-y-none p-4 md:p-6">
+      <div className="flex-shrink-0 flex-grow overflow-hidden p-4 md:p-6">
         {children}
       </div>
       <Footer />
