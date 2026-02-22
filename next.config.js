@@ -1,3 +1,5 @@
+const { type } = require('os')
+
 module.exports = {
   compiler: {
     styledComponents: true,
@@ -12,12 +14,13 @@ module.exports = {
       },
     ],
   },
-  webpack: (config) => {
-    config.module.rules.push({
-      test: /\.(glsl|vs|fs|vert|frag)$/,
-      type: 'asset/source',
-    })
-    return config
+  turbopack: {
+    rules: {
+      '*.{glsl,vs,fs,vert,frag}': {
+        loaders: ['raw-loader'], // or similar built‑in; exact values depend on your version
+        as: "*.js", // treat as JavaScript module (optional, depends on your needs)
+      }
+    },
   },
   transpilePackages: ['three', '@react-three/fiber', '@react-three/drei'],
 }
