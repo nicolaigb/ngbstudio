@@ -3,7 +3,7 @@ import { usePathname } from 'next/navigation'
 import React from 'react'
 import styled from 'styled-components'
 
-import { Body, InternalLink } from '@atoms'
+import { Body, ExternalLink, InternalLink } from '@atoms'
 import navItems from '@constants/navItems'
 
 export const Menu = () => {
@@ -17,6 +17,9 @@ export const Menu = () => {
           </Body>
         </InternalLink>
       ))}
+      <ExternalLink href="https://e-n-d-a-s-h.net/">
+        <Body isPlus>&ldquo;–&rdquo;</Body>
+      </ExternalLink>
     </SMenuContainer>
   )
 }
