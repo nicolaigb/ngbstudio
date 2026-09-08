@@ -9,10 +9,6 @@ const navItems: Array<NavItem> = [
     name: 'Lately',
     href: '/lately',
   },
-  {
-    name: '"–"',
-    href: '/endash',
-  },
 ]
 
 export default navItems
